@@ -11,7 +11,8 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print("Here")
+        print(API())
         // Do any additional setup after loading the view.
     }
     
