@@ -10,12 +10,31 @@ import UIKit
 class RecordViewController: UIViewController {
     
     @IBOutlet var recordsTableView: UITableView!
+    var imageName = "stethoscope"
     override func viewDidLoad() {
         super.viewDidLoad()
         recordsTableView.delegate = self
         recordsTableView.dataSource = self
         recordsTableView.separatorStyle = .none
         
+    }
+    @IBAction func segmentedControl(_ sender: AnyObject) {
+        let selection = sender.selectedSegmentIndex
+        switch selection {
+        case 0:
+            imageName = "stethoscope"
+            recordsTableView.reloadData()
+            print("One")
+        case 1:
+            imageName = "list.bullet.clipboard.fill"
+            recordsTableView.reloadData()
+            print("Two")
+        case 2:
+            imageName = "medical.thermometer.fill"
+            recordsTableView.reloadData()
+            print("Three")
+        default: break
+        }
     }
 }
 extension RecordViewController: UITableViewDataSource, UITableViewDelegate {
@@ -29,7 +48,7 @@ extension RecordViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordsTableCell", for: indexPath) as! RecordsTableViewCell
         cell.backgroundColor = .clear
-        cell.configureCell(recordsTableView)
+        cell.configureCell(recordsTableView, imageName)
         
         return cell
     }

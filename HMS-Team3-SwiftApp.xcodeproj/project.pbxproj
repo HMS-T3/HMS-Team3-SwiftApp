@@ -39,6 +39,7 @@
 		E3620D8829ED3E6B008F9B98 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D8729ED3E6B008F9B98 /* HomeStoryboard.storyboard */; };
 		E37D150A29F6684000300948 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D150929F6684000300948 /* RecordViewController.swift */; };
 		E37D151429F6827000300948 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D151329F6827000300948 /* RecordsTableViewCell.swift */; };
+		E37D151929F69BA000300948 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E37D151829F69BA000300948 /* .gitignore */; };
 		E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C129E40F9A00894838 /* AppDelegate.swift */; };
 		E3A0D4C429E40F9A00894838 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */; };
 		E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C529E40F9A00894838 /* ViewController.swift */; };
@@ -99,6 +100,7 @@
 		E3620D8729ED3E6B008F9B98 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		E37D150929F6684000300948 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		E37D151329F6827000300948 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
+		E37D151829F69BA000300948 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E3A0D4BE29E40F9A00894838 /* HMS-Team3-SwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HMS-Team3-SwiftApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0D4C129E40F9A00894838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		E3A0D4B529E40F9A00894838 = {
 			isa = PBXGroup;
 			children = (
+				E37D151829F69BA000300948 /* .gitignore */,
 				E3A0D4C029E40F9A00894838 /* HMS-Team3-SwiftApp */,
 				E3A0D4D729E40F9B00894838 /* HMS-Team3-SwiftAppTests */,
 				E3A0D4E129E40F9B00894838 /* HMS-Team3-SwiftAppUITests */,
@@ -447,6 +450,7 @@
 				E3620D8029ED3E0F008F9B98 /* RecordsStoryboard.storyboard in Resources */,
 				E3A0D4C929E40F9A00894838 /* Main.storyboard in Resources */,
 				E3620D7C29ED3DDF008F9B98 /* ChatStoryboard.storyboard in Resources */,
+				E37D151929F69BA000300948 /* .gitignore in Resources */,
 				E3620D8229ED3E18008F9B98 /* PatientProfileStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

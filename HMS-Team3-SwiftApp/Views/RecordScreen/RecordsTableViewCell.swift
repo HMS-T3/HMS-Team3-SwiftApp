@@ -9,6 +9,7 @@ import UIKit
 
 class RecordsTableViewCell: UITableViewCell {
 
+    @IBOutlet var iconImage: UIImageView!
     @IBOutlet var recordDatelLabel: UILabel!
     @IBOutlet var prescribedByLabel: UILabel!
     @IBOutlet var iconLabel: UILabel!
@@ -17,7 +18,8 @@ class RecordsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    func configureCell(_ recordTableCell: UITableView){
+    
+    func configureCell(_ recordTableCell: UITableView, _ imageName : String){
         recordsView.frame.size.height = 120
         recordsView.frame.size.width = recordTableCell.bounds.width
         recordsView.backgroundColor = UIColor(named: "recordsBackground")
@@ -25,6 +27,9 @@ class RecordsTableViewCell: UITableViewCell {
         recordsIcon.backgroundColor = UIColor(named: "iconBackground")
         iconLabel.textColor = UIColor(named: "iconTextColor")
         recordsIcon.layer.cornerRadius = 8
+        iconImage.backgroundColor = .clear
+        iconImage.image = UIImage(systemName: imageName)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
