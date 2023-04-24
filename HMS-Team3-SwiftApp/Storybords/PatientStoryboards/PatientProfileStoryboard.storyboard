@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y94-96-TvB">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +29,6 @@
         <!--Profile-->
         <scene sceneID="1hE-nk-wDh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7AV-P3-neN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="PatientProfileNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="GnQ-vn-C12" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="KJ5-3Y-FWp"/>
                     <toolbarItems/>
@@ -41,14 +42,157 @@
                         <segue destination="VvA-5O-kzj" kind="relationship" relationship="rootViewController" id="jmK-PC-qPF"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7AV-P3-neN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="816.03053435114498" y="-283.0985915492958"/>
         </scene>
+        <!--Contacts View Controller-->
+        <scene sceneID="cJ9-1A-3XN">
+            <objects>
+                <viewController storyboardIdentifier="SOSContacts" id="Y94-96-TvB" customClass="SOSContactsViewController" customModule="HMS_Team3_SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s9j-hp-OHJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1d-vj-Ody">
+                                <rect key="frame" x="315" y="59" width="51" height="35"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system"/>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gav-Vo-Lxd">
+                                <rect key="frame" x="20" y="157" width="353" height="661"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cWy-qv-G04">
+                                    <size key="itemSize" width="350" height="224"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Rcf-pO-7WI" customClass="SOSContactCollectionViewCell" customModule="HMS_Team3_SwiftApp" customModuleProvider="target">
+                                        <rect key="frame" x="1.6666666666666667" y="0.0" width="350" height="224"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hKC-2k-0zS">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="224"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQ2-sg-O7b">
+                                                    <rect key="frame" x="283" y="133" width="44" height="31"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" image="phone.fill" catalog="system" title="" cornerStyle="capsule">
+                                                        <color key="baseForegroundColor" systemColor="tintColor"/>
+                                                        <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="phoneButton:" destination="Rcf-pO-7WI" eventType="touchUpInside" id="UU6-Pe-KYW"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adarsh Singh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ch-V8-3og">
+                                                    <rect key="frame" x="30" y="19" width="173.33333333333334" height="36"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient's Brother" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLc-qU-76M">
+                                                    <rect key="frame" x="30" y="60" width="146" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+91 91786-56454" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYb-3s-eER">
+                                                    <rect key="frame" x="30" y="138" width="140" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adarshsingh12@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-WX-ngF">
+                                                    <rect key="frame" x="30" y="176" width="203" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAe-0c-Ppo">
+                                                    <rect key="frame" x="283" y="171" width="44" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" image="mail.fill" catalog="system" title="" cornerStyle="capsule">
+                                                        <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="emailButton:" destination="Rcf-pO-7WI" eventType="touchUpInside" id="hUh-wa-iL2"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CAe-0c-Ppo" firstAttribute="top" secondItem="hKC-2k-0zS" secondAttribute="top" constant="171" id="0KH-sF-YFj"/>
+                                                <constraint firstAttribute="trailing" secondItem="pQ2-sg-O7b" secondAttribute="trailing" constant="25" id="SVu-GJ-mOR"/>
+                                                <constraint firstItem="RTx-WX-ngF" firstAttribute="top" secondItem="hKC-2k-0zS" secondAttribute="top" constant="176" id="VaF-Te-U8P"/>
+                                                <constraint firstItem="pQ2-sg-O7b" firstAttribute="top" secondItem="hKC-2k-0zS" secondAttribute="top" constant="133" id="Yk7-W1-V0g"/>
+                                                <constraint firstItem="JLc-qU-76M" firstAttribute="leading" secondItem="hKC-2k-0zS" secondAttribute="leading" constant="30" id="bMj-I1-cUU"/>
+                                                <constraint firstItem="6Ch-V8-3og" firstAttribute="leading" secondItem="hKC-2k-0zS" secondAttribute="leading" constant="30" id="gLD-YX-znb"/>
+                                                <constraint firstItem="6Ch-V8-3og" firstAttribute="top" secondItem="hKC-2k-0zS" secondAttribute="top" constant="19" id="lCl-FR-90G"/>
+                                                <constraint firstItem="PYb-3s-eER" firstAttribute="leading" secondItem="hKC-2k-0zS" secondAttribute="leading" constant="30" id="mfk-iM-Q7g"/>
+                                                <constraint firstItem="RTx-WX-ngF" firstAttribute="leading" secondItem="hKC-2k-0zS" secondAttribute="leading" constant="30" id="o1h-xR-lDZ"/>
+                                                <constraint firstItem="JLc-qU-76M" firstAttribute="top" secondItem="hKC-2k-0zS" secondAttribute="top" constant="60" id="opJ-mP-HWe"/>
+                                                <constraint firstItem="PYb-3s-eER" firstAttribute="top" secondItem="hKC-2k-0zS" secondAttribute="top" constant="138" id="ucZ-Ma-yDm"/>
+                                                <constraint firstAttribute="trailing" secondItem="CAe-0c-Ppo" secondAttribute="trailing" constant="25" id="upO-PF-OFd"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039209840000002" green="0.60392159219999997" blue="0.55686277149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <size key="customSize" width="350" height="224"/>
+                                        <connections>
+                                            <outlet property="emailText" destination="RTx-WX-ngF" id="mnq-jZ-lMl"/>
+                                            <outlet property="nameText" destination="6Ch-V8-3og" id="Njq-IC-gCa"/>
+                                            <outlet property="phoneNumberButton" destination="pQ2-sg-O7b" id="dx9-n1-iKm"/>
+                                            <outlet property="phoneNumberText" destination="PYb-3s-eER" id="BoN-Wt-Zbg"/>
+                                            <outlet property="relationText" destination="JLc-qU-76M" id="hFD-LV-BFF"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y94-96-TvB" id="u7Z-mk-cwZ"/>
+                                    <outlet property="delegate" destination="Y94-96-TvB" id="SX4-qY-qtE"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Z9-A0-fqj"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gav-Vo-Lxd" firstAttribute="top" secondItem="n1d-vj-Ody" secondAttribute="bottom" constant="63" id="6b6-pC-d58"/>
+                            <constraint firstItem="n1d-vj-Ody" firstAttribute="leading" secondItem="s9j-hp-OHJ" secondAttribute="leading" constant="315" id="Jsg-Ts-WXp"/>
+                            <constraint firstItem="Gav-Vo-Lxd" firstAttribute="leading" secondItem="9Z9-A0-fqj" secondAttribute="leading" constant="20" id="Naq-yG-nsH"/>
+                            <constraint firstItem="9Z9-A0-fqj" firstAttribute="bottom" secondItem="Gav-Vo-Lxd" secondAttribute="bottom" id="WIp-uM-jFJ"/>
+                            <constraint firstItem="9Z9-A0-fqj" firstAttribute="trailing" secondItem="Gav-Vo-Lxd" secondAttribute="trailing" constant="20" id="YMR-o7-cZL"/>
+                            <constraint firstAttribute="bottom" secondItem="n1d-vj-Ody" secondAttribute="bottom" constant="758" id="pqi-le-ktc"/>
+                            <constraint firstItem="n1d-vj-Ody" firstAttribute="top" secondItem="s9j-hp-OHJ" secondAttribute="top" constant="59" id="tRw-H6-1TI"/>
+                            <constraint firstAttribute="trailing" secondItem="n1d-vj-Ody" secondAttribute="trailing" constant="27" id="yWI-bV-W4f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contactsCardCollectionView" destination="Gav-Vo-Lxd" id="MYF-Wp-ba2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uT-PK-uOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2881.679389312977" y="-283.0985915492958"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="mail.fill" catalog="system" width="128" height="93"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
