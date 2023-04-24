@@ -157,7 +157,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 		tableView.deselectRow(at: indexPath, animated: true)
 		switch indexPath.section {
 		case TableSections.MedicalHistory.rawValue:
-			self.navigationController?.pushViewController(MedicalHistoryViewController(), animated: true)
+            let controller = storyboard?.instantiateViewController(withIdentifier: "MedicalHistoryViewController")
+			self.navigationController?.pushViewController(controller!, animated: true)
 		case TableSections.Invoice.rawValue:
 			self.navigationController?.pushViewController(VitalsViewController(), animated: true)
 		case TableSections.SOS.rawValue:

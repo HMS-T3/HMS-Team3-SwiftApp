@@ -19,15 +19,25 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="5v9-30-xTf"/>
+                    <connections>
+                        <segue destination="iLw-qT-lKr" kind="presentation" id="aNX-0e-fOy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPa-8t-1cf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742.7480916030534" y="-283.0985915492958"/>
+            <point key="canvasLocation" x="1758" y="-283"/>
+        </scene>
+        <!--MedicalHistoryViewController-->
+        <scene sceneID="HyS-DM-Huk">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MedicalHistoryViewController" storyboardName="PatientProfileMedicalHistory" referencedIdentifier="MedicalHistoryViewController" id="iLw-qT-lKr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WXA-6i-jiy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3270" y="-166"/>
         </scene>
         <!--Profile-->
         <scene sceneID="1hE-nk-wDh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7AV-P3-neN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="PatientProfileNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="GnQ-vn-C12" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="KJ5-3Y-FWp"/>
                     <toolbarItems/>
@@ -41,8 +51,17 @@
                         <segue destination="VvA-5O-kzj" kind="relationship" relationship="rootViewController" id="jmK-PC-qPF"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7AV-P3-neN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="816.03053435114498" y="-283.0985915492958"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Ipy-wu-RRc">
+            <objects>
+                <viewControllerPlaceholder id="tZN-US-PdI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MWQ-Tp-R8T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="52"/>
         </scene>
     </scenes>
     <resources>
