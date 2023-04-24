@@ -12,6 +12,8 @@
 		3A6F75DA29EFEB930067FBB9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F75D929EFEB930067FBB9 /* API.swift */; };
 		3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */; };
 		3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */; };
+		CE929DFA29F252D30036EC54 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929DF929F252D30036EC54 /* CollectionViewTableViewCell.swift */; };
+		CE9830A629F1080A00A8C300 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9830A529F1080A00A8C300 /* DiscoverViewController.swift */; };
 		E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */; };
 		E3620D7829ED3CE7008F9B98 /* DiscoverStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */; };
 		E3620D7A29ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7929ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard */; };
@@ -54,6 +56,8 @@
 		3A6F75D929EFEB930067FBB9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CE929DF929F252D30036EC54 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE9830A529F1080A00A8C300 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverStoryboard.storyboard; sourceTree = "<group>"; };
 		E3620D7929ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppointmentsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */,
+				CE9830A529F1080A00A8C300 /* DiscoverViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -131,16 +136,17 @@
 			path = Storybords;
 			sourceTree = "<group>";
 		};
-		E3453F6529EC6D7D00DBF6B1 /* Models */ = {
+		CE9830A229F1047700A8C300 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E3453F6629EC6D8300DBF6B1 /* Views */ = {
+		CE9830A429F104F000A8C300 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE929DF929F252D30036EC54 /* CollectionViewTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,11 +196,11 @@
 		E3A0D4C029E40F9A00894838 /* HMS-Team3-SwiftApp */ = {
 			isa = PBXGroup;
 			children = (
-				3A6F75D329EFEA4C0067FBB9 /* API */,
-				E3453F6629EC6D8300DBF6B1 /* Views */,
-				E3453F6529EC6D7D00DBF6B1 /* Models */,
-				3AEA1D0B29E81C80005369C4 /* Storybords */,
+				CE9830A229F1047700A8C300 /* Models */,
+				CE9830A429F104F000A8C300 /* Views */,
 				3AEA1D0A29E81C76005369C4 /* Controllers */,
+				3A6F75D329EFEA4C0067FBB9 /* API */,
+				3AEA1D0B29E81C80005369C4 /* Storybords */,
 				E3A0D4C129E40F9A00894838 /* AppDelegate.swift */,
 				E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */,
 				E3A0D4C529E40F9A00894838 /* ViewController.swift */,
@@ -375,6 +381,8 @@
 				3A6F75D529EFEA600067FBB9 /* Methods.swift in Sources */,
 				E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */,
 				E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */,
+				CE929DFA29F252D30036EC54 /* CollectionViewTableViewCell.swift in Sources */,
+				CE9830A629F1080A00A8C300 /* DiscoverViewController.swift in Sources */,
 				E3A0D4C429E40F9A00894838 /* SceneDelegate.swift in Sources */,
 				3A6F75DA29EFEB930067FBB9 /* API.swift in Sources */,
 			);

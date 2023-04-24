@@ -1,58 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n74-ed-1aF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iGk-pp-ym5">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discover-->
-        <scene sceneID="PFG-JA-gnQ">
+        <!--Discover View Controller-->
+        <scene sceneID="CEO-kQ-ir4">
             <objects>
-                <tableViewController storyboardIdentifier="DiscoverView" id="r6H-7t-R6L" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Qrj-ZW-v10">
+                <viewController storyboardIdentifier="DiscoverView" id="DR2-k7-d1e" customClass="DiscoverViewController" customModule="HMS_Team3_SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qZ4-cU-V0s">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="H6T-IW-Ih5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xai-Hd-e36">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xai-Hd-e36" id="YQK-WG-zTF">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="r6H-7t-R6L" id="0d5-lr-gVG"/>
-                            <outlet property="delegate" destination="r6H-7t-R6L" id="aOg-n3-5fV"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Discover" id="sRt-9x-2ja"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ltV-j8-dct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lUU-zr-KNC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w5M-Fd-dpm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="740" y="9"/>
+            <point key="canvasLocation" x="740" y="767"/>
         </scene>
         <!--Discover-->
-        <scene sceneID="XqF-MD-1ra">
+        <scene sceneID="bLK-Q6-3JH">
             <objects>
-                <navigationController storyboardIdentifier="DiscoverNavigationViewController" id="n74-ed-1aF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="globe.asia.australia" catalog="system" id="v6A-bT-0nr"/>
+                <navigationController storyboardIdentifier="DiscoverNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="iGk-pp-ym5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="globe.asia.australia" catalog="system" id="pTa-A7-GEW"/>
+                    <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rp0-Qp-eBW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sKg-qz-M0q">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="r6H-7t-R6L" kind="relationship" relationship="rootViewController" id="Wo6-0s-bZA"/>
+                        <segue destination="DR2-k7-d1e" kind="relationship" relationship="rootViewController" id="DOY-KA-SF3"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="glP-7o-ZZm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3c-us-jdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-163" y="9"/>
+            <point key="canvasLocation" x="-164" y="767"/>
         </scene>
     </scenes>
     <resources>
