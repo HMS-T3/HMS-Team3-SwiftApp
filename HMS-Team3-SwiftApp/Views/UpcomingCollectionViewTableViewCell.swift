@@ -1,19 +1,19 @@
 //
-//  CollectionViewTableViewCell.swift
+//  UpcomingCollectionViewTableViewCell.swift
 //  HMS-Team3-SwiftApp
 //
-//  Created by Rushil Kothari on 21/04/23.
+//  Created by Rushil Kothari on 24/04/23.
 //
 
 import UIKit
 
-class CollectionViewTableViewCell: UITableViewCell {
-    
-    static let identifier = "CollectionViewTableViewCell"
+class UpcomingCollectionViewTableViewCell: UITableViewCell {
+
+    static let identifier = "UpcomingCollectionViewTableViewCell"
     private let collectionView : UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 140, height: 200)
+        layout.itemSize = CGSize(width: 320, height: 170)
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -35,17 +35,19 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.layoutSubviews()
         collectionView.frame = contentView.bounds
     }
+
 }
 
-extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
+extension UpcomingCollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .blue
+        cell.backgroundColor = .green
         return cell
     }
+    
 }

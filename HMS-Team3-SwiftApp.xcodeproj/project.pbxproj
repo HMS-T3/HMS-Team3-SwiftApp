@@ -12,7 +12,19 @@
 		3A6F75DA29EFEB930067FBB9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F75D929EFEB930067FBB9 /* API.swift */; };
 		3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */; };
 		3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */; };
-		CE929DFA29F252D30036EC54 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929DF929F252D30036EC54 /* CollectionViewTableViewCell.swift */; };
+		CE929E0629F663E00036EC54 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E0529F663E00036EC54 /* SearchResultsViewController.swift */; };
+		CE929E0829F681740036EC54 /* UpcomingAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E0729F681740036EC54 /* UpcomingAppointmentsViewController.swift */; };
+		CE929E0C29F681B50036EC54 /* OngoingMedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E0B29F681B50036EC54 /* OngoingMedicationsViewController.swift */; };
+		CE929E0E29F681DB0036EC54 /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E0D29F681DB0036EC54 /* CategoriesCollectionViewController.swift */; };
+		CE929E1229F688130036EC54 /* PackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E1129F688130036EC54 /* PackagesViewController.swift */; };
+		CE929E1429F68E590036EC54 /* Appointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E1329F68E590036EC54 /* Appointments.swift */; };
+		CE929E1629F68E7A0036EC54 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E1529F68E7A0036EC54 /* Home.swift */; };
+		CE929E1829F68EB00036EC54 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E1729F68EB00036EC54 /* User.swift */; };
+		CE929E1A29F68F0D0036EC54 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E1929F68F0D0036EC54 /* Enums.swift */; };
+		CE929E1E29F6F3C50036EC54 /* MedicineCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E1D29F6F3C50036EC54 /* MedicineCollectionViewTableViewCell.swift */; };
+		CE929E2029F6FDDE0036EC54 /* UpcomingCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E1F29F6FDDE0036EC54 /* UpcomingCollectionViewTableViewCell.swift */; };
+		CE929E2229F702390036EC54 /* PackagesCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E2129F702390036EC54 /* PackagesCollectionViewTableViewCell.swift */; };
+		CE929E2429F705F00036EC54 /* CategoriesCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E2329F705F00036EC54 /* CategoriesCollectionViewTableViewCell.swift */; };
 		CE9830A629F1080A00A8C300 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9830A529F1080A00A8C300 /* DiscoverViewController.swift */; };
 		E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */; };
 		E3620D7829ED3CE7008F9B98 /* DiscoverStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */; };
@@ -56,7 +68,19 @@
 		3A6F75D929EFEB930067FBB9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CE929DF929F252D30036EC54 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE929E0529F663E00036EC54 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		CE929E0729F681740036EC54 /* UpcomingAppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingAppointmentsViewController.swift; sourceTree = "<group>"; };
+		CE929E0B29F681B50036EC54 /* OngoingMedicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingMedicationsViewController.swift; sourceTree = "<group>"; };
+		CE929E0D29F681DB0036EC54 /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
+		CE929E1129F688130036EC54 /* PackagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesViewController.swift; sourceTree = "<group>"; };
+		CE929E1329F68E590036EC54 /* Appointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointments.swift; sourceTree = "<group>"; };
+		CE929E1529F68E7A0036EC54 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		CE929E1729F68EB00036EC54 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE929E1929F68F0D0036EC54 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		CE929E1D29F6F3C50036EC54 /* MedicineCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE929E1F29F6FDDE0036EC54 /* UpcomingCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE929E2129F702390036EC54 /* PackagesCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE929E2329F705F00036EC54 /* CategoriesCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		CE9830A529F1080A00A8C300 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverStoryboard.storyboard; sourceTree = "<group>"; };
@@ -122,6 +146,7 @@
 			children = (
 				3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */,
 				CE9830A529F1080A00A8C300 /* DiscoverViewController.swift */,
+				CE929E1029F686FE0036EC54 /* DiscoverTabSubviews */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,9 +161,25 @@
 			path = Storybords;
 			sourceTree = "<group>";
 		};
+		CE929E1029F686FE0036EC54 /* DiscoverTabSubviews */ = {
+			isa = PBXGroup;
+			children = (
+				CE929E0529F663E00036EC54 /* SearchResultsViewController.swift */,
+				CE929E0729F681740036EC54 /* UpcomingAppointmentsViewController.swift */,
+				CE929E0B29F681B50036EC54 /* OngoingMedicationsViewController.swift */,
+				CE929E0D29F681DB0036EC54 /* CategoriesCollectionViewController.swift */,
+				CE929E1129F688130036EC54 /* PackagesViewController.swift */,
+			);
+			path = DiscoverTabSubviews;
+			sourceTree = "<group>";
+		};
 		CE9830A229F1047700A8C300 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE929E1329F68E590036EC54 /* Appointments.swift */,
+				CE929E1529F68E7A0036EC54 /* Home.swift */,
+				CE929E1729F68EB00036EC54 /* User.swift */,
+				CE929E1929F68F0D0036EC54 /* Enums.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,7 +187,10 @@
 		CE9830A429F104F000A8C300 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE929DF929F252D30036EC54 /* CollectionViewTableViewCell.swift */,
+				CE929E2329F705F00036EC54 /* CategoriesCollectionViewTableViewCell.swift */,
+				CE929E1D29F6F3C50036EC54 /* MedicineCollectionViewTableViewCell.swift */,
+				CE929E1F29F6FDDE0036EC54 /* UpcomingCollectionViewTableViewCell.swift */,
+				CE929E2129F702390036EC54 /* PackagesCollectionViewTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -376,15 +420,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE929E0E29F681DB0036EC54 /* CategoriesCollectionViewController.swift in Sources */,
 				3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */,
+				CE929E2229F702390036EC54 /* PackagesCollectionViewTableViewCell.swift in Sources */,
+				CE929E1429F68E590036EC54 /* Appointments.swift in Sources */,
 				E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */,
 				3A6F75D529EFEA600067FBB9 /* Methods.swift in Sources */,
 				E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */,
+				CE929E1229F688130036EC54 /* PackagesViewController.swift in Sources */,
+				CE929E1829F68EB00036EC54 /* User.swift in Sources */,
+				CE929E2029F6FDDE0036EC54 /* UpcomingCollectionViewTableViewCell.swift in Sources */,
+				CE929E1E29F6F3C50036EC54 /* MedicineCollectionViewTableViewCell.swift in Sources */,
 				E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */,
-				CE929DFA29F252D30036EC54 /* CollectionViewTableViewCell.swift in Sources */,
+				CE929E0C29F681B50036EC54 /* OngoingMedicationsViewController.swift in Sources */,
+				CE929E0829F681740036EC54 /* UpcomingAppointmentsViewController.swift in Sources */,
 				CE9830A629F1080A00A8C300 /* DiscoverViewController.swift in Sources */,
 				E3A0D4C429E40F9A00894838 /* SceneDelegate.swift in Sources */,
 				3A6F75DA29EFEB930067FBB9 /* API.swift in Sources */,
+				CE929E2429F705F00036EC54 /* CategoriesCollectionViewTableViewCell.swift in Sources */,
+				CE929E1629F68E7A0036EC54 /* Home.swift in Sources */,
+				CE929E1A29F68F0D0036EC54 /* Enums.swift in Sources */,
+				CE929E0629F663E00036EC54 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
