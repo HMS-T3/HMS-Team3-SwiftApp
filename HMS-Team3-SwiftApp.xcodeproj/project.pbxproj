@@ -37,6 +37,9 @@
 		E3620D8229ED3E18008F9B98 /* PatientProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D8129ED3E18008F9B98 /* PatientProfileStoryboard.storyboard */; };
 		E3620D8629ED3E5C008F9B98 /* DoctorProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D8529ED3E5C008F9B98 /* DoctorProfileStoryboard.storyboard */; };
 		E3620D8829ED3E6B008F9B98 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D8729ED3E6B008F9B98 /* HomeStoryboard.storyboard */; };
+		E37D150A29F6684000300948 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D150929F6684000300948 /* RecordViewController.swift */; };
+		E37D151429F6827000300948 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D151329F6827000300948 /* RecordsTableViewCell.swift */; };
+		E37D151929F69BA000300948 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E37D151829F69BA000300948 /* .gitignore */; };
 		E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C129E40F9A00894838 /* AppDelegate.swift */; };
 		E3A0D4C429E40F9A00894838 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */; };
 		E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C529E40F9A00894838 /* ViewController.swift */; };
@@ -96,6 +99,9 @@
 		E3620D8129ED3E18008F9B98 /* PatientProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PatientProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		E3620D8529ED3E5C008F9B98 /* DoctorProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		E3620D8729ED3E6B008F9B98 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
+		E37D150929F6684000300948 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		E37D151329F6827000300948 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
+		E37D151829F69BA000300948 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E3A0D4BE29E40F9A00894838 /* HMS-Team3-SwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HMS-Team3-SwiftApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0D4C129E40F9A00894838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 		3AEA1D0A29E81C76005369C4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E37D150829F6682300300948 /* Records */,
 				E3A0D4C529E40F9A00894838 /* ViewController.swift */,
 				E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */,
 				765F865D29F25EB9009E67F2 /* Core */,
@@ -181,6 +188,7 @@
 		765F864629EFF3F4009E67F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E37D150529F667E200300948 /* RecordScreen */,
 				765F864729EFF3FC009E67F2 /* ProfileScreen */,
 			);
 			path = Views;
@@ -250,9 +258,26 @@
 			path = DoctorStoryboards;
 			sourceTree = "<group>";
 		};
+		E37D150529F667E200300948 /* RecordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E37D151329F6827000300948 /* RecordsTableViewCell.swift */,
+			);
+			path = RecordScreen;
+			sourceTree = "<group>";
+		};
+		E37D150829F6682300300948 /* Records */ = {
+			isa = PBXGroup;
+			children = (
+				E37D150929F6684000300948 /* RecordViewController.swift */,
+			);
+			path = Records;
+			sourceTree = "<group>";
+		};
 		E3A0D4B529E40F9A00894838 = {
 			isa = PBXGroup;
 			children = (
+				E37D151829F69BA000300948 /* .gitignore */,
 				E3A0D4C029E40F9A00894838 /* HMS-Team3-SwiftApp */,
 				E3A0D4D729E40F9B00894838 /* HMS-Team3-SwiftAppTests */,
 				E3A0D4E129E40F9B00894838 /* HMS-Team3-SwiftAppUITests */,
@@ -425,6 +450,7 @@
 				E3620D8029ED3E0F008F9B98 /* RecordsStoryboard.storyboard in Resources */,
 				E3A0D4C929E40F9A00894838 /* Main.storyboard in Resources */,
 				E3620D7C29ED3DDF008F9B98 /* ChatStoryboard.storyboard in Resources */,
+				E37D151929F69BA000300948 /* .gitignore in Resources */,
 				E3620D8229ED3E18008F9B98 /* PatientProfileStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7673EBA729EFEABD00F10EB7 /* ProfileViewController.swift in Sources */,
+				E37D151429F6827000300948 /* RecordsTableViewCell.swift in Sources */,
 				765F865429F0FE3E009E67F2 /* AppleHealthViewController.swift in Sources */,
 				3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */,
 				765F864529EFEFE7009E67F2 /* Home.swift in Sources */,
@@ -461,6 +488,7 @@
 				765F865F29F268C9009E67F2 /* EditProfileViewController.swift in Sources */,
 				765F864B29EFF843009E67F2 /* ProfileHeaderUIView.swift in Sources */,
 				765F864929EFF40D009E67F2 /* ProfileTableViewCell.swift in Sources */,
+				E37D150A29F6684000300948 /* RecordViewController.swift in Sources */,
 				E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */,
 				3A6F75D529EFEA600067FBB9 /* Methods.swift in Sources */,
 				E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */,
