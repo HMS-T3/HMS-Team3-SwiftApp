@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//import Alamofire
+
 
 class Methods{
     let baseURI:String

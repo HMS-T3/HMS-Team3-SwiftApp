@@ -36,11 +36,11 @@
             </objects>
             <point key="canvasLocation" x="740" y="9"/>
         </scene>
-        <!--Discover-->
+        <!--Home-->
         <scene sceneID="XqF-MD-1ra">
             <objects>
                 <navigationController storyboardIdentifier="DiscoverNavigationViewController" id="n74-ed-1aF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="globe.asia.australia" catalog="system" id="v6A-bT-0nr"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="v6A-bT-0nr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rp0-Qp-eBW">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -56,7 +56,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="globe.asia.australia" catalog="system" width="128" height="123"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
