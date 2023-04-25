@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="683" y="4"/>
         </scene>
-        <!--Login View Controller-->
+        <!--View Controller-->
         <scene sceneID="MuO-ez-QhI">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PNe-PX-b1d" customClass="LoginViewController" customModule="HMS_Team3_SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PNe-PX-b1d" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QPV-n2-wax">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,10 +233,10 @@
             </objects>
             <point key="canvasLocation" x="1524.4274809160304" y="-708.45070422535218"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="WHs-3H-fcw">
             <objects>
-                <viewController id="Bba-pQ-flP" sceneMemberID="viewController">
+                <viewController id="Bba-pQ-flP" customClass="LoginViewController" customModule="HMS_Team3_SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jg1-Km-74O">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,13 +362,9 @@
         <image name="apple.logo" catalog="system" width="105" height="128"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="eye.slash" catalog="system" width="128" height="84"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="lock.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="trash.circle" catalog="system" width="128" height="123"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
