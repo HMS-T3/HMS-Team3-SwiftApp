@@ -19,6 +19,6 @@ struct LoginPatient: Codable {
 
 struct Response: Codable {
 	
-	let id: String
+	let id: String?
 	let Message: String
 }

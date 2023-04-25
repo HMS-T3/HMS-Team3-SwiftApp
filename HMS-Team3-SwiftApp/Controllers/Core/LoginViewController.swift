@@ -12,7 +12,6 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController {
 	
-	
 	private let phoneNumberTextField: UITextField = {
 		
 		let field = UITextField()
@@ -75,7 +74,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 		title = "Patient Login"
 		view.backgroundColor = .systemBackground
-		
+				
 		view.addSubview(phoneNumberTextField)
 		view.addSubview(otpField)
 		otpField.isHidden = true
@@ -117,7 +116,7 @@ class LoginViewController: UIViewController {
 				submitOTPButton.heightAnchor.constraint(equalToConstant: 40),
 				
 				googleSignInButton.topAnchor.constraint(equalTo: getOTPButton.bottomAnchor, constant: 50),
-				googleSignInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+				googleSignInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			]
 		)
 	}
@@ -168,7 +167,7 @@ class LoginViewController: UIViewController {
 				let user = Auth.auth().currentUser
 				guard let email = user?.email,
 					  let uid = user?.uid else { return }
-				UserAuthentication.shared.registerPatient(completion: { results in
+				UserAuthentication.shared.loginPatient(completion: { results in
 					
 					switch results {
 					case .success(let loginPatient):
@@ -180,11 +179,29 @@ class LoginViewController: UIViewController {
 						}
 					case .failure(let error):
 						print(error)
+						self.registerGoogleUser(email: email, uinqueID: uid)
 					}
 					
 				}, email: email, uinqueID: uid)
 			}
 		}
 	}
-
+	
+	func registerGoogleUser(email: String, uinqueID: String) {
+		UserAuthentication.shared.registerPatient(completion: { results in
+			
+			switch results {
+			case .success(let loginPatient):
+				DispatchQueue.main.async {
+					print("Registered New User")
+					if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+						self.navigationController?.pushViewController(controller, animated: true)
+						print(loginPatient.response!.id) // Save this id to user defaults
+					}
+				}
+			case .failure(let error):
+				print(error)
+			}
+		}, email: email, uinqueID: uinqueID)
+	}
 }
