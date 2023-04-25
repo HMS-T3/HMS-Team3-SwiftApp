@@ -63,14 +63,15 @@ extension RecordViewController: UITableViewDataSource, UITableViewDelegate {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.frame.size.width = tableView.bounds.width
         header.textLabel?.textColor = UIColor.black
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         header.textLabel?.frame = header.bounds
+        header.textLabel?.text = header.textLabel?.text?.titleCasedString()
         header.textLabel?.textAlignment = .left
         header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
         header.textLabel?.leadingAnchor.constraint(equalTo: tableView.leadingAnchor)
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40.0
+        return 30.0
     }
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //        <#code#>
