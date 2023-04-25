@@ -14,7 +14,6 @@ class ProfileTableViewCell: UITableViewCell {
 	private let imageIcon: UIImageView = {
 		let image = UIImageView()
 		image.contentMode = .scaleAspectFit
-//		image.image = UIImage(systemName: "cross.case.fill")
 		image.tintColor = .label
 		image.translatesAutoresizingMaskIntoConstraints = false
 		return image
@@ -23,7 +22,6 @@ class ProfileTableViewCell: UITableViewCell {
 	private let mainLabel: UILabel = {
 		
 		let label = UILabel()
-//		label.text = "Medical History"
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = .systemFont(ofSize: 22, weight: .regular)
 		label.numberOfLines = 1
@@ -33,7 +31,6 @@ class ProfileTableViewCell: UITableViewCell {
 	private let subLabel: UILabel = {
 		
 		let label = UILabel()
-//		label.text = "Check all your medical History"
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = .systemFont(ofSize: 16, weight: .regular)
 		label.numberOfLines = 0

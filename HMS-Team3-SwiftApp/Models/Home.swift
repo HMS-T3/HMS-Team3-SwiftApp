@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum Categories {
+enum Categories: Codable {
 	case Dental
 	case Ortho
 	case Covid19
 }
 
-struct Home {
+struct Home: Codable {
 	
 	let upcommingAppointment: Appointment?
 	let prescritpion: [Prescritpion]?
