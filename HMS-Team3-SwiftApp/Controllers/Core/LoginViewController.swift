@@ -139,52 +139,71 @@ class LoginViewController: UIViewController {
 	@objc func submitOTPButtonPressed() {
 		// code to sign in the user using OTP
 	}
-	
-	@objc func googleSignInFunction() {
-		
-		guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-		
-		// Create Google Sign In configuration object.
-		let config = GIDConfiguration(clientID: clientID)
-		GIDSignIn.sharedInstance.configuration = config
+        
+        @objc func googleSignInFunction() {
+            
+            guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+            
+            // Create Google Sign In configuration object.
+            let config = GIDConfiguration(clientID: clientID)
+            GIDSignIn.sharedInstance.configuration = config
 
-		// Start the sign in flow!
-		GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
-		  guard error == nil else {
-			return
-		  }
+            // Start the sign in flow!
+            GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+              guard error == nil else {
+                return
+              }
 
-		  guard let user = result?.user,
-			let idToken = user.idToken?.tokenString
-		  else {
-			return
-		  }
+              guard let user = result?.user,
+                let idToken = user.idToken?.tokenString
+              else {
+                return
+              }
 
-		  let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-														 accessToken: user.accessToken.tokenString)
+              let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                             accessToken: user.accessToken.tokenString)
 
-			Auth.auth().signIn(with: credential) { result, error in
+                Auth.auth().signIn(with: credential) { result, error in
 
-				let user = Auth.auth().currentUser
-				guard let email = user?.email,
-					  let uid = user?.uid else { return }
-				UserAuthentication.shared.registerPatient(completion: { results in
-					
-					switch results {
-					case .success(let loginPatient):
-						DispatchQueue.main.async {
-							if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
-								self.navigationController?.pushViewController(controller, animated: true)
-								print(loginPatient.response!.id) // Save this id to user defaults
-							}
-						}
-					case .failure(let error):
-						print(error)
-					}
-					
-				}, email: email, uinqueID: uid)
-			}
-		}
-	}
+                    let user = Auth.auth().currentUser
+                    guard let email = user?.email,
+                          let uid = user?.uid else { return }
+                    UserAuthentication.shared.loginPatient(completion: { results in
+                        
+                        switch results {
+                        case .success(let loginPatient):
+                            DispatchQueue.main.async {
+                                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+                                    self.navigationController?.pushViewController(controller, animated: true)
+                                    print(loginPatient.response!.id) // Save this id to user defaults
+                                }
+                            }
+                        case .failure(let error):
+                            print(error)
+                            self.registerGoogleUser(email: email, uinqueID: uid)
+                        }
+                        
+                    }, email: email, uinqueID: uid)
+                }
+            }
+        }
+        
+        func registerGoogleUser(email: String, uinqueID: String) {
+            UserAuthentication.shared.registerPatient(completion: { results in
+                
+                switch results {
+                case .success(let loginPatient):
+                    DispatchQueue.main.async {
+                        print("Registered New User")
+                        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+                            self.navigationController?.pushViewController(controller, animated: true)
+                            print(loginPatient.response!.id) // Save this id to user defaults
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }, email: email, uinqueID: uinqueID)
+        }
 
 }
