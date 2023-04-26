@@ -19,7 +19,7 @@ enum Gender: String, Codable {
 	case Female = "Female"
 }
 
-enum MediceneTime: Codable {
+enum MedicineTime: Codable {
 	case BeforeBreakfast
 	case AfterBreakfast
 	case BeforeLunch

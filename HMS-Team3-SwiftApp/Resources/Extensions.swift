@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    func titleCasedString() -> String {
+    func capitalizeFirstLetter() -> String {
         return self.prefix(1).uppercased() + self.lowercased().dropFirst()
     }
 }
