@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y94-96-TvB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -35,7 +35,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="MedicalHistoryViewController" storyboardName="PatientProfileMedicalHistory" referencedIdentifier="MedicalHistoryViewController" id="iLw-qT-lKr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXA-6i-jiy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3270" y="-166"/>
+            <point key="canvasLocation" x="2844" y="-283"/>
         </scene>
         <!--Profile-->
         <scene sceneID="1hE-nk-wDh">
@@ -54,7 +54,6 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AV-P3-neN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            
             </objects>
             <point key="canvasLocation" x="816.03053435114498" y="-283.0985915492958"/>
         </scene>
@@ -90,7 +89,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQ2-sg-O7b">
-                                                    <rect key="frame" x="283" y="133" width="44" height="31"/>
+                                                    <rect key="frame" x="290.66666666666669" y="133" width="34.333333333333314" height="34.333333333333343"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
@@ -129,7 +128,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAe-0c-Ppo">
-                                                    <rect key="frame" x="283" y="171" width="44" height="30"/>
+                                                    <rect key="frame" x="290.66666666666669" y="171" width="34.333333333333314" height="34.333333333333343"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
@@ -192,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uT-PK-uOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2881.679389312977" y="-283.0985915492958"/>
+            <point key="canvasLocation" x="3910.6870229007632" y="-283.0985915492958"/>
         </scene>
     </scenes>
     <resources>
