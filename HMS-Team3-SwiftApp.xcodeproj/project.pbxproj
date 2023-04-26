@@ -55,6 +55,19 @@
 		76D7A21729F6895600E6F225 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 76D7A21629F6895600E6F225 /* GoogleSignIn */; };
 		AC4D05AB29F6845E004E4C44 /* SOS Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4D05AA29F6845E004E4C44 /* SOS Contacts.storyboard */; };
 		AC4D05AE29F689D8004E4C44 /* SOSContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D05AD29F689D8004E4C44 /* SOSContactCollectionViewCell.swift */; };
+		CE980B6E29F92FCB0084C590 /* ClickCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B6D29F92FCB0084C590 /* ClickCollectionViewDelegate.swift */; };
+		CE980B7629F933A50084C590 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7029F933A40084C590 /* CategoriesCollectionViewCell.swift */; };
+		CE980B7729F933A50084C590 /* MedicineCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7129F933A40084C590 /* MedicineCollectionViewTableViewCell.swift */; };
+		CE980B7829F933A50084C590 /* PackagesCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7229F933A40084C590 /* PackagesCollectionViewTableViewCell.swift */; };
+		CE980B7929F933A50084C590 /* UpcomingCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7329F933A40084C590 /* UpcomingCollectionViewTableViewCell.swift */; };
+		CE980B7A29F933A50084C590 /* CategoriesCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7429F933A50084C590 /* CategoriesCollectionViewTableViewCell.swift */; };
+		CE980B7B29F933A50084C590 /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7529F933A50084C590 /* UpcomingCollectionViewCell.swift */; };
+		CE980B7D29F936310084C590 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7C29F936310084C590 /* DiscoverViewController.swift */; };
+		CE980B8429F936890084C590 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7F29F936890084C590 /* SearchResultsViewController.swift */; };
+		CE980B8529F936890084C590 /* OngoingMedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B8029F936890084C590 /* OngoingMedicationsViewController.swift */; };
+		CE980B8629F936890084C590 /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B8129F936890084C590 /* CategoriesCollectionViewController.swift */; };
+		CE980B8729F936890084C590 /* PackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B8229F936890084C590 /* PackagesViewController.swift */; };
+		CE980B8829F936890084C590 /* UpcomingAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B8329F936890084C590 /* UpcomingAppointmentsViewController.swift */; };
 		E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */; };
 		E3620D7829ED3CE7008F9B98 /* DiscoverStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */; };
 		E3620D7A29ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7929ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard */; };
@@ -142,6 +155,19 @@
 		76D7A20E29F6866C00E6F225 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC4D05AA29F6845E004E4C44 /* SOS Contacts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "SOS Contacts.storyboard"; sourceTree = "<group>"; };
 		AC4D05AD29F689D8004E4C44 /* SOSContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSContactCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE980B6D29F92FCB0084C590 /* ClickCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		CE980B7029F933A40084C590 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE980B7129F933A40084C590 /* MedicineCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE980B7229F933A40084C590 /* PackagesCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackagesCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE980B7329F933A40084C590 /* UpcomingCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE980B7429F933A50084C590 /* CategoriesCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CE980B7529F933A50084C590 /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE980B7C29F936310084C590 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		CE980B7F29F936890084C590 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		CE980B8029F936890084C590 /* OngoingMedicationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OngoingMedicationsViewController.swift; sourceTree = "<group>"; };
+		CE980B8129F936890084C590 /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
+		CE980B8229F936890084C590 /* PackagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackagesViewController.swift; sourceTree = "<group>"; };
+		CE980B8329F936890084C590 /* UpcomingAppointmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingAppointmentsViewController.swift; sourceTree = "<group>"; };
 		E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverStoryboard.storyboard; sourceTree = "<group>"; };
 		E3620D7929ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppointmentsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -201,6 +227,9 @@
 		27125E0729F90C7700235D43 /* PatientScreen */ = {
 			isa = PBXGroup;
 			children = (
+				765F864729EFF3FC009E67F2 /* ProfileScreen */,
+				E37D150529F667E200300948 /* RecordScreen */,
+				CE980B6F29F932F30084C590 /* DiscoverScreen */,
 				2768119F29F90CD3005209A0 /* Consult */,
 			);
 			path = PatientScreen;
@@ -228,26 +257,21 @@
 		278CDFAF29EFFF50001D65BB /* Patient */ = {
 			isa = PBXGroup;
 			children = (
-				278CDFB029EFFF5E001D65BB /* ConsultViewController */,
+				765F865D29F25EB9009E67F2 /* Core */,
+				CE980B7E29F936890084C590 /* Discover Sub Screens */,
+				765F864C29F0FD17009E67F2 /* Profile Sub Screens */,
+				278CDFB029EFFF5E001D65BB /* Consult Sub Screens */,
 			);
 			path = Patient;
 			sourceTree = "<group>";
 		};
-		278CDFB029EFFF5E001D65BB /* ConsultViewController */ = {
+		278CDFB029EFFF5E001D65BB /* Consult Sub Screens */ = {
 			isa = PBXGroup;
 			children = (
-				278CDFB329F0010A001D65BB /* ConsultViewController.swift */,
 				27D091E029F68127008D6072 /* ListDoctorsViewController.swift */,
 				2790318D29F7CB340031CA6C /* DoctorDetailsViewController.swift */,
 			);
-			path = ConsultViewController;
-			sourceTree = "<group>";
-		};
-		27D091E629F6859A008D6072 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
+			path = "Consult Sub Screens";
 			sourceTree = "<group>";
 		};
 		3A6F75D329EFEA4C0067FBB9 /* API */ = {
@@ -263,19 +287,15 @@
 		3AEA1D0A29E81C76005369C4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				27D091E629F6859A008D6072 /* Extension */,
 				278CDFAF29EFFF50001D65BB /* Patient */,
 				AC4D05AC29F689B2004E4C44 /* SOS Contacts Cell */,
-				E37D150829F6682300300948 /* Records */,
 				E3A0D4C529E40F9A00894838 /* ViewController.swift */,
 				E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */,
-				765F865D29F25EB9009E67F2 /* Core */,
-				765F864C29F0FD17009E67F2 /* Profile Sub-Screens */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		3AEA1D0B29E81C80005369C4 /* Storybords */ = {
+		3AEA1D0B29E81C80005369C4 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				E3A0D4C729E40F9A00894838 /* Main.storyboard */,
@@ -283,7 +303,7 @@
 				E3620D8329ED3E1D008F9B98 /* PatientStoryboards */,
 				3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */,
 			);
-			path = Storybords;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		6B38EFBA29F692150084981F /* Medical History Data Model */ = {
@@ -303,6 +323,7 @@
 				765F864229EFEFD1009E67F2 /* Appointments.swift */,
 				765F864429EFEFE7009E67F2 /* Home.swift */,
 				766926A729F691CE00F4F728 /* LoginPatient.swift */,
+				6B38EFBA29F692150084981F /* Medical History Data Model */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,8 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				27125E0729F90C7700235D43 /* PatientScreen */,
-				E37D150529F667E200300948 /* RecordScreen */,
-				765F864729EFF3FC009E67F2 /* ProfileScreen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,7 +348,7 @@
 			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
-		765F864C29F0FD17009E67F2 /* Profile Sub-Screens */ = {
+		765F864C29F0FD17009E67F2 /* Profile Sub Screens */ = {
 			isa = PBXGroup;
 			children = (
 				765F864D29F0FD38009E67F2 /* MedicalHistoryViewController.swift */,
@@ -338,13 +357,14 @@
 				765F865329F0FE3E009E67F2 /* AppleHealthViewController.swift */,
 				765F865E29F268C9009E67F2 /* EditProfileViewController.swift */,
 			);
-			path = "Profile Sub-Screens";
+			path = "Profile Sub Screens";
 			sourceTree = "<group>";
 		};
 		765F865A29F25C79009E67F2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				765F865B29F25C86009E67F2 /* ProfileHeaderUIViewDelegate.swift */,
+				CE980B6D29F92FCB0084C590 /* ClickCollectionViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -352,6 +372,9 @@
 		765F865D29F25EB9009E67F2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CE980B7C29F936310084C590 /* DiscoverViewController.swift */,
+				E37D150929F6684000300948 /* RecordViewController.swift */,
+				278CDFB329F0010A001D65BB /* ConsultViewController.swift */,
 				3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */,
 				7673EBA629EFEABD00F10EB7 /* ProfileViewController.swift */,
 			);
@@ -374,12 +397,36 @@
 			path = "SOS Contacts Cell";
 			sourceTree = "<group>";
 		};
+		CE980B6F29F932F30084C590 /* DiscoverScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CE980B7029F933A40084C590 /* CategoriesCollectionViewCell.swift */,
+				CE980B7429F933A50084C590 /* CategoriesCollectionViewTableViewCell.swift */,
+				CE980B7129F933A40084C590 /* MedicineCollectionViewTableViewCell.swift */,
+				CE980B7229F933A40084C590 /* PackagesCollectionViewTableViewCell.swift */,
+				CE980B7529F933A50084C590 /* UpcomingCollectionViewCell.swift */,
+				CE980B7329F933A40084C590 /* UpcomingCollectionViewTableViewCell.swift */,
+			);
+			path = DiscoverScreen;
+			sourceTree = "<group>";
+		};
+		CE980B7E29F936890084C590 /* Discover Sub Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CE980B7F29F936890084C590 /* SearchResultsViewController.swift */,
+				CE980B8029F936890084C590 /* OngoingMedicationsViewController.swift */,
+				CE980B8129F936890084C590 /* CategoriesCollectionViewController.swift */,
+				CE980B8229F936890084C590 /* PackagesViewController.swift */,
+				CE980B8329F936890084C590 /* UpcomingAppointmentsViewController.swift */,
+			);
+			path = "Discover Sub Screens";
+			sourceTree = "<group>";
+		};
 		E3620D8329ED3E1D008F9B98 /* PatientStoryboards */ = {
 			isa = PBXGroup;
 			children = (
 				AC4D05A929F6844C004E4C44 /* Profile Sub-Screens */,
 				6BECC3AC29F10110006A243F /* OnboardingStoryboard.storyboard */,
-				6B38EFBA29F692150084981F /* Medical History Data Model */,
 				E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */,
 				E3620D7D29ED3E01008F9B98 /* ConsultStoryboard.storyboard */,
 				E3620D7F29ED3E0F008F9B98 /* RecordsStoryboard.storyboard */,
@@ -407,14 +454,6 @@
 				E37D151329F6827000300948 /* RecordsTableViewCell.swift */,
 			);
 			path = RecordScreen;
-			sourceTree = "<group>";
-		};
-		E37D150829F6682300300948 /* Records */ = {
-			isa = PBXGroup;
-			children = (
-				E37D150929F6684000300948 /* RecordViewController.swift */,
-			);
-			path = Records;
 			sourceTree = "<group>";
 		};
 		E37D151A29F7B44800300948 /* Resources */ = {
@@ -449,15 +488,15 @@
 		E3A0D4C029E40F9A00894838 /* HMS-Team3-SwiftApp */ = {
 			isa = PBXGroup;
 			children = (
+				E3A0D4C129E40F9A00894838 /* AppDelegate.swift */,
+				E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */,
 				E37D151A29F7B44800300948 /* Resources */,
 				3A6F75D329EFEA4C0067FBB9 /* API */,
 				765F865A29F25C79009E67F2 /* Protocols */,
-				E3A0D4C129E40F9A00894838 /* AppDelegate.swift */,
-				E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */,
 				765F863D29EFEF9D009E67F2 /* Models */,
 				765F864629EFF3F4009E67F2 /* Views */,
 				3AEA1D0A29E81C76005369C4 /* Controllers */,
-				3AEA1D0B29E81C80005369C4 /* Storybords */,
+				3AEA1D0B29E81C80005369C4 /* Storyboards */,
 				E3A0D4CA29E40F9B00894838 /* Assets.xcassets */,
 				E3A0D4CC29E40F9B00894838 /* LaunchScreen.storyboard */,
 				E3A0D4CF29E40F9B00894838 /* Info.plist */,
@@ -643,7 +682,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE980B8829F936890084C590 /* UpcomingAppointmentsViewController.swift in Sources */,
+				CE980B8629F936890084C590 /* CategoriesCollectionViewController.swift in Sources */,
+				CE980B6E29F92FCB0084C590 /* ClickCollectionViewDelegate.swift in Sources */,
 				E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */,
+				CE980B8729F936890084C590 /* PackagesViewController.swift in Sources */,
 				276811B629F90DDF005209A0 /* SlotCollectionViewCell.swift in Sources */,
 				7673EBA729EFEABD00F10EB7 /* ProfileViewController.swift in Sources */,
 				276811AA29F90D96005209A0 /* RecentsDoctorCollectionViewCell.swift in Sources */,
@@ -658,14 +701,20 @@
 				6B38EFBC29F692EC0084981F /* MRTableTableViewCell.swift in Sources */,
 				765F865929F1046A009E67F2 /* QuickStatsCollectionViewCell.swift in Sources */,
 				765F865C29F25C86009E67F2 /* ProfileHeaderUIViewDelegate.swift in Sources */,
+				CE980B7D29F936310084C590 /* DiscoverViewController.swift in Sources */,
 				765F865F29F268C9009E67F2 /* EditProfileViewController.swift in Sources */,
 				765F864B29EFF843009E67F2 /* ProfileHeaderUIView.swift in Sources */,
 				765F864929EFF40D009E67F2 /* ProfileTableViewCell.swift in Sources */,
 				E37D150A29F6684000300948 /* RecordViewController.swift in Sources */,
+				CE980B7829F933A50084C590 /* PackagesCollectionViewTableViewCell.swift in Sources */,
 				6B38EFB929F691CB0084981F /* MedicalhistoryDataModel.swift in Sources */,
 				766926A829F691CE00F4F728 /* LoginPatient.swift in Sources */,
 				3A6F75D529EFEA600067FBB9 /* Methods.swift in Sources */,
+				CE980B7B29F933A50084C590 /* UpcomingCollectionViewCell.swift in Sources */,
+				CE980B7A29F933A50084C590 /* CategoriesCollectionViewTableViewCell.swift in Sources */,
 				276811AE29F90DCF005209A0 /* DoctorCollectionViewCell.swift in Sources */,
+				CE980B7729F933A50084C590 /* MedicineCollectionViewTableViewCell.swift in Sources */,
+				CE980B7929F933A50084C590 /* UpcomingCollectionViewTableViewCell.swift in Sources */,
 				E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */,
 				276811B229F90DD8005209A0 /* DateCollectionViewCell.swift in Sources */,
 				E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */,
@@ -680,10 +729,13 @@
 				766926A629F68D3C00F4F728 /* UserAuthentication.swift in Sources */,
 				765F866129F26D26009E67F2 /* EditProfileTableViewCell.swift in Sources */,
 				E37D151C29F7B45800300948 /* Extensions.swift in Sources */,
+				CE980B7629F933A50084C590 /* CategoriesCollectionViewCell.swift in Sources */,
 				765F865229F0FE2A009E67F2 /* SOSContactsViewController.swift in Sources */,
 				765F864129EFEFBB009E67F2 /* Enums.swift in Sources */,
+				CE980B8529F936890084C590 /* OngoingMedicationsViewController.swift in Sources */,
 				765F863F29EFEFA5009E67F2 /* User.swift in Sources */,
 				765F864329EFEFD1009E67F2 /* Appointments.swift in Sources */,
+				CE980B8429F936890084C590 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
