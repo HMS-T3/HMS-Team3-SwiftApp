@@ -7,9 +7,3 @@
 
 import Foundation
 
-class API{
-    init(){
-        let MethodInstance = Methods(baseURI: "https://hmst3-backend.onrender.com/app")
-//        print("MethodInstance.GET(route:)",MethodInstance.GET(route: "/"))
-    }
-}
