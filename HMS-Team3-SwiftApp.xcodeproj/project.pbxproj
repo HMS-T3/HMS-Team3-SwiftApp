@@ -26,6 +26,10 @@
 		CE929E2229F702390036EC54 /* PackagesCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E2129F702390036EC54 /* PackagesCollectionViewTableViewCell.swift */; };
 		CE929E2429F705F00036EC54 /* CategoriesCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929E2329F705F00036EC54 /* CategoriesCollectionViewTableViewCell.swift */; };
 		CE9830A629F1080A00A8C300 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9830A529F1080A00A8C300 /* DiscoverViewController.swift */; };
+		CEB9490F29F7B3B900DC16DE /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9490E29F7B3B900DC16DE /* CategoriesCollectionViewCell.swift */; };
+		CEB9491229F7D0AE00DC16DE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9491129F7D0AE00DC16DE /* Extension.swift */; };
+		CEB9491429F8486200DC16DE /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9491329F8486200DC16DE /* UpcomingCollectionViewCell.swift */; };
+		CEB9491729F8564C00DC16DE /* ClickCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9491629F8564C00DC16DE /* ClickCollectionViewDelegate.swift */; };
 		E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */; };
 		E3620D7829ED3CE7008F9B98 /* DiscoverStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */; };
 		E3620D7A29ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7929ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard */; };
@@ -82,6 +86,10 @@
 		CE929E2129F702390036EC54 /* PackagesCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		CE929E2329F705F00036EC54 /* CategoriesCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		CE9830A529F1080A00A8C300 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		CEB9490E29F7B3B900DC16DE /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEB9491129F7D0AE00DC16DE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		CEB9491329F8486200DC16DE /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEB9491629F8564C00DC16DE /* ClickCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverStoryboard.storyboard; sourceTree = "<group>"; };
 		E3620D7929ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppointmentsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -191,8 +199,26 @@
 				CE929E1D29F6F3C50036EC54 /* MedicineCollectionViewTableViewCell.swift */,
 				CE929E1F29F6FDDE0036EC54 /* UpcomingCollectionViewTableViewCell.swift */,
 				CE929E2129F702390036EC54 /* PackagesCollectionViewTableViewCell.swift */,
+				CEB9490E29F7B3B900DC16DE /* CategoriesCollectionViewCell.swift */,
+				CEB9491329F8486200DC16DE /* UpcomingCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CEB9491029F7D09A00DC16DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9491129F7D0AE00DC16DE /* Extension.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CEB9491529F8557E00DC16DE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9491629F8564C00DC16DE /* ClickCollectionViewDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		E3620D8329ED3E1D008F9B98 /* PatientStoryboards */ = {
@@ -240,6 +266,8 @@
 		E3A0D4C029E40F9A00894838 /* HMS-Team3-SwiftApp */ = {
 			isa = PBXGroup;
 			children = (
+				CEB9491529F8557E00DC16DE /* Protocols */,
+				CEB9491029F7D09A00DC16DE /* Resources */,
 				CE9830A229F1047700A8C300 /* Models */,
 				CE9830A429F104F000A8C300 /* Views */,
 				3AEA1D0A29E81C76005369C4 /* Controllers */,
@@ -420,6 +448,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB9491429F8486200DC16DE /* UpcomingCollectionViewCell.swift in Sources */,
+				CEB9491729F8564C00DC16DE /* ClickCollectionViewDelegate.swift in Sources */,
+				CEB9491229F7D0AE00DC16DE /* Extension.swift in Sources */,
 				CE929E0E29F681DB0036EC54 /* CategoriesCollectionViewController.swift in Sources */,
 				3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */,
 				CE929E2229F702390036EC54 /* PackagesCollectionViewTableViewCell.swift in Sources */,
@@ -428,6 +459,7 @@
 				3A6F75D529EFEA600067FBB9 /* Methods.swift in Sources */,
 				E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */,
 				CE929E1229F688130036EC54 /* PackagesViewController.swift in Sources */,
+				CEB9490F29F7B3B900DC16DE /* CategoriesCollectionViewCell.swift in Sources */,
 				CE929E1829F68EB00036EC54 /* User.swift in Sources */,
 				CE929E2029F6FDDE0036EC54 /* UpcomingCollectionViewTableViewCell.swift in Sources */,
 				CE929E1E29F6F3C50036EC54 /* MedicineCollectionViewTableViewCell.swift in Sources */,

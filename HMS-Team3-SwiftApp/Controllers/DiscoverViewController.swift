@@ -15,7 +15,7 @@ enum TableSectionType : Int {
 }
 
 
-class DiscoverViewController: UIViewController, UISearchResultsUpdating {
+class DiscoverViewController: UIViewController, UISearchResultsUpdating, UICollectionViewDelegate {
     
     // MARK: - Creating UI Table View
     // We have used closure here to create a table view
@@ -29,7 +29,7 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating {
     
     private let discovertable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        
+        table.backgroundColor = UIColor(named: "hometab.background")
         table.register(UpcomingCollectionViewTableViewCell.self, forCellReuseIdentifier: UpcomingCollectionViewTableViewCell.identifier)
         table.register(CategoriesCollectionViewTableViewCell.self, forCellReuseIdentifier: CategoriesCollectionViewTableViewCell.identifier)
         table.register(MedicineCollectionViewTableViewCell.self, forCellReuseIdentifier: MedicineCollectionViewTableViewCell.identifier)
@@ -49,8 +49,8 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating {
         view.backgroundColor = .systemBackground
         title = "Discover"
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.largeTitleDisplayMode = .never
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
         
@@ -88,8 +88,41 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableSectionTitle.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        switch section {
+        case TableSectionType.upcomingSection.rawValue:
+            return tableSectionTitle[section]
+        case TableSectionType.categorySection.rawValue:
+            return tableSectionTitle[section]
+        case TableSectionType.ongoingMedicationsSection.rawValue:
+            return tableSectionTitle[section]
+        case TableSectionType.packagesSection.rawValue:
+            return tableSectionTitle[section]
+        default:
+            return "No Section Title"
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.frame.size.width = tableView.bounds.width
+        header.textLabel?.textColor = .black
+        header.textLabel?.font = .boldSystemFont(ofSize: 20)
+        header.textLabel?.frame = header.bounds
+        header.textLabel?.text =  header.textLabel?.text?.capitalizeFirstLetter()
+        header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,28 +139,28 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingCollectionViewTableViewCell.identifier, for: indexPath) as? UpcomingCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
-            cell.backgroundColor = .blue
+            cell.delegate = self
             return cell
             
         case TableSectionType.categorySection.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoriesCollectionViewTableViewCell.identifier, for: indexPath) as? CategoriesCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
-            cell.backgroundColor = .blue
+            cell.delegate = self
             return cell
             
         case TableSectionType.ongoingMedicationsSection.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineCollectionViewTableViewCell.identifier, for: indexPath) as? MedicineCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
-            cell.backgroundColor = .blue
+            
             return cell
             
         case TableSectionType.packagesSection.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PackagesCollectionViewTableViewCell.identifier, for: indexPath) as? PackagesCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
-            cell.backgroundColor = .blue
+            
             return cell
             
         default:
@@ -136,7 +169,19 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        200
+        switch indexPath.section{
+            case TableSectionType.upcomingSection.rawValue:
+                return 220
+            case TableSectionType.categorySection.rawValue:
+                return 210
+            case TableSectionType.ongoingMedicationsSection.rawValue:
+                return 150
+            case TableSectionType.packagesSection.rawValue:
+                return 325
+            default:
+                return 0
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -154,4 +199,17 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
                     tableView.deselectRow(at: indexPath, animated: true)
                 }
     }
+}
+
+extension DiscoverViewController: ClickCollectionViewDelegate {
+ 
+    func clickedOnUpcomingCell() {
+        self.navigationController?.pushViewController(UpcomingAppointmentsViewController(), animated: true)
+    }
+    
+    func clickedOnCategoryCell() {
+        self.navigationController?.pushViewController(CategoriesCollectionViewController(), animated: true)
+    }
+    
+    
 }

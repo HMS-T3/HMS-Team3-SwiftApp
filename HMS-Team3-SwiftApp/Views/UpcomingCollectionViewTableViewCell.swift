@@ -7,16 +7,29 @@
 
 import UIKit
 
+struct DocInfo{
+    let docName: String
+    let docSpecialization: String
+    let docImage: UIImage?
+}
+
 class UpcomingCollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "UpcomingCollectionViewTableViewCell"
+    
+    var delegate: ClickCollectionViewDelegate?
+    
+    let upcomingInfo: [DocInfo] = [DocInfo(docName: "Y.S. Reddy", docSpecialization: "Cardiologist", docImage: UIImage(named: "doc.male")),
+        DocInfo(docName: "K. Singh", docSpecialization: "Neurologist", docImage: UIImage(named: "doc.male"))
+    ]
+    
     private let collectionView : UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 320, height: 170)
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(UpcomingCollectionViewCell.self, forCellWithReuseIdentifier: UpcomingCollectionViewCell.identifier)
         return cv
     }()
     
@@ -45,9 +58,25 @@ extension UpcomingCollectionViewTableViewCell: UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .green
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.identifier, for: indexPath) as? UpcomingCollectionViewCell else { return UICollectionViewCell() }
+        cell.backgroundColor = UIColor(named: "upcoming.card")
+        cell.layer.cornerRadius = 10
+        cell.configure(with: upcomingInfo[indexPath.row])
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.clickedOnUpcomingCell()
+    }
+}
+
+extension UpcomingCollectionViewTableViewCell: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
 }

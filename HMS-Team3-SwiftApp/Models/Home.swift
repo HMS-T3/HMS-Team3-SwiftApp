@@ -6,16 +6,27 @@
 //
 
 import Foundation
+import UIKit
 
-enum Categories {
-    case Dental
-    case Ortho
-    case Covid19
+struct Categories {
+    let categoryImage: UIImage?
+    let categoryName: CategoryTypes
+}
+
+enum CategoryTypes: String{
+    case general = "General"
+    case lungSpecialist = "Lung Specialist"
+    case dentist = "Dentist"
+    case psychiatrist = "Psychiatrist"
+    case covid19 = "Covid 19"
+    case surgeon = "Surgeon"
+    case cardiologist = "Cardiologist"
+    case neurologist = "Neurologist"
 }
 
 struct Home {
     
-    let upcommingAppointment: Appointment?
+    let upcomingAppointment: Appointment?
     let prescritpion: [Prescription]?
     let categories: Categories
 }
