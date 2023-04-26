@@ -22,8 +22,6 @@
 		278CDFB429F0010A001D65BB /* ConsultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CDFB329F0010A001D65BB /* ConsultViewController.swift */; };
 		2790318E29F7CB340031CA6C /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2790318D29F7CB340031CA6C /* DoctorDetailsViewController.swift */; };
 		27D091E129F68127008D6072 /* ListDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D091E029F68127008D6072 /* ListDoctorsViewController.swift */; };
-		3A6F75D529EFEA600067FBB9 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F75D429EFEA600067FBB9 /* Methods.swift */; };
-		3A6F75DA29EFEB930067FBB9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F75D929EFEB930067FBB9 /* API.swift */; };
 		3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */; };
 		3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */; };
 		6B38EFB729F686800084981F /* PatientProfileMedicalHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B38EFB629F686800084981F /* PatientProfileMedicalHistory.storyboard */; };
@@ -83,8 +81,6 @@
 		E37D151429F6827000300948 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D151329F6827000300948 /* RecordsTableViewCell.swift */; };
 		E37D151929F69BA000300948 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E37D151829F69BA000300948 /* .gitignore */; };
 		E37D151C29F7B45800300948 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D151B29F7B45800300948 /* Extensions.swift */; };
-		E385604029F8DC370008A951 /* AppleHealth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E385603F29F8DC370008A951 /* AppleHealth.storyboard */; };
-		E385604229F8DEB50008A951 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E385604129F8DEB50008A951 /* Utilities.swift */; };
 		E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C129E40F9A00894838 /* AppDelegate.swift */; };
 		E3A0D4C429E40F9A00894838 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */; };
 		E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4C529E40F9A00894838 /* ViewController.swift */; };
@@ -129,8 +125,6 @@
 		278CDFB329F0010A001D65BB /* ConsultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultViewController.swift; sourceTree = "<group>"; };
 		2790318D29F7CB340031CA6C /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
 		27D091E029F68127008D6072 /* ListDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDoctorsViewController.swift; sourceTree = "<group>"; };
-		3A6F75D429EFEA600067FBB9 /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
-		3A6F75D929EFEB930067FBB9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6B38EFB629F686800084981F /* PatientProfileMedicalHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PatientProfileMedicalHistory.storyboard; sourceTree = "<group>"; };
@@ -188,8 +182,6 @@
 		E37D151329F6827000300948 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		E37D151829F69BA000300948 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E37D151B29F7B45800300948 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E385603F29F8DC370008A951 /* AppleHealth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppleHealth.storyboard; sourceTree = "<group>"; };
-		E385604129F8DEB50008A951 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E3A0D4BE29E40F9A00894838 /* HMS-Team3-SwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HMS-Team3-SwiftApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0D4C129E40F9A00894838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -286,8 +278,6 @@
 		3A6F75D329EFEA4C0067FBB9 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				3A6F75D429EFEA600067FBB9 /* Methods.swift */,
-				3A6F75D929EFEB930067FBB9 /* API.swift */,
 				766926A529F68D3C00F4F728 /* UserAuthentication.swift */,
 			);
 			path = API;
@@ -707,7 +697,6 @@
 				765F865429F0FE3E009E67F2 /* AppleHealthViewController.swift in Sources */,
 				276811A229F90D26005209A0 /* CategoryCollectionViewCell.swift in Sources */,
 				3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */,
-				E385604229F8DEB50008A951 /* Utilities.swift in Sources */,
 				765F864529EFEFE7009E67F2 /* Home.swift in Sources */,
 				CE980B8C29F93D570084C590 /* Utilities.swift in Sources */,
 				765F865029F0FE14009E67F2 /* VitalsViewController.swift in Sources */,
@@ -724,7 +713,6 @@
 				CE980B7829F933A50084C590 /* PackagesCollectionViewTableViewCell.swift in Sources */,
 				6B38EFB929F691CB0084981F /* MedicalhistoryDataModel.swift in Sources */,
 				766926A829F691CE00F4F728 /* LoginPatient.swift in Sources */,
-				3A6F75D529EFEA600067FBB9 /* Methods.swift in Sources */,
 				CE980B7B29F933A50084C590 /* UpcomingCollectionViewCell.swift in Sources */,
 				CE980B7A29F933A50084C590 /* CategoriesCollectionViewTableViewCell.swift in Sources */,
 				276811AE29F90DCF005209A0 /* DoctorCollectionViewCell.swift in Sources */,
@@ -740,7 +728,6 @@
 				6B38EFBE29F69E170084981F /* MedicalHistoryCollectionViewCell.swift in Sources */,
 				765F864E29F0FD38009E67F2 /* MedicalHistoryViewController.swift in Sources */,
 				AC4D05AE29F689D8004E4C44 /* SOSContactCollectionViewCell.swift in Sources */,
-				3A6F75DA29EFEB930067FBB9 /* API.swift in Sources */,
 				766926A629F68D3C00F4F728 /* UserAuthentication.swift in Sources */,
 				765F866129F26D26009E67F2 /* EditProfileTableViewCell.swift in Sources */,
 				E37D151C29F7B45800300948 /* Extensions.swift in Sources */,
