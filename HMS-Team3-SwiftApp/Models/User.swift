@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-struct User {
+struct User: Codable {
 	let role: Roles
 	let id: String
 	let info: PersonalInfo?
 }
 
-struct PersonalInfo {
+struct PersonalInfo: Codable {
 	let name: String
 	let image: String?
 	let dob: Double
@@ -24,14 +24,14 @@ struct PersonalInfo {
 	let records: [HealthRecords]?
 }
  
-struct HealthRecords {
+struct HealthRecords: Codable {
 	let doctor: User
 	let reasonOfVisit: String
 	let date: Date
 	let vitals: Vitals
 }
 
-struct Vitals {
+struct Vitals: Codable {
 	let height: Int
 	let weight: Int
 	let blood: String
@@ -41,33 +41,33 @@ struct Vitals {
 	let oxygenLevel: Int
 }
 
-struct BloodPresure {
+struct BloodPresure: Codable {
 	let systolic: Int
 	let diastolic: Int
 }
 
-struct PatientHistory {
+struct PatientHistory: Codable {
 	let allergies: [String]
 	let medicalCondition: String
 }
 
-struct Prescritpion {
+struct Prescritpion: Codable {
 	let diagonisis: String
 	let medicene: [PrescribedMedicene]?
 	let labTests: [LabTest]?
 }
 
-struct PrescribedMedicene {
+struct PrescribedMedicene: Codable {
 	let name: String
 	let dosage: Dosage
 }
 
-struct LabTest {
+struct LabTest: Codable {
 	let name: String
 	let results: String
 }
 
-struct Dosage {
+struct Dosage: Codable {
 	let timeOfTheDay: MediceneTime
 	let amount: [Int]
 	let amountType: DosageAmountType

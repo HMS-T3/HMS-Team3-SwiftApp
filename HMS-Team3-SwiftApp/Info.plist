@@ -6,6 +6,25 @@
 	<string>Allow this app to share your Health data to doctors and clinicians.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Allow this app to write health data provided from your doctor or clinician.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.799687684547-piffck5lprscuoufuhhoe8lp34h23thr</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>app-1-799687684547-ios-640774bf41120f5e634d76</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

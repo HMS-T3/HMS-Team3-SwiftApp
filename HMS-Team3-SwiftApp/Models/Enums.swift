@@ -8,18 +8,18 @@
 import UIKit
 import Foundation
 
-enum Roles {
+enum Roles: Codable {
 	case Patient
 	case Doctor
 	case Admin
 }
 
-enum Gender: String {
+enum Gender: String, Codable {
 	case Male = "Male"
 	case Female = "Female"
 }
 
-enum MediceneTime {
+enum MediceneTime: Codable {
 	case BeforeBreakfast
 	case AfterBreakfast
 	case BeforeLunch
@@ -28,7 +28,7 @@ enum MediceneTime {
 	case AfterDinner
 }
 
-enum DosageAmountType {
+enum DosageAmountType: Codable {
 	case Liquid
 	case Tablets
 	case Drops

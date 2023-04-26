@@ -10,18 +10,18 @@ import UIKit
 
 //MARK: Appointments Tab
 
-enum AppointmentStatus {
+enum AppointmentStatus: Codable {
 	case Active
 	case Cancelled
 	case Completed
 }
 
-struct Appointments {
+struct Appointments: Codable {
 	
 	let data: [Appointment]?
 }
 
-struct Appointment {
+struct Appointment: Codable {
 	let date: Date
 	let doctorName: String
 	let doctorID: String
@@ -33,7 +33,7 @@ struct Appointment {
 	let rescheduled: Bool
 }
 
-struct Location {
+struct Location: Codable {
 	let longitude: Double
 	let latitude: Double
 }
