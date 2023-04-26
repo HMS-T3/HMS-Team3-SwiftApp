@@ -144,6 +144,7 @@
 		76D7A20E29F6866C00E6F225 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC4D05AA29F6845E004E4C44 /* SOS Contacts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "SOS Contacts.storyboard"; sourceTree = "<group>"; };
 		AC4D05AD29F689D8004E4C44 /* SOSContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSContactCollectionViewCell.swift; sourceTree = "<group>"; };
+		E317358E29F927D100B16A2A /* HMS-Team3-SwiftApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HMS-Team3-SwiftApp.entitlements"; sourceTree = "<group>"; };
 		E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverStoryboard.storyboard; sourceTree = "<group>"; };
 		E3620D7929ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppointmentsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -159,7 +160,6 @@
 		E37D151B29F7B45800300948 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E385603F29F8DC370008A951 /* AppleHealth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppleHealth.storyboard; sourceTree = "<group>"; };
 		E385604129F8DEB50008A951 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		E385604329F8DF190008A951 /* HMS-Team3-SwiftApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HMS-Team3-SwiftApp.entitlements"; sourceTree = "<group>"; };
 		E3A0D4BE29E40F9A00894838 /* HMS-Team3-SwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HMS-Team3-SwiftApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0D4C129E40F9A00894838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A0D4C329E40F9A00894838 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -456,7 +456,7 @@
 		E3A0D4C029E40F9A00894838 /* HMS-Team3-SwiftApp */ = {
 			isa = PBXGroup;
 			children = (
-				E385604329F8DF190008A951 /* HMS-Team3-SwiftApp.entitlements */,
+				E317358E29F927D100B16A2A /* HMS-Team3-SwiftApp.entitlements */,
 				E37D151A29F7B44800300948 /* Resources */,
 				3A6F75D329EFEA4C0067FBB9 /* API */,
 				765F865A29F25C79009E67F2 /* Protocols */,
@@ -871,9 +871,11 @@
 				CODE_SIGN_ENTITLEMENTS = "HMS-Team3-SwiftApp/HMS-Team3-SwiftApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YK69472845;
+				DEVELOPMENT_TEAM = 62RMH62S67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HMS-Team3-SwiftApp/Info.plist";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to share your Health data to doctors and clinicians.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow this app to write health data provided from your doctor or clinician.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -884,7 +886,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "HMS-Team3-SwiftApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -900,9 +902,11 @@
 				CODE_SIGN_ENTITLEMENTS = "HMS-Team3-SwiftApp/HMS-Team3-SwiftApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YK69472845;
+				DEVELOPMENT_TEAM = 62RMH62S67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HMS-Team3-SwiftApp/Info.plist";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to share your Health data to doctors and clinicians.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow this app to write health data provided from your doctor or clinician.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -913,7 +917,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "HMS-Team3-SwiftApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

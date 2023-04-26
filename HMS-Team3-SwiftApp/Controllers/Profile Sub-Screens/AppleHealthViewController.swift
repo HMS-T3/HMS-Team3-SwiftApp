@@ -23,9 +23,9 @@ class AppleHealthViewController: UIViewController {
     private static var allHealthDataTypes: [HKSampleType] {
             let typeIdentifiers: [String] = [
                 HKQuantityTypeIdentifier.stepCount.rawValue,
-                HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue,
-                HKQuantityTypeIdentifier.bloodPressureSystolic.rawValue,
-                HKQuantityTypeIdentifier.bloodPressureDiastolic.rawValue,
+//                HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue,
+//                HKQuantityTypeIdentifier.bloodPressureSystolic.rawValue,
+//                HKQuantityTypeIdentifier.bloodPressureDiastolic.rawValue,
                 HKQuantityTypeIdentifier.heartRate.rawValue,
                 HKQuantityTypeIdentifier.appleSleepingWristTemperature.rawValue
             ]
