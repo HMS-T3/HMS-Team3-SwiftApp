@@ -165,13 +165,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             if let controller = storyboard?.instantiateViewController(withIdentifier: "SOSContacts") {
                 self.navigationController?.pushViewController(controller, animated: true)
             }
-//			self.navigationController?.pushViewController(SOSContactsViewController(), animated: true)
-		case TableSections.AppleHealth.rawValue:
-			self.navigationController?.pushViewController(AppleHealthViewController(), animated: true)
-		default:
-			tableView.deselectRow(at: indexPath, animated: true)
-		}
-	}
+            //			self.navigationController?.pushViewController(SOSContactsViewController(), animated: true)
+        case TableSections.AppleHealth.rawValue:
+            let storyboardFile = UIStoryboard(name: "AppleHealth", bundle: nil)
+            let controller = storyboardFile.instantiateViewController(withIdentifier: "AppleHealthVC")
+            self.navigationController?.pushViewController(controller, animated: true)
+        default:
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
 
 extension ProfileViewController: ProfileHeaderUIViewDelegate {
