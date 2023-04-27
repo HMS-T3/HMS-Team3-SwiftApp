@@ -14,7 +14,6 @@ enum TableSectionType : Int {
     case packagesSection = 3
 }
 
-
 class DiscoverViewController: UIViewController, UISearchResultsUpdating, UICollectionViewDelegate {
     
     // MARK: - Creating UI Table View
@@ -65,14 +64,6 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        NSLayoutConstraint.activate(
-//            [
-//                discovertable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//                discovertable.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-//                discovertable.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-//                discovertable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-//            ]
-//        )
         discovertable.frame = view.bounds
     }
     
@@ -126,13 +117,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCollectionViewTableViewCell.identifier, for: indexPath) as? CategoryCollectionViewTableViewCell else{
-//            return UITableViewCell()
-//        }
-//        cell.backgroundColor = .blue
-//        return cell
-        
+                
         switch indexPath.section {
             
         case TableSectionType.upcomingSection.rawValue:
@@ -153,14 +138,14 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineCollectionViewTableViewCell.identifier, for: indexPath) as? MedicineCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
-            
+            cell.delegate = self
             return cell
             
         case TableSectionType.packagesSection.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PackagesCollectionViewTableViewCell.identifier, for: indexPath) as? PackagesCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
-            
+            cell.delegate = self
             return cell
             
         default:
@@ -173,31 +158,15 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
             case TableSectionType.upcomingSection.rawValue:
                 return 220
             case TableSectionType.categorySection.rawValue:
-                return 210
+                return 220
             case TableSectionType.ongoingMedicationsSection.rawValue:
-                return 150
+                return 170
             case TableSectionType.packagesSection.rawValue:
-                return 325
+                return 230
             default:
                 return 0
             
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-                switch indexPath.section {
-                case TableSectionType.upcomingSection.rawValue:
-                    self.navigationController?.pushViewController(UpcomingAppointmentsViewController(), animated: true)
-                case TableSectionType.categorySection.rawValue:
-                    self.navigationController?.pushViewController(CategoriesCollectionViewController(), animated: true)
-                case TableSectionType.ongoingMedicationsSection.rawValue:
-                    self.navigationController?.pushViewController(OngoingMedicationsViewController(), animated: true)
-                case TableSectionType.packagesSection.rawValue:
-                    self.navigationController?.pushViewController(PackagesViewController(), animated: true)
-                default:
-                    tableView.deselectRow(at: indexPath, animated: true)
-                }
     }
 }
 
@@ -211,5 +180,11 @@ extension DiscoverViewController: ClickCollectionViewDelegate {
         self.navigationController?.pushViewController(CategoriesCollectionViewController(), animated: true)
     }
     
+    func clickedOnMedicationsCell() {
+        self.navigationController?.pushViewController(OngoingMedicationsViewController(), animated: true)
+    }
     
+    func clickedOnPackagesCell() {
+        self.navigationController?.pushViewController(PackagesViewController(), animated: true)
+    }
 }

@@ -15,6 +15,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
 //        imageView.tintColor = .label
 //        imageView.layer.borderWidth = 1
 //        imageView.layer.borderColor = UIColor(named: "upcoming.card")?.cgColor

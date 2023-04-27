@@ -10,4 +10,6 @@ import Foundation
 protocol ClickCollectionViewDelegate {
     func clickedOnCategoryCell()
     func clickedOnUpcomingCell()
+    func clickedOnMedicationsCell()
+    func clickedOnPackagesCell()
 }

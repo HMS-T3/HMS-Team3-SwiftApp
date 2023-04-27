@@ -15,6 +15,7 @@ class UpcomingCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(systemName: "person")
+        imageView.clipsToBounds = true
 //        imageView.layer.shadowColor = UIColor.black.cgColor
 //        imageView.layer.shadowOpacity = 0.5
 //        imageView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
