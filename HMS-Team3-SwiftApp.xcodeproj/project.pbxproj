@@ -24,6 +24,8 @@
 		27D091E129F68127008D6072 /* ListDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D091E029F68127008D6072 /* ListDoctorsViewController.swift */; };
 		3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */; };
 		3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */; };
+		6B36E37429FA70F3003023B3 /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B36E37329FA70F3003023B3 /* Invoice.storyboard */; };
+		6B36E37629FA7157003023B3 /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B36E37529FA7157003023B3 /* InvoiceViewController.swift */; };
 		6B38EFB729F686800084981F /* PatientProfileMedicalHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B38EFB629F686800084981F /* PatientProfileMedicalHistory.storyboard */; };
 		6B38EFB929F691CB0084981F /* MedicalhistoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38EFB829F691CB0084981F /* MedicalhistoryDataModel.swift */; };
 		6B38EFBC29F692EC0084981F /* MRTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38EFBB29F692EC0084981F /* MRTableTableViewCell.swift */; };
@@ -127,6 +129,8 @@
 		27D091E029F68127008D6072 /* ListDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDoctorsViewController.swift; sourceTree = "<group>"; };
 		3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6B36E37329FA70F3003023B3 /* Invoice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invoice.storyboard; sourceTree = "<group>"; };
+		6B36E37529FA7157003023B3 /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
 		6B38EFB629F686800084981F /* PatientProfileMedicalHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PatientProfileMedicalHistory.storyboard; sourceTree = "<group>"; };
 		6B38EFB829F691CB0084981F /* MedicalhistoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalhistoryDataModel.swift; sourceTree = "<group>"; };
 		6B38EFBB29F692EC0084981F /* MRTableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTableTableViewCell.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 				765F865529F0FF4B009E67F2 /* QuickStatsTableViewCell.swift */,
 				765F865829F1046A009E67F2 /* QuickStatsCollectionViewCell.swift */,
 				765F866029F26D26009E67F2 /* EditProfileTableViewCell.swift */,
+				6B36E37529FA7157003023B3 /* InvoiceViewController.swift */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 			children = (
 				AC4D05AA29F6845E004E4C44 /* SOS Contacts.storyboard */,
 				CE980B8929F93D3A0084C590 /* AppleHealth.storyboard */,
+				6B36E37329FA70F3003023B3 /* Invoice.storyboard */,
 			);
 			path = "Profile Sub-Screens";
 			sourceTree = "<group>";
@@ -655,6 +661,7 @@
 				276811AF29F90DCF005209A0 /* DoctorCollectionViewCell.xib in Resources */,
 				276811B729F90DDF005209A0 /* SlotCollectionViewCell.xib in Resources */,
 				276811A729F90D64005209A0 /* TopDoctorCollectionViewCell.xib in Resources */,
+				6B36E37429FA70F3003023B3 /* Invoice.storyboard in Resources */,
 				E3A0D4C929E40F9A00894838 /* Main.storyboard in Resources */,
 				E3620D7C29ED3DDF008F9B98 /* ChatStoryboard.storyboard in Resources */,
 				6B38EFB729F686800084981F /* PatientProfileMedicalHistory.storyboard in Resources */,
@@ -723,6 +730,7 @@
 				E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */,
 				2790318E29F7CB340031CA6C /* DoctorDetailsViewController.swift in Sources */,
 				27D091E129F68127008D6072 /* ListDoctorsViewController.swift in Sources */,
+				6B36E37629FA7157003023B3 /* InvoiceViewController.swift in Sources */,
 				278CDFB429F0010A001D65BB /* ConsultViewController.swift in Sources */,
 				E3A0D4C429E40F9A00894838 /* SceneDelegate.swift in Sources */,
 				6B38EFBE29F69E170084981F /* MedicalHistoryCollectionViewCell.swift in Sources */,
