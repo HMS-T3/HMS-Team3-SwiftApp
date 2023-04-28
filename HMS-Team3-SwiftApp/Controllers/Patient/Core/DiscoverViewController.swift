@@ -9,8 +9,8 @@ import UIKit
 
 enum TableSectionType : Int {
     case upcomingSection = 0
-    case categorySection = 1
-    case ongoingMedicationsSection = 2
+    case ongoingMedicationsSection = 1
+    case categorySection = 2
     case packagesSection = 3
 }
 
@@ -30,8 +30,8 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
         let table = UITableView(frame: .zero, style: .grouped)
         table.backgroundColor = UIColor(named: "hometab.background")
         table.register(UpcomingCollectionViewTableViewCell.self, forCellReuseIdentifier: UpcomingCollectionViewTableViewCell.identifier)
-        table.register(CategoriesCollectionViewTableViewCell.self, forCellReuseIdentifier: CategoriesCollectionViewTableViewCell.identifier)
         table.register(MedicineCollectionViewTableViewCell.self, forCellReuseIdentifier: MedicineCollectionViewTableViewCell.identifier)
+        table.register(CategoriesCollectionViewTableViewCell.self, forCellReuseIdentifier: CategoriesCollectionViewTableViewCell.identifier)
         table.register(PackagesCollectionViewTableViewCell.self, forCellReuseIdentifier: PackagesCollectionViewTableViewCell.identifier)
 
         
@@ -40,7 +40,7 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
         return table
     }()
     
-    private let tableSectionTitle: [String] = ["Upcoming Appointments","Category", "Ongoing Medication", "Packages"]
+    private let tableSectionTitle: [String] = ["Upcoming Appointments", "Ongoing Medication", "Categories", "Packages"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,9 +93,9 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         switch section {
         case TableSectionType.upcomingSection.rawValue:
             return tableSectionTitle[section]
-        case TableSectionType.categorySection.rawValue:
-            return tableSectionTitle[section]
         case TableSectionType.ongoingMedicationsSection.rawValue:
+            return tableSectionTitle[section]
+        case TableSectionType.categorySection.rawValue:
             return tableSectionTitle[section]
         case TableSectionType.packagesSection.rawValue:
             return tableSectionTitle[section]
@@ -127,15 +127,15 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
             cell.delegate = self
             return cell
             
-        case TableSectionType.categorySection.rawValue:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoriesCollectionViewTableViewCell.identifier, for: indexPath) as? CategoriesCollectionViewTableViewCell else{
+        case TableSectionType.ongoingMedicationsSection.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineCollectionViewTableViewCell.identifier, for: indexPath) as? MedicineCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
             cell.delegate = self
             return cell
-            
-        case TableSectionType.ongoingMedicationsSection.rawValue:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineCollectionViewTableViewCell.identifier, for: indexPath) as? MedicineCollectionViewTableViewCell else{
+        
+        case TableSectionType.categorySection.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoriesCollectionViewTableViewCell.identifier, for: indexPath) as? CategoriesCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
             cell.delegate = self
@@ -157,10 +157,10 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.section{
             case TableSectionType.upcomingSection.rawValue:
                 return 220
-            case TableSectionType.categorySection.rawValue:
-                return 220
             case TableSectionType.ongoingMedicationsSection.rawValue:
                 return 170
+            case TableSectionType.categorySection.rawValue:
+                return 220
             case TableSectionType.packagesSection.rawValue:
                 return 230
             default:
@@ -176,12 +176,12 @@ extension DiscoverViewController: ClickCollectionViewDelegate {
         self.navigationController?.pushViewController(UpcomingAppointmentsViewController(), animated: true)
     }
     
-    func clickedOnCategoryCell() {
-        self.navigationController?.pushViewController(CategoriesCollectionViewController(), animated: true)
-    }
-    
     func clickedOnMedicationsCell() {
         self.navigationController?.pushViewController(OngoingMedicationsViewController(), animated: true)
+    }
+    
+    func clickedOnCategoryCell() {
+        self.navigationController?.pushViewController(CategoriesCollectionViewController(), animated: true)
     }
     
     func clickedOnPackagesCell() {
