@@ -11,7 +11,8 @@ class PackagesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Packages Screen")
+        view.backgroundColor = .systemBackground
         // Do any additional setup after loading the view.
     }
     

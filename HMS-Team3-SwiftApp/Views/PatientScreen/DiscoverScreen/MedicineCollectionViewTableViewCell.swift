@@ -7,16 +7,29 @@
 
 import UIKit
 
+struct OngoingMedicineInfo{
+    let name: String
+    let dosageMorning: String
+    let dosageAfternoon: String
+    let dosageEvening: String
+}
+
 class MedicineCollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "MedicineCollectionViewTableViewCell"
+    
+    let ongoingMedicine: [OngoingMedicineInfo] = [OngoingMedicineInfo(name: "Ascoril D", dosageMorning: "Dosage1", dosageAfternoon: "Dosage2", dosageEvening: "Dosage3"),
+        OngoingMedicineInfo(name: "Calpol 650", dosageMorning: "Dosage1", dosageAfternoon: "Dosage2", dosageEvening: "Dosage3")
+    ]
+    var delegate: ClickCollectionViewDelegate?
+    
     private let collectionView : UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 375, height: 100)
+        layout.itemSize = CGSize(width: 350, height: 130)
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(MedicineCollectionViewCell.self, forCellWithReuseIdentifier: MedicineCollectionViewCell.identifier)
         return cv
     }()
     
@@ -40,14 +53,30 @@ class MedicineCollectionViewTableViewCell: UITableViewCell {
 extension MedicineCollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        ongoingMedicine.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MedicineCollectionViewCell.identifier, for: indexPath) as? MedicineCollectionViewCell else { return UICollectionViewCell() }
         cell.backgroundColor = UIColor(named: "ongoingmeds.card")
         cell.layer.cornerRadius = 10
+        cell.configure(with: ongoingMedicine[indexPath.row])
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.clickedOnMedicationsCell()
+    }
+    
+}
+
+extension MedicineCollectionViewTableViewCell: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
 }
