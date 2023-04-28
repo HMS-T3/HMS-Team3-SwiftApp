@@ -69,6 +69,36 @@ class LoginViewController: UIViewController {
         button.style = .wide
         return button
     }()
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+//		let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+//
+//		let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+//		loadingIndicator.hidesWhenStopped = true
+//		loadingIndicator.style = UIActivityIndicatorView.Style.medium
+//		loadingIndicator.startAnimating();
+//
+//		alert.view.addSubview(loadingIndicator)
+//		present(alert, animated: true, completion: nil)
+//
+//		alert.dismiss(animated: true, completion: nil)
+//		print("dismissed")
+		
+		if Auth.auth().currentUser != nil {
+//			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+//				self.navigationController?.pushViewController(controller, animated: true)
+//			}
+			do {
+				try Auth.auth().signOut()
+				print("User Signed Out")
+			} catch {
+				print(error)
+			}
+			
+		}
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,26 +151,68 @@ class LoginViewController: UIViewController {
         )
     }
     
-    @objc func getOTPButtonPressed() {
-        otpField.isHidden = false
-        PhoneAuthProvider.provider()
-            .verifyPhoneNumber(phoneNumberTextField.text!, uiDelegate: nil) { verificationID, error in
-                if let error = error {
-                    print("Error sending code to phone number\(error)")
-                    return
-                }
-                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                self.getOTPButton.isHidden = true
-                self.submitOTPButton.isHidden = false
-            }
-    }
-    
-    @objc func submitOTPButtonPressed() {
-        // code to sign in the user using OTP
-    }
-    
-    @objc func googleSignInFunction() {
-        
+	@objc func getOTPButtonPressed() {
+		otpField.isHidden = false
+		if let phonNumberText = phoneNumberTextField.text {
+			let phonNumberTextWithIndCode = phonNumberText.addIndianPhoneCode()
+			PhoneAuthProvider.provider()
+				.verifyPhoneNumber(phonNumberTextWithIndCode, uiDelegate: nil) { verificationID, error in
+					if let error = error {
+						print("Error sending code to phone number\(error)")
+						return
+					}
+					UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+					self.getOTPButton.isHidden = true
+					self.submitOTPButton.isHidden = false
+				}
+		}
+	}
+	
+	@objc func submitOTPButtonPressed() {
+		
+		if let verificationID = UserDefaults.standard.string(forKey: "authVerificationID"),
+		   let userOTP = otpField.text {
+			
+			let credential = PhoneAuthProvider.provider().credential(
+				withVerificationID: verificationID,
+				verificationCode: userOTP
+			)
+			
+			Auth.auth().signIn(with: credential) { authResult, error in
+				if let error = error {
+					print(error.localizedDescription)
+					return
+				}
+				DispatchQueue.main.async {
+					print("User Verified")
+					UserAuthentication.shared.loginPatient(completion: { results in
+						switch results {
+						case .success(let loginPatient):
+							DispatchQueue.main.async {
+								if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+									self.navigationController?.pushViewController(controller, animated: true)
+								}
+								print(loginPatient)
+								print("Logged In User")
+								print(loginPatient.response?.id) //  Save This to User Defaults
+							}
+						case .failure(let error):
+							if error as! APIError == APIError.UserNotFound {
+								self.registerPhoneNumber(pNumber: self.phoneNumberTextField.text ?? "123")
+							}
+							print(error)
+						}
+					}, email: nil, uinqueID: nil, pNumber: self.phoneNumberTextField.text)
+					
+				}
+				return
+			}
+			
+		}
+	}
+	
+	@objc func googleSignInFunction() {
+		
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
         // Create Google Sign In configuration object.
@@ -178,11 +250,13 @@ class LoginViewController: UIViewController {
                             }
                         }
                     case .failure(let error):
+						if error as! APIError == APIError.UserNotFound {
+							self.registerGoogleUser(email: email, uinqueID: uid)
+						}
                         print(error)
-                        self.registerGoogleUser(email: email, uinqueID: uid)
                     }
                     
-                }, email: email, uinqueID: uid)
+                }, email: email, uinqueID: uid, pNumber: nil)
             }
         }
     }
@@ -201,7 +275,31 @@ class LoginViewController: UIViewController {
                 }
             case .failure(let error):
                 print(error)
+				let alert = UIAlertController(title: "We Were Unable To Verify Your Account.", message: "Please Try Again Later", preferredStyle: .actionSheet)
+				alert.addAction(UIAlertAction(title: "OK", style: .default))
+				self.present(alert, animated: true)
             }
-        }, email: email, uinqueID: uinqueID)
+        }, email: email, uinqueID: uinqueID, pNumber: nil)
     }
+	
+	func registerPhoneNumber(pNumber: String) {
+		UserAuthentication.shared.registerPatient(completion: { results in
+			
+			switch results {
+			case .success(let loginPatient):
+				DispatchQueue.main.async {
+					print("Registered New Phone Number")
+					if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+						self.navigationController?.pushViewController(controller, animated: true)
+						print(loginPatient.response!.id) // Save this id to user defaults
+					}
+				}
+			case .failure(let error):
+				print(error)
+				let alert = UIAlertController(title: "We Were Unable To Verify Your Account.", message: "Please Try Again Later", preferredStyle: .actionSheet)
+				alert.addAction(UIAlertAction(title: "OK", style: .default))
+				self.present(alert, animated: true)
+			}
+		}, email: nil, uinqueID: nil, pNumber: pNumber)
+	}
 }

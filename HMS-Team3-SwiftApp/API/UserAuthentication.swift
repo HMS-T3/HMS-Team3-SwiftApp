@@ -8,26 +8,36 @@
 import Foundation
 
 struct Constants {
-    
     static let baseURL = "https://hmst3-backend.onrender.com/app"
 }
 
 enum APIError: Error {
-    case UnableToRegisterPatient
+    case UserNotFound
 }
 
 class UserAuthentication {
     
     static let shared = UserAuthentication()
     
-    func registerPatient(completion: @escaping (Result<LoginPatient, Error>) -> Void, email: String, uinqueID: String) {
+	func registerPatient(completion: @escaping (Result<LoginPatient, Error>) -> Void, email: String?, uinqueID: String?, pNumber: String?) { // Correct Unique spelling
         
-        guard let url = URL(string: "\(Constants.baseURL)/register/patient?email=\(email)&password=\(uinqueID)") else { return }
+		var url: URL
+		var request: URLRequest
+		let requestBodyData: Data?
+		
+		if let email = email,
+		   let uinqueID = uinqueID {
+			url = URL(string: "\(Constants.baseURL)/register/patient")! // Re-Verify this
+			request = URLRequest(url: url)
+			request.httpMethod = "POST"
+			requestBodyData = "email=\(email)&password=\(uinqueID)".data(using: .utf8)
+		} else {
+			url = URL(string: "\(Constants.baseURL)/register/patient")! // Re-Verify this
+			request = URLRequest(url: url)
+			request.httpMethod = "POST"
+			requestBodyData = "phoneNumber=\(pNumber!)".data(using: .utf8)
+		}
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        let requestBodyData = "email=\(email)&password=\(uinqueID)".data(using: .utf8)
         request.httpBody = requestBodyData
         
         request.setValue("*", forHTTPHeaderField: "Access-Control-Allow-Origin")
@@ -52,20 +62,29 @@ class UserAuthentication {
                 completion(.failure(error))
             }
         }
-        
         task.resume()
     }
     
-    func loginPatient(completion: @escaping(Result<LoginPatient, Error>) -> Void, email: String, uinqueID: String) {
+	func loginPatient(completion: @escaping(Result<LoginPatient, Error>) -> Void, email: String?, uinqueID: String?, pNumber: String?) {
         
-        guard let url = URL(string: "\(Constants.baseURL)/login/patient?email=\(email)&password=\(uinqueID)") else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        let requestBodyData = "email=\(email)&password=\(uinqueID)".data(using: .utf8)
+		var url: URL
+		var request: URLRequest
+		let requestBodyData: Data?
+		
+		if let email = email,
+		   let uinqueID = uinqueID {
+			url = URL(string: "\(Constants.baseURL)/login/patient")! // Re-Verify this
+			request = URLRequest(url: url)
+			request.httpMethod = "POST"
+			requestBodyData = "email=\(email)&password=\(uinqueID)".data(using: .utf8)
+		} else {
+			url = URL(string: "\(Constants.baseURL)/login/patient")! // Re-Verify this
+			request = URLRequest(url: url)
+			request.httpMethod = "POST"
+			requestBodyData = "phoneNumber=\(pNumber!)".data(using: .utf8) // dont provide +91
+		}
+		
         request.httpBody = requestBodyData
-        
         request.setValue("*", forHTTPHeaderField: "Access-Control-Allow-Origin")
         request.setValue("Origin, X-Requested-With, Content-Type, Accept", forHTTPHeaderField: "Access-Control-Allow-Headers")
         
@@ -78,7 +97,11 @@ class UserAuthentication {
             
             do {
                 let results = try JSONDecoder().decode(LoginPatient.self, from: data)
-                completion(.success(results))
+				if results.status {
+					completion(.success(results))
+				} else {
+					completion(.failure(APIError.UserNotFound))
+				}
             } catch {
                 completion(.failure(error))
             }

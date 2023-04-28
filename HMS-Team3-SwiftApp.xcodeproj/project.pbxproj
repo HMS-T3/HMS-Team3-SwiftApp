@@ -288,8 +288,8 @@
 			children = (
 				278CDFAF29EFFF50001D65BB /* Patient */,
 				AC4D05AC29F689B2004E4C44 /* SOS Contacts Cell */,
-				E3A0D4C529E40F9A00894838 /* ViewController.swift */,
-				E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */,
+				3AEA1D0B29E81C80005369C4 /* Storyboards */,
+				E3A0D4CC29E40F9B00894838 /* LaunchScreen.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -497,10 +497,10 @@
 				765F865A29F25C79009E67F2 /* Protocols */,
 				765F863D29EFEF9D009E67F2 /* Models */,
 				765F864629EFF3F4009E67F2 /* Views */,
+				E3A0D4C529E40F9A00894838 /* ViewController.swift */,
+				E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */,
 				3AEA1D0A29E81C76005369C4 /* Controllers */,
-				3AEA1D0B29E81C80005369C4 /* Storyboards */,
 				E3A0D4CA29E40F9B00894838 /* Assets.xcassets */,
-				E3A0D4CC29E40F9B00894838 /* LaunchScreen.storyboard */,
 				E3A0D4CF29E40F9B00894838 /* Info.plist */,
 				76D7A20E29F6866C00E6F225 /* GoogleService-Info.plist */,
 			);
@@ -915,7 +915,7 @@
 				CODE_SIGN_ENTITLEMENTS = "HMS-Team3-SwiftApp/HMS-Team3-SwiftApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 62RMH62S67;
+				DEVELOPMENT_TEAM = YK69472845;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HMS-Team3-SwiftApp/Info.plist";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to share your Health data to doctors and clinicians.";
@@ -930,7 +930,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "HMS-Team3-SwiftApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -946,7 +946,7 @@
 				CODE_SIGN_ENTITLEMENTS = "HMS-Team3-SwiftApp/HMS-Team3-SwiftApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 62RMH62S67;
+				DEVELOPMENT_TEAM = YK69472845;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HMS-Team3-SwiftApp/Info.plist";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to share your Health data to doctors and clinicians.";
@@ -961,7 +961,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "HMS-Team3-SwiftApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
