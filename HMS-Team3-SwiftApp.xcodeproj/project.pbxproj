@@ -22,6 +22,8 @@
 		278CDFB429F0010A001D65BB /* ConsultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CDFB329F0010A001D65BB /* ConsultViewController.swift */; };
 		2790318E29F7CB340031CA6C /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2790318D29F7CB340031CA6C /* DoctorDetailsViewController.swift */; };
 		27D091E129F68127008D6072 /* ListDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D091E029F68127008D6072 /* ListDoctorsViewController.swift */; };
+		3A86EB2129FBD508003D4E01 /* DoctorLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86EB2029FBD508003D4E01 /* DoctorLoginViewController.swift */; };
+		3A86EB2329FBE391003D4E01 /* ExploreStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A86EB2229FBE391003D4E01 /* ExploreStoryboard.storyboard */; };
 		3A8BD1C529FBA055002B720C /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BD1BD29FBA055002B720C /* CategoriesCollectionViewCell.swift */; };
 		3A8BD1C629FBA055002B720C /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BD1BE29FBA055002B720C /* UpcomingCollectionViewCell.swift */; };
 		3A8BD1C729FBA055002B720C /* PackagesCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BD1BF29FBA055002B720C /* PackagesCollectionViewTableViewCell.swift */; };
@@ -129,6 +131,8 @@
 		278CDFB329F0010A001D65BB /* ConsultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultViewController.swift; sourceTree = "<group>"; };
 		2790318D29F7CB340031CA6C /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
 		27D091E029F68127008D6072 /* ListDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDoctorsViewController.swift; sourceTree = "<group>"; };
+		3A86EB2029FBD508003D4E01 /* DoctorLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorLoginViewController.swift; sourceTree = "<group>"; };
+		3A86EB2229FBE391003D4E01 /* ExploreStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExploreStoryboard.storyboard; sourceTree = "<group>"; };
 		3A8BD1BD29FBA055002B720C /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A8BD1BE29FBA055002B720C /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A8BD1BF29FBA055002B720C /* PackagesCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackagesCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -291,6 +295,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		3A86EB1D29FBD4CD003D4E01 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				3A86EB2029FBD508003D4E01 /* DoctorLoginViewController.swift */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
 		3A8BD1BC29FBA055002B720C /* DiscoverScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +333,7 @@
 		3AEA1D0A29E81C76005369C4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A86EB1D29FBD4CD003D4E01 /* Doctor */,
 				278CDFAF29EFFF50001D65BB /* Patient */,
 				AC4D05AC29F689B2004E4C44 /* SOS Contacts Cell */,
 				3AEA1D0B29E81C80005369C4 /* Storyboards */,
@@ -455,6 +468,7 @@
 				E3620D7929ED3DD6008F9B98 /* ScheduleStoryboard.storyboard */,
 				E3620D7B29ED3DDF008F9B98 /* ChatStoryboard.storyboard */,
 				E3620D8529ED3E5C008F9B98 /* DoctorProfileStoryboard.storyboard */,
+				3A86EB2229FBE391003D4E01 /* ExploreStoryboard.storyboard */,
 				E3620D8729ED3E6B008F9B98 /* HomeStoryboard.storyboard */,
 			);
 			path = DoctorStoryboards;
@@ -660,6 +674,7 @@
 				AC4D05AB29F6845E004E4C44 /* SOS Contacts.storyboard in Resources */,
 				3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */,
 				E3A0D4CE29E40F9B00894838 /* LaunchScreen.storyboard in Resources */,
+				3A86EB2329FBE391003D4E01 /* ExploreStoryboard.storyboard in Resources */,
 				E3620D7E29ED3E01008F9B98 /* ConsultStoryboard.storyboard in Resources */,
 				E3A0D4CB29E40F9B00894838 /* Assets.xcassets in Resources */,
 				CE980B8A29F93D3A0084C590 /* AppleHealth.storyboard in Resources */,
@@ -750,6 +765,7 @@
 				3A8BD1D629FBA13E002B720C /* PackagesViewController.swift in Sources */,
 				765F866129F26D26009E67F2 /* EditProfileTableViewCell.swift in Sources */,
 				E37D151C29F7B45800300948 /* Extensions.swift in Sources */,
+				3A86EB2129FBD508003D4E01 /* DoctorLoginViewController.swift in Sources */,
 				765F865229F0FE2A009E67F2 /* SOSContactsViewController.swift in Sources */,
 				765F864129EFEFBB009E67F2 /* Enums.swift in Sources */,
 				765F863F29EFEFA5009E67F2 /* User.swift in Sources */,
