@@ -9,21 +9,31 @@ import Foundation
 import UIKit
 
 struct User: Codable {
-	let role: Roles
-	let id: String
-	let info: PersonalInfo?
+    let userResponse: UserResponse
+    
+    enum CodingKeys: String, CodingKey {
+        case userResponse = "Response"
+    }
 }
 
-struct PersonalInfo: Codable {
-	let name: String
-	let image: String?
-	let dob: Double
-	let phoneNumber: Int
-	let email: String?
-	let biologicalGender: Gender
-	let records: [HealthRecords]?
+struct UserResponse: Codable {
+    let info: PersonalInfo?
+    let role: String?
+    let phoneNumber: String?
+    let email: String?
+    let password: String?
+    let appointments: [String]?
+    let schedule : [String]?
+    let emergencyContacts: [String]?
 }
- 
+struct PersonalInfo: Codable {
+    let profileImg: String?
+	let name: String?
+	let dateOfbirth: Date?
+	let phoneNumber: String?
+	let biologicalGender: Gender?
+}
+
 struct HealthRecords: Codable {
 	let doctor: User
 	let reasonOfVisit: String

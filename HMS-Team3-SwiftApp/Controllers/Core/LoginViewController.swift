@@ -174,20 +174,22 @@ class LoginViewController: UIViewController {
                         DispatchQueue.main.async {
                             if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                                 self.navigationController?.pushViewController(controller, animated: true)
-                                print(loginPatient.response!.id) // Save this id to user defaults
+                                print(loginPatient.response?.id) // Save this id to user defaults
+                                UserDefaults.standard.set(loginPatient.response?.id!, forKey: "PatientID")
                             }
+                            self.updateUserDetails()
                         }
                     case .failure(let error):
                         print(error)
-                        self.registerGoogleUser(email: email, uinqueID: uid)
+                        self.registerGoogleUser(email: email, uniqueID: uid)
                     }
                     
-                }, email: email, uinqueID: uid)
+                }, email: email, uniqueID: uid)
             }
         }
     }
     
-    func registerGoogleUser(email: String, uinqueID: String) {
+    func registerGoogleUser(email: String, uniqueID: String) {
         UserAuthentication.shared.registerPatient(completion: { results in
             
             switch results {
@@ -196,12 +198,34 @@ class LoginViewController: UIViewController {
                     print("Registered New User")
                     if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                         self.navigationController?.pushViewController(controller, animated: true)
-                        print(loginPatient.response!.id) // Save this id to user defaults
+                        print(loginPatient.response?.id) // Save this id to user defaults
+                        UserDefaults.standard.set(loginPatient.response?.id!, forKey: "PatientID")
+                        // Update User Details
                     }
                 }
             case .failure(let error):
                 print(error)
             }
-        }, email: email, uinqueID: uinqueID)
+        }, email: email, uniqueID: uniqueID)
+    }
+    
+    func updateUserDetails() {
+        if let user = Auth.auth().currentUser {
+            let name = user.displayName
+            let phone = user.phoneNumber
+            let imgUrl = user.photoURL?.absoluteString
+
+            UpdateUserDetails.shared.updatePatient(completion: { results in
+                switch results {
+                case .success(let user):
+                    print("Success")
+                    DispatchQueue.main.async {
+                        print(results)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }, name: name ?? "", phoneNumber: phone ?? "", imgUrl: imgUrl!)
+        }
     }
 }

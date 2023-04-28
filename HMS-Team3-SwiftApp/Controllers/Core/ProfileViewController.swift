@@ -49,13 +49,7 @@ class ProfileViewController: UIViewController {
 	
 	private let tableSectionsTitles: [String] = ["Medical History", "Invoice", "SOS Contacts", "Apple Health", "Quick Stats"]
 	
-	var personalInfo: PersonalInfo = PersonalInfo(name: "Name",
-												  image: "",
-												  dob: 123455,
-												  phoneNumber: 1234567890,
-												  email: "email",
-												  biologicalGender: Gender.Male,
-												  records: nil)
+    var personalInfo: UserResponse = UserResponse(info: PersonalInfo(profileImg: "https://randomuser.me/api/portraits/women/51.jpg", name: "Namename", dateOfbirth: Date(), phoneNumber: "9910740324", biologicalGender: Gender.Female), role: "patient", phoneNumber: "38493124798", email: "", password: "wfgrdw" ,appointments: [], schedule: [], emergencyContacts: [])
 	
 	private let profileTableView: UITableView = {
 		
@@ -67,7 +61,7 @@ class ProfileViewController: UIViewController {
 		return table
 	}()
 	
-	init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, patientInfo: PersonalInfo) {
+	init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, patientInfo: UserResponse) {
 		self.personalInfo = patientInfo
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -78,9 +72,20 @@ class ProfileViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		view.backgroundColor = UIColor(named: "ProfileBackground")
-		
+        print("Profile View Did Load")
+        GetUserDetails.shared.getPatient(completion: { results in
+            switch results {
+            case .success(let user):
+                print("Success")
+                DispatchQueue.main.async {
+                    self.personalInfo = user.userResponse
+                    self.updateProfile()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        })
 		title = "Profile"
 		self.navigationController?.navigationBar.prefersLargeTitles = false
 		self.navigationItem.largeTitleDisplayMode = .never
@@ -105,6 +110,12 @@ class ProfileViewController: UIViewController {
 			]
 		)
 	}
+    
+    func updateProfile() {
+        profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300), delegate: self, profileDetails: personalInfo)
+        
+    }
+       
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {

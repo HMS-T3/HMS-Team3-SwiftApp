@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Constants {
-    
-    static let baseURL = "https://hmst3-backend.onrender.com/app"
-}
+//struct Constants {
+//
+//    static let baseURL = "https://hmst3-backend.onrender.com/app"
+//}
 
 enum APIError: Error {
     case UnableToRegisterPatient
@@ -20,14 +20,14 @@ class UserAuthentication {
     
     static let shared = UserAuthentication()
     
-    func registerPatient(completion: @escaping (Result<LoginPatient, Error>) -> Void, email: String, uinqueID: String) {
+    func registerPatient(completion: @escaping (Result<LoginPatient, Error>) -> Void, email: String, uniqueID: String) {
         
-        guard let url = URL(string: "\(Constants.baseURL)/register/patient?email=\(email)&password=\(uinqueID)") else { return }
+        guard let url = URL(string: "\(Constants.baseURL)/register/patient?email=\(email)&password=\(uniqueID)") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        let requestBodyData = "email=\(email)&password=\(uinqueID)".data(using: .utf8)
+        let requestBodyData = "email=\(email)&password=\(uniqueID)".data(using: .utf8)
         request.httpBody = requestBodyData
         
         request.setValue("*", forHTTPHeaderField: "Access-Control-Allow-Origin")
@@ -56,14 +56,14 @@ class UserAuthentication {
         task.resume()
     }
     
-    func loginPatient(completion: @escaping(Result<LoginPatient, Error>) -> Void, email: String, uinqueID: String) {
+    func loginPatient(completion: @escaping(Result<LoginPatient, Error>) -> Void, email: String, uniqueID: String) {
         
-        guard let url = URL(string: "\(Constants.baseURL)/login/patient?email=\(email)&password=\(uinqueID)") else { return }
+        guard let url = URL(string: "\(Constants.baseURL)/login/patient?email=\(email)&password=\(uniqueID)") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        let requestBodyData = "email=\(email)&password=\(uinqueID)".data(using: .utf8)
+        let requestBodyData = "email=\(email)&password=\(uniqueID)".data(using: .utf8)
         request.httpBody = requestBodyData
         
         request.setValue("*", forHTTPHeaderField: "Access-Control-Allow-Origin")

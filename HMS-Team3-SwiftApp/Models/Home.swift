@@ -14,7 +14,6 @@ enum Categories: Codable {
 }
 
 struct Home: Codable {
-	
 	let upcommingAppointment: Appointment?
 	let prescritpion: [Prescritpion]?
 	let categories: Categories
