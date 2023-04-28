@@ -87,15 +87,15 @@ class LoginViewController: UIViewController {
 //		print("dismissed")
 		
 		if Auth.auth().currentUser != nil {
-//			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
-//				self.navigationController?.pushViewController(controller, animated: true)
-//			}
-			do {
-				try Auth.auth().signOut()
-				print("User Signed Out")
-			} catch {
-				print(error)
+			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+				self.navigationController?.pushViewController(controller, animated: true)
 			}
+//			do {
+//				try Auth.auth().signOut()
+//				print("User Signed Out")
+//			} catch {
+//				print(error)
+//			}
 			
 		}
 	}
@@ -195,6 +195,7 @@ class LoginViewController: UIViewController {
 								print(loginPatient)
 								print("Logged In User")
 								print(loginPatient.response?.id) //  Save This to User Defaults
+                                UserDefaults.standard.set(loginPatient.response?.id!, forKey: "PatientID")
 							}
 						case .failure(let error):
 							if error as! APIError == APIError.UserNotFound {
@@ -316,6 +317,7 @@ class LoginViewController: UIViewController {
 					if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
 						self.navigationController?.pushViewController(controller, animated: true)
 						print(loginPatient.response!.id) // Save this id to user defaults
+                        UserDefaults.standard.set(loginPatient.response?.id!, forKey: "PatientID")
 					}
 				}
 			case .failure(let error):
