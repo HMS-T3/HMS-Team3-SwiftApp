@@ -81,7 +81,7 @@ class MedicineCollectionViewCell: UICollectionViewCell {
     private let separatorView1: UIView = {
         let view = UIView()
         view.backgroundColor = .darkGray
-        view.frame = CGRect(x: 168, y: 88, width: 1.5, height: 14)
+//        view.frame = CGRect(x: 168, y: 88, width: 1.5, height: 14)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -89,7 +89,7 @@ class MedicineCollectionViewCell: UICollectionViewCell {
     private let separatorView2: UIView = {
         let view = UIView()
         view.backgroundColor = .darkGray
-        view.frame = CGRect(x: 228, y: 88, width: 1.5, height: 14)
+//        view.frame = CGRect(x: 228, y: 88, width: 1.5, height: 14)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -130,13 +130,18 @@ class MedicineCollectionViewCell: UICollectionViewCell {
             dosageAfternoonLabel.topAnchor.constraint(equalTo: dosageLabel.bottomAnchor, constant: 5),
             dosageAfternoonLabel.leadingAnchor.constraint(equalTo: dosageMorningLabel.trailingAnchor, constant: 10),
             
-//            separatorView1.topAnchor.constraint(equalTo: dosageLabel.bottomAnchor, constant: 5),
-//            separatorView1.leadingAnchor.constraint(equalTo: dosageMorningLabel.trailingAnchor, constant: 2),
-//            separatorView1.heightAnchor.constraint(equalToConstant: 5),
-//            separatorView1.widthAnchor.constraint(equalToConstant: 2),
+            separatorView1.trailingAnchor.constraint(equalTo: dosageAfternoonLabel.leadingAnchor, constant: -4),
+            separatorView1.leadingAnchor.constraint(equalTo: dosageMorningLabel.trailingAnchor, constant: 5),
+            separatorView1.topAnchor.constraint(equalTo: dosageLabel.bottomAnchor, constant: 7),
+            separatorView1.heightAnchor.constraint(equalToConstant: 11),
             
             dosageEveningLabel.topAnchor.constraint(equalTo: dosageLabel.bottomAnchor, constant: 5),
-            dosageEveningLabel.leadingAnchor.constraint(equalTo: dosageAfternoonLabel.trailingAnchor, constant: 10)
+            dosageEveningLabel.leadingAnchor.constraint(equalTo: dosageAfternoonLabel.trailingAnchor, constant: 10),
+            
+            separatorView2.trailingAnchor.constraint(equalTo: dosageEveningLabel.leadingAnchor, constant: -4),
+            separatorView2.leadingAnchor.constraint(equalTo: dosageAfternoonLabel.trailingAnchor, constant: 5),
+            separatorView2.topAnchor.constraint(equalTo: dosageLabel.bottomAnchor, constant: 7),
+            separatorView2.heightAnchor.constraint(equalToConstant: 11)
 
         ])
     }
