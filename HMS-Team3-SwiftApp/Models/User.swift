@@ -61,13 +61,13 @@ struct PatientHistory: Codable {
 	let medicalCondition: String
 }
 
-struct Prescritpion: Codable {
+struct Prescription: Codable {
 	let diagonisis: String
-	let medicene: [PrescribedMedicene]?
+	let medicine: [PrescribedMedicine]?
 	let labTests: [LabTest]?
 }
 
-struct PrescribedMedicene: Codable {
+struct PrescribedMedicine: Codable {
 	let name: String
 	let dosage: Dosage
 }
@@ -78,7 +78,7 @@ struct LabTest: Codable {
 }
 
 struct Dosage: Codable {
-	let timeOfTheDay: MediceneTime
+	let timeOfTheDay: MedicineTime
 	let amount: [Int]
 	let amountType: DosageAmountType
 }

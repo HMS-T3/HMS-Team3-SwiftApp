@@ -2,7 +2,7 @@
 //  Appointments.swift
 //  HMS-Team3-SwiftApp
 //
-//  Created by Shivacharan Reddy on 17/04/23.
+//  Created by Rushil Kothari on 24/04/23.
 //
 
 import Foundation
