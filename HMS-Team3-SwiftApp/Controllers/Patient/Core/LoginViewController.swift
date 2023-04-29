@@ -87,15 +87,16 @@ class LoginViewController: UIViewController {
 //		print("dismissed")
 		
 		if Auth.auth().currentUser != nil {
-//			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
-//				self.navigationController?.pushViewController(controller, animated: true)
-//			}
-			do {
-				try Auth.auth().signOut()
-				print("User Signed Out")
-			} catch {
-				print(error)
+			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
+				self.navigationController?.pushViewController(controller, animated: true)
 			}
+//			do {
+//				try Auth.auth().signOut()
+//				print("User Signed Out")
+//			} catch {
+//				print(error)
+//			}
 			
 		}
 	}
@@ -170,6 +171,8 @@ class LoginViewController: UIViewController {
 	
 	@objc func submitOTPButtonPressed() {
 		
+		self.resignFirstResponder()
+		
 		if let verificationID = UserDefaults.standard.string(forKey: "authVerificationID"),
 		   let userOTP = otpField.text {
 			
@@ -194,11 +197,14 @@ class LoginViewController: UIViewController {
 								}
 								print(loginPatient)
 								print("Logged In User")
-								print(loginPatient.response?.id) //  Save This to User Defaults
+//								print(loginPatient.response?.id)
+								UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")//  Save This to User Defaults
 							}
 						case .failure(let error):
 							if error as! APIError == APIError.UserNotFound {
-								self.registerPhoneNumber(pNumber: self.phoneNumberTextField.text ?? "123")
+								DispatchQueue.main.async {
+									self.registerPhoneNumber(pNumber: self.phoneNumberTextField.text ?? "123")
+								}
 							}
 							print(error)
 						}
@@ -246,7 +252,8 @@ class LoginViewController: UIViewController {
                         DispatchQueue.main.async {
                             if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                                 self.navigationController?.pushViewController(controller, animated: true)
-                                print(loginPatient.response!.id) // Save this id to user defaults
+//                                print(loginPatient.response!.id) // Save this id to user defaults
+								UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
                             }
                         }
                     case .failure(let error):
@@ -270,7 +277,8 @@ class LoginViewController: UIViewController {
                     print("Registered New User")
                     if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                         self.navigationController?.pushViewController(controller, animated: true)
-                        print(loginPatient.response!.id) // Save this id to user defaults
+//                        print(loginPatient.response!.id) // Save this id to user defaults
+						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
                     }
                 }
             case .failure(let error):
@@ -291,7 +299,8 @@ class LoginViewController: UIViewController {
 					print("Registered New Phone Number")
 					if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
 						self.navigationController?.pushViewController(controller, animated: true)
-						print(loginPatient.response!.id) // Save this id to user defaults
+//						print(loginPatient.response!.id) // Save this id to user defaults
+						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
 					}
 				}
 			case .failure(let error):
