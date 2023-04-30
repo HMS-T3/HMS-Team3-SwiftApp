@@ -27,6 +27,7 @@ class UpcomingCollectionViewCell: UICollectionViewCell {
     
     private let doctorNameText: UILabel = {
         let textLabel = UILabel()
+        textLabel.textColor = .white
         textLabel.text = "Doc Name"
         textLabel.textAlignment = .center
         textLabel.font = .systemFont(ofSize: 20)
@@ -36,6 +37,7 @@ class UpcomingCollectionViewCell: UICollectionViewCell {
     
     private let doctorSpecialization: UILabel = {
         let textLabel = UILabel()
+        textLabel.textColor = .white
         textLabel.text = "Doc Specialization"
         textLabel.textAlignment = .center
         textLabel.font = .systemFont(ofSize: 15)

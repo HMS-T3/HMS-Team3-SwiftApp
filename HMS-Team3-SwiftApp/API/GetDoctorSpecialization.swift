@@ -1,20 +1,20 @@
 //
-//  GetUserDetails.swift
+//  GetDoctorSpecialization.swift
 //  HMS-Team3-SwiftApp
 //
-//  Created by Niya Shameer on 26/04/23.
+//  Created by Niya Shameer on 28/04/23.
 //
+
 
 import Foundation
 
-class GetUserDetails {
-    static let shared = GetUserDetails()
+class GetDoctorSpecialization {
     
-    func getPatient(completion: @escaping (Result<User, Error>) -> Void) {
+    static let shared = GetDoctorSpecialization()
+    
+    func getDoctorSpecialization(completion: @escaping (Result<Specializations, Error>) -> Void) {
         
-        let patientID = UserDefaults.standard.string(forKey: "PatientID")
-        
-        guard let url = URL(string: "\(Constants.baseURL)/getUserDetails?user_id=\(patientID!)&role=patient") else { return }
+        guard let url = URL(string: "\(Constants.baseURL)/get_specializations") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -26,8 +26,7 @@ class GetUserDetails {
                 return
             }
                 do {
-                    let results = try JSONDecoder().decode(User.self, from: data)
-                    print(results)
+                    let results = try JSONDecoder().decode(Specializations.self, from: data)
                     completion(.success(results))
                 } catch {
                     completion(.failure(error))
@@ -35,6 +34,5 @@ class GetUserDetails {
             }
         task.resume()
         }
-    }
-
+}
 

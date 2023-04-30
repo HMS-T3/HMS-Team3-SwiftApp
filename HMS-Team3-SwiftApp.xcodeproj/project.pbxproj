@@ -95,8 +95,10 @@
 		E3A0D4D929E40F9B00894838 /* HMS_Team3_SwiftAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4D829E40F9B00894838 /* HMS_Team3_SwiftAppTests.swift */; };
 		E3A0D4E329E40F9B00894838 /* HMS_Team3_SwiftAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4E229E40F9B00894838 /* HMS_Team3_SwiftAppUITests.swift */; };
 		E3A0D4E529E40F9B00894838 /* HMS_Team3_SwiftAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4E429E40F9B00894838 /* HMS_Team3_SwiftAppUITestsLaunchTests.swift */; };
+		E3C3B56029FE9FD800343D74 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = E3C3B55F29FE9FD800343D74 /* SDWebImageSVGCoder */; };
 		E3D2555029FBC9F500F1E7C5 /* AppleHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2554F29FBC9F500F1E7C5 /* AppleHealthViewController.swift */; };
 		E3D2555229FBCA1300F1E7C5 /* Utililties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2555129FBCA1300F1E7C5 /* Utililties.swift */; };
+		E3D2555429FBD34C00F1E7C5 /* GetDoctorSpecialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2555329FBD34C00F1E7C5 /* GetDoctorSpecialization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +211,7 @@
 		E3A0D4E429E40F9B00894838 /* HMS_Team3_SwiftAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMS_Team3_SwiftAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E3D2554F29FBC9F500F1E7C5 /* AppleHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthViewController.swift; sourceTree = "<group>"; };
 		E3D2555129FBCA1300F1E7C5 /* Utililties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utililties.swift; sourceTree = "<group>"; };
+		E3D2555329FBD34C00F1E7C5 /* GetDoctorSpecialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorSpecialization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +221,7 @@
 			files = (
 				76D7A21229F6873D00E6F225 /* FirebaseAuth in Frameworks */,
 				76D7A21429F6873D00E6F225 /* FirebaseFirestore in Frameworks */,
+				E3C3B56029FE9FD800343D74 /* SDWebImageSVGCoder in Frameworks */,
 				E341B97829FBAA6E00EE9917 /* SDWebImage in Frameworks */,
 				76D7A21729F6895600E6F225 /* GoogleSignIn in Frameworks */,
 			);
@@ -296,6 +300,7 @@
 				766926A529F68D3C00F4F728 /* UserAuthentication.swift */,
 				E317358F29F97D9000B16A2A /* GetUserDetails.swift */,
 				E39FC8E429FA7BB70036F1F8 /* UpdateUserDetails.swift */,
+				E3D2555329FBD34C00F1E7C5 /* GetDoctorSpecialization.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				76D7A21329F6873D00E6F225 /* FirebaseFirestore */,
 				76D7A21629F6895600E6F225 /* GoogleSignIn */,
 				E341B97729FBAA6E00EE9917 /* SDWebImage */,
+				E3C3B55F29FE9FD800343D74 /* SDWebImageSVGCoder */,
 			);
 			productName = "HMS-Team3-SwiftApp";
 			productReference = E3A0D4BE29E40F9A00894838 /* HMS-Team3-SwiftApp.app */;
@@ -644,6 +650,7 @@
 				76D7A21029F6873D00E6F225 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				76D7A21529F6895600E6F225 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				E341B97629FBAA6E00EE9917 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				E3C3B55E29FE9FD800343D74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
 			);
 			productRefGroup = E3A0D4BF29E40F9A00894838 /* Products */;
 			projectDirPath = "";
@@ -743,6 +750,7 @@
 				3A8BD1D729FBA13E002B720C /* UpcomingAppointmentsViewController.swift in Sources */,
 				765F864929EFF40D009E67F2 /* ProfileTableViewCell.swift in Sources */,
 				E37D150A29F6684000300948 /* RecordViewController.swift in Sources */,
+				E3D2555429FBD34C00F1E7C5 /* GetDoctorSpecialization.swift in Sources */,
 				6B38EFB929F691CB0084981F /* MedicalhistoryDataModel.swift in Sources */,
 				766926A829F691CE00F4F728 /* LoginPatient.swift in Sources */,
 				E317359229F982E900B16A2A /* Constants.swift in Sources */,
@@ -1137,6 +1145,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		E3C3B55E29FE9FD800343D74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1159,6 +1175,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E341B97629FBAA6E00EE9917 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		E3C3B55F29FE9FD800343D74 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3C3B55E29FE9FD800343D74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

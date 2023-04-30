@@ -57,8 +57,15 @@ struct BloodPresure: Codable {
 }
 
 struct PatientHistory: Codable {
-	let allergies: [String]
-	let medicalCondition: String
+    let allergies: [String]
+    let medicalCondition: String
+}
+
+struct MedicalHistory: Codable {
+    let allergies: [String]
+    let chronicDiseases: [String]
+    let previousSurgeries: [String]
+    let vaccinations: [String]
 }
 
 struct Prescription: Codable {
@@ -83,3 +90,15 @@ struct Dosage: Codable {
 	let amountType: DosageAmountType
 }
 
+struct Specializations: Codable {
+    let Specialization: [Specialization]
+    
+    enum CodingKeys: String, CodingKey {
+        case Specialization = "Response"
+    }
+}
+struct Specialization: Codable {
+    let specialization: String
+    let description: String
+    let imgUrl:  String
+}

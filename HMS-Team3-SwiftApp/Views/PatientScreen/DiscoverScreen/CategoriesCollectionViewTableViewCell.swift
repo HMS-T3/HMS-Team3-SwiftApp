@@ -12,17 +12,15 @@ class CategoriesCollectionViewTableViewCell: UITableViewCell {
     static let identifier = "CategoriesCollectionViewTableViewCell"
     
     var delegate: ClickCollectionViewDelegate?
-   
-    let categoryInfo: [Categories] = [
-        Categories(categoryImage: UIImage(named: "General"), categoryName: CategoryTypes.general),
-        Categories(categoryImage: UIImage(named: "Lung Specialist"), categoryName: CategoryTypes.lungSpecialist),
-        Categories(categoryImage: UIImage(named: "Dentist"), categoryName: CategoryTypes.dentist),
-        Categories(categoryImage: UIImage(named: "Psychiatrist"), categoryName: CategoryTypes.psychiatrist),
-        Categories(categoryImage: UIImage(named: "Covid19"), categoryName: CategoryTypes.covid19),
-        Categories(categoryImage: UIImage(named: "Surgeon"), categoryName: CategoryTypes.surgeon),
-        Categories(categoryImage: UIImage(named: "Cardiologist"), categoryName: CategoryTypes.cardiologist),
-        Categories(categoryImage: UIImage(named: "Neurologist"), categoryName: CategoryTypes.neurologist)
-    ]
+    var categories: [Specialization]
+    
+    func configureCategory(_ category: [Specialization]){
+        categories = category
+        categoryInfo =  categories.map { value in Categories(categoryImage: value.imgUrl, categoryName: value.specialization)
+        }
+    }
+    
+    var categoryInfo: [Categories]
     
     private let collectionView : UICollectionView = {
         
@@ -35,6 +33,10 @@ class CategoriesCollectionViewTableViewCell: UITableViewCell {
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        self.categories =  [Specialization(specialization: "hello", description: "hi", imgUrl: "ok")]
+        self.categoryInfo = categories.map { value in
+            Categories(categoryImage: "value.imgUrl", categoryName: "value.specialization")
+        }
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(collectionView)
         collectionView.delegate = self
@@ -64,7 +66,7 @@ extension CategoriesCollectionViewTableViewCell: UICollectionViewDelegate, UICol
 //        cell.layer.cornerRadius = 10
 //        cell.layer.borderWidth = 0.5
 //        cell.layer.borderColor = UIColor.black.cgColor
-        cell.configure(with: categoryInfo[indexPath.row])
+        cell.configure(with: categoryInfo[0])
         return cell
     }
     
