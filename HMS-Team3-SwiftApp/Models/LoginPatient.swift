@@ -17,6 +17,17 @@ struct LoginPatient: Codable {
 	}
 }
 
+
+struct LoginDoctor: Codable {
+    let response: Response?
+    let status: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case response = "Response"
+        case status = "Status"
+    }
+}
+
 struct Response: Codable {
     let id: String?
     let Message: String
