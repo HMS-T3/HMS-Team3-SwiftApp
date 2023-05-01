@@ -31,6 +31,12 @@ class DoctorDetailsViewController: UIViewController {
     @IBOutlet weak var datesCollectionView: UICollectionView!
     @IBOutlet weak var slotsCollectionView: UICollectionView!
     
+    let currentDate = Date()
+
+  
+    // Define a color for the past dates and slots
+    let pastColor = UIColor.red
+    
     let dates = ["Apr 1", "Apr 2", "Apr 3", "Apr 4", "Apr 5", "Apr 6", "Apr 7", "Apr 8", "Apr 9", "Apr 10", "Apr 11", "Apr 12", "Apr 13", "Apr 14", "Apr 15", "Apr 16", "Apr 17", "Apr 18", "Apr 19", "Apr 20", "Apr 21", "Apr 22", "Apr 23", "Apr 24", "Apr 25", "Apr 26", "Apr 27", "Apr 28", "Apr 29", "Apr 30"]
     
     let slots = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM"]
@@ -52,11 +58,21 @@ class DoctorDetailsViewController: UIViewController {
         
         slotsCollectionView.dataSource = self
         slotsCollectionView.delegate = self
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.scrollDirection = .vertical
+        let cellWidth = (slotsCollectionView.frame.size.width - flowLayout.minimumInteritemSpacing * 2) / 3
+        flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        slotsCollectionView.collectionViewLayout = flowLayout
+
     }
 }
 
 // MARK: - UICollectionViewDataSource
 extension DoctorDetailsViewController: UICollectionViewDataSource {
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == datesCollectionView {
@@ -65,6 +81,8 @@ extension DoctorDetailsViewController: UICollectionViewDataSource {
             return slots.count
         }
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == datesCollectionView {

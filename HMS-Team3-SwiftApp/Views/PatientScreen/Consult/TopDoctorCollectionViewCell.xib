@@ -67,11 +67,6 @@
                 <constraint firstAttribute="trailing" secondItem="PT9-hc-kh5" secondAttribute="trailing" id="BED-bk-rwY"/>
                 <constraint firstItem="PT9-hc-kh5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pP4-jS-K1h"/>
             </constraints>
-            <connections>
-                <outlet property="TopDoctorImage" destination="pkI-jy-aoF" id="dL4-og-IYg"/>
-                <outlet property="TopDoctorName" destination="3C7-Jv-Bec" id="9fW-Xq-i9Y"/>
-                <outlet property="TopDoctorSpecializationLabel" destination="254-CH-6Tg" id="KlB-P5-n4w"/>
-            </connections>
             <point key="canvasLocation" x="10.687022900763358" y="19.366197183098592"/>
         </collectionViewCell>
     </objects>

@@ -21,8 +21,9 @@ class DoctorCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         DoctorView.clipsToBounds = false
-        DoctorView.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-        DoctorView.layer.borderWidth = 1
+        
+        DoctorView.layer.borderWidth = 0.5
+        DoctorView.layer.borderColor = UIColor(named: "secondary")?.cgColor
         DoctorView.layer.cornerRadius = 20
     
         

@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		276811A229F90D26005209A0 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276811A029F90D26005209A0 /* CategoryCollectionViewCell.swift */; };
-		276811A329F90D26005209A0 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276811A129F90D26005209A0 /* CategoryCollectionViewCell.xib */; };
 		276811A629F90D64005209A0 /* TopDoctorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276811A429F90D64005209A0 /* TopDoctorCollectionViewCell.swift */; };
 		276811A729F90D64005209A0 /* TopDoctorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276811A529F90D64005209A0 /* TopDoctorCollectionViewCell.xib */; };
 		276811AA29F90D96005209A0 /* RecentsDoctorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276811A829F90D96005209A0 /* RecentsDoctorCollectionViewCell.swift */; };
-		276811AB29F90D96005209A0 /* RecentsDoctorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276811A929F90D96005209A0 /* RecentsDoctorCollectionViewCell.xib */; };
 		276811AE29F90DCF005209A0 /* DoctorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276811AC29F90DCF005209A0 /* DoctorCollectionViewCell.swift */; };
 		276811AF29F90DCF005209A0 /* DoctorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276811AD29F90DCF005209A0 /* DoctorCollectionViewCell.xib */; };
 		276811B229F90DD8005209A0 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276811B029F90DD8005209A0 /* DateCollectionViewCell.swift */; };
 		276811B329F90DD8005209A0 /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276811B129F90DD8005209A0 /* DateCollectionViewCell.xib */; };
 		276811B629F90DDF005209A0 /* SlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276811B429F90DDF005209A0 /* SlotCollectionViewCell.swift */; };
 		276811B729F90DDF005209A0 /* SlotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276811B529F90DDF005209A0 /* SlotCollectionViewCell.xib */; };
+		278BB80329FB9B9D00C5715A /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BB80229FB9B9D00C5715A /* CatTableViewCell.swift */; };
+		278BB80529FB9BA600C5715A /* TopDocTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BB80429FB9BA600C5715A /* TopDocTableViewCell.swift */; };
+		278BB80729FB9BB000C5715A /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BB80629FB9BB000C5715A /* RecentTableViewCell.swift */; };
+		278BB80929FB9E3C00C5715A /* ConsultTabDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BB80829FB9E3C00C5715A /* ConsultTabDelegate.swift */; };
 		278CDFB429F0010A001D65BB /* ConsultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CDFB329F0010A001D65BB /* ConsultViewController.swift */; };
 		2790318E29F7CB340031CA6C /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2790318D29F7CB340031CA6C /* DoctorDetailsViewController.swift */; };
 		27D091E129F68127008D6072 /* ListDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D091E029F68127008D6072 /* ListDoctorsViewController.swift */; };
@@ -115,17 +117,19 @@
 
 /* Begin PBXFileReference section */
 		276811A029F90D26005209A0 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		276811A129F90D26005209A0 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		276811A429F90D64005209A0 /* TopDoctorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDoctorCollectionViewCell.swift; sourceTree = "<group>"; };
 		276811A529F90D64005209A0 /* TopDoctorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopDoctorCollectionViewCell.xib; sourceTree = "<group>"; };
 		276811A829F90D96005209A0 /* RecentsDoctorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsDoctorCollectionViewCell.swift; sourceTree = "<group>"; };
-		276811A929F90D96005209A0 /* RecentsDoctorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentsDoctorCollectionViewCell.xib; sourceTree = "<group>"; };
 		276811AC29F90DCF005209A0 /* DoctorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCollectionViewCell.swift; sourceTree = "<group>"; };
 		276811AD29F90DCF005209A0 /* DoctorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorCollectionViewCell.xib; sourceTree = "<group>"; };
 		276811B029F90DD8005209A0 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		276811B129F90DD8005209A0 /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
 		276811B429F90DDF005209A0 /* SlotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotCollectionViewCell.swift; sourceTree = "<group>"; };
 		276811B529F90DDF005209A0 /* SlotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlotCollectionViewCell.xib; sourceTree = "<group>"; };
+		278BB80229FB9B9D00C5715A /* CatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatTableViewCell.swift; sourceTree = "<group>"; };
+		278BB80429FB9BA600C5715A /* TopDocTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDocTableViewCell.swift; sourceTree = "<group>"; };
+		278BB80629FB9BB000C5715A /* RecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
+		278BB80829FB9E3C00C5715A /* ConsultTabDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultTabDelegate.swift; sourceTree = "<group>"; };
 		278CDFB329F0010A001D65BB /* ConsultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultViewController.swift; sourceTree = "<group>"; };
 		2790318D29F7CB340031CA6C /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
 		27D091E029F68127008D6072 /* ListDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDoctorsViewController.swift; sourceTree = "<group>"; };
@@ -257,8 +261,9 @@
 				276811B129F90DD8005209A0 /* DateCollectionViewCell.xib */,
 				276811AD29F90DCF005209A0 /* DoctorCollectionViewCell.xib */,
 				276811A829F90D96005209A0 /* RecentsDoctorCollectionViewCell.swift */,
-				276811A929F90D96005209A0 /* RecentsDoctorCollectionViewCell.xib */,
-				276811A129F90D26005209A0 /* CategoryCollectionViewCell.xib */,
+				278BB80229FB9B9D00C5715A /* CatTableViewCell.swift */,
+				278BB80429FB9BA600C5715A /* TopDocTableViewCell.swift */,
+				278BB80629FB9BB000C5715A /* RecentTableViewCell.swift */,
 			);
 			path = Consult;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 			children = (
 				765F865B29F25C86009E67F2 /* ProfileHeaderUIViewDelegate.swift */,
 				CE980B6D29F92FCB0084C590 /* ClickCollectionViewDelegate.swift */,
+				278BB80829FB9E3C00C5715A /* ConsultTabDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -653,10 +659,8 @@
 				E3620D7829ED3CE7008F9B98 /* DiscoverStoryboard.storyboard in Resources */,
 				6BECC3AD29F10110006A243F /* OnboardingStoryboard.storyboard in Resources */,
 				E3620D7A29ED3DD6008F9B98 /* AppointmentsStoryboard.storyboard in Resources */,
-				276811AB29F90D96005209A0 /* RecentsDoctorCollectionViewCell.xib in Resources */,
 				E3620D8829ED3E6B008F9B98 /* HomeStoryboard.storyboard in Resources */,
 				E3620D8629ED3E5C008F9B98 /* DoctorProfileStoryboard.storyboard in Resources */,
-				276811A329F90D26005209A0 /* CategoryCollectionViewCell.xib in Resources */,
 				AC4D05AB29F6845E004E4C44 /* SOS Contacts.storyboard in Resources */,
 				3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */,
 				E3A0D4CE29E40F9B00894838 /* LaunchScreen.storyboard in Resources */,
@@ -699,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE980B8829F936890084C590 /* UpcomingAppointmentsViewController.swift in Sources */,
+				278BB80929FB9E3C00C5715A /* ConsultTabDelegate.swift in Sources */,
 				CE980B8629F936890084C590 /* CategoriesCollectionViewController.swift in Sources */,
 				CE980B6E29F92FCB0084C590 /* ClickCollectionViewDelegate.swift in Sources */,
 				E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */,
@@ -718,6 +723,7 @@
 				6B38EFBC29F692EC0084981F /* MRTableTableViewCell.swift in Sources */,
 				CEBF553329F94917003465F4 /* MedicineCollectionViewCell.swift in Sources */,
 				765F865929F1046A009E67F2 /* QuickStatsCollectionViewCell.swift in Sources */,
+				278BB80529FB9BA600C5715A /* TopDocTableViewCell.swift in Sources */,
 				765F865C29F25C86009E67F2 /* ProfileHeaderUIViewDelegate.swift in Sources */,
 				CE980B7D29F936310084C590 /* DiscoverViewController.swift in Sources */,
 				765F865F29F268C9009E67F2 /* EditProfileViewController.swift in Sources */,
@@ -732,6 +738,7 @@
 				CE980B7A29F933A50084C590 /* CategoriesCollectionViewTableViewCell.swift in Sources */,
 				276811AE29F90DCF005209A0 /* DoctorCollectionViewCell.swift in Sources */,
 				CE980B7729F933A50084C590 /* MedicineCollectionViewTableViewCell.swift in Sources */,
+				278BB80329FB9B9D00C5715A /* CatTableViewCell.swift in Sources */,
 				CE980B7929F933A50084C590 /* UpcomingCollectionViewTableViewCell.swift in Sources */,
 				E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */,
 				276811B229F90DD8005209A0 /* DateCollectionViewCell.swift in Sources */,
@@ -749,6 +756,7 @@
 				E37D151C29F7B45800300948 /* Extensions.swift in Sources */,
 				CE980B7629F933A50084C590 /* CategoriesCollectionViewCell.swift in Sources */,
 				765F865229F0FE2A009E67F2 /* SOSContactsViewController.swift in Sources */,
+				278BB80729FB9BB000C5715A /* RecentTableViewCell.swift in Sources */,
 				765F864129EFEFBB009E67F2 /* Enums.swift in Sources */,
 				CE980B8529F936890084C590 /* OngoingMedicationsViewController.swift in Sources */,
 				765F863F29EFEFA5009E67F2 /* User.swift in Sources */,
@@ -946,7 +954,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "HMS-Team3-SwiftApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
