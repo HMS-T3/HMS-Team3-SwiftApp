@@ -338,12 +338,17 @@
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="pHa-uM-dNr"/>
                     <connections>
                         <outlet property="ageContainerView" destination="Q3Q-Vx-tg9" id="wm0-la-tpV"/>
+                        <outlet property="ageLabel" destination="RTA-IE-UtN" id="hGj-Yv-OXX"/>
                         <outlet property="datePicker" destination="0Z3-5Y-1dp" id="sA0-HZ-xAl"/>
                         <outlet property="doctorProfile" destination="noR-AZ-l9j" id="9w7-3c-C8K"/>
+                        <outlet property="doctorProfileHeader" destination="aSN-ys-gUa" id="QWf-fR-8fY"/>
                         <outlet property="nameContainerView" destination="eWu-Gy-v5A" id="zIc-MX-MeD"/>
+                        <outlet property="nameLabel" destination="bZU-4X-bQc" id="D82-DR-MNc"/>
                         <outlet property="phoneContainerView" destination="GB3-j1-saz" id="frG-8e-kYX"/>
-                        <outlet property="sexContainerView" destination="BRb-IM-seE" id="wfo-xK-zZz"/>
-                        <outlet property="submitButton" destination="HCg-8M-FiB" id="WDX-tF-8lY"/>
+                        <outlet property="phoneLabel" destination="rWK-Pk-MB8" id="9u8-58-fsA"/>
+                        <outlet property="sexContainerView" destination="BRb-IM-seE" id="9mM-Ab-CQg"/>
+                        <outlet property="sexLabel" destination="BQc-fa-Gwy" id="xts-4P-hWU"/>
+                        <outlet property="submitButton" destination="HCg-8M-FiB" id="NV3-qX-RkG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

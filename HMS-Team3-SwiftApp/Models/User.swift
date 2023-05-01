@@ -31,7 +31,8 @@ struct PersonalInfo: Codable {
 	let name: String?
 	let dateOfbirth: Date?
 	let phoneNumber: String?
-	let biologicalGender: Gender?
+//	let biologicalGender: Gender?
+    let biologicalGender: String?
 }
 
 struct HealthRecords: Codable {

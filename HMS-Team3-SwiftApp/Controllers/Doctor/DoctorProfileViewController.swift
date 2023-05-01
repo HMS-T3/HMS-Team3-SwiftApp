@@ -8,6 +8,7 @@
 import UIKit
 
 class DoctorProfileViewController: UIViewController {
+    
     @IBOutlet var doctorProfile: UIImageView!
     @IBOutlet var nameContainerView: UIView!
     @IBOutlet var ageContainerView: UIView!
@@ -15,15 +16,24 @@ class DoctorProfileViewController: UIViewController {
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var sexContainerView: UIView!
     
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var ageLabel: UILabel!
+    @IBOutlet var sexLabel: UILabel!
+    @IBOutlet var phoneLabel: UILabel!
+    
+    @IBOutlet var doctorProfileHeader: UIView!
+    
     @IBOutlet var submitButton: UIButton!
     
+    var profileDetails: UserResponse = UserResponse(info: PersonalInfo(profileImg: "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png", name: "John Doe", dateOfbirth: Date(), phoneNumber: "9910740324", biologicalGender: "Female"), role: "patient", phoneNumber: "38493124798", email: "", password: "wfgrdw" ,appointments: [], schedule: [], emergencyContacts: [])
     var day: String?
     var startTime: String?
     var endTime: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentDate = Date()
-
+        fetchDoctorDetails()
         var dateComponents = DateComponents()
         dateComponents.month = 3
 
@@ -43,6 +53,28 @@ class DoctorProfileViewController: UIViewController {
         sexContainerView.layer.cornerRadius = 5
         phoneContainerView.layer.cornerRadius = 5
         submitButton.layer.cornerRadius = 4
+    }
+    
+    func fetchDoctorDetails() {
+        GetUserDetails.shared.getDoctor(completion: { results in
+            switch results {
+            case .success(let user):
+                DispatchQueue.main.async {
+                    self.profileDetails = user.userResponse
+                    self.updateProfile()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+    
+    func updateProfile(){
+        nameLabel.text = profileDetails.info?.name
+        ageLabel.text = "21 years"
+        sexLabel.text = profileDetails.info?.biologicalGender
+        phoneLabel.text = profileDetails.info?.phoneNumber
+        doctorProfile.sd_setImage(with: URL(string: (profileDetails.info?.profileImg) ?? "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png"))
     }
 
     @IBAction func onDateChangeHandler(_ sender: UIDatePicker) {

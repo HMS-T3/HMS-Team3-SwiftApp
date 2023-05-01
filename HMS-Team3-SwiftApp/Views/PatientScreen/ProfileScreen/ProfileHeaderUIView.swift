@@ -205,7 +205,7 @@ class ProfileHeaderUIView: UIView {
         nameLabel.text = "\(profileDetails.info?.name! ?? "Name")"
         dobLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: 213219838))
         genderLabel.text = "Female"
-        profileImage.sd_setImage(with: URL(string: (profileDetails.info?.profileImg) ?? ""))
+        profileImage.sd_setImage(with: URL(string: (profileDetails.info?.profileImg) ?? "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png"))
         phoneNumberLabel.text = "\(profileDetails.phoneNumber ?? "1213445")"
 	}
 	
