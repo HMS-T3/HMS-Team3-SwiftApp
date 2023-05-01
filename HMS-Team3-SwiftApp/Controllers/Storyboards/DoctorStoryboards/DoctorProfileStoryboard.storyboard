@@ -242,15 +242,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epb-Af-D98" userLabel="DatePickerView">
                                         <rect key="frame" x="20" y="46.333333333333314" width="313" height="361"/>
                                         <subviews>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" style="inline" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z3-5Y-1dp">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="0Z3-5Y-1dp">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="326"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="secondary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="326" id="ctM-d1-mWM"/>
                                                 </constraints>
-                                                <date key="date" timeIntervalSinceReferenceDate="704633006.28346705">
-                                                    <!--2023-05-01 11:23:26 +0000-->
+                                                <date key="minimumDate" timeIntervalSinceReferenceDate="31575600">
+                                                    <!--2002-01-01 11:00:00 +0000-->
                                                 </date>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">

@@ -22,15 +22,21 @@ class DoctorProfileViewController: UIViewController {
     var endTime: String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentDate = Date()
+
+        var dateComponents = DateComponents()
+        dateComponents.month = 3
+
+        if let futureDate = Calendar.current.date(byAdding: dateComponents, to: currentDate) {
+            datePicker?.maximumDate = futureDate
+        } else {
+            print("Failed to calculate future date")
+        }
         
-        // Set the calendar style
         datePicker.datePickerMode = .dateAndTime
         datePicker.preferredDatePickerStyle = .inline
-//        datePicker.backgroundColor = UIColor(named: "secondary")
         datePicker?.locale = .current
-//        datePicker.setValue(UIColor.white, forKey: "textColor")
-//        datePicker.setValue(false, forKeyPath: "highlightsToday")
-//        datePicker.setValue(0.7, forKeyPath: "alpha")
+        datePicker?.minimumDate = currentDate
         doctorProfile.layer.cornerRadius = doctorProfile.frame.width / 2
         nameContainerView.layer.cornerRadius = 5
         ageContainerView.layer.cornerRadius = 5
