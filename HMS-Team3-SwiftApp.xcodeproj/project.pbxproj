@@ -75,6 +75,7 @@
 		CE980B6E29F92FCB0084C590 /* ClickCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B6D29F92FCB0084C590 /* ClickCollectionViewDelegate.swift */; };
 		CE980B7D29F936310084C590 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7C29F936310084C590 /* DiscoverViewController.swift */; };
 		CE980B8C29F93D570084C590 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B8B29F93D570084C590 /* Utilities.swift */; };
+		E3079C8A29FFD367006E36AC /* DoctorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3079C8929FFD367006E36AC /* DoctorProfileViewController.swift */; };
 		E3620D7629ED3BC8008F9B98 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */; };
 		E3620D7829ED3CE7008F9B98 /* DiscoverStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */; };
 		E3620D7A29ED3DD6008F9B98 /* ScheduleStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3620D7929ED3DD6008F9B98 /* ScheduleStoryboard.storyboard */; };
@@ -182,6 +183,7 @@
 		CE980B6D29F92FCB0084C590 /* ClickCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		CE980B7C29F936310084C590 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		CE980B8B29F93D570084C590 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E3079C8929FFD367006E36AC /* DoctorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileViewController.swift; sourceTree = "<group>"; };
 		E317358E29F927D100B16A2A /* HMS-Team3-SwiftApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HMS-Team3-SwiftApp.entitlements"; sourceTree = "<group>"; };
 		E3620D7529ED3BC8008F9B98 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E3620D7729ED3CE7008F9B98 /* DiscoverStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverStoryboard.storyboard; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				3A86EB2029FBD508003D4E01 /* DoctorLoginViewController.swift */,
+				E3079C8929FFD367006E36AC /* DoctorProfileViewController.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				765F864529EFEFE7009E67F2 /* Home.swift in Sources */,
 				CE980B8C29F93D570084C590 /* Utilities.swift in Sources */,
 				765F865029F0FE14009E67F2 /* VitalsViewController.swift in Sources */,
+				E3079C8A29FFD367006E36AC /* DoctorProfileViewController.swift in Sources */,
 				3A8BD1C529FBA055002B720C /* CategoriesCollectionViewCell.swift in Sources */,
 				3A8BD1CC29FBA055002B720C /* PackagesCollectionViewCell.swift in Sources */,
 				3A8BD1CA29FBA055002B720C /* MedicineCollectionViewCell.swift in Sources */,
