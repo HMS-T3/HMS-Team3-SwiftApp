@@ -62,7 +62,8 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with data: Categories) {
-        iconImageView.sd_setImage(with: URL(string: (data.categoryImage) ?? ""))
-        iconText.text = data.categoryName
+//        iconImageView.sd_setImage(with: URL(string: (data.categoryImage) ?? ""))
+        iconImageView.image = data.categoryImage
+        iconText.text = data.categoryName?.rawValue
         }
 }

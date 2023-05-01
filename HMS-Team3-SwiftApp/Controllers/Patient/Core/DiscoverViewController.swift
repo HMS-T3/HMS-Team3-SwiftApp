@@ -44,20 +44,18 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GetDoctorSpecialization.shared.getDoctorSpecialization(completion: { results in
-            switch results {
-            case .success(let categories):
-                print("Success")
-                DispatchQueue.main.async {
-                    self.specializations = categories.Specialization
-                    self.discovertable.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        })
-        print("hello")
-        print(specializations)
+//        GetDoctorSpecialization.shared.getDoctorSpecialization(completion: { results in
+//            switch results {
+//            case .success(let categories):
+//                print("Success")
+//                DispatchQueue.main.async {
+//                    self.specializations = categories.Specialization
+//                    self.discovertable.reloadData()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        })
         view.backgroundColor = .systemBackground
         title = "Discover"
         
@@ -155,8 +153,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.configureCategory(specializations)
-            print("hi")
+//            cell.configureCategory(specializations)
             return cell
             
         case TableSectionType.packagesSection.rawValue:
