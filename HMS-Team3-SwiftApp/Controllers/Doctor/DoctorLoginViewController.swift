@@ -26,33 +26,35 @@ class DoctorLoginViewController: UIViewController {
     
     
     @IBAction func loginClicked(_ sender: Any) {
-//        if(doctorTextField.text! != "" && passwordTextField.text! != ""){
-//            let parameters = [
-//                "email":doctorTextField.text!,
-//                "password":passwordTextField.text!,
-//                "role":"doctor"]
-//            UserAuthentication.shared.doctorLogin(parameters: parameters){result in
-//                switch result {
-//                case .success(let response):
-////                    print(response.status)
-//                    if(response.status){
-//                        self.handleLogin()
-//                    }else{
-//                        print((response.response?.Message)!)
-//                        self.handleError(msg: (response.response?.Message)!)
-//                    }
-//                    break
-//                case .failure(let error):
-//                    print(error)
-//                    self.handleError(msg: "Somn Error")
-//                    break
-//                }
-//            }
-//        }else{
-//            self.handleError(msg: "Empty Fields")
-//        }
+        if(doctorTextField.text! != "" && passwordTextField.text! != ""){
+            let parameters = [
+                "email":doctorTextField.text!,
+                "password":passwordTextField.text!,
+                "role":"doctor"]
+            UserAuthentication.shared.doctorLogin(parameters: parameters){result in
+                switch result {
+                case .success(let response):
+//                    print(response.status)
+                    if(response.status){
+                        self.handleLogin()
+                         UserDefaults.standard.setValue(response.response?.id, forKey: "DoctorID")
+                        print(response.response?.id)
+                    }else{
+                        print((response.response?.Message)!)
+                        self.handleError(msg: (response.response?.Message)!)
+                    }
+                    break
+                case .failure(let error):
+                    print(error)
+                    self.handleError(msg: "Somn Error")
+                    break
+                }
+            }
+        }else{
+            self.handleError(msg: "Empty Fields")
+        }
         
-        self.handleLogin()
+//        self.handleLogin()
     }
     
     func handleLogin(){

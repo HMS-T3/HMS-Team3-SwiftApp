@@ -13,6 +13,7 @@ struct Constants {
 
 enum APIError: Error {
     case UserNotFound
+    case BookingAlreadyExists
 }
 
 class UserAuthentication {

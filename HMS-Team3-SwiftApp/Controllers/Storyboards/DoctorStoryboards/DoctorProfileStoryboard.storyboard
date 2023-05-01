@@ -36,10 +36,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSN-ys-gUa">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSN-ys-gUa" userLabel="ProfileView">
                                 <rect key="frame" x="20" y="123" width="353" height="110"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuH-Rw-0Ud">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuH-Rw-0Ud" userLabel="DetailsView">
                                         <rect key="frame" x="110" y="5" width="238" height="100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPw-jh-OQ7" userLabel="name">
@@ -230,17 +230,17 @@
                                     <constraint firstItem="OuH-Rw-0Ud" firstAttribute="leading" secondItem="noR-AZ-l9j" secondAttribute="trailing" constant="5" id="ySo-kj-4mn"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLe-UO-bzt">
-                                <rect key="frame" x="20" y="343" width="353" height="406"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLe-UO-bzt" userLabel="DateContainerView">
+                                <rect key="frame" x="20" y="323" width="353" height="436"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update your availability here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kue-ca-a6C">
-                                        <rect key="frame" x="10" y="10" width="323" height="40"/>
+                                        <rect key="frame" x="10" y="9.9999999999999982" width="323" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epb-Af-D98">
-                                        <rect key="frame" x="20" y="60" width="313" height="326"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epb-Af-D98" userLabel="DatePickerView">
+                                        <rect key="frame" x="20" y="46.333333333333314" width="313" height="361"/>
                                         <subviews>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" style="inline" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z3-5Y-1dp">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="326"/>
@@ -257,14 +257,33 @@
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onDateChangeHandler:" destination="Y6W-OH-hqX" eventType="valueChanged" id="5Xl-eL-bGI"/>
+                                                </connections>
                                             </datePicker>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCg-8M-FiB">
+                                                <rect key="frame" x="114.66666666666666" y="326.00000000000006" width="84" height="35"/>
+                                                <color key="backgroundColor" name="secondary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="84" id="SXP-Ej-xzp"/>
+                                                    <constraint firstAttribute="height" constant="35" id="XV6-xe-OJg"/>
+                                                </constraints>
+                                                <color key="tintColor" name="secondary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="baseBackgroundColor" name="secondary"/>
+                                                </buttonConfiguration>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="0Z3-5Y-1dp" firstAttribute="top" secondItem="epb-Af-D98" secondAttribute="top" id="ARf-1d-CWB"/>
+                                            <constraint firstItem="HCg-8M-FiB" firstAttribute="centerX" secondItem="epb-Af-D98" secondAttribute="centerX" id="Gvx-KA-Ycr"/>
                                             <constraint firstItem="0Z3-5Y-1dp" firstAttribute="leading" secondItem="epb-Af-D98" secondAttribute="leading" id="R3c-OP-OYO"/>
                                             <constraint firstAttribute="trailing" secondItem="0Z3-5Y-1dp" secondAttribute="trailing" id="VP9-KH-MYd"/>
-                                            <constraint firstAttribute="bottom" secondItem="0Z3-5Y-1dp" secondAttribute="bottom" id="sTT-S0-EG7"/>
+                                            <constraint firstItem="0Z3-5Y-1dp" firstAttribute="bottom" secondItem="HCg-8M-FiB" secondAttribute="bottom" constant="-35" id="WBV-pP-ld2"/>
+                                            <constraint firstAttribute="bottom" secondItem="HCg-8M-FiB" secondAttribute="top" constant="35" id="drY-Eg-aZO"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -276,14 +295,13 @@
                                     <constraint firstAttribute="trailing" secondItem="kue-ca-a6C" secondAttribute="trailing" constant="20" id="Rgj-Ak-4xM"/>
                                     <constraint firstItem="kue-ca-a6C" firstAttribute="top" secondItem="CLe-UO-bzt" secondAttribute="top" constant="10" id="XIW-CR-0xD"/>
                                     <constraint firstItem="epb-Af-D98" firstAttribute="top" secondItem="kue-ca-a6C" secondAttribute="bottom" constant="10" id="bOO-kP-Cyd"/>
-                                    <constraint firstAttribute="bottom" secondItem="epb-Af-D98" secondAttribute="bottom" constant="20" id="ntg-eb-rhr"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bl-R7-gFO">
-                                <rect key="frame" x="20" y="253" width="353" height="70"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bl-R7-gFO" userLabel="PaientRecordsView">
+                                <rect key="frame" x="20" y="253" width="353" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEn-VG-quF">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Patient Records">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -295,7 +313,7 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="JEn-VG-quF" firstAttribute="top" secondItem="0bl-R7-gFO" secondAttribute="top" id="Buk-J1-ctZ"/>
-                                    <constraint firstAttribute="height" constant="70" id="NsU-BB-f9D"/>
+                                    <constraint firstAttribute="height" constant="50" id="NsU-BB-f9D"/>
                                     <constraint firstAttribute="trailing" secondItem="JEn-VG-quF" secondAttribute="trailing" id="TLR-TS-uPh"/>
                                     <constraint firstAttribute="bottom" secondItem="JEn-VG-quF" secondAttribute="bottom" id="dWl-1B-YPm"/>
                                     <constraint firstItem="JEn-VG-quF" firstAttribute="leading" secondItem="0bl-R7-gFO" secondAttribute="leading" id="wu3-Ey-8xe"/>
@@ -314,7 +332,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CLe-UO-bzt" secondAttribute="trailing" constant="20" id="ayW-Du-uZT"/>
                             <constraint firstItem="aSN-ys-gUa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="bva-T6-5uS"/>
                             <constraint firstItem="aSN-ys-gUa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="f3j-zU-EZu"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="CLe-UO-bzt" secondAttribute="bottom" constant="20" id="gxy-pq-nwH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="CLe-UO-bzt" secondAttribute="bottom" constant="10" id="udc-Uf-cQJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="pHa-uM-dNr"/>
@@ -325,6 +343,7 @@
                         <outlet property="nameContainerView" destination="eWu-Gy-v5A" id="zIc-MX-MeD"/>
                         <outlet property="phoneContainerView" destination="GB3-j1-saz" id="frG-8e-kYX"/>
                         <outlet property="sexContainerView" destination="BRb-IM-seE" id="wfo-xK-zZz"/>
+                        <outlet property="submitButton" destination="HCg-8M-FiB" id="WDX-tF-8lY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
