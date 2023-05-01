@@ -67,8 +67,6 @@ extension RecordViewController: UITableViewDataSource, UITableViewDelegate {
         header.textLabel?.frame = header.bounds
         header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
         header.textLabel?.textAlignment = .left
-        header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
-        header.textLabel?.leadingAnchor.constraint(equalTo: tableView.leadingAnchor)
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30.0

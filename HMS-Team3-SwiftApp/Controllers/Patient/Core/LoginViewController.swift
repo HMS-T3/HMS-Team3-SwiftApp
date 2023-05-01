@@ -70,6 +70,17 @@ class LoginViewController: UIViewController {
         return button
     }()
 	
+	private let errorLabel: UILabel = {
+		
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		label.font = .systemFont(ofSize: 15)
+		label.textColor = .red
+		label.numberOfLines = 2
+		label.textAlignment = .center
+		return label
+	}()
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
@@ -88,6 +99,7 @@ class LoginViewController: UIViewController {
 		
 		if Auth.auth().currentUser != nil {
 			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
 				self.navigationController?.pushViewController(controller, animated: true)
 			}
 //			do {
@@ -104,6 +116,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         title = "Patient Login"
         view.backgroundColor = .systemBackground
+		
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Resend", style: .done, target: self, action: #selector(getOTPButtonPressed))
                 
         view.addSubview(phoneNumberTextField)
         view.addSubview(otpField)
@@ -118,6 +132,9 @@ class LoginViewController: UIViewController {
         
         view.addSubview(googleSignInButton)
         googleSignInButton.addTarget(self, action: #selector(googleSignInFunction), for: .touchUpInside)
+		
+		view.addSubview(errorLabel)
+		errorLabel.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -147,18 +164,32 @@ class LoginViewController: UIViewController {
                 
                 googleSignInButton.topAnchor.constraint(equalTo: getOTPButton.bottomAnchor, constant: 50),
                 googleSignInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+				
+				errorLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+				errorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+				errorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
             ]
         )
     }
     
 	@objc func getOTPButtonPressed() {
-		otpField.isHidden = false
+		
+		if phoneNumberTextField.text?.count != 10 {
+			errorLabel.text = "Please enter a valid Indian Phone Number"
+			errorLabel.isHidden = false
+			return
+		} else {
+			otpField.isHidden = false
+		}
+		
 		if let phonNumberText = phoneNumberTextField.text {
 			let phonNumberTextWithIndCode = phonNumberText.addIndianPhoneCode()
 			PhoneAuthProvider.provider()
 				.verifyPhoneNumber(phonNumberTextWithIndCode, uiDelegate: nil) { verificationID, error in
 					if let error = error {
 						print("Error sending code to phone number\(error)")
+						self.errorLabel.text = "Error sending code to phone number. Please try again later. Or check if the phone number entered is correct"
+						self.errorLabel.isHidden = false
 						return
 					}
 					UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
@@ -169,6 +200,8 @@ class LoginViewController: UIViewController {
 	}
 	
 	@objc func submitOTPButtonPressed() {
+		
+		self.resignFirstResponder()
 		
 		if let verificationID = UserDefaults.standard.string(forKey: "authVerificationID"),
 		   let userOTP = otpField.text {
@@ -181,6 +214,8 @@ class LoginViewController: UIViewController {
 			Auth.auth().signIn(with: credential) { authResult, error in
 				if let error = error {
 					print(error.localizedDescription)
+					self.errorLabel.text = "Invalid OTP. Please enter the correct OTP. Or Request for a new one"
+					self.errorLabel.isHidden = false
 					return
 				}
 				DispatchQueue.main.async {
@@ -194,21 +229,25 @@ class LoginViewController: UIViewController {
 								}
 								print(loginPatient)
 								print("Logged In User")
-								print(loginPatient.response?.id) //  Save This to User Defaults
-                                UserDefaults.standard.set(loginPatient.response?.id!, forKey: "PatientID")
+//								print(loginPatient.response?.id)
+								UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")//  Save This to User Defaults
 							}
 						case .failure(let error):
 							if error as! APIError == APIError.UserNotFound {
-								self.registerPhoneNumber(pNumber: self.phoneNumberTextField.text ?? "123")
+								DispatchQueue.main.async {
+									self.registerPhoneNumber(pNumber: self.phoneNumberTextField.text ?? "123")
+								}
+							} else {
+								print("error before registering")
+								print(error)
+								self.errorLabel.text = "Server is offline. Please try again later"
+								self.errorLabel.isHidden = false
 							}
-							print(error)
 						}
 					}, email: nil, uniqueID: nil, pNumber: self.phoneNumberTextField.text)
-					
 				}
 				return
 			}
-			
 		}
 	}
 	
@@ -247,18 +286,21 @@ class LoginViewController: UIViewController {
                         DispatchQueue.main.async {
                             if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                                 self.navigationController?.pushViewController(controller, animated: true)
-                                print(loginPatient.response?.id) // Save this id to user defaults
-                                UserDefaults.standard.set(loginPatient.response?.id!, forKey: "PatientID")
+//                                print(loginPatient.response!.id) // Save this id to user defaults
+								UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
                             }
                             self.updateUserDetails()
                         }
                     case .failure(let error):
 						if error as! APIError == APIError.UserNotFound {
 							self.registerGoogleUser(email: email, uniqueID: uid)
-						}
-                        print(error)
+						} else {
+							print("error before registering")
+							   print(error)
+							   self.errorLabel.text = "Server is offline. Please try again later"
+							   self.errorLabel.isHidden = false
+						   }
                     }
-                    
                 }, email: email, uniqueID: uid, pNumber: nil)
             }
         }
@@ -273,9 +315,8 @@ class LoginViewController: UIViewController {
                     print("Registered New User")
                     if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                         self.navigationController?.pushViewController(controller, animated: true)
-                        print(loginPatient.response?.id) // Save this id to user defaults
-                        UserDefaults.standard.set(loginPatient.response?.id!, forKey: "PatientID")
-                        // Update User Details
+//                        print(loginPatient.response!.id) // Save this id to user defaults
+						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
                     }
                 }
             case .failure(let error):
@@ -316,8 +357,8 @@ class LoginViewController: UIViewController {
 					print("Registered New Phone Number")
 					if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
 						self.navigationController?.pushViewController(controller, animated: true)
-						print(loginPatient.response!.id) // Save this id to user defaults
-                        UserDefaults.standard.set(loginPatient.response?.id!, forKey: "PatientID")
+//						print(loginPatient.response!.id) // Save this id to user defaults
+						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
 					}
 				}
 			case .failure(let error):
