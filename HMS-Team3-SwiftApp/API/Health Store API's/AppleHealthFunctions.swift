@@ -21,7 +21,10 @@ class AppleHealthFunctions {
 	
 	let dataTypes = Set([
 		HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,
-		HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
+		HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,
+		HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!,
+		HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+		HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.bloodType)!
 	])
 	
 	func askForHealthKitPermission() {
@@ -136,5 +139,88 @@ class AppleHealthFunctions {
 		}
 		
 		healthStore.execute(query)
+	}
+	
+	func getHeightFromAppleHealth(completion: @escaping(Result<Double, Error>) -> Void) {
+		
+		guard let heightDataType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height) else {
+			completion(.failure(AppleHealthError.UnableToReadData))
+			return
+		}
+		
+		let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+		
+		let query = HKSampleQuery.init(sampleType: heightDataType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor]) { query, result, error in
+			
+			guard let height = result?.first as? HKQuantitySample else {
+				completion(.failure(AppleHealthError.NoDataAvailabe))
+				return
+			}
+			
+			let heightValue = height.quantity.doubleValue(for: HKUnit.meterUnit(with: HKMetricPrefix.centi))
+			completion(.success(heightValue))
+		}
+		
+		healthStore.execute(query)
+	}
+	
+	func getBodyMassFromAppleHealth(completion: @escaping(Result<Double, Error>) -> Void) {
+		
+		guard let weightDataType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass) else {
+			completion(.failure(AppleHealthError.UnableToReadData))
+			return
+		}
+		
+		let sortDescriptors = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+		
+		let query = HKSampleQuery.init(sampleType: weightDataType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptors]) { query, result, error in
+			
+			guard let weight = result?.first as? HKQuantitySample else {
+				completion(.failure(AppleHealthError.NoDataAvailabe))
+				return
+			}
+			
+			let bodyMass = weight.quantity.doubleValue(for: HKUnit.gramUnit(with: HKMetricPrefix.kilo))
+			completion(.success(bodyMass))
+		}
+		
+		healthStore.execute(query)
+	}
+	
+	func getBloodTypeFrommAppleHealth(completion: @escaping(Result<String, Error>) -> Void) {
+		
+		do {
+			
+			let bloodObject = try healthStore.bloodType()
+			
+			let bloodType: String
+			
+			switch bloodObject.bloodType {
+			case .aNegative:
+				bloodType = "A-ve"
+			case .aPositive:
+				bloodType = "A+ve"
+			case .abNegative:
+				bloodType = "AB-ve"
+			case .abPositive:
+				bloodType = "AB+ve"
+			case .bNegative:
+				bloodType = "B-ve"
+			case .bPositive:
+				bloodType = "B+ve"
+			case .oNegative:
+				bloodType = "O-ve"
+			case .oPositive:
+				bloodType = "O+ve"
+			case .notSet:
+				bloodType = "Not Set"
+			default:
+				bloodType = "Unknown"
+			}
+			
+			completion(.success(bloodType))
+		} catch {
+			completion(.failure(error))
+		}
 	}
 }

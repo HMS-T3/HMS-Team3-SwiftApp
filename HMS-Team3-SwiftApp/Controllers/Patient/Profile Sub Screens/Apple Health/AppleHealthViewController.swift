@@ -8,15 +8,15 @@
 import UIKit
 import HealthKit
 
-struct StaticAppleHealthTabledata {
+struct AppleHealthTabledata {
 	let time: String
 	var steps: String
 	
-	static var staitcData: [StaticAppleHealthTabledata] = [
-		StaticAppleHealthTabledata(time: "Day", steps: "123"),
-		StaticAppleHealthTabledata(time: "Week", steps: "890"),
-		StaticAppleHealthTabledata(time: "Month", steps: "10_000"),
-		StaticAppleHealthTabledata(time: "Year", steps: "10_00_000")
+	static var healthKitData: [AppleHealthTabledata] = [
+		AppleHealthTabledata(time: "Day", steps: "123"),
+		AppleHealthTabledata(time: "Week", steps: "890"),
+		AppleHealthTabledata(time: "Month", steps: "10_000"),
+		AppleHealthTabledata(time: "Year", steps: "10_00_000")
 	]
 }
 
@@ -95,10 +95,10 @@ class AppleHealthViewController: UIViewController {
 			switch result {
 			case .success(let count):
 				print(count)
-				StaticAppleHealthTabledata.staitcData[0].steps = "\(count)"
+				AppleHealthTabledata.healthKitData[0].steps = "\(count)"
 			case .failure(let error):
 				if error as! AppleHealthError == AppleHealthError.NoDataAvailabe {
-					StaticAppleHealthTabledata.staitcData[0].steps = AppleHealthError.NoDataAvailabe.rawValue
+					AppleHealthTabledata.healthKitData[0].steps = AppleHealthError.NoDataAvailabe.rawValue
 				}
 				
 				print(error)
@@ -111,10 +111,10 @@ class AppleHealthViewController: UIViewController {
 		AppleHealthFunctions.shared.getWeeklyStepsFromApple { results in
 			switch results {
 			case .success(let count):
-				StaticAppleHealthTabledata.staitcData[1].steps = "\(count)"
+				AppleHealthTabledata.healthKitData[1].steps = "\(count)"
 			case .failure(let error):
 				if error as! AppleHealthError == AppleHealthError.NoDataAvailabe {
-					StaticAppleHealthTabledata.staitcData[1].steps = AppleHealthError.NoDataAvailabe.rawValue
+					AppleHealthTabledata.healthKitData[1].steps = AppleHealthError.NoDataAvailabe.rawValue
 				}
 				
 				print(error)
@@ -127,10 +127,10 @@ class AppleHealthViewController: UIViewController {
 		AppleHealthFunctions.shared.getMonthlyStepsFromApple { results in
 			switch results {
 			case .success(let count):
-				StaticAppleHealthTabledata.staitcData[2].steps = "\(count)"
+				AppleHealthTabledata.healthKitData[2].steps = "\(count)"
 			case .failure(let error):
 				if error as! AppleHealthError == AppleHealthError.NoDataAvailabe {
-					StaticAppleHealthTabledata.staitcData[2].steps = AppleHealthError.NoDataAvailabe.rawValue
+					AppleHealthTabledata.healthKitData[2].steps = AppleHealthError.NoDataAvailabe.rawValue
 				}
 				
 				print(error)
@@ -143,10 +143,10 @@ class AppleHealthViewController: UIViewController {
 		AppleHealthFunctions.shared.getYearlyStepsFromApple { results in
 			switch results {
 			case .success(let count):
-				StaticAppleHealthTabledata.staitcData[3].steps = "\(count)"
+				AppleHealthTabledata.healthKitData[3].steps = "\(count)"
 			case .failure(let error):
 				if error as! AppleHealthError == AppleHealthError.NoDataAvailabe {
-					StaticAppleHealthTabledata.staitcData[3].steps = AppleHealthError.NoDataAvailabe.rawValue
+					AppleHealthTabledata.healthKitData[3].steps = AppleHealthError.NoDataAvailabe.rawValue
 				}
 				
 				print(error)
@@ -175,7 +175,7 @@ extension AppleHealthViewController: UITableViewDelegate, UITableViewDataSource 
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: AppleHealthTableViewCell.identifier, for: indexPath) as? AppleHealthTableViewCell else { return UITableViewCell() }
-		cell.configure(with: StaticAppleHealthTabledata.staitcData[indexPath.row])
+		cell.configure(with: AppleHealthTabledata.healthKitData[indexPath.row])
 		return cell
 	}
 	
@@ -189,7 +189,8 @@ extension AppleHealthViewController: UITableViewDelegate, UITableViewDataSource 
 	
 	func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
 		guard let header = view as? UITableViewHeaderFooterView else { return }
-		header.textLabel?.font = .boldSystemFont(ofSize: 15)
+		header.textLabel?.font = .boldSystemFont(ofSize: 20)
 		header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
+		header.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
 	}
 }

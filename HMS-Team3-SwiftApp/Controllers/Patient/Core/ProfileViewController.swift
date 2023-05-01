@@ -88,9 +88,11 @@ class ProfileViewController: UIViewController {
 		view.addSubview(profileTableView)
 		profileTableView.delegate = self
 		profileTableView.dataSource = self
-		profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300), delegate: self, profileDetails: personalInfo)
+		profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 180), delegate: self, profileDetails: personalInfo)
 		profileTableView.backgroundColor = UIColor(named: "ProfileBackground")
 		profileTableView.separatorStyle = .none
+		
+		AppleHealthFunctions.shared.askForHealthKitPermission()
     }
 	
 	override func viewDidLayoutSubviews() {
@@ -167,7 +169,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             if let controller = storyboard?.instantiateViewController(withIdentifier: "SOSContacts") {
                 self.navigationController?.pushViewController(controller, animated: true)
             }
-            //			self.navigationController?.pushViewController(SOSContactsViewController(), animated: true)
         case TableSections.AppleHealth.rawValue:
             self.navigationController?.pushViewController(AppleHealthViewController(), animated: true)
         default:

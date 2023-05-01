@@ -90,7 +90,7 @@ class AppleHealthTableViewCell: UITableViewCell {
 		)
 	}
 	
-	public func configure(with data: StaticAppleHealthTabledata) {
+	public func configure(with data: AppleHealthTabledata) {
 		
 		timeLabel.text = data.time
 		stepsCountLabel.text = data.steps
