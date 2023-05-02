@@ -76,6 +76,11 @@
 		76D7A21729F6895600E6F225 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 76D7A21629F6895600E6F225 /* GoogleSignIn */; };
 		AC4D05AB29F6845E004E4C44 /* SOS Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4D05AA29F6845E004E4C44 /* SOS Contacts.storyboard */; };
 		AC4D05AE29F689D8004E4C44 /* SOSContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D05AD29F689D8004E4C44 /* SOSContactCollectionViewCell.swift */; };
+		AC61407429FE997C0051648C /* DoctorExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61407329FE997C0051648C /* DoctorExploreViewController.swift */; };
+		AC61407729FE9C870051648C /* DoctorExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61407529FE9C870051648C /* DoctorExploreCollectionViewCell.swift */; };
+		AC61407829FE9C870051648C /* DoctorExploreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC61407629FE9C870051648C /* DoctorExploreCollectionViewCell.xib */; };
+		AC61407F29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61407D29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.swift */; };
+		AC61408029FEAB260051648C /* DoctorAppoinmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC61407E29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.xib */; };
 		CE980B6E29F92FCB0084C590 /* ClickCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B6D29F92FCB0084C590 /* ClickCollectionViewDelegate.swift */; };
 		CE980B7D29F936310084C590 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7C29F936310084C590 /* DiscoverViewController.swift */; };
 		E317359029F97D9000B16A2A /* GetUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E317358F29F97D9000B16A2A /* GetUserDetails.swift */; };
@@ -198,6 +203,11 @@
 		76D7A20E29F6866C00E6F225 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC4D05AA29F6845E004E4C44 /* SOS Contacts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "SOS Contacts.storyboard"; sourceTree = "<group>"; };
 		AC4D05AD29F689D8004E4C44 /* SOSContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSContactCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC61407329FE997C0051648C /* DoctorExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorExploreViewController.swift; sourceTree = "<group>"; };
+		AC61407529FE9C870051648C /* DoctorExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorExploreCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC61407629FE9C870051648C /* DoctorExploreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorExploreCollectionViewCell.xib; sourceTree = "<group>"; };
+		AC61407D29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorAppoinmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC61407E29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorAppoinmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE980B6D29F92FCB0084C590 /* ClickCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		CE980B7C29F936310084C590 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		CE980B8B29F93D570084C590 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -434,6 +444,7 @@
 		765F864629EFF3F4009E67F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC61407029FE99080051648C /* DoctorScreen */,
 				27125E0729F90C7700235D43 /* PatientScreen */,
 			);
 			path = Views;
@@ -500,6 +511,18 @@
 				AC4D05AD29F689D8004E4C44 /* SOSContactCollectionViewCell.swift */,
 			);
 			path = "SOS Contacts Cell";
+			sourceTree = "<group>";
+		};
+		AC61407029FE99080051648C /* DoctorScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AC61407329FE997C0051648C /* DoctorExploreViewController.swift */,
+				AC61407529FE9C870051648C /* DoctorExploreCollectionViewCell.swift */,
+				AC61407629FE9C870051648C /* DoctorExploreCollectionViewCell.xib */,
+				AC61407D29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.swift */,
+				AC61407E29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.xib */,
+			);
+			path = DoctorScreen;
 			sourceTree = "<group>";
 		};
 		E3620D8329ED3E1D008F9B98 /* PatientStoryboards */ = {
@@ -736,6 +759,7 @@
 				E3620D8829ED3E6B008F9B98 /* HomeStoryboard.storyboard in Resources */,
 				E3620D8629ED3E5C008F9B98 /* DoctorProfileStoryboard.storyboard in Resources */,
 				276811A329F90D26005209A0 /* CategoryCollectionViewCell.xib in Resources */,
+				AC61408029FEAB260051648C /* DoctorAppoinmentCollectionViewCell.xib in Resources */,
 				AC4D05AB29F6845E004E4C44 /* SOS Contacts.storyboard in Resources */,
 				3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */,
 				E3A0D4CE29E40F9B00894838 /* LaunchScreen.storyboard in Resources */,
@@ -747,6 +771,7 @@
 				276811B729F90DDF005209A0 /* SlotCollectionViewCell.xib in Resources */,
 				276811A729F90D64005209A0 /* TopDoctorCollectionViewCell.xib in Resources */,
 				6B36E37429FA70F3003023B3 /* Invoice.storyboard in Resources */,
+				AC61407829FE9C870051648C /* DoctorExploreCollectionViewCell.xib in Resources */,
 				E3A0D4C929E40F9A00894838 /* Main.storyboard in Resources */,
 				E3620D7C29ED3DDF008F9B98 /* ChatStoryboard.storyboard in Resources */,
 				6B38EFB729F686800084981F /* PatientProfileMedicalHistory.storyboard in Resources */,
@@ -784,6 +809,7 @@
 				3A8BD1D329FBA13E002B720C /* SearchResultsViewController.swift in Sources */,
 				E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */,
 				3A8BD1C729FBA055002B720C /* PackagesCollectionViewTableViewCell.swift in Sources */,
+				AC61407F29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.swift in Sources */,
 				3A8BD1C929FBA055002B720C /* CategoriesCollectionViewTableViewCell.swift in Sources */,
 				276811B629F90DDF005209A0 /* SlotCollectionViewCell.swift in Sources */,
 				3A3BE6912A00D2FD003AE848 /* DoctorScheduleMonthCollectionViewCell.swift in Sources */,
@@ -835,6 +861,7 @@
 				3A3BE68F2A00D2FD003AE848 /* DoctorScheduleViewController.swift in Sources */,
 				E3A0D4C429E40F9A00894838 /* SceneDelegate.swift in Sources */,
 				6B38EFBE29F69E170084981F /* MedicalHistoryCollectionViewCell.swift in Sources */,
+				AC61407729FE9C870051648C /* DoctorExploreCollectionViewCell.swift in Sources */,
 				E39FC8E529FA7BB70036F1F8 /* UpdateUserDetails.swift in Sources */,
 				3A8BD1D429FBA13E002B720C /* OngoingMedicationsViewController.swift in Sources */,
 				765F864E29F0FD38009E67F2 /* MedicalHistoryViewController.swift in Sources */,
@@ -845,6 +872,7 @@
 				E37D151C29F7B45800300948 /* Extensions.swift in Sources */,
 				3A86EB2129FBD508003D4E01 /* DoctorLoginViewController.swift in Sources */,
 				765F865229F0FE2A009E67F2 /* SOSContactsViewController.swift in Sources */,
+				AC61407429FE997C0051648C /* DoctorExploreViewController.swift in Sources */,
 				765F864129EFEFBB009E67F2 /* Enums.swift in Sources */,
 				765F863F29EFEFA5009E67F2 /* User.swift in Sources */,
 				765F864329EFEFD1009E67F2 /* Appointments.swift in Sources */,
