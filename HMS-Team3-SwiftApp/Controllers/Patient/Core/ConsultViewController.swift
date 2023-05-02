@@ -7,12 +7,18 @@
 
 
 import UIKit
+import Foundation
 
 enum ConsultTableSectionType : Int {
     case categorySection = 0
     case topDocSection = 1
     case recentDocSection = 2
     
+}
+protocol ConsultTabDelegate {
+    func clickedCategory()
+    func clickedTopDoc()
+    func clickedRecent()
 }
 
 class ConsultViewController: UIViewController, UISearchResultsUpdating {

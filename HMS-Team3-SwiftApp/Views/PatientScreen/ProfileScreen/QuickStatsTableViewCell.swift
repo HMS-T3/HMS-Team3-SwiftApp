@@ -19,15 +19,15 @@ struct QuickStatsStaticInfo {
 							 userInputLabel: "180 lbs",
 							 labelColorName: "weight"),
 		
+		QuickStatsStaticInfo(imageSystemName: "figure.stand",
+							 mainLabel: "Height",
+							 userInputLabel: "78 cm",
+							 labelColorName: "heartRate"),
+		
 		QuickStatsStaticInfo(imageSystemName: "drop.fill",
 							 mainLabel: "Blood Group",
 							 userInputLabel: "B +ve",
-							 labelColorName: "blood"),
-		
-		QuickStatsStaticInfo(imageSystemName: "chart.xyaxis.line",
-							 mainLabel: "Heart Rate",
-							 userInputLabel: "78 rpm",
-							 labelColorName: "heartRate")
+							 labelColorName: "blood")
 	]
 }
 

@@ -11,4 +11,8 @@ extension String {
     func capitalizeFirstLetter() -> String {
         return self.prefix(1).uppercased() + self.lowercased().dropFirst()
     }
+	
+	func addIndianPhoneCode() -> String {
+		return "+91" + self
+	}
 }

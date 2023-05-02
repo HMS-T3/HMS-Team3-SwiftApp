@@ -65,7 +65,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     public func configure(with data: Categories) {
         iconImageView.image = data.categoryImage
-        iconText.text = data.categoryName.rawValue
+        iconText.text = data.categoryName?.rawValue
         }
 
 }

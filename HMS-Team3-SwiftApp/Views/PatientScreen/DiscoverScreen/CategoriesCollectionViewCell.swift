@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoriesCollectionViewCell: UICollectionViewCell {
     
@@ -44,9 +45,10 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
                     iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
                     iconImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
                     iconImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
-
+                
                     
                     // Text label constraints
+//                    iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor),
                     iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor),
                     iconText.leadingAnchor.constraint(equalTo: leadingAnchor),
                     iconText.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -59,7 +61,8 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with data: Categories) {
+//        iconImageView.sd_setImage(with: URL(string: (data.categoryImage) ?? ""))
         iconImageView.image = data.categoryImage
-        iconText.text = data.categoryName.rawValue
+        iconText.text = data.categoryName?.rawValue
         }
 }

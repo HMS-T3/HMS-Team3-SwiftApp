@@ -4,7 +4,6 @@
 //
 //  Created by Rushil Kothari on 20/04/23.
 //
-
 import UIKit
 
 enum TableSectionType : Int {
@@ -18,6 +17,7 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
     
     // MARK: - Creating UI Table View
     // We have used closure here to create a table view
+    var specializations : [Specialization] = [Specialization(specialization: "Dentist", description: "haha", imgUrl: "https://res.cloudinary.com/dujgzpuyd/image/upload/v1682661888/pills.fill_xzzoki.svg")]
     
     private let searchController: UISearchController  = {
        
@@ -44,7 +44,18 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        GetDoctorSpecialization.shared.getDoctorSpecialization(completion: { results in
+//            switch results {
+//            case .success(let categories):
+//                print("Success")
+//                DispatchQueue.main.async {
+//                    self.specializations = categories.Specialization
+//                    self.discovertable.reloadData()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        })
         view.backgroundColor = .systemBackground
         title = "Discover"
         
@@ -66,6 +77,9 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
         super.viewDidLayoutSubviews()
         discovertable.frame = view.bounds
     }
+//    func updateSpecializations(_ categories: [Specialization]){
+//        specializations = categories
+//    }
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {return}
@@ -139,6 +153,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
                 return UITableViewCell()
             }
             cell.delegate = self
+//            cell.configureCategory(specializations)
             return cell
             
         case TableSectionType.packagesSection.rawValue:

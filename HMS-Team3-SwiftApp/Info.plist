@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Allow this app to write health data provided from your doctor or clinician.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Allow this app to share your Health data to doctors and clinicians.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
