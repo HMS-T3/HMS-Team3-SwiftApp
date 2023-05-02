@@ -56,7 +56,7 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
 //                print(error)
 //            }
 //        })
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         title = "Discover"
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -67,6 +67,8 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
         view.addSubview(discovertable)
         discovertable.delegate = self
         discovertable.dataSource = self
+        discovertable.backgroundColor = .systemBackground
+        discovertable.separatorStyle = .none
 //      discovertable.separatorStyle = .none
         // Add the table view as a subview of the View Controller
     }
@@ -127,6 +129,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         header.textLabel?.frame = header.bounds
         header.textLabel?.text =  header.textLabel?.text?.capitalizeFirstLetter()
         header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        header.backgroundColor = .white
         
     }
     
