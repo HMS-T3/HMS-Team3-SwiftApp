@@ -4,115 +4,141 @@
 //
 //  Created by Abhi Patel on 05/02/1945 Saka.
 //
-
 import UIKit
-
-//class DoctorDetailsViewController: UIViewController {
-//
-//
-//    @IBOutlet weak var datesCollectionView: UICollectionView!
-//        @IBOutlet weak var slotsCollectionView: UICollectionView!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//
-//    }
-//
-//
-//
-//}
-
-
+enum DocotorAppointmentFeedSections: Int {
+    case AboutDoctor = 0
+    case dateOfDoctor = 1
+    case timeSlotsOfDate = 2
+}
 import UIKit
-
 class DoctorDetailsViewController: UIViewController {
     
-    @IBOutlet weak var datesCollectionView: UICollectionView!
-    @IBOutlet weak var slotsCollectionView: UICollectionView!
+    let doctorID: String
     
-    let dates = ["Apr 1", "Apr 2", "Apr 3", "Apr 4", "Apr 5", "Apr 6", "Apr 7", "Apr 8", "Apr 9", "Apr 10", "Apr 11", "Apr 12", "Apr 13", "Apr 14", "Apr 15", "Apr 16", "Apr 17", "Apr 18", "Apr 19", "Apr 20", "Apr 21", "Apr 22", "Apr 23", "Apr 24", "Apr 25", "Apr 26", "Apr 27", "Apr 28", "Apr 29", "Apr 30"]
+    var doctorInfo: DoctorAppointment = DoctorAppointment(Response: [DoctorResponse(doctor: DoctorInfoStruct(doctorInfo: DoctorInfo(specialization: "nil", degree: "nil", experience: "nil", description: "nil"), info: AdditionalInfo(profileImg: "nil", name: "nil", dateOfBirth: "nil", phoneNumber: "nil", biologicalGender: "nil")))])
     
-    let slots = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM"]
+    private let docotorAppointmentFeed: UITableView = {
+        
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(AboutDoctorTableViewCell.self, forCellReuseIdentifier: AboutDoctorTableViewCell.identifier)
+        table.register(DoctorDatesTableViewCell.self, forCellReuseIdentifier: DoctorDatesTableViewCell.identifier)
+        table.register(DoctorTimeSlotsTableViewCell.self, forCellReuseIdentifier: DoctorTimeSlotsTableViewCell.identifier)
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 500
+        return table
+    }()
+    
+    private let bookAppointmentButton: UIButton = {
+        
+        let button = UIButton()
+        button.setTitle("Book Appointment", for: .normal)
+        button.backgroundColor = .gray
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    init(doctorID: String) {
+        self.doctorID = doctorID
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Register custom cells
-        let dateCellNib = UINib(nibName: "DateCollectionViewCell", bundle: nil)
-        datesCollectionView.register(dateCellNib, forCellWithReuseIdentifier: "DateCell")
+        title = "Doctor Details"
+        view.backgroundColor = .systemBackground
         
-        let slotCellNib = UINib(nibName: "SlotCollectionViewCell", bundle: nil)
-        slotsCollectionView.register(slotCellNib, forCellWithReuseIdentifier: "SlotCell")
+        view.addSubview(docotorAppointmentFeed)
+        docotorAppointmentFeed.delegate = self
+        docotorAppointmentFeed.dataSource = self
+        docotorAppointmentFeed.tableHeaderView = DoctorInfoUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 250), info: doctorInfo)
+        docotorAppointmentFeed.separatorStyle = .none
+        docotorAppointmentFeed.backgroundColor = .systemBackground
         
-        // Set data source and delegate
-        datesCollectionView.dataSource = self
-        datesCollectionView.delegate = self
+        view.addSubview(bookAppointmentButton)
         
+        fetchData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        slotsCollectionView.dataSource = self
-        slotsCollectionView.delegate = self
+        docotorAppointmentFeed.frame = view.bounds
+        
+        bookAppointmentButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15).isActive = true
+        bookAppointmentButton.widthAnchor.constraint(equalToConstant: view.bounds.width / 2 + 10).isActive = true
+        bookAppointmentButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        bookAppointmentButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    func fetchData() {
+        DoctorInformation.shared.getDoctorInformation(completion: { results in
+            switch results {
+            case .success(let details):
+                DispatchQueue.main.async {
+                    self.doctorInfo = details
+                    self.docotorAppointmentFeed.tableHeaderView = DoctorInfoUIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 250), info: details)
+                    self.docotorAppointmentFeed.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }, doctorID: doctorID)
     }
 }
-
-// MARK: - UICollectionViewDataSource
-extension DoctorDetailsViewController: UICollectionViewDataSource {
+extension DoctorDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == datesCollectionView {
-            return dates.count
-        } else {
-            return slots.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.row {
+        case DocotorAppointmentFeedSections.AboutDoctor.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutDoctorTableViewCell.identifier, for: indexPath) as? AboutDoctorTableViewCell else { return UITableViewCell() }
+            cell.configure(text: doctorInfo.Response[0].doctor.doctorInfo.description)
+            return cell
+        case DocotorAppointmentFeedSections.dateOfDoctor.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DoctorDatesTableViewCell.identifier, for: indexPath) as? DoctorDatesTableViewCell else { return UITableViewCell() }
+            cell.configure()
+            return cell
+        case DocotorAppointmentFeedSections.timeSlotsOfDate.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DoctorTimeSlotsTableViewCell.identifier, for: indexPath) as? DoctorTimeSlotsTableViewCell else { return UITableViewCell() }
+            cell.configure()
+            return cell
+        default:
+            return UITableViewCell()
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == datesCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as! DateCollectionViewCell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case DocotorAppointmentFeedSections.AboutDoctor.rawValue:
+            tableView.deselectRow(at: indexPath, animated: true)
+            let cell = tableView.cellForRow(at: indexPath) as! AboutDoctorTableViewCell
+            cell.fullTextView()
+            DispatchQueue.main.async {
+                self.docotorAppointmentFeed.reloadData()
+            }
             
-            cell.DateLabel.text = dates[indexPath.item]
-            
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SlotCell", for: indexPath) as! SlotCollectionViewCell
-            
-            cell.SlotLabel.text = slots[indexPath.item]
-            
-            return cell
+        default:
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
-extension DoctorDetailsViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = collectionView.frame.width / 3
-        let cellHeight: CGFloat = 50
-        
-        return CGSize(width: cellWidth, height: cellHeight)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-}
 
-// MARK: - UICollectionViewDelegate
-extension DoctorDetailsViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-           if collectionView == datesCollectionView {
-               // Handle selection of a date
-//               collectionView.backgroundColor = UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
-               print("Selected date: \(dates[indexPath.item])")
-           } else {
-               // Handle selection of a time slot
-               print("Selected time slot: \(slots[indexPath.item])")
-           }
-       }
-}
+
+
+
+
+
 

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftSVG
 import SDWebImage
 
 class CategoriesCollectionViewCell: UICollectionViewCell {
