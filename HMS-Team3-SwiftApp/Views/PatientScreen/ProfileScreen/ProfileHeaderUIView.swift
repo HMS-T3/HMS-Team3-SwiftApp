@@ -6,12 +6,12 @@
 //
 
 import UIKit
-
+import SDWebImage
 class ProfileHeaderUIView: UIView {
 	
 	let delegate: ProfileHeaderUIViewDelegate
 	
-	let profileDetails: PersonalInfo
+	let profileDetails: UserResponse
 	
 	private let profileInfoView: UIView = {
 		let view = UIView()
@@ -34,7 +34,7 @@ class ProfileHeaderUIView: UIView {
 	private let profileImage: UIImageView = {
 		
 		let image = UIImageView()
-		image.image = UIImage(named: "profileImage")
+		// image.image = UIImage(named: "profileImage")
 		image.translatesAutoresizingMaskIntoConstraints = false
 		image.contentMode = .scaleAspectFill
 		return image
@@ -110,10 +110,12 @@ class ProfileHeaderUIView: UIView {
 		return label
 	}()
 
-	init(frame: CGRect, delegate: ProfileHeaderUIViewDelegate, profileDetails: PersonalInfo) {
+	init(frame: CGRect, delegate: ProfileHeaderUIViewDelegate, profileDetails: UserResponse) {
 		self.delegate = delegate
 		self.profileDetails = profileDetails
 		super.init(frame: frame)
+        
+        fetchPatientDetails()
 		
 		addSubview(profileInfoView)
 		
@@ -131,8 +133,6 @@ class ProfileHeaderUIView: UIView {
 		
 		addSubview(phoneNumberIcon)
 		addSubview(phoneNumberLabel)
-		
-		fetchPatientDetails()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -202,10 +202,11 @@ class ProfileHeaderUIView: UIView {
 		
 		let dateFormatter = DateFormatter()
 		dateFormatter.setLocalizedDateFormatFromTemplate("d MMM yyyy")
-		nameLabel.text = profileDetails.name
-		dobLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: profileDetails.dob))
-		genderLabel.text = profileDetails.biologicalGender.rawValue
-		phoneNumberLabel.text = String(profileDetails.phoneNumber)
+        nameLabel.text = "\(profileDetails.info?.name! ?? "Name")"
+        dobLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: 213219838))
+        genderLabel.text = "Female"
+        profileImage.sd_setImage(with: URL(string: (profileDetails.info?.profileImg) ?? "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png"))
+        phoneNumberLabel.text = "\(profileDetails.phoneNumber ?? "1213445")"
 	}
 	
 	@objc func editButtonPressed() {

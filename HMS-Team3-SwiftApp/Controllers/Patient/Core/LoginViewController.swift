@@ -89,7 +89,7 @@ class LoginViewController: UIViewController {
 //		let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
 //		loadingIndicator.hidesWhenStopped = true
 //		loadingIndicator.style = UIActivityIndicatorView.Style.medium
-//		loadingIndicator.startAnimating();
+//		loadingIndicator.startAnimatin g();
 //
 //		alert.view.addSubview(loadingIndicator)
 //		present(alert, animated: true, completion: nil)
@@ -98,16 +98,16 @@ class LoginViewController: UIViewController {
 //		print("dismissed")
 		
 		if Auth.auth().currentUser != nil {
-			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
-				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
-				self.navigationController?.pushViewController(controller, animated: true)
-			}
-//			do {
-//				try Auth.auth().signOut()
-//				print("User Signed Out")
-//			} catch {
-//				print(error)
+//			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+//				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
+//				self.navigationController?.pushViewController(controller, animated: true)
 //			}
+			do {
+				try Auth.auth().signOut()
+				print("User Signed Out")
+			} catch {
+				print(error)
+			}
 			
 		}
 	}
@@ -244,7 +244,7 @@ class LoginViewController: UIViewController {
 								self.errorLabel.isHidden = false
 							}
 						}
-					}, email: nil, uinqueID: nil, pNumber: self.phoneNumberTextField.text)
+					}, email: nil, uniqueID: nil, pNumber: self.phoneNumberTextField.text)
 				}
 				return
 			}
@@ -289,10 +289,11 @@ class LoginViewController: UIViewController {
 //                                print(loginPatient.response!.id) // Save this id to user defaults
 								UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
                             }
+                            self.updateUserDetails()
                         }
                     case .failure(let error):
 						if error as! APIError == APIError.UserNotFound {
-							self.registerGoogleUser(email: email, uinqueID: uid)
+							self.registerGoogleUser(email: email, uniqueID: uid)
 						} else {
 							print("error before registering")
 							   print(error)
@@ -300,12 +301,12 @@ class LoginViewController: UIViewController {
 							   self.errorLabel.isHidden = false
 						   }
                     }
-                }, email: email, uinqueID: uid, pNumber: nil)
+                }, email: email, uniqueID: uid, pNumber: nil)
             }
         }
     }
     
-    func registerGoogleUser(email: String, uinqueID: String) {
+    func registerGoogleUser(email: String, uniqueID: String) {
         UserAuthentication.shared.registerPatient(completion: { results in
             
             switch results {
@@ -317,6 +318,7 @@ class LoginViewController: UIViewController {
 //                        print(loginPatient.response!.id) // Save this id to user defaults
 						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
                     }
+                    self.updateUserDetails()
                 }
             case .failure(let error):
                 print(error)
@@ -324,7 +326,27 @@ class LoginViewController: UIViewController {
 				alert.addAction(UIAlertAction(title: "OK", style: .default))
 				self.present(alert, animated: true)
             }
-        }, email: email, uinqueID: uinqueID, pNumber: nil)
+          }, email: email, uniqueID: uniqueID, pNumber: nil)
+    }
+    
+    func updateUserDetails() {
+        if let user = Auth.auth().currentUser {
+            let name = user.displayName
+            let phone = user.phoneNumber
+            let imgUrl = user.photoURL?.absoluteString
+
+            UpdateUserDetails.shared.updatePatient(completion: { results in
+                switch results {
+                case .success(let user):
+                    print("Success")
+                    DispatchQueue.main.async {
+                        print(results)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }, name: name ?? "", phoneNumber: phone ?? "", imgUrl: imgUrl!)
+        }
     }
 	
 	func registerPhoneNumber(pNumber: String) {
@@ -346,6 +368,6 @@ class LoginViewController: UIViewController {
 				alert.addAction(UIAlertAction(title: "OK", style: .default))
 				self.present(alert, animated: true)
 			}
-		}, email: nil, uinqueID: nil, pNumber: pNumber)
+		}, email: nil, uniqueID: nil, pNumber: pNumber)
 	}
 }

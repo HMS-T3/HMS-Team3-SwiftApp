@@ -12,17 +12,24 @@ class CategoriesCollectionViewTableViewCell: UITableViewCell {
     static let identifier = "CategoriesCollectionViewTableViewCell"
     
     var delegate: ClickCollectionViewDelegate?
-   
+//    var categories: [Specialization]
+    
+//    func configureCategory(_ category: [Specialization]){
+//        categories = category
+//        categoryInfo =  categories.map { value in Categories(categoryImage: value.imgUrl, categoryName: value.specialization)
+//        }
+//    }
+    
     let categoryInfo: [Categories] = [
-        Categories(categoryImage: UIImage(named: "General"), categoryName: CategoryTypes.general),
-        Categories(categoryImage: UIImage(named: "Lung Specialist"), categoryName: CategoryTypes.lungSpecialist),
-        Categories(categoryImage: UIImage(named: "Dentist"), categoryName: CategoryTypes.dentist),
-        Categories(categoryImage: UIImage(named: "Psychiatrist"), categoryName: CategoryTypes.psychiatrist),
-        Categories(categoryImage: UIImage(named: "Covid19"), categoryName: CategoryTypes.covid19),
-        Categories(categoryImage: UIImage(named: "Surgeon"), categoryName: CategoryTypes.surgeon),
-        Categories(categoryImage: UIImage(named: "Cardiologist"), categoryName: CategoryTypes.cardiologist),
-        Categories(categoryImage: UIImage(named: "Neurologist"), categoryName: CategoryTypes.neurologist)
-    ]
+           Categories(categoryImage: UIImage(named: "General"), categoryName: CategoryTypes.general),
+           Categories(categoryImage: UIImage(named: "Lung Specialist"), categoryName: CategoryTypes.lungSpecialist),
+           Categories(categoryImage: UIImage(named: "Dentist"), categoryName: CategoryTypes.dentist),
+           Categories(categoryImage: UIImage(named: "Psychiatrist"), categoryName: CategoryTypes.psychiatrist),
+           Categories(categoryImage: UIImage(named: "Covid19"), categoryName: CategoryTypes.covid19),
+           Categories(categoryImage: UIImage(named: "Surgeon"), categoryName: CategoryTypes.surgeon),
+           Categories(categoryImage: UIImage(named: "Cardiologist"), categoryName: CategoryTypes.cardiologist),
+           Categories(categoryImage: UIImage(named: "Neurologist"), categoryName: CategoryTypes.neurologist)
+       ]
     
     private let collectionView : UICollectionView = {
         
@@ -35,6 +42,10 @@ class CategoriesCollectionViewTableViewCell: UITableViewCell {
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//        self.categories =  [Specialization(specialization: "hello", description: "hi", imgUrl: "ok")]
+//        self.categoryInfo = categories.map { value in
+//            Categories(categoryImage: "value.imgUrl", categoryName: "value.specialization")
+//        }
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(collectionView)
         collectionView.delegate = self

@@ -10,7 +10,7 @@ import UIKit
 
 struct Categories {
     let categoryImage: UIImage?
-    let categoryName: CategoryTypes
+    let categoryName: CategoryTypes?
 }
 
 enum CategoryTypes: String {
