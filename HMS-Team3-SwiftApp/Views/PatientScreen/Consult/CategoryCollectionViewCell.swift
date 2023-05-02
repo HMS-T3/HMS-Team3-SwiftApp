@@ -11,35 +11,61 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "CategoryCollectionViewCell"
     
-    @IBOutlet var CatagoryView: UIView!
-    @IBOutlet var CategoryImageLabel: UIImageView!
+    private let iconImageView: UIImageView = {
+        
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "Covid19")
+//        imageView.tintColor = .label
+//        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor(named: "upcoming.card")?.cgColor
+        imageView.layer.cornerRadius = 10
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(scale: .small)
+        imageView.preferredSymbolConfiguration = config
+        return imageView
+    }()
     
-    @IBOutlet var CategoryNameLabel: UILabel!
+    private let iconText: UILabel = {
+        let textLabel = UILabel()
+        textLabel.text = "HMS3"
+        textLabel.textAlignment = .center
+        textLabel.textColor = .gray
+        textLabel.font = .boldSystemFont(ofSize: 9)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        return textLabel
+    }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-      
-       // let outerView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        CategoryImageLabel.clipsToBounds = false
-        CategoryImageLabel.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-        CategoryImageLabel.layer.borderWidth = 1
-        CategoryImageLabel.layer.cornerRadius = 20
-       // CatagoryView.addSubview(CategoryImageLabel)
-        
-       
-        CategoryImageLabel.clipsToBounds = true
-        CategoryImageLabel.layer.cornerRadius = 10
-        
-        
-        CategoryImageLabel.image = #imageLiteral(resourceName: "Doctor")
-        CategoryNameLabel.text = "HMS3"
-        // Initialization code
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(iconImageView)
+        addSubview(iconText)
+        NSLayoutConstraint.activate([
+                    // Image view constraints
+                    iconImageView.topAnchor.constraint(equalTo: topAnchor),
+                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                    iconImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                    iconImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
+                    
+
+                    
+                    // Text label constraints
+                  
+                    iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor,constant: 10),
+                    iconText.leadingAnchor.constraint(equalTo: leadingAnchor),
+                    iconText.trailingAnchor.constraint(equalTo: trailingAnchor),
+                    iconText.bottomAnchor.constraint(equalTo: bottomAnchor)
+                ])
     }
-   
     
-  
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func configure(with data: Categories) {
+        iconImageView.image = data.categoryImage
+        iconText.text = data.categoryName?.rawValue
+        }
 
 }

@@ -5,105 +5,183 @@
 //  Created by Abhi Patel on 19/04/23.
 //
 
-import UIKit
 
-class ConsultViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource, UISearchResultsUpdating{
+import UIKit
+import Foundation
+
+enum ConsultTableSectionType : Int {
+    case categorySection = 0
+    case topDocSection = 1
+    case recentDocSection = 2
     
-    func updateSearchResults(for searchController: UISearchController) {
-        return
-    }
+}
+protocol ConsultTabDelegate {
+    func clickedCategory()
+    func clickedTopDoc()
+    func clickedRecent()
+}
+
+class ConsultViewController: UIViewController, UISearchResultsUpdating {
     
-   
-    
-    @IBOutlet var TopDoctorCollectionView: UICollectionView!
-    @IBOutlet var CategoryCollectionView: UICollectionView!
-    @IBOutlet var RecentDoctorCollectionView: UICollectionView!
     
     private let searchController: UISearchController  = {
-           
-            let search = UISearchController()
-            search.searchBar.searchBarStyle = .prominent
-            return search
-        }()
+       
+        let search = UISearchController(searchResultsController: SearchResultsViewController())
+        search.searchBar.searchBarStyle = .prominent
+        return search
+    }()
     
+    private let discovertable: UITableView = {
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.backgroundColor = .white
+        table.register(CatTableViewCell.self, forCellReuseIdentifier: CatTableViewCell.identifier)
+        table.register(TopDocTableViewCell.self, forCellReuseIdentifier: TopDocTableViewCell.identifier)
+        table.register(RecentTableViewCell.self, forCellReuseIdentifier: RecentTableViewCell.identifier)
+
+        
+//      table.translatesAutoresizingMaskIntoConstraints = false
+        table.showsVerticalScrollIndicator = false
+        return table
+    }()
+    
+    private let tableSectionTitle: [String] = ["Categories", "Top Doctors", "Recent Doctors"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCells()
+        
+        discovertable.backgroundColor = .white
+        title = "Find Doctors"
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.largeTitleDisplayMode = .never
         navigationItem.searchController = searchController
-                searchController.searchResultsUpdater = self
-        
-        //Flow for CategoryCollectionView
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: (CategoryCollectionView.bounds.width - 15) / 4, height: CategoryCollectionView.bounds.height / 2)
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 5
-        CategoryCollectionView.collectionViewLayout = layout
-        
-    
+        searchController.searchResultsUpdater = self
+
+        view.addSubview(discovertable)
+        discovertable.delegate = self
+        discovertable.dataSource = self
+//      discovertable.separatorStyle = .none
+        // Add the table view as a subview of the View Controller
     }
     
-    private func registerCells(){
-        CategoryCollectionView.register(UINib(nibName: CategoryCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
-        TopDoctorCollectionView.register(UINib(nibName: TopDoctorCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TopDoctorCollectionViewCell.identifier)
-        RecentDoctorCollectionView.register(UINib(nibName: RecentsDoctorCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: RecentsDoctorCollectionViewCell.identifier)
+    // MARK: - Add table view to View Controller
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        discovertable.frame = view.bounds
     }
     
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView{
-        case CategoryCollectionView:
-            return 8
-        case TopDoctorCollectionView:
-            return 4
-        case RecentDoctorCollectionView:
-            return 4
-        default: return 8
-        }}
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch collectionView{
-        case CategoryCollectionView:
-            if let controller = storyboard?.instantiateViewController(withIdentifier: "ListDoctorsViewController") {
-                navigationController?.pushViewController(controller, animated: true)
-            }
-            
-        case TopDoctorCollectionView:
-            print("top doctor tapped")
-        case RecentDoctorCollectionView:
-            print("recent doctor tapped")
-        default : print("Not selected")
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionView{
-        case CategoryCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath)as! CategoryCollectionViewCell
-            
-            return cell
-        case TopDoctorCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopDoctorCollectionViewCell.identifier, for: indexPath)as! TopDoctorCollectionViewCell
-            cell.frame.size.width = 150
-            cell.frame.size.height = self.TopDoctorCollectionView.frame.height
-            
-            return cell
-        case RecentDoctorCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentsDoctorCollectionViewCell.identifier, for: indexPath)as! RecentsDoctorCollectionViewCell
-            return cell
-            
-        default: return UICollectionViewCell()
-            
-           
-        }
-        
-        
-        
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {return}
+        print(text)
     }
     
 }
-    
-    
-    
 
+extension ConsultViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableSectionTitle.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        switch section {
+       
+        case ConsultTableSectionType.categorySection.rawValue:
+            return tableSectionTitle[section]
+        case ConsultTableSectionType.topDocSection.rawValue:
+            return tableSectionTitle[section]
+        case ConsultTableSectionType.recentDocSection.rawValue:
+            return tableSectionTitle[section]
+        default:
+            return "No Section Title"
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.frame.size.width = tableView.bounds.width
+        header.textLabel?.textColor = .black
+        header.textLabel?.font = .boldSystemFont(ofSize: 20)
+        header.textLabel?.frame = header.bounds
+        header.layer.backgroundColor = UIColor.white.cgColor
+        header.textLabel?.text =  header.textLabel?.text?.capitalizeFirstLetter()
+        header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                
+        switch indexPath.section {
+            
+        case ConsultTableSectionType.categorySection.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CatTableViewCell.identifier, for: indexPath) as? CatTableViewCell else{
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            return cell
+            
+        case ConsultTableSectionType.topDocSection.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TopDocTableViewCell.identifier, for: indexPath) as? TopDocTableViewCell else{
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            return cell
+            
+        case ConsultTableSectionType.recentDocSection.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTableViewCell.identifier, for: indexPath) as? RecentTableViewCell else{
+                return UITableViewCell()
+            }
+            cell.delegate = self
+     
+            return cell
+            
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section{
+            case ConsultTableSectionType.categorySection.rawValue:
+                return 200
+            case ConsultTableSectionType.topDocSection.rawValue:
+                return 220
+            case ConsultTableSectionType.recentDocSection.rawValue:
+                return 140
+            default:
+                return 0
+            
+        }
+    }
+}
+
+extension ConsultViewController: ConsultTabDelegate {
+    func clickedCategory() {
+        let controller = storyboard?.instantiateViewController(identifier: "ListDoctorsViewController")
+        navigationController?.pushViewController(controller!, animated: true)
+    }
+    
+    func clickedTopDoc() {
+        let controller = storyboard?.instantiateViewController(identifier: "DoctorDetailsViewController")
+        navigationController?.pushViewController(controller!, animated: true)
+    }
+    
+    func clickedRecent() {
+        let controller = storyboard?.instantiateViewController(identifier: "DoctorDetailsViewController")
+        navigationController?.pushViewController(controller!, animated: true)
+    }
+    
+ 
+}

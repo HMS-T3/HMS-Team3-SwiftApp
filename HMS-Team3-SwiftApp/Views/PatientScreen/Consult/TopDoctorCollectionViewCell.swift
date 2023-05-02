@@ -10,24 +10,69 @@ import UIKit
 class TopDoctorCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TopDoctorCollectionViewCell"
-
-    @IBOutlet var TopDoctorName: UILabel!
-    @IBOutlet var TopDoctorSpecializationLabel: UILabel!
-    @IBOutlet var TopDoctorImage: UIImageView!
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    private let iconImageView: UIImageView = {
         
-        TopDoctorImage.clipsToBounds = false
-        TopDoctorImage.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-        TopDoctorImage.layer.borderWidth = 1
-        TopDoctorImage.layer.cornerRadius = 20
-        TopDoctorImage.clipsToBounds = true
-        TopDoctorImage.layer.cornerRadius = 10
+        let imageView = UIImageView()
+       imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "Covid19")
+//        imageView.tintColor = .label
+//        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor(named: "upcoming.card")?.cgColor
+        imageView.layer.cornerRadius = imageView.frame.width/2
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(scale: .small)
+        imageView.preferredSymbolConfiguration = config
+        return imageView
+    }()
     
-        TopDoctorName.text = "HMS3"
-        TopDoctorImage.image = #imageLiteral(resourceName: "Doctor")
-        TopDoctorSpecializationLabel.text = "Btech"
-        // Initialization code
+    private let iconText: UILabel = {
+        let textLabel = UILabel()
+        textLabel.text = "HMS3"
+        textLabel.textAlignment = .left
+        textLabel.font = .boldSystemFont(ofSize: 12)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        return textLabel
+    }()
+    
+    private let eduText: UILabel = {
+        let textLabel = UILabel()
+        textLabel.text = "MBBS"
+        textLabel.textColor = .gray
+        textLabel.textAlignment = .left
+        textLabel.font = .boldSystemFont(ofSize: 9)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        return textLabel
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(iconImageView)
+        addSubview(iconText)
+        addSubview(eduText)
+        NSLayoutConstraint.activate([
+                    // Image view constraints
+                    iconImageView.topAnchor.constraint(equalTo: topAnchor),
+                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                    iconImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                    iconImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
+                    
+                    // Text label constraints
+                  //  iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor),
+                    iconText.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
+                    iconText.trailingAnchor.constraint(equalTo: trailingAnchor),
+                    
+                    
+                    eduText.topAnchor.constraint(equalTo: iconText.bottomAnchor),
+                    eduText.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
+                    eduText.trailingAnchor.constraint(equalTo: trailingAnchor),
+                    eduText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
+                    
+                ])
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
