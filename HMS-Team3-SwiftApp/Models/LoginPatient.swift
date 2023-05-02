@@ -29,7 +29,6 @@ struct LoginDoctor: Codable {
 }
 
 struct Response: Codable {
-	
-	let id: String?
-	let Message: String
+    let id: String?
+    let Message: String
 }

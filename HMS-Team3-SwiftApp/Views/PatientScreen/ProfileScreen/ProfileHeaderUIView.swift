@@ -6,12 +6,12 @@
 //
 
 import UIKit
-
+import SDWebImage
 class ProfileHeaderUIView: UIView {
 	
 	let delegate: ProfileHeaderUIViewDelegate
 	
-	let profileDetails: PersonalInfo
+	let profileDetails: UserResponse
 	
 	private let profileInfoView: UIView = {
 		let view = UIView()
@@ -26,7 +26,7 @@ class ProfileHeaderUIView: UIView {
 		
 		let button = UIButton()
 		button.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
-		button.tintColor = .label
+		button.tintColor = UIColor(named: "iconColors")
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
@@ -34,7 +34,7 @@ class ProfileHeaderUIView: UIView {
 	private let profileImage: UIImageView = {
 		
 		let image = UIImageView()
-		image.image = UIImage(named: "profileImage")
+		// image.image = UIImage(named: "profileImage")
 		image.translatesAutoresizingMaskIntoConstraints = false
 		image.contentMode = .scaleAspectFill
 		return image
@@ -56,7 +56,7 @@ class ProfileHeaderUIView: UIView {
 		image.image = UIImage(systemName: "calendar")
 		image.contentMode = .scaleAspectFit
 		image.translatesAutoresizingMaskIntoConstraints = false
-		image.tintColor = .label
+		image.tintColor = UIColor(named: "iconColors")
 		return image
 	}()
 	
@@ -76,7 +76,7 @@ class ProfileHeaderUIView: UIView {
 		image.image = UIImage(systemName: "person.crop.circle.fill")
 		image.contentMode = .scaleAspectFit
 		image.translatesAutoresizingMaskIntoConstraints = false
-		image.tintColor = .label
+		image.tintColor = UIColor(named: "iconColors")
 		return image
 	}()
 	
@@ -96,7 +96,7 @@ class ProfileHeaderUIView: UIView {
 		image.image = UIImage(systemName: "iphone")
 		image.contentMode = .scaleAspectFit
 		image.translatesAutoresizingMaskIntoConstraints = false
-		image.tintColor = .label
+		image.tintColor = UIColor(named: "iconColors")
 		return image
 	}()
 	
@@ -110,10 +110,12 @@ class ProfileHeaderUIView: UIView {
 		return label
 	}()
 
-	init(frame: CGRect, delegate: ProfileHeaderUIViewDelegate, profileDetails: PersonalInfo) {
+	init(frame: CGRect, delegate: ProfileHeaderUIViewDelegate, profileDetails: UserResponse) {
 		self.delegate = delegate
 		self.profileDetails = profileDetails
 		super.init(frame: frame)
+        
+        fetchPatientDetails()
 		
 		addSubview(profileInfoView)
 		
@@ -131,8 +133,6 @@ class ProfileHeaderUIView: UIView {
 		
 		addSubview(phoneNumberIcon)
 		addSubview(phoneNumberLabel)
-		
-		fetchPatientDetails()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -147,7 +147,7 @@ class ProfileHeaderUIView: UIView {
 				profileInfoView.topAnchor.constraint(equalTo: topAnchor),
 				profileInfoView.leadingAnchor.constraint(equalTo: leadingAnchor),
 				profileInfoView.trailingAnchor.constraint(equalTo: trailingAnchor),
-				profileInfoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
+				profileInfoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
 				
 				editButton.topAnchor.constraint(equalTo: profileInfoView.topAnchor, constant: 10),
 				editButton.trailingAnchor.constraint(equalTo: profileInfoView.trailingAnchor, constant: -10),
@@ -156,11 +156,11 @@ class ProfileHeaderUIView: UIView {
 				
 				profileImage.centerYAnchor.constraint(equalTo: profileInfoView.centerYAnchor),
 				profileImage.leadingAnchor.constraint(equalTo: profileInfoView.leadingAnchor, constant: 10),
-				profileImage.widthAnchor.constraint(equalToConstant: 120),
-				profileImage.heightAnchor.constraint(equalToConstant: 120),
+				profileImage.widthAnchor.constraint(equalToConstant: 90),
+				profileImage.heightAnchor.constraint(equalToConstant: 90),
 				
 				nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 10),
-				nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 60),
+				nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
 				nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
 				
 				dobIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 10),
@@ -194,7 +194,7 @@ class ProfileHeaderUIView: UIView {
 				phoneNumberLabel.topAnchor.constraint(equalTo: genderIcon.bottomAnchor, constant: 10)
 			]
 		)
-		profileImage.layer.cornerRadius = 60
+		profileImage.layer.cornerRadius = 45
 		profileImage.layer.masksToBounds = true
 	}
 	
@@ -202,10 +202,11 @@ class ProfileHeaderUIView: UIView {
 		
 		let dateFormatter = DateFormatter()
 		dateFormatter.setLocalizedDateFormatFromTemplate("d MMM yyyy")
-		nameLabel.text = profileDetails.name
-		dobLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: profileDetails.dob))
-		genderLabel.text = profileDetails.biologicalGender.rawValue
-		phoneNumberLabel.text = String(profileDetails.phoneNumber)
+        nameLabel.text = "\(profileDetails.info?.name! ?? "Name")"
+        dobLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: 213219838))
+        genderLabel.text = "Female"
+        profileImage.sd_setImage(with: URL(string: (profileDetails.info?.profileImg) ?? "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png"))
+        phoneNumberLabel.text = "\(profileDetails.phoneNumber ?? "1213445")"
 	}
 	
 	@objc func editButtonPressed() {

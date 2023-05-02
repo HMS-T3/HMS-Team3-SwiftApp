@@ -49,13 +49,7 @@ class ProfileViewController: UIViewController {
 	
 	private let tableSectionsTitles: [String] = ["Medical History", "Invoice", "SOS Contacts", "Apple Health", "Quick Stats"]
 	
-	var personalInfo: PersonalInfo = PersonalInfo(name: "Name",
-												  image: "",
-												  dob: 123455,
-												  phoneNumber: 1234567890,
-												  email: "email",
-												  biologicalGender: Gender.Male,
-												  records: nil)
+    var personalInfo: UserResponse = UserResponse(info: PersonalInfo(profileImg: "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png", name: "John Doe", dateOfbirth: Date(), phoneNumber: "9910740324", biologicalGender: "Female"), role: "patient", phoneNumber: "38493124798", email: "", password: "wfgrdw" ,appointments: [], schedule: [], emergencyContacts: [])
 	
 	private let profileTableView: UITableView = {
 		
@@ -67,7 +61,7 @@ class ProfileViewController: UIViewController {
 		return table
 	}()
 	
-	init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, patientInfo: PersonalInfo) {
+	init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, patientInfo: UserResponse) {
 		self.personalInfo = patientInfo
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -78,9 +72,9 @@ class ProfileViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		view.backgroundColor = UIColor(named: "ProfileBackground")
-		
+        
+        fetchPatientDetails() //function to get patient details from the api
 		title = "Profile"
 		self.navigationController?.navigationBar.prefersLargeTitles = false
 		self.navigationItem.largeTitleDisplayMode = .never
@@ -88,9 +82,11 @@ class ProfileViewController: UIViewController {
 		view.addSubview(profileTableView)
 		profileTableView.delegate = self
 		profileTableView.dataSource = self
-		profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300), delegate: self, profileDetails: personalInfo)
+		profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 180), delegate: self, profileDetails: personalInfo)
 		profileTableView.backgroundColor = UIColor(named: "ProfileBackground")
 		profileTableView.separatorStyle = .none
+		
+		AppleHealthFunctions.shared.askForHealthKitPermission()
     }
 	
 	override func viewDidLayoutSubviews() {
@@ -105,6 +101,25 @@ class ProfileViewController: UIViewController {
 			]
 		)
 	}
+    func fetchPatientDetails() {
+        GetUserDetails.shared.getPatient(completion: { results in
+            switch results {
+            case .success(let user):
+                print("Success")
+                DispatchQueue.main.async {
+                    self.personalInfo = user.userResponse
+                    self.updateProfile()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+    func updateProfile() {
+        profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300), delegate: self, profileDetails: personalInfo)
+        
+    }
+       
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -167,11 +182,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             if let controller = storyboard?.instantiateViewController(withIdentifier: "SOSContacts") {
                 self.navigationController?.pushViewController(controller, animated: true)
             }
-            //			self.navigationController?.pushViewController(SOSContactsViewController(), animated: true)
         case TableSections.AppleHealth.rawValue:
-            let storyboardFile = UIStoryboard(name: "AppleHealth", bundle: nil)
-            let controller = storyboardFile.instantiateViewController(withIdentifier: "AppleHealthVC")
-            self.navigationController?.pushViewController(controller, animated: true)
+            self.navigationController?.pushViewController(AppleHealthViewController(), animated: true)
         default:
             tableView.deselectRow(at: indexPath, animated: true)
         }

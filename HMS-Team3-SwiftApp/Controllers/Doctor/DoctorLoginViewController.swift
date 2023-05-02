@@ -37,6 +37,8 @@ class DoctorLoginViewController: UIViewController {
 //                    print(response.status)
                     if(response.status){
                         self.handleLogin()
+                         UserDefaults.standard.setValue(response.response?.id, forKey: "DoctorID")
+                        print(response.response?.id)
                     }else{
                         print((response.response?.Message)!)
                         self.handleError(msg: (response.response?.Message)!)
@@ -51,6 +53,8 @@ class DoctorLoginViewController: UIViewController {
         }else{
             self.handleError(msg: "Empty Fields")
         }
+        
+//        self.handleLogin()
     }
     
     func handleLogin(){

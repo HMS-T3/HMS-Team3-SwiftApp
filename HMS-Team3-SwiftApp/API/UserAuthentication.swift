@@ -7,30 +7,32 @@
 
 import Foundation
 
-struct Constants {
-    static let baseURL = "https://hmst3-backend.onrender.com/app"
-}
+//struct Constants {
+//
+//    static let baseURL = "https://hmst3-backend.onrender.com/app"
+//}
 
 enum APIError: Error {
     case UserNotFound
+    case BookingAlreadyExists
 }
 
 class UserAuthentication {
     
     static let shared = UserAuthentication()
     
-	func registerPatient(completion: @escaping (Result<LoginPatient, Error>) -> Void, email: String?, uinqueID: String?, pNumber: String?) { // Correct Unique spelling
+	func registerPatient(completion: @escaping (Result<LoginPatient, Error>) -> Void, email: String?, uniqueID: String?, pNumber: String?) { // Correct Unique spelling
         
 		var url: URL
 		var request: URLRequest
 		let requestBodyData: Data?
 		
 		if let email = email,
-		   let uinqueID = uinqueID {
+		   let uniqueID = uniqueID {
 			url = URL(string: "\(Constants.baseURL)/register/patient")! // Re-Verify this
 			request = URLRequest(url: url)
 			request.httpMethod = "POST"
-			requestBodyData = "email=\(email)&password=\(uinqueID)".data(using: .utf8)
+			requestBodyData = "email=\(email)&password=\(uniqueID)".data(using: .utf8)
 		} else {
 			url = URL(string: "\(Constants.baseURL)/register/patient")! // Re-Verify this
 			request = URLRequest(url: url)
@@ -65,18 +67,18 @@ class UserAuthentication {
         task.resume()
     }
     
-	func loginPatient(completion: @escaping(Result<LoginPatient, Error>) -> Void, email: String?, uinqueID: String?, pNumber: String?) {
+	func loginPatient(completion: @escaping(Result<LoginPatient, Error>) -> Void, email: String?, uniqueID: String?, pNumber: String?) {
         
 		var url: URL
 		var request: URLRequest
 		let requestBodyData: Data?
 		
 		if let email = email,
-		   let uinqueID = uinqueID {
+		   let uniqueID = uniqueID {
 			url = URL(string: "\(Constants.baseURL)/login/patient")! // Re-Verify this
 			request = URLRequest(url: url)
 			request.httpMethod = "POST"
-			requestBodyData = "email=\(email)&password=\(uinqueID)".data(using: .utf8)
+			requestBodyData = "email=\(email)&password=\(uniqueID)".data(using: .utf8)
 		} else {
 			url = URL(string: "\(Constants.baseURL)/login/patient")! // Re-Verify this
 			request = URLRequest(url: url)
