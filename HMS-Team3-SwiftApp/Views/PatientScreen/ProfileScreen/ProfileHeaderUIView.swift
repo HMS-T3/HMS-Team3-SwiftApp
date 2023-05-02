@@ -114,6 +114,8 @@ class ProfileHeaderUIView: UIView {
 		self.delegate = delegate
 		self.profileDetails = profileDetails
 		super.init(frame: frame)
+        
+        fetchPatientDetails()
 		
 		addSubview(profileInfoView)
 		
@@ -131,8 +133,6 @@ class ProfileHeaderUIView: UIView {
 		
 		addSubview(phoneNumberIcon)
 		addSubview(phoneNumberLabel)
-		
-		fetchPatientDetails()
 	}
 	
 	required init?(coder: NSCoder) {

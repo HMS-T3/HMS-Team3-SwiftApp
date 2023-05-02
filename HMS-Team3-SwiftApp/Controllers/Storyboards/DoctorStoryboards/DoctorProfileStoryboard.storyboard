@@ -274,6 +274,9 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" name="secondary"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onSubmitHandler:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jcQ-dG-ZlH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

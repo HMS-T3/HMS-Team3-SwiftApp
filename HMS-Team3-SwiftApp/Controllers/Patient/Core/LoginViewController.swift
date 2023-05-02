@@ -89,7 +89,7 @@ class LoginViewController: UIViewController {
 //		let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
 //		loadingIndicator.hidesWhenStopped = true
 //		loadingIndicator.style = UIActivityIndicatorView.Style.medium
-//		loadingIndicator.startAnimating();
+//		loadingIndicator.startAnimatin g();
 //
 //		alert.view.addSubview(loadingIndicator)
 //		present(alert, animated: true, completion: nil)
@@ -98,16 +98,16 @@ class LoginViewController: UIViewController {
 //		print("dismissed")
 		
 		if Auth.auth().currentUser != nil {
-			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
-				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
-				self.navigationController?.pushViewController(controller, animated: true)
-			}
-//			do {
-//				try Auth.auth().signOut()
-//				print("User Signed Out")
-//			} catch {
-//				print(error)
+//			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+//				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
+//				self.navigationController?.pushViewController(controller, animated: true)
 //			}
+			do {
+				try Auth.auth().signOut()
+				print("User Signed Out")
+			} catch {
+				print(error)
+			}
 			
 		}
 	}
@@ -318,6 +318,7 @@ class LoginViewController: UIViewController {
 //                        print(loginPatient.response!.id) // Save this id to user defaults
 						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
                     }
+                    self.updateUserDetails()
                 }
             case .failure(let error):
                 print(error)

@@ -10,9 +10,10 @@ import UIKit
 
 struct User: Codable {
     let userResponse: UserResponse
-    
+    let status: Bool
     enum CodingKeys: String, CodingKey {
         case userResponse = "Response"
+        case status = "Status"
     }
 }
 
