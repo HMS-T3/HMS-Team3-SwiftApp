@@ -15,6 +15,11 @@ class DoctorDetailsViewController: UIViewController {
     
     let doctorID: String
     
+	let patientID = UserDefaults.standard.string(forKey: "PatientID")
+	
+	var time: [String] = []
+	var date: String = ""
+	
     var doctorInfo: DoctorDetails = DoctorDetails(Response: DoctorResponse(doctorInfo: DoctorInfo(specialization: "nil", degree: "nil", experience: "nil", description: "nil"), info: AdditionalInfo(profileImg: "nil", name: "nil", dateOfBirth: "nil", phoneNumber: "nil", biologicalGender: "nil"), _id: "nil", role: "nil", phoneNumber: "nil", email: "nil"))
     
     private let docotorAppointmentFeed: UITableView = {
@@ -35,8 +40,8 @@ class DoctorDetailsViewController: UIViewController {
         
         let button = UIButton()
         button.setTitle("Book Appointment", for: .normal)
-        button.backgroundColor = .gray
-        button.layer.cornerRadius = 10
+        button.backgroundColor = UIColor(named: "bookAppointment")
+        button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -78,6 +83,7 @@ class DoctorDetailsViewController: UIViewController {
         bookAppointmentButton.widthAnchor.constraint(equalToConstant: view.bounds.width / 2 + 10).isActive = true
         bookAppointmentButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         bookAppointmentButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		bookAppointmentButton.addTarget(self, action: #selector(bookAppointmentConformation), for: .touchUpInside)
     }
     
     func fetchData() {
@@ -93,6 +99,39 @@ class DoctorDetailsViewController: UIViewController {
 				print(error)
 			}
 		},doctorID: doctorID)
+	}
+	
+	@objc func bookAppointmentConformation() {
+		
+		if time == [],
+		   date == "" {
+			return
+		}
+		
+		print("Time: \(time), date: \(date)")
+		print(patientID)
+		print(doctorID)
+		DoctorInformation.shared.bookAppointment(completion: { results in
+			
+			switch results {
+			case .success(let response):
+				print(response)
+				DispatchQueue.main.async {
+					let alert = UIAlertController(title: "\(response.Status)", message: "\(response.Response.Message)", preferredStyle: .actionSheet)
+					alert.addAction(UIAlertAction(title: "OK", style: .default))
+					self.present(alert, animated: true)
+					self.docotorAppointmentFeed.reloadData()
+				}
+			case .failure(let error):
+				DispatchQueue.main.async {
+					let alert = UIAlertController(title: "Unable to Proceed", message: "Please Try Again Later", preferredStyle: .actionSheet)
+					alert.addAction(UIAlertAction(title: "OK", style: .default))
+					self.present(alert, animated: true)
+					self.docotorAppointmentFeed.reloadData()
+				}
+				print(error)
+			}
+		}, patientID: patientID!, doctorID: doctorID, date: date, startTime: time[0], endTime: time[1])
 	}
 }
 extension DoctorDetailsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -151,8 +190,11 @@ extension DoctorDetailsViewController: DoctorDatesTableViewCellDelegate {
 extension DoctorDetailsViewController: DoctorTimeSlotsTableViewCellDelegate {
 	
 	func clickedOnTimeCell(time: [String], date: String) {
-		print("Time: \(time), date: \(date)")
+		
+		self.time = time
+		self.date = date
 	}
+	
 }
 
 

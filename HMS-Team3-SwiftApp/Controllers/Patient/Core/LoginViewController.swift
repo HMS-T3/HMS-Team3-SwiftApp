@@ -324,7 +324,6 @@ class LoginViewController: UIViewController {
 						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
 						self.updateUserDetails()
                     }
-                    
                 }
             case .failure(let error):
                 print(error)
@@ -341,22 +340,17 @@ class LoginViewController: UIViewController {
             let phone = user.phoneNumber
             let imgUrl = user.photoURL?.absoluteString
 
-			print("\(name) \(phone) \(imgUrl)")
             UpdateUserDetails.shared.updatePatient(completion: { results in
-				print("Inside Closure")
                 switch results {
                 case .success(let user):
-                    print("Update Patient")
                     DispatchQueue.main.async {
+						print(user)
                         print(results)
                     }
                 case .failure(let error):
-					print("Error")
                     print(error)
                 }
             }, name: name ?? "", phoneNumber: phone ?? "", imgUrl: imgUrl!)
-		} else {
-			print("edfivbrkj")
 		}
     }
 	

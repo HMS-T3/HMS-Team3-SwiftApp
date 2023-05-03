@@ -22,7 +22,7 @@ class DoctorDatesTableViewCell: UITableViewCell {
     private let datesCollectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 75, height: 100)
+        layout.itemSize = CGSize(width: 50, height: 68)
         layout.scrollDirection = .horizontal
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.register(DoctorDatesCollectionViewCell.self, forCellWithReuseIdentifier: DoctorDatesCollectionViewCell.identifier)
@@ -81,7 +81,7 @@ extension DoctorDatesTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoctorDatesCollectionViewCell.identifier, for: indexPath) as? DoctorDatesCollectionViewCell else { return UICollectionViewCell() }
-        cell.layer.borderColor = UIColor.label.cgColor
+		cell.layer.borderColor = UIColor(named: "border")?.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
@@ -96,11 +96,11 @@ extension DoctorDatesTableViewCell: UICollectionViewDelegate, UICollectionViewDa
         if let lastSelected = lastSelected {
             let cell = collectionView.cellForItem(at: lastSelected)
             cell?.backgroundColor = .clear
-            cell?.layer.borderColor = UIColor.label.cgColor
+            cell?.layer.borderColor = UIColor(named: "border")?.cgColor
             cell?.layer.borderWidth = 1
         }
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = .green
+        cell?.backgroundColor = UIColor(named: "select")
         lastSelected = indexPath
 		delegate?.clickedOnDateButton(dateOffset: (Int(workingDays[indexPath.row].date) ?? 0))
     }

@@ -18,6 +18,7 @@ class DoctorDatesCollectionViewCell: UICollectionViewCell {
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+		label.textColor = UIColor(named: "date")
         return label
     }()
     
@@ -52,12 +53,12 @@ class DoctorDatesCollectionViewCell: UICollectionViewCell {
                 dayLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3),
                 dayLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
                 dayLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-                dayLabel.heightAnchor.constraint(equalToConstant: 40),
+                dayLabel.heightAnchor.constraint(equalToConstant: 30),
                 
                 dateLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 5),
                 dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
                 dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-                dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3)
+                dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
             ]
         )
     }
