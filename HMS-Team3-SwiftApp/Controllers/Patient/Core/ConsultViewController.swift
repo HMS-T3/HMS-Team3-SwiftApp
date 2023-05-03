@@ -60,7 +60,7 @@ class ConsultViewController: UIViewController, UISearchResultsUpdating {
         view.addSubview(discovertable)
         discovertable.delegate = self
         discovertable.dataSource = self
-//      discovertable.separatorStyle = .none
+        discovertable.separatorStyle = .none
         // Add the table view as a subview of the View Controller
     }
     
@@ -90,7 +90,7 @@ extension ConsultViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 50
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -155,9 +155,9 @@ extension ConsultViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
             case ConsultTableSectionType.categorySection.rawValue:
-                return 200
-            case ConsultTableSectionType.topDocSection.rawValue:
                 return 220
+            case ConsultTableSectionType.topDocSection.rawValue:
+                return 150
             case ConsultTableSectionType.recentDocSection.rawValue:
                 return 140
             default:

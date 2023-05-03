@@ -1,14 +1,15 @@
 //
-//  CategoryCollectionViewCell.swift
+//  CategoriesCollectionViewCell.swift
 //  HMS-Team3-SwiftApp
 //
-//  Created by Abhi Patel on 19/04/23.
+//  Created by Rushil Kothari on 25/04/23.
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-
+    
     static let identifier = "CategoryCollectionViewCell"
     
     private let iconImageView: UIImageView = {
@@ -16,9 +17,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "Covid19")
-//        imageView.layer.borderWidth = 1
-//        imageView.layer.borderColor = UIColor.black.cgColor
+        //        imageView.tintColor = .label
+        //        imageView.layer.borderWidth = 1
+        //        imageView.layer.borderColor = UIColor(named: "upcoming.card")?.cgColor
         imageView.layer.cornerRadius = 10
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(scale: .small)
@@ -28,10 +29,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     private let iconText: UILabel = {
         let textLabel = UILabel()
-        textLabel.text = "HMS3"
         textLabel.textAlignment = .center
-        textLabel.textColor = .gray
-        textLabel.font = .boldSystemFont(ofSize: 9)
+        textLabel.clipsToBounds = true
+        textLabel.numberOfLines = 2
+        textLabel.font = .boldSystemFont(ofSize: 10)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         return textLabel
     }()
@@ -41,19 +42,18 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         addSubview(iconImageView)
         addSubview(iconText)
         NSLayoutConstraint.activate([
-                    // Image view constraints
-                    iconImageView.topAnchor.constraint(equalTo: topAnchor),
-                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 5),
-                    iconImageView.widthAnchor.constraint(equalToConstant: 65),
-                    iconImageView.heightAnchor.constraint(equalToConstant: 65),
-                    iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                    iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-                    // Text label constraints
-                  
-                    iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor,constant: 5),
-                    iconText.leadingAnchor.constraint(equalTo: iconImageView.leadingAnchor),
-                    iconText.widthAnchor.constraint(equalToConstant: 65)
-                ])
+            // Image view constraints
+            iconImageView.topAnchor.constraint(equalTo: topAnchor),
+            iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            iconImageView.widthAnchor.constraint(equalToConstant: 65),
+            iconImageView.heightAnchor.constraint(equalToConstant: 65),
+            
+            // Text label constraints
+            
+            iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 10),
+            iconText.leadingAnchor.constraint(equalTo: iconImageView.leadingAnchor),
+            iconText.widthAnchor.constraint(equalToConstant: 65)
+        ])
     }
     
     required init?(coder: NSCoder) {
@@ -61,8 +61,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with data: Categories) {
+        //        iconImageView.sd_setImage(with: URL(string: (data.categoryImage) ?? ""))
         iconImageView.image = data.categoryImage
         iconText.text = data.categoryName?.rawValue
-        }
-
+    }
 }

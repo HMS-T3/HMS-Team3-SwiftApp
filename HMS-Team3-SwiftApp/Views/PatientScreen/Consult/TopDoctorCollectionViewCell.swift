@@ -15,14 +15,15 @@ class TopDoctorCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "Covid19")
+        imageView.image = UIImage(named: "profileImage")
 //        imageView.tintColor = .label
 //        imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor(named: "upcoming.card")?.cgColor
-        imageView.layer.cornerRadius = imageView.frame.width/2
+        imageView.layer.cornerRadius = 40
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(scale: .small)
         imageView.preferredSymbolConfiguration = config
+        imageView.backgroundColor = .orange
         return imageView
     }()
     
@@ -30,7 +31,7 @@ class TopDoctorCollectionViewCell: UICollectionViewCell {
         let textLabel = UILabel()
         textLabel.text = "HMS3"
         textLabel.textAlignment = .left
-        textLabel.font = .boldSystemFont(ofSize: 12)
+        textLabel.font = .boldSystemFont(ofSize: 17)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         return textLabel
     }()
@@ -40,7 +41,7 @@ class TopDoctorCollectionViewCell: UICollectionViewCell {
         textLabel.text = "MBBS"
         textLabel.textColor = .gray
         textLabel.textAlignment = .left
-        textLabel.font = .boldSystemFont(ofSize: 9)
+        textLabel.font = .boldSystemFont(ofSize: 12)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         return textLabel
     }()
@@ -52,21 +53,23 @@ class TopDoctorCollectionViewCell: UICollectionViewCell {
         addSubview(eduText)
         NSLayoutConstraint.activate([
                     // Image view constraints
-                    iconImageView.topAnchor.constraint(equalTo: topAnchor),
-                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                    iconImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    iconImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
-                    
+                    iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+//                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                    iconImageView.heightAnchor.constraint(equalToConstant: 80),
+                    iconImageView.widthAnchor.constraint(equalToConstant: 80),
+                    iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
                     // Text label constraints
                   //  iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor),
+                    iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 15),
                     iconText.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
                     iconText.trailingAnchor.constraint(equalTo: trailingAnchor),
                     
                     
-                    eduText.topAnchor.constraint(equalTo: iconText.bottomAnchor),
+                    eduText.topAnchor.constraint(equalTo: iconText.bottomAnchor, constant: 4),
                     eduText.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
                     eduText.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    eduText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
+//                    eduText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
                     
                 ])
     }

@@ -52,7 +52,7 @@ extension TopDocTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopDoctorCollectionViewCell.identifier, for: indexPath) as? TopDoctorCollectionViewCell else { return UICollectionViewCell()}
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 10
-       cell.layer.borderColor = UIColor(named: "secondary")?.cgColor
+       cell.layer.borderColor = UIColor(named: "borderConsult")?.cgColor
         return cell
     }
     
