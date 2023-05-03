@@ -188,7 +188,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension DiscoverViewController: ClickCollectionViewDelegate {
+extension DiscoverViewController: DiscoverCollectionViewDelegate {
  
     func clickedOnUpcomingCell() {
         self.navigationController?.pushViewController(UpcomingAppointmentsViewController(), animated: true)

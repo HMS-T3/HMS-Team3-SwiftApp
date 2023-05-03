@@ -17,7 +17,7 @@ class UpcomingCollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "UpcomingCollectionViewTableViewCell"
     
-    var delegate: ClickCollectionViewDelegate?
+    var delegate: DiscoverCollectionViewDelegate?
     
     let upcomingInfo: [DocInfo] = [DocInfo(docName: "Y.S. Reddy", docSpecialization: "Cardiologist", docImage: UIImage(named: "doc.male")),
         DocInfo(docName: "K. Singh", docSpecialization: "Neurologist", docImage: UIImage(named: "doc.male"))

@@ -21,7 +21,7 @@ class MedicineCollectionViewTableViewCell: UITableViewCell {
     let ongoingMedicine: [OngoingMedicineInfo] = [OngoingMedicineInfo(name: "Ascoril D", dosageMorning: "Dosage1", dosageAfternoon: "Dosage2", dosageEvening: "Dosage3"),
         OngoingMedicineInfo(name: "Calpol 650", dosageMorning: "Dosage1", dosageAfternoon: "Dosage2", dosageEvening: "Dosage3")
     ]
-    var delegate: ClickCollectionViewDelegate?
+    var delegate: DiscoverCollectionViewDelegate?
     
     private let collectionView : UICollectionView = {
         
