@@ -17,6 +17,8 @@ class DoctorAppoinmentCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        TimeLable.text = "9.30"
+        SymptomLable.text = "fever"
+        NameLable.text = "rushil"
     }
-
 }
