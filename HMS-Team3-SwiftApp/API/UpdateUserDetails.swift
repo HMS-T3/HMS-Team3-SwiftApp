@@ -16,6 +16,7 @@ class UpdateUserDetails {
 		print("Inside Update Patient")
 		let role = "patient"
         let patientID = UserDefaults.standard.string(forKey: "PatientID")
+		print(patientID)
 		guard let url = URL(string: "\(Constants.baseURL)/update_user_profile/patient?user_id=\(patientID!)&role=\(role)") else {
 			return }
         
@@ -41,6 +42,7 @@ class UpdateUserDetails {
             do {
                 let results = try JSONDecoder().decode(User.self, from: data)
 				print("Update Successful")
+				print(results)
                 completion(.success(results))
                 
             } catch {
