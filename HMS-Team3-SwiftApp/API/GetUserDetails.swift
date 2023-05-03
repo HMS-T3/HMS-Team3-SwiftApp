@@ -27,7 +27,6 @@ class GetUserDetails {
             }
                 do {
                     let results = try JSONDecoder().decode(User.self, from: data)
-                    print(results)
 					print("Get Successful")
                     completion(.success(results))
                 } catch {

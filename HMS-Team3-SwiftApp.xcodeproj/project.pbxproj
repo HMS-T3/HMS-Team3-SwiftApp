@@ -54,6 +54,7 @@
 		760689B229FD1F2600A29A08 /* AppleHealthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760689B129FD1F2600A29A08 /* AppleHealthTableViewCell.swift */; };
 		760689B529FD2E0E00A29A08 /* AppleHealthFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760689B429FD2E0E00A29A08 /* AppleHealthFunctions.swift */; };
 		7658C40C2A01CE3B0026E1C1 /* DoctorsAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C40B2A01CE3B0026E1C1 /* DoctorsAvailable.swift */; };
+		7658C40E2A0226080026E1C1 /* BookAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C40D2A0226080026E1C1 /* BookAppointment.swift */; };
 		765F863F29EFEFA5009E67F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F863E29EFEFA5009E67F2 /* User.swift */; };
 		765F864129EFEFBB009E67F2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F864029EFEFBB009E67F2 /* Enums.swift */; };
 		765F864329EFEFD1009E67F2 /* Appointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F864229EFEFD1009E67F2 /* Appointments.swift */; };
@@ -193,6 +194,7 @@
 		760689B129FD1F2600A29A08 /* AppleHealthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTableViewCell.swift; sourceTree = "<group>"; };
 		760689B429FD2E0E00A29A08 /* AppleHealthFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthFunctions.swift; sourceTree = "<group>"; };
 		7658C40B2A01CE3B0026E1C1 /* DoctorsAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsAvailable.swift; sourceTree = "<group>"; };
+		7658C40D2A0226080026E1C1 /* BookAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookAppointment.swift; path = "HMS-Team3-SwiftApp/Models/BookAppointment.swift"; sourceTree = SOURCE_ROOT; };
 		765F863E29EFEFA5009E67F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		765F864029EFEFBB009E67F2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		765F864229EFEFD1009E67F2 /* Appointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointments.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				766926A529F68D3C00F4F728 /* UserAuthentication.swift */,
 				E317358F29F97D9000B16A2A /* GetUserDetails.swift */,
 				E3635A1E2A00F02700859F62 /* GetDoctorSchedule.swift */,
+				7658C40D2A0226080026E1C1 /* BookAppointment.swift */,
 				E39FC8E429FA7BB70036F1F8 /* UpdateUserDetails.swift */,
 				E3D2555329FBD34C00F1E7C5 /* GetDoctorSpecialization.swift */,
 				E3079C8E2A000F0F006E36AC /* UpdateDoctorAvailability.swift */,
@@ -845,6 +848,7 @@
 				7673EBA729EFEABD00F10EB7 /* ProfileViewController.swift in Sources */,
 				276811AA29F90D96005209A0 /* RecentsDoctorCollectionViewCell.swift in Sources */,
 				760689B529FD2E0E00A29A08 /* AppleHealthFunctions.swift in Sources */,
+				7658C40E2A0226080026E1C1 /* BookAppointment.swift in Sources */,
 				3A3BE68E2A00D2FD003AE848 /* DoctorSchedulePatientAppointmentViewController.swift in Sources */,
 				E37D151429F6827000300948 /* RecordsTableViewCell.swift in Sources */,
 				276811A229F90D26005209A0 /* CategoryCollectionViewCell.swift in Sources */,

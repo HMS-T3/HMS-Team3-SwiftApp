@@ -44,7 +44,7 @@ class DoctorTimeSlotsTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate(
             [
-                timeSlotsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
+                timeSlotsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
                 timeSlotsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
                 timeSlotsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
                 timeSlotsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
@@ -54,7 +54,7 @@ class DoctorTimeSlotsTableViewCell: UITableViewCell {
         
         let itemWidthSize = contentView.bounds.width / 3
         let layout = timeSlotsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: itemWidthSize - 20, height: 70)
+        layout.itemSize = CGSize(width: itemWidthSize - 10, height: 50)
     }
     
 	public func configure(dateOffset: Int, doctorID: String) {
@@ -100,7 +100,8 @@ extension DoctorTimeSlotsTableViewCell: UICollectionViewDelegate, UICollectionVi
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.label.cgColor
+		cell.layer.borderColor = UIColor(named: "border")?.cgColor
+		cell.backgroundColor = .clear
 		cell.configure(with: timeSlots.Response?[indexPath.row] ?? ["nil"])
         return cell
     }
@@ -112,12 +113,32 @@ extension DoctorTimeSlotsTableViewCell: UICollectionViewDelegate, UICollectionVi
             let cell = collectionView.cellForItem(at: lastSelected)
             cell?.backgroundColor = .clear
             cell?.layer.borderWidth = 1
-            cell?.layer.borderColor = UIColor.label.cgColor
+            cell?.layer.borderColor = UIColor(named: "border")?.cgColor
         }
         
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = .green
+        cell?.backgroundColor = UIColor(named: "select")
         lastSelected = indexPath
 		delegate?.clickedOnTimeCell(time: timeSlots.Response?[indexPath.row] ?? ["nil"], date: dateFormatted)
     }
+	
+}
+
+extension DoctorTimeSlotsTableViewCell: UICollectionViewDelegateFlowLayout {
+	
+//	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//		// Return the size you want for each cell
+//		return CGSize(width: 100, height: 100)
+//	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+		// Return the minimum interitem spacing you want
+		return 1
+	}
+
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		// Return the minimum line spacing you want
+		return 10
+	}
+
 }

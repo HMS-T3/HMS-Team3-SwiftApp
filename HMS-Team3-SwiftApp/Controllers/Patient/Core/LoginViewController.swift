@@ -323,8 +323,8 @@ class LoginViewController: UIViewController {
                         self.navigationController?.pushViewController(controller, animated: true)
 //                        print(loginPatient.response!.id) // Save this id to user defaults
 						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
+						self.updateUserDetails()
                     }
-                    
                 }
             case .failure(let error):
                 print(error)
@@ -346,8 +346,8 @@ class LoginViewController: UIViewController {
 				print("Inside Closure")
                 switch results {
                 case .success(let user):
-                    print("Update Patient")
                     DispatchQueue.main.async {
+						print(user)
                         print(results)
                     }
                 case .failure(let error):
@@ -355,8 +355,6 @@ class LoginViewController: UIViewController {
                     print(error)
                 }
             }, name: name ?? "", phoneNumber: phone ?? "", imgUrl: imgUrl!)
-		} else {
-			print("edfivbrkj")
 		}
     }
 	
