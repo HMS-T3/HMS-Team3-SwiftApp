@@ -16,6 +16,8 @@ class DoctorDatesTableViewCell: UITableViewCell {
     var lastSelected: IndexPath?
     
     var workingDays: [Next7Days] = []
+	
+	var delegate: DoctorDatesTableViewCellDelegate?
     
     private let datesCollectionView: UICollectionView = {
         
@@ -100,6 +102,7 @@ extension DoctorDatesTableViewCell: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = .green
         lastSelected = indexPath
+		delegate?.clickedOnDateButton(dateOffset: (Int(workingDays[indexPath.row].date) ?? 0))
     }
     
     func getNext7WorkingDays() {
@@ -122,32 +125,4 @@ extension DoctorDatesTableViewCell: UICollectionViewDelegate, UICollectionViewDa
             self.datesCollectionView.reloadData()
         }
     }
-    
-//    func getNext7WorkingDays() {
-//        let calendar = Calendar(identifier: .indian)
-//        var todayDate = Date()
-//
-//        let dateFromatterDate = DateFormatter()
-//        dateFromatterDate.setLocalizedDateFormatFromTemplate("d")
-//
-//        let dateFormatterDay = DateFormatter()
-//        dateFormatterDay.setLocalizedDateFormatFromTemplate("EEE")
-//
-//        workingDays = []
-//
-//        if !calendar.isDateInWeekend(todayDate) {
-//            workingDays?.append(Next7Days(date: dateFromatterDate.string(from: todayDate), day: dateFormatterDay.string(from: todayDate)))
-//        }
-//
-//        while let days = workingDays, days.count < 7 {
-//            todayDate = calendar.date(byAdding: .day, value: 1, to: todayDate)!
-//
-//            if !calendar.isDateInWeekend(todayDate) {
-//                workingDays?.append(Next7Days(date: dateFromatterDate.string(from: todayDate), day: dateFormatterDay.string(from: todayDate)))
-////                print(dateFormatterDay.string(from: todayDate))
-//            }
-//        }
-//
-//        print(workingDays)
-//    }
 }

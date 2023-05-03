@@ -15,7 +15,7 @@ class DoctorDetailsViewController: UIViewController {
     
     let doctorID: String
     
-    var doctorInfo: DoctorAppointment = DoctorAppointment(Response: [DoctorResponse(doctor: DoctorInfoStruct(doctorInfo: DoctorInfo(specialization: "nil", degree: "nil", experience: "nil", description: "nil"), info: AdditionalInfo(profileImg: "nil", name: "nil", dateOfBirth: "nil", phoneNumber: "nil", biologicalGender: "nil")))])
+    var doctorInfo: DoctorDetails = DoctorDetails(Response: DoctorResponse(doctorInfo: DoctorInfo(specialization: "nil", degree: "nil", experience: "nil", description: "nil"), info: AdditionalInfo(profileImg: "nil", name: "nil", dateOfBirth: "nil", phoneNumber: "nil", biologicalGender: "nil"), _id: "nil", role: "nil", phoneNumber: "nil", email: "nil"))
     
     private let docotorAppointmentFeed: UITableView = {
         
@@ -28,6 +28,8 @@ class DoctorDetailsViewController: UIViewController {
         table.estimatedRowHeight = 500
         return table
     }()
+	
+	var dateOffset = 0
     
     private let bookAppointmentButton: UIButton = {
         
@@ -58,7 +60,7 @@ class DoctorDetailsViewController: UIViewController {
         view.addSubview(docotorAppointmentFeed)
         docotorAppointmentFeed.delegate = self
         docotorAppointmentFeed.dataSource = self
-        docotorAppointmentFeed.tableHeaderView = DoctorInfoUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 250), info: doctorInfo)
+        docotorAppointmentFeed.tableHeaderView = DoctorInfoUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 200), info: doctorInfo)
         docotorAppointmentFeed.separatorStyle = .none
         docotorAppointmentFeed.backgroundColor = .systemBackground
         
@@ -79,22 +81,22 @@ class DoctorDetailsViewController: UIViewController {
     }
     
     func fetchData() {
-        DoctorInformation.shared.getDoctorInformation(completion: { results in
-            switch results {
-            case .success(let details):
-                DispatchQueue.main.async {
-                    self.doctorInfo = details
-                    self.docotorAppointmentFeed.tableHeaderView = DoctorInfoUIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 250), info: details)
-                    self.docotorAppointmentFeed.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }, doctorID: doctorID)
-    }
+		GetUserDetails.shared.getDoctor(completion: { resulst in
+			switch resulst {
+			case .success(let details):
+				DispatchQueue.main.async {
+					self.doctorInfo = details
+					self.docotorAppointmentFeed.tableHeaderView = DoctorInfoUIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200), info: details)
+					self.docotorAppointmentFeed.reloadData()
+				}
+			case .failure(let error):
+				print(error)
+			}
+		},doctorID: doctorID)
+	}
 }
 extension DoctorDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    
+	
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -104,15 +106,17 @@ extension DoctorDetailsViewController: UITableViewDelegate, UITableViewDataSourc
         switch indexPath.row {
         case DocotorAppointmentFeedSections.AboutDoctor.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutDoctorTableViewCell.identifier, for: indexPath) as? AboutDoctorTableViewCell else { return UITableViewCell() }
-            cell.configure(text: doctorInfo.Response[0].doctor.doctorInfo.description)
+			cell.configure(text: doctorInfo.Response.doctorInfo.description)
             return cell
         case DocotorAppointmentFeedSections.dateOfDoctor.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DoctorDatesTableViewCell.identifier, for: indexPath) as? DoctorDatesTableViewCell else { return UITableViewCell() }
+			cell.delegate = self
             cell.configure()
             return cell
         case DocotorAppointmentFeedSections.timeSlotsOfDate.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DoctorTimeSlotsTableViewCell.identifier, for: indexPath) as? DoctorTimeSlotsTableViewCell else { return UITableViewCell() }
-            cell.configure()
+			cell.delegate = self
+            cell.configure(dateOffset: dateOffset, doctorID: doctorID)
             return cell
         default:
             return UITableViewCell()
@@ -133,6 +137,22 @@ extension DoctorDetailsViewController: UITableViewDelegate, UITableViewDataSourc
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
+}
+
+extension DoctorDetailsViewController: DoctorDatesTableViewCellDelegate {
+	
+	func clickedOnDateButton(dateOffset: Int) {
+		self.dateOffset = dateOffset
+		
+		docotorAppointmentFeed.reloadData()
+	}
+}
+
+extension DoctorDetailsViewController: DoctorTimeSlotsTableViewCellDelegate {
+	
+	func clickedOnTimeCell(time: [String], date: String) {
+		print("Time: \(time), date: \(date)")
+	}
 }
 
 

@@ -105,7 +105,7 @@ class ProfileViewController: UIViewController {
         GetUserDetails.shared.getPatient(completion: { results in
             switch results {
             case .success(let user):
-                print("Success")
+                print("Get Patient")
                 DispatchQueue.main.async {
                     self.personalInfo = user.userResponse
                     self.updateProfile()
@@ -116,7 +116,7 @@ class ProfileViewController: UIViewController {
         })
     }
     func updateProfile() {
-        profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300), delegate: self, profileDetails: personalInfo)
+        profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 180), delegate: self, profileDetails: personalInfo)
         
     }
        

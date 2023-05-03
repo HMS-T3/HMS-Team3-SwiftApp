@@ -10,3 +10,11 @@ import Foundation
 protocol ProfileHeaderUIViewDelegate {
 	func clickedOnEditButton()
 }
+
+protocol DoctorDatesTableViewCellDelegate {
+	func clickedOnDateButton(dateOffset: Int)
+}
+
+protocol DoctorTimeSlotsTableViewCellDelegate {
+	func clickedOnTimeCell(time: [String], date: String)
+}
