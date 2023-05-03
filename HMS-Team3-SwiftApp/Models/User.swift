@@ -104,3 +104,20 @@ struct Specialization: Codable {
     let description: String
     let imgUrl:  String
 }
+
+struct DoctorList: Codable {
+    let response: [searchResponse]
+    let status: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case response = "Response"
+        case status = "Status"
+    }
+}
+struct searchResponse : Codable {
+    let id: String
+    let name: String
+    let specialization: String
+    let profileImg: String
+    let gender: String
+}
