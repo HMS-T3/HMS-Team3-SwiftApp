@@ -17,9 +17,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "Covid19")
-//        imageView.tintColor = .label
 //        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor(named: "upcoming.card")?.cgColor
+//        imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.cornerRadius = 10
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(scale: .small)
@@ -44,18 +43,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
                     // Image view constraints
                     iconImageView.topAnchor.constraint(equalTo: topAnchor),
-                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                    iconImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    iconImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
-                    
-
-                    
+                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 5),
+                    iconImageView.widthAnchor.constraint(equalToConstant: 65),
+                    iconImageView.heightAnchor.constraint(equalToConstant: 65),
+                    iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                    iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
                     // Text label constraints
                   
-                    iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor,constant: 10),
-                    iconText.leadingAnchor.constraint(equalTo: leadingAnchor),
-                    iconText.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    iconText.bottomAnchor.constraint(equalTo: bottomAnchor)
+                    iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor,constant: 5),
+                    iconText.leadingAnchor.constraint(equalTo: iconImageView.leadingAnchor),
+                    iconText.widthAnchor.constraint(equalToConstant: 65)
                 ])
     }
     

@@ -98,16 +98,16 @@ class LoginViewController: UIViewController {
 //		print("dismissed")
 		
 		if Auth.auth().currentUser != nil {
-//			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
-//				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
-//				self.navigationController?.pushViewController(controller, animated: true)
-//			}
-			do {
-				try Auth.auth().signOut()
-				print("User Signed Out")
-			} catch {
-				print(error)
+			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
+				self.navigationController?.pushViewController(controller, animated: true)
 			}
+//			do {
+//				try Auth.auth().signOut()
+//				print("User Signed Out")
+//			} catch {
+//				print(error)
+//			}
 			
 		}
 	}
@@ -317,6 +317,7 @@ class LoginViewController: UIViewController {
             switch results {
             case .success(let loginPatient):
                 DispatchQueue.main.async {
+					self.updateUserDetails()
                     print("Registered New User")
                     if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                         self.navigationController?.pushViewController(controller, animated: true)
@@ -340,7 +341,9 @@ class LoginViewController: UIViewController {
             let phone = user.phoneNumber
             let imgUrl = user.photoURL?.absoluteString
 
+			print("\(name) \(phone) \(imgUrl)")
             UpdateUserDetails.shared.updatePatient(completion: { results in
+				print("Inside Closure")
                 switch results {
                 case .success(let user):
                     DispatchQueue.main.async {
@@ -348,6 +351,7 @@ class LoginViewController: UIViewController {
                         print(results)
                     }
                 case .failure(let error):
+					print("Error")
                     print(error)
                 }
             }, name: name ?? "", phoneNumber: phone ?? "", imgUrl: imgUrl!)
