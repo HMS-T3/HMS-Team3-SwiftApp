@@ -5,9 +5,11 @@
 //  Created by Shivacharan Reddy on 02/05/23.
 //
 import UIKit
+import SDWebImage
+
 class DoctorInfoUIView: UIView {
     
-    var doctorInfo: DoctorAppointment
+    var doctorInfo: DoctorDetails
     
     private let doctorImageView: UIImageView  = {
         
@@ -44,7 +46,7 @@ class DoctorInfoUIView: UIView {
         return label
     }()
     
-    init(frame: CGRect, info: DoctorAppointment) {
+    init(frame: CGRect, info: DoctorDetails) {
         self.doctorInfo = info
         super.init(frame: frame)
         
@@ -54,8 +56,9 @@ class DoctorInfoUIView: UIView {
         addSubview(nameLabel)
         addSubview(qualificationLabel)
         
-        nameLabel.text = doctorInfo.Response[0].doctor.info.name
-        qualificationLabel.text = doctorInfo.Response[0].doctor.doctorInfo.specialization
+		nameLabel.text = doctorInfo.Response.info.name
+		qualificationLabel.text = doctorInfo.Response.doctorInfo.specialization
+		doctorImageView.sd_setImage(with: URL(string: doctorInfo.Response.info.profileImg))
     }
     
     required init?(coder: NSCoder) {
@@ -67,7 +70,7 @@ class DoctorInfoUIView: UIView {
         
         NSLayoutConstraint.activate(
             [
-                doctorImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+				doctorImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
                 doctorImageView.widthAnchor.constraint(equalToConstant: 150),
                 doctorImageView.heightAnchor.constraint(equalToConstant: 150),
                 doctorImageView.centerYAnchor.constraint(equalTo: centerYAnchor),

@@ -33,4 +33,8 @@ class DoctorTimeSlotsCollectionViewCell: UICollectionViewCell {
         
         timeLabel.frame = contentView.bounds
     }
+	
+	public func configure(with data: [String]) {
+		timeLabel.text = data[0]
+	}
 }

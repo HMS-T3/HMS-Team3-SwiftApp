@@ -7,11 +7,6 @@
 
 import Foundation
 
-//struct Constants {
-//
-//    static let baseURL = "https://hmst3-backend.onrender.com/app"
-//}
-
 enum APIError: Error {
     case UserNotFound
     case BookingAlreadyExists

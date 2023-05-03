@@ -11,9 +11,9 @@ class DoctorInformation {
     
     static let shared = DoctorInformation()
     
-    func getDoctorInformation(completion: @escaping(Result<DoctorAppointment, Error>) -> Void, doctorID: String) {
+	func isDoctorAvailable(completion: @escaping(Result<DoctorAvailable, Error>) -> Void, doctorID: String, day: String) {
         
-        let url = URL(string: "\(Constants.baseURL)/get_schedule_details?doctor_id=\(doctorID)&populate=true")
+        let url = URL(string: "\(Constants.baseURL)/getAvailableTimeSlots?doctor_id=\(doctorID)&day=\(day)&booked=false")
         
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             
@@ -21,7 +21,7 @@ class DoctorInformation {
                   error == nil else { return }
             
             do {
-                let response = try JSONDecoder().decode(DoctorAppointment.self, from: data)
+                let response = try JSONDecoder().decode(DoctorAvailable.self, from: data)
                 completion(.success(response))
             } catch {
                 completion(.failure(error))

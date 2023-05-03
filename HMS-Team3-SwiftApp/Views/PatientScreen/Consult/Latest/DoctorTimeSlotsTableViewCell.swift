@@ -9,6 +9,12 @@ class DoctorTimeSlotsTableViewCell: UITableViewCell {
     var lastSelected: IndexPath?
     
     static let identifier = "DoctorTimeSlotsTableViewCell"
+	
+	var dateFormatted: String = ""
+	
+	var timeSlots: DoctorAvailable = DoctorAvailable(Response: nil, Status: false)
+	
+	var delegate: DoctorTimeSlotsTableViewCellDelegate?
     
     private let timeSlotsCollectionView: UICollectionView = {
         
@@ -51,23 +57,51 @@ class DoctorTimeSlotsTableViewCell: UITableViewCell {
         layout.itemSize = CGSize(width: itemWidthSize - 20, height: 70)
     }
     
-    public func configure() {
+	public func configure(dateOffset: Int, doctorID: String) {
+		fetchData(offset: dateOffset, doctorID: doctorID)
         layoutSubviews()
     }
+	
+	func fetchData(offset: Int, doctorID: String) {
+		
+		let calendar = Calendar(identifier: Calendar.Identifier.indian)
+		let today = Date()
+		let datFormatter = DateFormatter()
+		datFormatter.setLocalizedDateFormatFromTemplate("d")
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "dd-MM-yyyy"
+		
+		let desiredDate = calendar.date(byAdding: Calendar.Component.day, value: offset - Int(datFormatter.string(from: today))!, to: today)
+		let desiredDay = dateFormatter.string(from: desiredDate!)
+		dateFormatted = desiredDay
+		
+		DoctorInformation.shared.isDoctorAvailable(completion: { results in
+			switch results {
+			case .success(let details):
+				self.timeSlots = details
+				DispatchQueue.main.async {
+					self.timeSlotsCollectionView.reloadData()
+				}
+			case .failure(let error):
+				print(error)
+			}
+		}, doctorID: doctorID, day: desiredDay)
+	}
     
 }
 extension DoctorTimeSlotsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+		return timeSlots.Response?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoctorTimeSlotsCollectionViewCell.identifier, for: indexPath)
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoctorTimeSlotsCollectionViewCell.identifier, for: indexPath) as? DoctorTimeSlotsCollectionViewCell else { return UICollectionViewCell() }
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.label.cgColor
+		cell.configure(with: timeSlots.Response?[indexPath.row] ?? ["nil"])
         return cell
     }
     
@@ -84,5 +118,6 @@ extension DoctorTimeSlotsTableViewCell: UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = .green
         lastSelected = indexPath
+		delegate?.clickedOnTimeCell(time: timeSlots.Response?[indexPath.row] ?? ["nil"], date: dateFormatted)
     }
 }
