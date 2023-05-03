@@ -99,16 +99,16 @@ class LoginViewController: UIViewController {
 //		print("dismissed")
 		
 		if Auth.auth().currentUser != nil {
-//			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
-//				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
-//				self.navigationController?.pushViewController(controller, animated: true)
-//			}
-			do {
-				try Auth.auth().signOut()
-				print("User Signed Out")
-			} catch {
-				print(error)
+			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
+				self.navigationController?.pushViewController(controller, animated: true)
 			}
+//			do {
+//				try Auth.auth().signOut()
+//				print("User Signed Out")
+//			} catch {
+//				print(error)
+//			}
 			
 		}
 	}
@@ -136,6 +136,8 @@ class LoginViewController: UIViewController {
 		
 		view.addSubview(errorLabel)
 		errorLabel.isHidden = true
+		
+		
     }
     
     override func viewDidLayoutSubviews() {
@@ -202,7 +204,10 @@ class LoginViewController: UIViewController {
 	
 	@objc func submitOTPButtonPressed() {
 		
-		self.resignFirstResponder()
+		DispatchQueue.main.async {
+			self.phoneNumberTextField.resignFirstResponder()
+		}
+		
 		
 		if let verificationID = UserDefaults.standard.string(forKey: "authVerificationID"),
 		   let userOTP = otpField.text {
@@ -290,7 +295,7 @@ class LoginViewController: UIViewController {
 //                                print(loginPatient.response!.id) // Save this id to user defaults
 								UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
                             }
-                            self.updateUserDetails()
+//                            self.updateUserDetails()
                         }
                     case .failure(let error):
 						if error as! APIError == APIError.UserNotFound {
@@ -313,13 +318,14 @@ class LoginViewController: UIViewController {
             switch results {
             case .success(let loginPatient):
                 DispatchQueue.main.async {
+					self.updateUserDetails()
                     print("Registered New User")
                     if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                         self.navigationController?.pushViewController(controller, animated: true)
 //                        print(loginPatient.response!.id) // Save this id to user defaults
 						UserDefaults.standard.setValue(loginPatient.response?.id!, forKey: "PatientID")
+						self.updateUserDetails()
                     }
-                    self.updateUserDetails()
                 }
             case .failure(let error):
                 print(error)
@@ -336,18 +342,21 @@ class LoginViewController: UIViewController {
             let phone = user.phoneNumber
             let imgUrl = user.photoURL?.absoluteString
 
+			print("\(name) \(phone) \(imgUrl)")
             UpdateUserDetails.shared.updatePatient(completion: { results in
+				print("Inside Closure")
                 switch results {
                 case .success(let user):
-                    print("Success")
                     DispatchQueue.main.async {
+						print(user)
                         print(results)
                     }
                 case .failure(let error):
+					print("Error")
                     print(error)
                 }
             }, name: name ?? "", phoneNumber: phone ?? "", imgUrl: imgUrl!)
-        }
+		}
     }
 	
 	func registerPhoneNumber(pNumber: String) {

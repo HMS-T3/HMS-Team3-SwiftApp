@@ -27,7 +27,7 @@ class GetUserDetails {
             }
                 do {
                     let results = try JSONDecoder().decode(User.self, from: data)
-                    print(results)
+					print("Get Successful")
                     completion(.success(results))
                 } catch {
                     completion(.failure(error))
@@ -36,11 +36,12 @@ class GetUserDetails {
         task.resume()
         }
     
-    func getDoctor(completion: @escaping (Result<User, Error>) -> Void) {
+	func getDoctor(completion: @escaping (Result<DoctorDetails, Error>) -> Void, doctorID: String) {
         
-        let doctorId = UserDefaults.standard.string(forKey: "DoctorID")
+///        let doctorId = UserDefaults.standard.string(forKey: "DoctorID")
+		// Pass in the Doctor ID as a paramater please. Read it from userDefaults and pass that to the function
         
-        guard let url = URL(string: "\(Constants.baseURL)/getUserDetails?user_id=\(doctorId!)&role=doctor&detailsYouDontNeed=emergencyContacts,created") else { return }
+        guard let url = URL(string: "\(Constants.baseURL)/getUserDetails?user_id=\(doctorID)&role=doctor&detailsYouDontNeed=emergencyContacts,created") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -52,8 +53,7 @@ class GetUserDetails {
                 return
             }
                 do {
-                    let results = try JSONDecoder().decode(User.self, from: data)
-                    print(results)
+                    let results = try JSONDecoder().decode(DoctorDetails.self, from: data)
                     completion(.success(results))
                 } catch {
                     completion(.failure(error))

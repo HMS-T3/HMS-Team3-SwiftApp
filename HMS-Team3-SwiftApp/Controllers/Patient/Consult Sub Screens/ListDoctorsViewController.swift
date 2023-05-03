@@ -55,9 +55,7 @@ extension ListDoctorsViewController:  UICollectionViewDelegate,UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let controller = storyboard?.instantiateViewController(withIdentifier: "DoctorDetailsViewController") {
-            navigationController?.pushViewController(controller, animated: true)
-        }
+        self.navigationController?.pushViewController(DoctorDetailsViewController(doctorID: "64514f5879c1cbdc78f81f78"), animated: true)
     }
     
     

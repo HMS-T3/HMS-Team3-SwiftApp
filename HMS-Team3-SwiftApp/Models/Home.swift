@@ -20,8 +20,10 @@ enum CategoryTypes: String {
     case psychiatrist = "Psychiatrist"
     case covid19 = "Covid 19"
     case surgeon = "Surgeon"
+    case nephrologist = "Nephrologists"
     case cardiologist = "Cardiologist"
     case neurologist = "Neurologist"
+    case physician = "Family Physicians"
 }
 
 struct Home {

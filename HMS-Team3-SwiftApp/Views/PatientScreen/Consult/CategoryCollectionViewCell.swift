@@ -1,45 +1,68 @@
 //
-//  CategoryCollectionViewCell.swift
+//  CategoriesCollectionViewCell.swift
 //  HMS-Team3-SwiftApp
 //
-//  Created by Abhi Patel on 19/04/23.
+//  Created by Rushil Kothari on 25/04/23.
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-
+    
     static let identifier = "CategoryCollectionViewCell"
     
-    @IBOutlet var CatagoryView: UIView!
-    @IBOutlet var CategoryImageLabel: UIImageView!
+    private let iconImageView: UIImageView = {
+        
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        //        imageView.tintColor = .label
+        //        imageView.layer.borderWidth = 1
+        //        imageView.layer.borderColor = UIColor(named: "upcoming.card")?.cgColor
+        imageView.layer.cornerRadius = 10
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(scale: .small)
+        imageView.preferredSymbolConfiguration = config
+        return imageView
+    }()
     
-    @IBOutlet var CategoryNameLabel: UILabel!
+    private let iconText: UILabel = {
+        let textLabel = UILabel()
+        textLabel.textAlignment = .center
+        textLabel.clipsToBounds = true
+        textLabel.numberOfLines = 2
+        textLabel.font = .boldSystemFont(ofSize: 10)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        return textLabel
+    }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-      
-       // let outerView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        CategoryImageLabel.clipsToBounds = false
-        CategoryImageLabel.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-        CategoryImageLabel.layer.borderWidth = 1
-        CategoryImageLabel.layer.cornerRadius = 20
-       // CatagoryView.addSubview(CategoryImageLabel)
-        
-       
-        CategoryImageLabel.clipsToBounds = true
-        CategoryImageLabel.layer.cornerRadius = 10
-        
-        
-        CategoryImageLabel.image = #imageLiteral(resourceName: "Doctor")
-        CategoryNameLabel.text = "HMS3"
-        // Initialization code
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(iconImageView)
+        addSubview(iconText)
+        NSLayoutConstraint.activate([
+            // Image view constraints
+            iconImageView.topAnchor.constraint(equalTo: topAnchor),
+            iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            iconImageView.widthAnchor.constraint(equalToConstant: 65),
+            iconImageView.heightAnchor.constraint(equalToConstant: 65),
+            
+            // Text label constraints
+            
+            iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 10),
+            iconText.leadingAnchor.constraint(equalTo: iconImageView.leadingAnchor),
+            iconText.widthAnchor.constraint(equalToConstant: 65)
+        ])
     }
-   
     
-  
-
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func configure(with data: Categories) {
+        //        iconImageView.sd_setImage(with: URL(string: (data.categoryImage) ?? ""))
+        iconImageView.image = data.categoryImage
+        iconText.text = data.categoryName?.rawValue
+    }
 }

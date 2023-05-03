@@ -17,7 +17,7 @@ class PackagesCollectionViewTableViewCell: UITableViewCell {
     
     static let identifier = "PackagesCollectionViewTableViewCell"
     
-    var delegate: ClickCollectionViewDelegate?
+    var delegate: DiscoverCollectionViewDelegate?
     
     var packagesInfo: [PackageInfo] = [PackageInfo(image: UIImage(named: "doctor.male.2"), text: "Book your complete health check-up package now!!", buttonText: "Learn More"),
         PackageInfo(image: UIImage(named: "doctor.male.2"), text: "Get all your medicals tests done today!!", buttonText: "Book Now")

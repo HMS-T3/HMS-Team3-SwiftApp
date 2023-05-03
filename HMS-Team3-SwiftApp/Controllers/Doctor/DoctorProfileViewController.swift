@@ -33,7 +33,7 @@ class DoctorProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentDate = Date()
-        fetchDoctorDetails()
+//        fetchDoctorDetails()
         var dateComponents = DateComponents()
         dateComponents.month = 3
 
@@ -55,19 +55,19 @@ class DoctorProfileViewController: UIViewController {
         submitButton.layer.cornerRadius = 4
     }
     
-    func fetchDoctorDetails() {
-        GetUserDetails.shared.getDoctor(completion: { results in
-            switch results {
-            case .success(let user):
-                DispatchQueue.main.async {
-                    self.profileDetails = user.userResponse
-                    self.updateProfile()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        })
-    }
+//    func fetchDoctorDetails() {
+//        GetUserDetails.shared.getDoctor(completion: { results in
+//            switch results {
+//            case .success(let user):
+//                DispatchQueue.main.async {
+//                    self.profileDetails = user.userResponse
+//                    self.updateProfile()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        })
+//    }
     
     func updateProfile(){
         nameLabel.text = profileDetails.info?.name

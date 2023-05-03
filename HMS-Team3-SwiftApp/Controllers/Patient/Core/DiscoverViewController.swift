@@ -13,18 +13,24 @@ enum TableSectionType : Int {
     case packagesSection = 3
 }
 
-class DiscoverViewController: UIViewController, UISearchResultsUpdating, UICollectionViewDelegate {
+class DiscoverViewController: UIViewController, UICollectionViewDelegate {
     
     // MARK: - Creating UI Table View
     // We have used closure here to create a table view
     var specializations : [Specialization] = [Specialization(specialization: "Dentist", description: "haha", imgUrl: "https://res.cloudinary.com/dujgzpuyd/image/upload/v1682661888/pills.fill_xzzoki.svg")]
     
+    
     private let searchController: UISearchController  = {
-       
-        let search = UISearchController(searchResultsController: SearchResultsViewController())
-        search.searchBar.searchBarStyle = .prominent
+        
+        let search = UISearchController(searchResultsController: DiscoversearchViewController())
+        search.searchBar.placeholder = "Search By Everything"
         return search
     }()
+//
+//        let search = UISearchController(searchResultsController: DiscoversearchViewController())
+//        search.searchBar.searchBarStyle = .prominent
+//        return search
+    
     
     private let discovertable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -56,17 +62,25 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
 //                print(error)
 //            }
 //        })
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         title = "Discover"
         
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationItem.largeTitleDisplayMode = .never
-        navigationItem.searchController = searchController
-        searchController.searchResultsUpdater = self
+//        self.navigationController?.navigationBar.prefersLargeTitles = false
+//        self.navigationItem.largeTitleDisplayMode = .never
+//        navigationItem.searchController = searchController
+//        searchController.searchResultsUpdater = self
         
         view.addSubview(discovertable)
         discovertable.delegate = self
         discovertable.dataSource = self
+        discovertable.backgroundColor = .systemBackground
+        discovertable.separatorStyle = .none
+    
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        
+        
 //      discovertable.separatorStyle = .none
         // Add the table view as a subview of the View Controller
     }
@@ -81,10 +95,10 @@ class DiscoverViewController: UIViewController, UISearchResultsUpdating, UIColle
 //        specializations = categories
 //    }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {return}
-        print(text)
-    }
+//    func updateSearchResults(for searchController: UISearchController) {
+//        guard let text = searchController.searchBar.text else {return}
+//        print(text)
+//    }
     
 }
 
@@ -127,6 +141,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         header.textLabel?.frame = header.bounds
         header.textLabel?.text =  header.textLabel?.text?.capitalizeFirstLetter()
         header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        header.backgroundColor = .white
         
     }
     
@@ -185,7 +200,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension DiscoverViewController: ClickCollectionViewDelegate {
+extension DiscoverViewController: DiscoverCollectionViewDelegate {
  
     func clickedOnUpcomingCell() {
         self.navigationController?.pushViewController(UpcomingAppointmentsViewController(), animated: true)
@@ -201,5 +216,12 @@ extension DiscoverViewController: ClickCollectionViewDelegate {
     
     func clickedOnPackagesCell() {
         self.navigationController?.pushViewController(PackagesViewController(), animated: true)
+    }
+}
+
+extension DiscoverViewController: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        let searchVC = DiscoversearchViewController()
+        navigationController?.pushViewController(searchVC, animated: true)
     }
 }
