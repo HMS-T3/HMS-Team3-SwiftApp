@@ -28,7 +28,7 @@ class UpdateUserDetails {
         
         request.setValue("*", forHTTPHeaderField: "Access-Control-Allow-Origin")
         request.setValue("Origin, X-Requested-With, Content-Type, Accept", forHTTPHeaderField: "Access-Control-Allow-Headers")
-        
+         
 		print("Task Initiliazed")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
