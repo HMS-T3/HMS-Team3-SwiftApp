@@ -11,7 +11,7 @@ class CategoriesCollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CategoriesCollectionViewTableViewCell"
     
-    var delegate: ClickCollectionViewDelegate?
+    var delegate: DiscoverCollectionViewDelegate?
 //    var categories: [Specialization]
     
 //    func configureCategory(_ category: [Specialization]){
