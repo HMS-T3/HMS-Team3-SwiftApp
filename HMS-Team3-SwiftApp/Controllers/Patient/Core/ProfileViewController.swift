@@ -193,6 +193,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 extension ProfileViewController: ProfileHeaderUIViewDelegate {
 	
 	func clickedOnEditButton() {
-		self.navigationController?.pushViewController(EditProfileViewController(), animated: true)
+        let editStoryboard = UIStoryboard(name: "EditProfileStoryboard", bundle: nil)
+        let controller = editStoryboard.instantiateViewController(withIdentifier: "EditProfileViewController")
+            self.navigationController?.pushViewController(controller, animated: true)
 	}
 }
