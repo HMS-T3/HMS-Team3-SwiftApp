@@ -93,6 +93,7 @@
 		CE2A14312A02762100F02945 /* TestCategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A142C2A02762100F02945 /* TestCategoriesCollectionViewCell.swift */; };
 		CE2A14322A02762100F02945 /* TopSellingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A142D2A02762100F02945 /* TopSellingCollectionViewCell.swift */; };
 		CE2A14332A02762100F02945 /* TestCategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A142E2A02762100F02945 /* TestCategoriesTableViewCell.swift */; };
+		CE95BAD02A03F508008D297D /* GetUpcomingAppointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95BACF2A03F508008D297D /* GetUpcomingAppointments.swift */; };
 		CE980B6E29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B6D29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift */; };
 		CE980B7D29F936310084C590 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE980B7C29F936310084C590 /* DiscoverViewController.swift */; };
 		E3079C8A29FFD367006E36AC /* DoctorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3079C8929FFD367006E36AC /* DoctorProfileViewController.swift */; };
@@ -246,6 +247,7 @@
 		CE2A142C2A02762100F02945 /* TestCategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE2A142D2A02762100F02945 /* TopSellingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopSellingCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE2A142E2A02762100F02945 /* TestCategoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		CE95BACF2A03F508008D297D /* GetUpcomingAppointments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUpcomingAppointments.swift; sourceTree = "<group>"; };
 		CE980B6D29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		CE980B7C29F936310084C590 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E3079C8929FFD367006E36AC /* DoctorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileViewController.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 		3A6F75D329EFEA4C0067FBB9 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				CE95BACF2A03F508008D297D /* GetUpcomingAppointments.swift */,
 				760689B329FD2DEC00A29A08 /* Health Store API's */,
 				766926A529F68D3C00F4F728 /* UserAuthentication.swift */,
 				E317358F29F97D9000B16A2A /* GetUserDetails.swift */,
@@ -949,6 +952,7 @@
 				3A3BE68D2A00D2FD003AE848 /* DoctorScheduleDateTableViewCell.swift in Sources */,
 				E37D150A29F6684000300948 /* RecordViewController.swift in Sources */,
 				E36CAA782A0310AD00ACD010 /* DoctorScheduleTimeTableViewCell.swift in Sources */,
+				CE95BAD02A03F508008D297D /* GetUpcomingAppointments.swift in Sources */,
 				CE2A142F2A02762100F02945 /* UploadPrescriptionTableViewCell.swift in Sources */,
 				E3635A2C2A00F14D00859F62 /* DoctorTimeSlotsCollectionViewCell.swift in Sources */,
 				E36CAA7A2A0310CB00ACD010 /* CalendarCell.swift in Sources */,
