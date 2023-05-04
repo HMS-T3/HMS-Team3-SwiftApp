@@ -99,16 +99,16 @@ class LoginViewController: UIViewController {
 //		print("dismissed")
 		
 		if Auth.auth().currentUser != nil {
-			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
-				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
-				self.navigationController?.pushViewController(controller, animated: true)
-			}
-//			do {
-//				try Auth.auth().signOut()
-//				print("User Signed Out")
-//			} catch {
-//				print(error)
+//			if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
+//				print(Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.phoneNumber ?? "No User Data")
+//				self.navigationController?.pushViewController(controller, animated: true)
 //			}
+			do {
+				try Auth.auth().signOut()
+				print("User Signed Out")
+			} catch {
+				print(error)
+			}
 			
 		}
 	}
