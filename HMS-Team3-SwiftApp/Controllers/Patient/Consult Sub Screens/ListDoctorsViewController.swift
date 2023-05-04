@@ -18,6 +18,13 @@ class ListDoctorsViewController: UIViewController {
 		return table
 	}()
 	
+	private let searchController: UISearchController = {
+		
+		let search = UISearchController(searchResultsController: SearchDoctorsViewController())
+		search.searchBar.placeholder = "Search for Doctors"
+		return search
+	}()
+	
 	let name: String
 	let filter: String
 	
@@ -40,6 +47,9 @@ class ListDoctorsViewController: UIViewController {
 		doctorList.backgroundColor = .systemBackground
 		doctorList.separatorStyle = .none
 		fetchDoctorByFilter()
+		
+		self.navigationItem.searchController = searchController
+		searchController.searchResultsUpdater = self
 	}
 	
 	
@@ -61,7 +71,7 @@ class ListDoctorsViewController: UIViewController {
 			case .failure(let error):
 				print(error)
 			}
-		}, name: "Infectious Disease Specialistss", filter: "specialization")
+		}, name: name, filter: filter)
 	}
     
 }
@@ -85,5 +95,36 @@ extension ListDoctorsViewController: UITableViewDelegate, UITableViewDataSource 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		self.navigationController?.pushViewController(DoctorDetailsViewController(doctorID: doctorData.Response[indexPath.row].id), animated: true)
+	}
+}
+
+extension ListDoctorsViewController: UISearchResultsUpdating {
+	
+	func updateSearchResults(for searchController: UISearchController) {
+		
+		guard let resultsController = searchController.searchResultsController as? SearchDoctorsViewController else {
+			return
+		}
+		
+		DoctorInformation.shared.getDoctorsBySearching(completion: { results in
+			switch results {
+			case .success(let response):
+				DispatchQueue.main.async {
+					resultsController.delegate = self
+					resultsController.searchArrayResults = response
+					resultsController.resultsTableView.reloadData()
+				}
+			case .failure(let error):
+				print(error)
+			}
+		}, name: searchController.searchBar.text!, filter: "both")
+	}
+	
+}
+
+extension ListDoctorsViewController: SearchDelegate {
+	
+	func goToResultsVC(indexPath: String) {
+		self.navigationController?.pushViewController(DoctorDetailsViewController(doctorID: indexPath), animated: true)
 	}
 }

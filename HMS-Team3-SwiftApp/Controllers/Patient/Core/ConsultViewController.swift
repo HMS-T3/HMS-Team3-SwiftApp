@@ -169,7 +169,7 @@ extension ConsultViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension ConsultViewController: ConsultTabDelegate {
     func clickedCategory() {
-		self.navigationController?.pushViewController(ListDoctorsViewController(name: "Infectious Disease Specialistss", filter: "specialization"), animated: true)
+		self.navigationController?.pushViewController(ListDoctorsViewController(name: "Emergency Medicine Specialistss", filter: "specialization"), animated: true)
     }
     
     func clickedTopDoc() {
