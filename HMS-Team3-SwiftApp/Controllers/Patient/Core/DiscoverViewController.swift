@@ -163,6 +163,16 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingCollectionViewTableViewCell.identifier, for: indexPath) as? UpcomingCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
+            GetUpcomingAppointments.shared.getUpcomingAppointments{ results in
+                switch results{
+                case .success(let upcomingInfo):
+//                    print(upcomingInfo.Response)
+                    guard let model = upcomingInfo.Response else {return}
+                    cell.configure(with: model)
+                case .failure(let error):
+                    print(error)
+                }
+            }
             cell.delegate = self
             return cell
             
