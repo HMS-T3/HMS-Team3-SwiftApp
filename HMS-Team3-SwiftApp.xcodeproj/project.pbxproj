@@ -44,6 +44,8 @@
 		3A8BD1D629FBA13E002B720C /* PackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BD1D129FBA13E002B720C /* PackagesViewController.swift */; };
 		3A8BD1D729FBA13E002B720C /* UpcomingAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BD1D229FBA13E002B720C /* UpcomingAppointmentsViewController.swift */; };
 		3A9B32EB2A03991500547104 /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = 3A9B32EA2A03991500547104 /* SwiftSVG */; };
+		3AAFE6C32A03AB79005B2FD9 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFE6C22A03AB79005B2FD9 /* Search.swift */; };
+		3AAFE6C52A03AF0E005B2FD9 /* SearchPatients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFE6C42A03AF0E005B2FD9 /* SearchPatients.swift */; };
 		3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */; };
 		3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */; };
 		6B36E37429FA70F3003023B3 /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B36E37329FA70F3003023B3 /* Invoice.storyboard */; };
@@ -195,6 +197,8 @@
 		3A8BD1D029FBA13E002B720C /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		3A8BD1D129FBA13E002B720C /* PackagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackagesViewController.swift; sourceTree = "<group>"; };
 		3A8BD1D229FBA13E002B720C /* UpcomingAppointmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingAppointmentsViewController.swift; sourceTree = "<group>"; };
+		3AAFE6C22A03AB79005B2FD9 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		3AAFE6C42A03AF0E005B2FD9 /* SearchPatients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPatients.swift; sourceTree = "<group>"; };
 		3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6B36E37329FA70F3003023B3 /* Invoice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invoice.storyboard; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 				760689B329FD2DEC00A29A08 /* Health Store API's */,
 				766926A529F68D3C00F4F728 /* UserAuthentication.swift */,
 				E317358F29F97D9000B16A2A /* GetUserDetails.swift */,
+				3AAFE6C22A03AB79005B2FD9 /* Search.swift */,
 				E3635A1E2A00F02700859F62 /* GetDoctorSchedule.swift */,
 				7658C40D2A0226080026E1C1 /* BookAppointment.swift */,
 				E39FC8E429FA7BB70036F1F8 /* UpdateUserDetails.swift */,
@@ -491,6 +496,7 @@
 				E3635A2D2A00F1EC00859F62 /* DoctorDetails.swift */,
 				7658C40B2A01CE3B0026E1C1 /* DoctorsAvailable.swift */,
 				7658C4132A037B220026E1C1 /* SearchDoctors.swift */,
+				3AAFE6C42A03AF0E005B2FD9 /* SearchPatients.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -920,6 +926,8 @@
 				7658C4122A033ABA0026E1C1 /* ListDoctorTableViewCell.swift in Sources */,
 				3A8BD1CB29FBA055002B720C /* UpcomingCollectionViewTableViewCell.swift in Sources */,
 				E3635A2A2A00F13300859F62 /* DoctorInfoUIView.swift in Sources */,
+				3AAFE6C32A03AB79005B2FD9 /* Search.swift in Sources */,
+				3AAFE6C52A03AF0E005B2FD9 /* SearchPatients.swift in Sources */,
 				765F865929F1046A009E67F2 /* QuickStatsCollectionViewCell.swift in Sources */,
 				278BB80529FB9BA600C5715A /* TopDocTableViewCell.swift in Sources */,
 				CE2A14312A02762100F02945 /* TestCategoriesCollectionViewCell.swift in Sources */,

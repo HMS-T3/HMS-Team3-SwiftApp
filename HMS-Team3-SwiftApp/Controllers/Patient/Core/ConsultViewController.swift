@@ -26,8 +26,9 @@ class ConsultViewController: UIViewController, UISearchResultsUpdating {
     
     private let searchController: UISearchController  = {
        
-        let search = UISearchController(searchResultsController: SearchResultsViewController())
+        let search = UISearchController(searchResultsController: DiscoversearchViewController())
         search.searchBar.searchBarStyle = .prominent
+//        search.searchArray = [SearchPatientsResponse]
         return search
     }()
     
@@ -73,7 +74,16 @@ class ConsultViewController: UIViewController, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {return}
-        print(text)
+        //api call
+        Search().searchByName(searchStr:text){
+            result in
+            switch result {
+            case .success(let response):
+                print("respomnse",response)
+            case .failure(let error):
+                print("Error User fetching JSON data: \(error.localizedDescription)")
+            }
+        }
     }
     
 }

@@ -24,7 +24,10 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
         
         let search = UISearchController(searchResultsController: DiscoversearchViewController())
         search.searchBar.placeholder = "Search By Everything"
+//        print(search.searchBar.text!)
         return search
+        
+    
     }()
 //
 //        let search = UISearchController(searchResultsController: DiscoversearchViewController())
@@ -98,7 +101,15 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {return}
-        print(text)
+        Search().searchByName(searchStr:text){
+            result in
+            switch result {
+            case .success(let response):
+                print("respomnse",response)
+            case .failure(let error):
+                print("Error User fetching JSON data: \(error.localizedDescription)")
+            }
+        }
     }
 	
 	@objc func presentChatViewController() {

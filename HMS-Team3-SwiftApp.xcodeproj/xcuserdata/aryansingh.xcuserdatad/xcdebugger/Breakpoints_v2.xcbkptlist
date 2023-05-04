@@ -3,4 +3,54 @@
    uuid = "CDFA124D-3284-441F-9B3E-DF56E86BF08C"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE478F8B-45CF-4D5A-BC47-F0CD2C96FCCC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HMS-Team3-SwiftApp/Controllers/Patient/Core/ConsultViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "viewDidLayoutSubviews()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CE478F8B-45CF-4D5A-BC47-F0CD2C96FCCC - 621457181f278418"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HMS_Team3_SwiftApp.ConsultViewController.viewDidLayoutSubviews() -&gt; ()"
+                  moduleName = "HMS-Team3-SwiftApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aryansingh/Desktop/HMS-Team3-SwiftApp/HMS-Team3-SwiftApp/Controllers/Patient/Core/ConsultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "CE478F8B-45CF-4D5A-BC47-F0CD2C96FCCC - 621457181f278418"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HMS_Team3_SwiftApp.ConsultViewController.viewDidLayoutSubviews() -&gt; ()"
+                  moduleName = "HMS-Team3-SwiftApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aryansingh/Desktop/HMS-Team3-SwiftApp/HMS-Team3-SwiftApp/Controllers/Patient/Core/ConsultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

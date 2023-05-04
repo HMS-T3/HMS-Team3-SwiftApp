@@ -4,13 +4,13 @@
 //
 //  Created by Devjyoti Mohanty on 03/05/23.
 //
-
+ 
 import UIKit
 
 class DiscoversearchViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
 
     // MARK: - Properties
-
+    let searchArray:[SearchPatientsResponse] = []
     private let tableView = UITableView()
   
     private var doctors: DoctorList = DoctorList(response: [searchResponse(id: "", name: "", specialization: "", profileImg: "", gender: "")], status: false)

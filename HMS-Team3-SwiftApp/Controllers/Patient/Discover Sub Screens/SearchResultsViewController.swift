@@ -11,6 +11,7 @@ class SearchResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("This")
 
         // Do any additional setup after loading the view.
     }
