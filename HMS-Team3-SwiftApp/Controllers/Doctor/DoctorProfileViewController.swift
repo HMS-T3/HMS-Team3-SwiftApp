@@ -25,10 +25,12 @@ class DoctorProfileViewController: UIViewController {
     
     @IBOutlet var submitButton: UIButton!
     
-    var profileDetails: UserResponse = UserResponse(info: PersonalInfo(profileImg: "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png", name: "John Doe", dateOfbirth: Date(), phoneNumber: "9910740324", biologicalGender: "Female"), role: "patient", phoneNumber: "38493124798", email: "", password: "wfgrdw" ,appointments: [], schedule: [], emergencyContacts: [])
+    var profileDetails: DoctorResponse = DoctorResponse(doctorInfo: DoctorInfo(specialization: "", degree: "", experience: "", description: ""), info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", phoneNumber: "", biologicalGender: ""), _id: "", role: "", phoneNumber: "", email: "")
     var day: String?
     var startTime: String?
     var endTime: String?
+    
+    let doctorID = UserDefaults.standard.string(forKey: "DoctorID")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,29 +55,44 @@ class DoctorProfileViewController: UIViewController {
         sexContainerView.layer.cornerRadius = 5
         phoneContainerView.layer.cornerRadius = 5
         submitButton.layer.cornerRadius = 4
+        
+        fetchDoctorDetails()
     }
     
-//    func fetchDoctorDetails() {
-//        GetUserDetails.shared.getDoctor(completion: { results in
-//            switch results {
-//            case .success(let user):
-//                DispatchQueue.main.async {
-//                    self.profileDetails = user.userResponse
-//                    self.updateProfile()
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        })
-//    }
+    func fetchDoctorDetails() {
+        GetUserDetails.shared.getDoctor(completion: { results in
+            switch results {
+            case .success(let user):
+                DispatchQueue.main.async {
+                    self.profileDetails = user.Response
+                    self.updateProfile()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }, doctorID: doctorID!)
+    }
     
     func updateProfile(){
-        nameLabel.text = profileDetails.info?.name
-        ageLabel.text = "21 years"
-        sexLabel.text = profileDetails.info?.biologicalGender
-        phoneLabel.text = profileDetails.info?.phoneNumber
-        doctorProfile.sd_setImage(with: URL(string: (profileDetails.info?.profileImg) ?? "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png"))
+        nameLabel.text = profileDetails.info.name
+        ageLabel.text = String(calculateAge(from: profileDetails.info.dateOfBirth ?? "21-10-2001") ?? 21)
+        sexLabel.text = profileDetails.info.biologicalGender
+        phoneLabel.text = profileDetails.info.phoneNumber
+        doctorProfile.sd_setImage(with: URL(string: (profileDetails.info.profileImg) ))
     }
+    func calculateAge(from dateOfBirth: String) -> Int? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let calendar = Calendar.current
+        let currentDate = Date()
+        var ageComponents : DateComponents = DateComponents(calendar: Calendar.current, timeZone: TimeZone.current)
+        if let date = dateFormatter.date(from: dateOfBirth) {
+            ageComponents = calendar.dateComponents([.year], from: date, to: currentDate)
+        }
+        return ageComponents.year
+    }
+
 
     @IBAction func onDateChangeHandler(_ sender: UIDatePicker) {
         let selectedDate = sender.date
