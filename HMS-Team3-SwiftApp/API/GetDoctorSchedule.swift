@@ -69,8 +69,13 @@ class DoctorInformation {
 	func getDoctorsBySearching(completion: @escaping(Result<SearchDoctors, Error>) -> Void, name: String, filter: String) {
 		
 		let name = name.replacingOccurrences(of: " ", with: "%20")
+		let url: URL?
 		
-		let url = URL(string: "\(Constants.baseURL)/search?searchString=\(name)&searchBy=\(filter)")
+		if filter == "" {
+			url = URL(string: "\(Constants.baseURL)/search?searchString=\(name)")
+		} else {
+			url = URL(string: "\(Constants.baseURL)/search?searchString=\(name)&searchBy=\(filter)")
+		}
 		
 		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
 			

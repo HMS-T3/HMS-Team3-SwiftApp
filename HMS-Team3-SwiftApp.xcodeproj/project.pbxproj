@@ -61,6 +61,8 @@
 		7658C4102A0338180026E1C1 /* ChatiMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C40F2A0338180026E1C1 /* ChatiMessageViewController.swift */; };
 		7658C4122A033ABA0026E1C1 /* ListDoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C4112A033ABA0026E1C1 /* ListDoctorTableViewCell.swift */; };
 		7658C4142A037B220026E1C1 /* SearchDoctors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C4132A037B220026E1C1 /* SearchDoctors.swift */; };
+		7658C4162A03AECC0026E1C1 /* SearchDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C4152A03AECC0026E1C1 /* SearchDoctorsViewController.swift */; };
+		7658C4182A03C3180026E1C1 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C4172A03C3180026E1C1 /* SearchDelegate.swift */; };
 		765F863F29EFEFA5009E67F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F863E29EFEFA5009E67F2 /* User.swift */; };
 		765F864129EFEFBB009E67F2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F864029EFEFBB009E67F2 /* Enums.swift */; };
 		765F864329EFEFD1009E67F2 /* Appointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F864229EFEFD1009E67F2 /* Appointments.swift */; };
@@ -212,6 +214,8 @@
 		7658C40F2A0338180026E1C1 /* ChatiMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatiMessageViewController.swift; sourceTree = "<group>"; };
 		7658C4112A033ABA0026E1C1 /* ListDoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDoctorTableViewCell.swift; sourceTree = "<group>"; };
 		7658C4132A037B220026E1C1 /* SearchDoctors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDoctors.swift; sourceTree = "<group>"; };
+		7658C4152A03AECC0026E1C1 /* SearchDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDoctorsViewController.swift; sourceTree = "<group>"; };
+		7658C4172A03C3180026E1C1 /* SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
 		765F863E29EFEFA5009E67F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		765F864029EFEFBB009E67F2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		765F864229EFEFD1009E67F2 /* Appointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointments.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 			children = (
 				27D091E029F68127008D6072 /* ListDoctorsViewController.swift */,
 				2790318D29F7CB340031CA6C /* DoctorDetailsViewController.swift */,
+				7658C4152A03AECC0026E1C1 /* SearchDoctorsViewController.swift */,
 			);
 			path = "Consult Sub Screens";
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				765F865B29F25C86009E67F2 /* ProfileHeaderUIViewDelegate.swift */,
 				CE980B6D29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift */,
 				278BB80829FB9E3C00C5715A /* ConsultTabDelegate.swift */,
+				7658C4172A03C3180026E1C1 /* SearchDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -885,6 +891,7 @@
 				E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */,
 				3A8BD1C729FBA055002B720C /* PackagesCollectionViewTableViewCell.swift in Sources */,
 				AC61407F29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.swift in Sources */,
+				7658C4162A03AECC0026E1C1 /* SearchDoctorsViewController.swift in Sources */,
 				3A8BD1C929FBA055002B720C /* CategoriesCollectionViewTableViewCell.swift in Sources */,
 				276811B629F90DDF005209A0 /* SlotCollectionViewCell.swift in Sources */,
 				3A3BE6912A00D2FD003AE848 /* DoctorScheduleMonthCollectionViewCell.swift in Sources */,
@@ -939,6 +946,7 @@
 				766926A829F691CE00F4F728 /* LoginPatient.swift in Sources */,
 				E317359229F982E900B16A2A /* Constants.swift in Sources */,
 				276811AE29F90DCF005209A0 /* DoctorCollectionViewCell.swift in Sources */,
+				7658C4182A03C3180026E1C1 /* SearchDelegate.swift in Sources */,
 				278BB80329FB9B9D00C5715A /* CatTableViewCell.swift in Sources */,
 				E3A0D4C229E40F9A00894838 /* AppDelegate.swift in Sources */,
 				276811B229F90DD8005209A0 /* DateCollectionViewCell.swift in Sources */,
@@ -1149,7 +1157,7 @@
 				CODE_SIGN_ENTITLEMENTS = "HMS-Team3-SwiftApp/HMS-Team3-SwiftApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D5B5JCBRBB;
+				DEVELOPMENT_TEAM = YK69472845;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HMS-Team3-SwiftApp/Info.plist";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to share your Health data to doctors and clinicians.";
@@ -1165,7 +1173,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp1";
+				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1181,7 +1189,7 @@
 				CODE_SIGN_ENTITLEMENTS = "HMS-Team3-SwiftApp/HMS-Team3-SwiftApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D5B5JCBRBB;
+				DEVELOPMENT_TEAM = YK69472845;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HMS-Team3-SwiftApp/Info.plist";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to share your Health data to doctors and clinicians.";
@@ -1197,7 +1205,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp1";
+				PRODUCT_BUNDLE_IDENTIFIER = "iosApp.HMS-Team3-SwiftApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
