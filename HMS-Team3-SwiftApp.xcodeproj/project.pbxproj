@@ -244,8 +244,6 @@
 		CE2A142E2A02762100F02945 /* TestCategoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		CE980B6D29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		CE980B7C29F936310084C590 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
-		CEBF553229F94917003465F4 /* MedicineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCollectionViewCell.swift; sourceTree = "<group>"; };
-		CEBF553429F99F88003465F4 /* PackagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3079C8929FFD367006E36AC /* DoctorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileViewController.swift; sourceTree = "<group>"; };
 		E3079C8E2A000F0F006E36AC /* UpdateDoctorAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDoctorAvailability.swift; sourceTree = "<group>"; };
 		E3079C902A001211006E36AC /* UpdateAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvailability.swift; sourceTree = "<group>"; };
@@ -566,8 +564,6 @@
 		AC61407029FE99080051648C /* DoctorScreen */ = {
 			isa = PBXGroup;
 			children = (
-				CEBF553229F94917003465F4 /* MedicineCollectionViewCell.swift */,
-				CEBF553429F99F88003465F4 /* PackagesCollectionViewCell.swift */,
 				AC61407329FE997C0051648C /* DoctorExploreViewController.swift */,
 				AC61407529FE9C870051648C /* DoctorExploreCollectionViewCell.swift */,
 				AC61407629FE9C870051648C /* DoctorExploreCollectionViewCell.xib */,
