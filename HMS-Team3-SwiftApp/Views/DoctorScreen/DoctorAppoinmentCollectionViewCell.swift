@@ -17,6 +17,10 @@ class DoctorAppoinmentCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        TimeLable.font = .boldSystemFont(ofSize: 20)
+        SymptomLable.font = .boldSystemFont(ofSize: 20)
+        NameLable.font = .boldSystemFont(ofSize: 20)
+        
         TimeLable.text = "9.30"
         SymptomLable.text = "fever"
         NameLable.text = "rushil"

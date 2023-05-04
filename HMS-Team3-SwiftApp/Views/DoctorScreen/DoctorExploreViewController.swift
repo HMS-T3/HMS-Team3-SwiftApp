@@ -7,7 +7,12 @@
 
 import UIKit
 
-class DoctorExploreViewController: UIViewController {
+struct Doctor7days{
+    let date:String
+    let day:String
+}
+
+class DoctorExploreViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet var ExploreDatesCollectionView: UICollectionView!
     
     @IBOutlet var DoctorAppoinment: UICollectionView!
@@ -16,6 +21,12 @@ class DoctorExploreViewController: UIViewController {
     
     @IBOutlet var PatientsView: UIView!
     
+    
+    var lastSelected: IndexPath?
+    
+    var DoctorworkingDays: [Doctor7days] = []
+    
+    var delegate: DoctorExploreViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +48,16 @@ class DoctorExploreViewController: UIViewController {
         ExploreDatesCollectionView.collectionViewLayout = layout
         DoctorAppoinment.collectionViewLayout = appointment
         
-//        
-     
+        DispatchQueue.main.async { [self] in
+            getNext7WorkingDays()
+        }
+        
     }
     
     private func registercells(){
         ExploreDatesCollectionView.register(UINib(nibName: DoctorExploreCollectionViewCell.identifier, bundle: nil),forCellWithReuseIdentifier: DoctorExploreCollectionViewCell.identifier)
         DoctorAppoinment.register(UINib(nibName: DoctorAppoinmentCollectionViewCell.identifier, bundle: nil),forCellWithReuseIdentifier: DoctorAppoinmentCollectionViewCell.identifier)
     }
-    
-    
     
     
 
@@ -66,12 +77,36 @@ extension DoctorExploreViewController:UICollectionViewDelegate,UICollectionViewD
             return CGSize(width: 100, height: 100)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView{
+        case ExploreDatesCollectionView:
+            if let lastSelected = lastSelected {
+                let cell = collectionView.cellForItem(at: lastSelected)
+                cell?.backgroundColor = .clear
+                cell?.layer.borderColor = UIColor(named: "border")?.cgColor
+                cell?.layer.borderWidth = 1
+            }
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell?.backgroundColor = UIColor(named: "select")
+            lastSelected = indexPath
+            delegate?.clickedOnDateButton(dateOffset: (Int(DoctorworkingDays[indexPath.row].date) ?? 0))
+        default:
+            lastSelected = indexPath
+            let cell = collectionView.cellForItem(at: lastSelected!)
+            cell?.backgroundColor = .clear
+            cell?.layer.borderColor =  UIColor(named: "border")?.cgColor
+            cell?.layer.borderWidth = 0.5
+        }
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
         case ExploreDatesCollectionView:
-            return 31
+            //return days in a week
+            return 7
         case DoctorAppoinment:
+            //return number of appointments 
             return 10
         default:
             return 15
@@ -82,28 +117,51 @@ extension DoctorExploreViewController:UICollectionViewDelegate,UICollectionViewD
         switch collectionView{
         case ExploreDatesCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoctorExploreCollectionViewCell.identifier, for: indexPath) as? DoctorExploreCollectionViewCell else { return UICollectionViewCell() }
+            cell.layer.borderColor = UIColor(named: "border")?.cgColor
+            cell.layer.borderWidth = 1
+            cell.layer.cornerRadius = 10
+            cell.layer.masksToBounds = true
+//            cell.DateLabel.text = Date().string(format: "d")
+//            cell.DayLabel.text = Date().string(format: "E")
+            if DoctorworkingDays.count == 7 {
+//                cell.DoctorConfigure(date: DoctorworkingDays[indexPath.row].date, day: DoctorworkingDays[indexPath.row].day)
+                cell.DateLabel.text = DoctorworkingDays[indexPath.row].date
+                cell.DayLabel.text = DoctorworkingDays[indexPath.row].day
+            }
             return cell
         case DoctorAppoinment:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoctorAppoinmentCollectionViewCell.identifier, for: indexPath) as? DoctorAppoinmentCollectionViewCell else { return UICollectionViewCell() }
+            cell.layer.borderColor = UIColor(named: "border")?.cgColor
+            cell.layer.borderWidth = 1
+            cell.layer.cornerRadius = 10
+            cell.layer.masksToBounds = true
             return cell
         default: return UICollectionViewCell()
         }
     }
-
+    
+    
+    func getNext7WorkingDays() {
+        let calendar = Calendar(identifier: Calendar.Identifier.indian)
+        var todayDate = Date()
+        let dateFromatterDate = DateFormatter()
+        dateFromatterDate.setLocalizedDateFormatFromTemplate("d")
+        let dateFormatterDay = DateFormatter()
+        dateFormatterDay.setLocalizedDateFormatFromTemplate("E")
+        if !calendar.isDateInWeekend(todayDate) {
+            DoctorworkingDays.append(Doctor7days(date: dateFromatterDate.string(from: todayDate), day: dateFormatterDay.string(from: todayDate)))
+        }
+        while DoctorworkingDays.count < 7 {
+            todayDate = calendar.date(byAdding: Calendar.Component.day, value: 1, to: todayDate)!
+            DoctorworkingDays.append(Doctor7days(date: dateFromatterDate.string(from: todayDate), day: dateFormatterDay.string(from: todayDate)))
+        }
+        DispatchQueue.main.async {
+            self.ExploreDatesCollectionView.reloadData()
+        }
+    }
 
 }
 
-//extension DoctorExploreViewController:UICollectionViewDelegate,UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        30
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 100, height: 100)
-//    }
-//}
+
+
 

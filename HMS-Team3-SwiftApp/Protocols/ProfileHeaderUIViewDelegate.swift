@@ -18,3 +18,7 @@ protocol DoctorDatesTableViewCellDelegate {
 protocol DoctorTimeSlotsTableViewCellDelegate {
 	func clickedOnTimeCell(time: [String], date: String)
 }
+
+protocol DoctorExploreViewControllerDelegate{
+    func clickedOnDateButton(dateOffset: Int)
+}
