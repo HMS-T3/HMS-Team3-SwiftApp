@@ -169,8 +169,7 @@ extension ConsultViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension ConsultViewController: ConsultTabDelegate {
     func clickedCategory() {
-        let controller = storyboard?.instantiateViewController(identifier: "ListDoctorsViewController")
-        navigationController?.pushViewController(controller!, animated: true)
+		self.navigationController?.pushViewController(ListDoctorsViewController(name: "Infectious Disease Specialistss", filter: "specialization"), animated: true)
     }
     
     func clickedTopDoc() {

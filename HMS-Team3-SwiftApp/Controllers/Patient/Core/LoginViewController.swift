@@ -317,7 +317,6 @@ class LoginViewController: UIViewController {
             switch results {
             case .success(let loginPatient):
                 DispatchQueue.main.async {
-					self.updateUserDetails()
                     print("Registered New User")
                     if let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") {
                         self.navigationController?.pushViewController(controller, animated: true)
