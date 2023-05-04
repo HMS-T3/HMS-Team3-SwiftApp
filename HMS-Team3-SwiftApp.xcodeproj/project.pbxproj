@@ -43,6 +43,7 @@
 		3A8BD1D529FBA13E002B720C /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BD1D029FBA13E002B720C /* CategoriesCollectionViewController.swift */; };
 		3A8BD1D629FBA13E002B720C /* PackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BD1D129FBA13E002B720C /* PackagesViewController.swift */; };
 		3A8BD1D729FBA13E002B720C /* UpcomingAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BD1D229FBA13E002B720C /* UpcomingAppointmentsViewController.swift */; };
+		3A9B32EB2A03991500547104 /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = 3A9B32EA2A03991500547104 /* SwiftSVG */; };
 		3AEA1D0D29E81C90005369C4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0C29E81C90005369C4 /* LoginStoryboard.storyboard */; };
 		3AEA1D0F29E81CBA005369C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */; };
 		6B36E37429FA70F3003023B3 /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B36E37329FA70F3003023B3 /* Invoice.storyboard */; };
@@ -302,6 +303,7 @@
 				E3C3B56029FE9FD800343D74 /* SDWebImageSVGCoder in Frameworks */,
 				E341B97829FBAA6E00EE9917 /* SDWebImage in Frameworks */,
 				76D7A21729F6895600E6F225 /* GoogleSignIn in Frameworks */,
+				3A9B32EB2A03991500547104 /* SwiftSVG in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +733,7 @@
 				76D7A21629F6895600E6F225 /* GoogleSignIn */,
 				E341B97729FBAA6E00EE9917 /* SDWebImage */,
 				E3C3B55F29FE9FD800343D74 /* SDWebImageSVGCoder */,
+				3A9B32EA2A03991500547104 /* SwiftSVG */,
 			);
 			productName = "HMS-Team3-SwiftApp";
 			productReference = E3A0D4BE29E40F9A00894838 /* HMS-Team3-SwiftApp.app */;
@@ -809,6 +812,7 @@
 				76D7A21529F6895600E6F225 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				E341B97629FBAA6E00EE9917 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				E3C3B55E29FE9FD800343D74 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				3A9B32E92A03991500547104 /* XCRemoteSwiftPackageReference "SwiftSVG" */,
 			);
 			productRefGroup = E3A0D4BF29E40F9A00894838 /* Products */;
 			projectDirPath = "";
@@ -1321,6 +1325,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3A9B32E92A03991500547104 /* XCRemoteSwiftPackageReference "SwiftSVG" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mchoe/SwiftSVG";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		76D7A21029F6873D00E6F225 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1356,6 +1368,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3A9B32EA2A03991500547104 /* SwiftSVG */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A9B32E92A03991500547104 /* XCRemoteSwiftPackageReference "SwiftSVG" */;
+			productName = SwiftSVG;
+		};
 		76D7A21129F6873D00E6F225 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 76D7A21029F6873D00E6F225 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
