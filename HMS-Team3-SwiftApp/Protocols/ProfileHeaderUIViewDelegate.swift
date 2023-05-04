@@ -17,4 +17,5 @@ protocol DoctorDatesTableViewCellDelegate {
 
 protocol DoctorTimeSlotsTableViewCellDelegate {
 	func clickedOnTimeCell(time: [String], date: String)
+	func noSlots()
 }

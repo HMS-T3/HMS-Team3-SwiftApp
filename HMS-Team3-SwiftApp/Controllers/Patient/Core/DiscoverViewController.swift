@@ -83,6 +83,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
         
 //      discovertable.separatorStyle = .none
         // Add the table view as a subview of the View Controller
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .done, target: self, action: #selector(presentChatViewController))
     }
     
     // MARK: - Add table view to View Controller
@@ -95,10 +96,19 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
 //        specializations = categories
 //    }
     
-//    func updateSearchResults(for searchController: UISearchController) {
-//        guard let text = searchController.searchBar.text else {return}
-//        print(text)
-//    }
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {return}
+        print(text)
+    }
+	
+	@objc func presentChatViewController() {
+//		self.navigationController?.pushViewController(ChatiMessageViewController(), animated: true)
+			let messageURLString = "sms:+919449749074"
+			if let messageURL = URL(string: messageURLString) {
+				UIApplication.shared.open(messageURL, options: [:], completionHandler: nil)
+			}
+
+	}
     
 }
 
