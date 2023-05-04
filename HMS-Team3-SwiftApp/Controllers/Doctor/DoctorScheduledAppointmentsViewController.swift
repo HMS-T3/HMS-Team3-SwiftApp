@@ -44,6 +44,8 @@ class DoctorScheduledAppointmentsViewController: UIViewController, UICollectionV
                     self.initialResponse = doctorSchedule
                     if let response = self.initialResponse.Response {
                         self.patientDetailsResponse = response
+                        print(self.patientDetailsResponse)
+                        
                     }
                     self.timeTableView.reloadData()
                 }
@@ -180,6 +182,7 @@ class DoctorScheduledAppointmentsViewController: UIViewController, UICollectionV
                   let patientDetails = patientDetailsResponse[indexPath.section]
 
             cell.configureValues(patientDetails: patientDetails)
+           
 
 //                let cell = timeTableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath) as! DoctorScheduleTimeTableViewCell
 //            cell.configureValues(patientDetails: patientDetailsResponse[indexPath.section])
@@ -195,16 +198,23 @@ class DoctorScheduledAppointmentsViewController: UIViewController, UICollectionV
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 let cell = timeTableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath) as! DoctorScheduleTimeTableViewCell
                 cell.backgroundColor = UIColor(red: 25/255.0, green: 154/255.0, blue: 142/255.0, alpha: 1)
+        
             cell.contentView.subviews.forEach { subview in
                 if let label = subview as? UILabel {
                     label.textColor = .white
                 }
             }
                 let selectedPatient = patientDetailsResponse[indexPath.section]
-    //            if let nextVC = storyboard?.instantiateViewController(identifier: "DoctorSchedulePatientAppointmentViewController") as? DoctorSchedulePatientAppointmentViewController{
-    //                self.navigationController?.pushViewController(nextVC, animated: true)
-    //            }
-                
+            
+            let vc = (storyboard?.instantiateViewController(withIdentifier: "DoctorSchedulePatientAppointmentViewController") as? DoctorSchedulePatientAppointmentViewController)!
+            present(vc, animated: true, completion: nil)
+            vc.patientNameLabel.text = selectedPatient.patient?.info.name
+            vc.patientSexLabel.text = selectedPatient.patient?.info.biologicalGender
+            vc.patientAgeView.text = selectedPatient.patient?.info.dateOfBirth
+            
+            
+            
+            
                 tableView.deselectRow(at: indexPath, animated: true)
     //        monthCollectionView.reloadData()
     //        dateTableView.reloadData()
