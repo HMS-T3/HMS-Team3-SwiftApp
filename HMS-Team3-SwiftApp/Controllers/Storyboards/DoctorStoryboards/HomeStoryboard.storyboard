@@ -24,7 +24,6 @@
                     <connections>
                         <segue destination="88d-ZN-WFR" kind="relationship" relationship="viewControllers" id="a3h-5r-WbO"/>
                         <segue destination="x0L-Gz-vn0" kind="relationship" relationship="viewControllers" id="rcr-AR-nQk"/>
-                        <segue destination="fW7-iU-gjP" kind="relationship" relationship="viewControllers" id="M34-oy-yww"/>
                         <segue destination="EGp-Fc-5Ib" kind="relationship" relationship="viewControllers" id="SxW-DR-rgh"/>
                     </connections>
                 </tabBarController>
@@ -42,27 +41,17 @@
             </objects>
             <point key="canvasLocation" x="818" y="-167"/>
         </scene>
-        <!--ScheduleViewController-->
+        <!--DoctorScheduledAppointmentsViewController-->
         <scene sceneID="Ri9-St-r4f">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ScheduleViewController" storyboardName="ScheduleStoryboard" referencedIdentifier="ScheduleViewController" id="x0L-Gz-vn0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="Uj6-Qo-FPg">
+                <viewControllerPlaceholder storyboardIdentifier="DoctorScheduledAppointmentsViewController" storyboardName="ScheduleStoryboard" referencedIdentifier="DoctorScheduledAppointmentsViewController" id="x0L-Gz-vn0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Appointments" id="Uj6-Qo-FPg">
                         <imageReference key="image" image="person.line.dotted.person" catalog="system" symbolScale="medium"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlF-21-08R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818" y="-17"/>
-        </scene>
-        <!--DoctorChatNavigationController-->
-        <scene sceneID="2PJ-jr-tO9">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="DoctorChatNavigationController" storyboardName="ChatStoryboard" referencedIdentifier="DoctorChatNavigationController" id="fW7-iU-gjP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" image="message.badge" catalog="system" id="8pa-ul-l77"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yqc-NY-CkF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="826" y="93"/>
         </scene>
         <!--DoctorProfileNavigationController-->
         <scene sceneID="44K-j9-lO6">
@@ -77,7 +66,6 @@
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
-        <image name="message.badge" catalog="system" width="128" height="116"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.line.dotted.person" catalog="system" width="128" height="58"/>
         <namedColor name="secondary">

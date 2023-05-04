@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
 	
 	private let tableSectionsTitles: [String] = ["Medical History", "Invoice", "SOS Contacts", "Apple Health", "Quick Stats"]
 	
-    var personalInfo: UserResponse = UserResponse(info: PersonalInfo(profileImg: "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png", name: "John Doe", dateOfbirth: Date(), phoneNumber: "9910740324", biologicalGender: "Female"), role: "patient", phoneNumber: "38493124798", email: "", password: "wfgrdw" ,appointments: [], schedule: [], emergencyContacts: [])
+    var personalInfo: UserResponse = UserResponse(id: "12345", info: PersonalInfo(profileImg: "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png", name: "John Doe", dateOfbirth: Date(), phoneNumber: "9910740324", biologicalGender: "Female"), role: "patient", phoneNumber: "38493124798", email: "", password: "wfgrdw" ,appointments: [], schedule: [], emergencyContacts: [])
 	
 	private let profileTableView: UITableView = {
 		
@@ -193,6 +193,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 extension ProfileViewController: ProfileHeaderUIViewDelegate {
 	
 	func clickedOnEditButton() {
-		self.navigationController?.pushViewController(EditProfileViewController(), animated: true)
+        let editStoryboard = UIStoryboard(name: "EditProfileStoryboard", bundle: nil)
+        let controller = editStoryboard.instantiateViewController(withIdentifier: "EditProfileViewController")
+            self.navigationController?.pushViewController(controller, animated: true)
 	}
 }

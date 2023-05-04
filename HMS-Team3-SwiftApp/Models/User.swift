@@ -18,6 +18,7 @@ struct User: Codable {
 }
 
 struct UserResponse: Codable {
+    let id: String?
     let info: PersonalInfo?
     let role: String?
     let phoneNumber: String?
