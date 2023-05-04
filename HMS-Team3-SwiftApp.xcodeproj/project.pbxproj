@@ -57,6 +57,9 @@
 		760689B529FD2E0E00A29A08 /* AppleHealthFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760689B429FD2E0E00A29A08 /* AppleHealthFunctions.swift */; };
 		7658C40C2A01CE3B0026E1C1 /* DoctorsAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C40B2A01CE3B0026E1C1 /* DoctorsAvailable.swift */; };
 		7658C40E2A0226080026E1C1 /* BookAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C40D2A0226080026E1C1 /* BookAppointment.swift */; };
+		7658C4102A0338180026E1C1 /* ChatiMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C40F2A0338180026E1C1 /* ChatiMessageViewController.swift */; };
+		7658C4122A033ABA0026E1C1 /* ListDoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C4112A033ABA0026E1C1 /* ListDoctorTableViewCell.swift */; };
+		7658C4142A037B220026E1C1 /* SearchDoctors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658C4132A037B220026E1C1 /* SearchDoctors.swift */; };
 		765F863F29EFEFA5009E67F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F863E29EFEFA5009E67F2 /* User.swift */; };
 		765F864129EFEFBB009E67F2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F864029EFEFBB009E67F2 /* Enums.swift */; };
 		765F864329EFEFD1009E67F2 /* Appointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765F864229EFEFD1009E67F2 /* Appointments.swift */; };
@@ -205,6 +208,9 @@
 		760689B429FD2E0E00A29A08 /* AppleHealthFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthFunctions.swift; sourceTree = "<group>"; };
 		7658C40B2A01CE3B0026E1C1 /* DoctorsAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsAvailable.swift; sourceTree = "<group>"; };
 		7658C40D2A0226080026E1C1 /* BookAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookAppointment.swift; path = "HMS-Team3-SwiftApp/Models/BookAppointment.swift"; sourceTree = SOURCE_ROOT; };
+		7658C40F2A0338180026E1C1 /* ChatiMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatiMessageViewController.swift; sourceTree = "<group>"; };
+		7658C4112A033ABA0026E1C1 /* ListDoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDoctorTableViewCell.swift; sourceTree = "<group>"; };
+		7658C4132A037B220026E1C1 /* SearchDoctors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDoctors.swift; sourceTree = "<group>"; };
 		765F863E29EFEFA5009E67F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		765F864029EFEFBB009E67F2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		765F864229EFEFD1009E67F2 /* Appointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointments.swift; sourceTree = "<group>"; };
@@ -482,6 +488,7 @@
 				E3079C902A001211006E36AC /* UpdateAvailability.swift */,
 				E3635A2D2A00F1EC00859F62 /* DoctorDetails.swift */,
 				7658C40B2A01CE3B0026E1C1 /* DoctorsAvailable.swift */,
+				7658C4132A037B220026E1C1 /* SearchDoctors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -540,6 +547,7 @@
 				278CDFB329F0010A001D65BB /* ConsultViewController.swift */,
 				3AEA1D0E29E81CBA005369C4 /* LoginViewController.swift */,
 				7673EBA629EFEABD00F10EB7 /* ProfileViewController.swift */,
+				7658C40F2A0338180026E1C1 /* ChatiMessageViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -619,6 +627,7 @@
 				E3635A272A00F12500859F62 /* DoctorTimeSlotsTableViewCell.swift */,
 				E3635A292A00F13300859F62 /* DoctorInfoUIView.swift */,
 				E3635A2B2A00F14D00859F62 /* DoctorTimeSlotsCollectionViewCell.swift */,
+				7658C4112A033ABA0026E1C1 /* ListDoctorTableViewCell.swift */,
 			);
 			path = Latest;
 			sourceTree = "<group>";
@@ -869,6 +878,7 @@
 			files = (
 				E3D2555229FBCA1300F1E7C5 /* Utililties.swift in Sources */,
 				E3E4BEB829FFB57900C88C30 /* AppleHealthViewController.swift in Sources */,
+				7658C4142A037B220026E1C1 /* SearchDoctors.swift in Sources */,
 				CE980B6E29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift in Sources */,
 				760689B229FD1F2600A29A08 /* AppleHealthTableViewCell.swift in Sources */,
 				3A8BD1D329FBA13E002B720C /* SearchResultsViewController.swift in Sources */,
@@ -879,6 +889,7 @@
 				276811B629F90DDF005209A0 /* SlotCollectionViewCell.swift in Sources */,
 				3A3BE6912A00D2FD003AE848 /* DoctorScheduleMonthCollectionViewCell.swift in Sources */,
 				7673EBA729EFEABD00F10EB7 /* ProfileViewController.swift in Sources */,
+				7658C4102A0338180026E1C1 /* ChatiMessageViewController.swift in Sources */,
 				276811AA29F90D96005209A0 /* RecentsDoctorCollectionViewCell.swift in Sources */,
 				760689B529FD2E0E00A29A08 /* AppleHealthFunctions.swift in Sources */,
 				7658C40E2A0226080026E1C1 /* BookAppointment.swift in Sources */,
@@ -902,6 +913,7 @@
 				6B38EFBC29F692EC0084981F /* MRTableTableViewCell.swift in Sources */,
 				E317359029F97D9000B16A2A /* GetUserDetails.swift in Sources */,
 				3A8BD1C829FBA055002B720C /* MedicineCollectionViewTableViewCell.swift in Sources */,
+				7658C4122A033ABA0026E1C1 /* ListDoctorTableViewCell.swift in Sources */,
 				3A8BD1CB29FBA055002B720C /* UpcomingCollectionViewTableViewCell.swift in Sources */,
 				E3635A2A2A00F13300859F62 /* DoctorInfoUIView.swift in Sources */,
 				765F865929F1046A009E67F2 /* QuickStatsCollectionViewCell.swift in Sources */,

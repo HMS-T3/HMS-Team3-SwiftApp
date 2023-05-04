@@ -74,13 +74,21 @@ class DoctorTimeSlotsTableViewCell: UITableViewCell {
 		let desiredDate = calendar.date(byAdding: Calendar.Component.day, value: offset - Int(datFormatter.string(from: today))!, to: today)
 		let desiredDay = dateFormatter.string(from: desiredDate!)
 		dateFormatted = desiredDay
+//		if desiredDate! < Date() {
+//			print(desiredDate)
+//			return
+//		}
 		
 		DoctorInformation.shared.isDoctorAvailable(completion: { results in
 			switch results {
 			case .success(let details):
 				self.timeSlots = details
+
 				DispatchQueue.main.async {
 					self.timeSlotsCollectionView.reloadData()
+//					if self.timeSlots.Response?.count == 0 {
+//						self.delegate?.noSlots()
+//					}
 				}
 			case .failure(let error):
 				print(error)

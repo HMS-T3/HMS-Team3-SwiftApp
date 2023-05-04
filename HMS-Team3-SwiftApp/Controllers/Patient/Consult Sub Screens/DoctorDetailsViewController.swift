@@ -189,6 +189,13 @@ extension DoctorDetailsViewController: DoctorDatesTableViewCellDelegate {
 
 extension DoctorDetailsViewController: DoctorTimeSlotsTableViewCellDelegate {
 	
+	func noSlots() {
+		let alert = UIAlertController(title: "No Slots Available", message: "Please Select Another Date", preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+		self.present(alert, animated: true)
+	}
+	
+	
 	func clickedOnTimeCell(time: [String], date: String) {
 		
 		self.time = time

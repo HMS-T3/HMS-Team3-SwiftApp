@@ -46,7 +46,7 @@ class ProfileHeaderUIView: UIView {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.text = "Name of the Patient"
 		label.font = .systemFont(ofSize: 22, weight: .regular)
-		label.numberOfLines = 2
+		label.numberOfLines = 1
 		return label
 	}()
 	
@@ -161,7 +161,7 @@ class ProfileHeaderUIView: UIView {
 				
 				nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 10),
 				nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-				nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+				nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13),
 				
 				dobIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 10),
 				dobIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),

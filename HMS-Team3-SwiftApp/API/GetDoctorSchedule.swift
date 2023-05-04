@@ -5,6 +5,8 @@
 //  Created by Shivacharan Reddy on 02/05/23.
 //
 
+// DO NOT CHANGE ANYTHING, -Shivacharan
+
 import Foundation
 
 class DoctorInformation {
@@ -34,7 +36,6 @@ class DoctorInformation {
 	func bookAppointment(completion: @escaping(Result<BookAppointment, Error>) -> Void, patientID: String, doctorID: String, date: String, startTime: String, endTime: String) {
 		
 		let url = URL(string: "\(Constants.baseURL)/book_appointment/patient?patient_id=\(patientID)")!
-		print(url)
 		
 		var request = URLRequest(url: url)
 		request.httpMethod = "POST"
@@ -60,6 +61,30 @@ class DoctorInformation {
 			} catch {
 				completion(.failure(error))
 				print(error)
+			}
+		}
+		task.resume()
+	}
+	
+	func getDoctorsBySearching(completion: @escaping(Result<SearchDoctors, Error>) -> Void, name: String, filter: String) {
+		
+		let name = name.replacingOccurrences(of: " ", with: "%20")
+		
+		let url = URL(string: "\(Constants.baseURL)/search?searchString=\(name)&searchBy=\(filter)")
+		
+		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+			
+			guard let data = data,
+				  error == nil else {
+//				print(error)
+				return
+			}
+			
+			do {
+				let response = try JSONDecoder().decode(SearchDoctors.self, from: data)
+				completion(.success(response))
+			} catch {
+				completion(.failure(error))
 			}
 		}
 		task.resume()
