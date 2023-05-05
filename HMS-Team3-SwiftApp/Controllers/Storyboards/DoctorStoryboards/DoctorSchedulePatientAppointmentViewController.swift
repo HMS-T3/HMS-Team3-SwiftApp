@@ -31,7 +31,14 @@ class DoctorSchedulePatientAppointmentViewController: UIViewController {
         
     }
     
+    @IBAction func permissionForChat(_ sender: Any) {
+        
+    }
     
+    @IBAction func setStatus(_ sender: UIButton!) {
+//        visitedButton.setImage(UIImage(systemName: "checkmark"), for: .selected)
+        sender.backgroundColor = .black
+    }
     
     override func viewDidLoad() {
         reschduleButton.backgroundColor = .gray
