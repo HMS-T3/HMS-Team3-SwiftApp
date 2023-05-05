@@ -20,7 +20,7 @@ class DoctorDetailsViewController: UIViewController {
 	var time: [String] = []
 	var date: String = ""
 	
-    var doctorInfo: DoctorDetails = DoctorDetails(Response: DoctorResponse(doctorInfo: DoctorInfo(specialization: "nil", degree: "nil", experience: "nil", description: "nil"), info: AdditionalInfo(profileImg: "nil", name: "nil", dateOfBirth: "nil", phoneNumber: "nil", biologicalGender: "nil"), _id: "nil", role: "nil", phoneNumber: "nil", email: "nil"))
+    var doctorInfo: DoctorDetails = DoctorDetails(Response: DoctorResponse(doctorInfo: DoctorInfo(specialization: "nil", degree: "nil", experience: "nil", description: "nil"), info: AdditionalInfo(profileImg: "nil", name: "nil", dateOfBirth: "nil", biologicalGender: "nil"), _id: "nil", role: "nil", phoneNumber: "nil", email: "nil"))
     
     private let docotorAppointmentFeed: UITableView = {
         

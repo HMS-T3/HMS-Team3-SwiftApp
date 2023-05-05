@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TopDoctorCollectionViewCell: UICollectionViewCell {
     
@@ -77,5 +78,11 @@ class TopDoctorCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+	
+	public func configure(with data: SearchResponse) {
+		iconImageView.sd_setImage(with: URL(string: data.profileImg))
+		iconText.text = data.name
+		eduText.text = data.specialization
+	}
     
 }
