@@ -68,4 +68,9 @@ class ChatTableViewCell: UITableViewCell {
 		personLabel.text = data.doctor.info.name
 		personImageView.sd_setImage(with: URL(string: data.doctor.info.profileImg))
 	}
+	
+	public func configureForDoctor(with data: ChatResponse) {
+		personLabel.text = data.patient.info.name
+		personImageView.sd_setImage(with: URL(string: data.patient.info.profileImg))
+	}
 }
