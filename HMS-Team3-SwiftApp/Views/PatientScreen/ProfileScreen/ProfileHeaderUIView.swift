@@ -200,11 +200,14 @@ class ProfileHeaderUIView: UIView {
 	
 	func fetchPatientDetails() {
 		
-		let dateFormatter = DateFormatter()
-		dateFormatter.setLocalizedDateFormatFromTemplate("d MMM yyyy")
         nameLabel.text = "\(profileDetails.info?.name! ?? "Name")"
-        dobLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: 213219838))
-        genderLabel.text = "Female"
+        print(profileDetails)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let doB = dateFormatter.date(from: profileDetails.info?.dateOfBirth ?? "2002-10-29T06:30:00.000Z")
+        dateFormatter.setLocalizedDateFormatFromTemplate("d MMM yyyy")
+        dobLabel.text = dateFormatter.string(from: doB ?? Date(timeIntervalSince1970: 213219838))
+        genderLabel.text = profileDetails.info?.biologicalGender ?? "Female"
         profileImage.sd_setImage(with: URL(string: (profileDetails.info?.profileImg) ?? "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png"))
         phoneNumberLabel.text = "\(profileDetails.phoneNumber ?? "1213445")"
 	}
