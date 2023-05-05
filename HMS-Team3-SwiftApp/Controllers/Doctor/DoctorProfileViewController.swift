@@ -25,7 +25,7 @@ class DoctorProfileViewController: UIViewController {
     
     @IBOutlet var submitButton: UIButton!
     
-    var profileDetails: DoctorResponse = DoctorResponse(doctorInfo: DoctorInfo(specialization: "", degree: "", experience: "", description: ""), info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", phoneNumber: "", biologicalGender: ""), _id: "", role: "", phoneNumber: "", email: "")
+    var profileDetails: DoctorResponse = DoctorResponse(doctorInfo: DoctorInfo(specialization: "", degree: "", experience: "", description: ""), info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", biologicalGender: ""), _id: "", role: "", phoneNumber: "", email: "")
     var day: String?
     var startTime: String?
     var endTime: String?
@@ -77,7 +77,6 @@ class DoctorProfileViewController: UIViewController {
         nameLabel.text = profileDetails.info.name
         ageLabel.text = String(calculateAge(from: profileDetails.info.dateOfBirth ?? "21-10-2001") ?? 21)
         sexLabel.text = profileDetails.info.biologicalGender
-        phoneLabel.text = profileDetails.info.phoneNumber
         doctorProfile.sd_setImage(with: URL(string: (profileDetails.info.profileImg) ))
     }
     func calculateAge(from dateOfBirth: String) -> Int? {

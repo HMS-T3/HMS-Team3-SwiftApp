@@ -111,7 +111,7 @@ class MedicineCollectionViewCell: UICollectionViewCell {
                     // Image view constraints
             medicineImageView.topAnchor.constraint(equalTo: topAnchor,constant: 30),
             medicineImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
-            medicineImageView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -30),
+            medicineImageView.heightAnchor.constraint(equalToConstant: 80),
             medicineImageView.widthAnchor.constraint(equalToConstant: 80),
                     
                     // Text label constraints
@@ -150,10 +150,13 @@ class MedicineCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with data: OngoingMedicineInfo){
-        medicineNameLabel.text = data.name
-        dosageMorningLabel.text = data.dosageMorning
-        dosageAfternoonLabel.text = data.dosageAfternoon
-        dosageEveningLabel.text = data.dosageEvening
+    public func configure(with model: MedicationResponse){
+        print(model)
+        medicineImageView.sd_setImage(with: URL(string: model.imgUrl))
+//        medicineImageView.image = UIImage(named: "medicine")
+        medicineNameLabel.text = model.medicineName
+        dosageMorningLabel.text = "\(model.morning) - Morning"
+        dosageAfternoonLabel.text = "\(model.afternoon) - Afternoon"
+        dosageEveningLabel.text = "\(model.night) - Evening"
     }
 }
