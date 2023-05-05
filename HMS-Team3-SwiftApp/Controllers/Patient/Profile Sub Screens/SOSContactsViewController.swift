@@ -38,17 +38,11 @@ class SOSContactsViewController: UIViewController, CNContactPickerDelegate{
             self.present(cnPicker, animated: true, completion: nil)
     }
     
-    @IBAction func callCell(_ sender: Any) {
-        if let url1 = URL(string: "tel://\(9752070321)"),
-           UIApplication.shared.canOpenURL(url1) {
-            UIApplication.shared.open(url1, options: [:], completionHandler: nil)
-        }
-    }
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
         for contact in contacts {
-            var name = contact.givenName
+            let name = contact.givenName
             for number in contact.phoneNumbers{
-                var phoneNumber = number.value
+                let phoneNumber = number.value
                 contactsArray.append(Contacts(sosContact: phoneNumber,name: name))
                 print(contactsArray[0])
             }

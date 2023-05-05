@@ -44,9 +44,6 @@
                                                         <color key="baseForegroundColor" systemColor="tintColor"/>
                                                         <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="CallsosContact:" destination="h8m-6s-bjU" eventType="touchUpInside" id="8xP-ww-FlB"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adarsh Singh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEQ-Kx-FJw">
                                                     <rect key="frame" x="30" y="19" width="173.33333333333334" height="36"/>
@@ -82,9 +79,6 @@
                                                     <buttonConfiguration key="configuration" style="tinted" image="mail.fill" catalog="system" title="" cornerStyle="capsule">
                                                         <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="EmailsosContact:" destination="h8m-6s-bjU" eventType="touchUpInside" id="u7N-Dh-JE7"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -104,12 +98,6 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.098039209840000002" green="0.60392159219999997" blue="0.55686277149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <size key="customSize" width="350" height="224"/>
-                                        <connections>
-                                            <outlet property="sosContactEmail" destination="gMu-ky-AV3" id="gaE-yo-6GS"/>
-                                            <outlet property="sosContactNumber" destination="2VP-vJ-ROF" id="RXv-oI-HRd"/>
-                                            <outlet property="sosRelation" destination="aXr-13-Irw" id="Elj-CT-A4c"/>
-                                            <outlet property="sosView" destination="k9y-Ah-2Bh" id="qQB-oH-tdC"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

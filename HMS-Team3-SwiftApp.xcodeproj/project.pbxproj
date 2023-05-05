@@ -82,7 +82,6 @@
 		76D7A21429F6873D00E6F225 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 76D7A21329F6873D00E6F225 /* FirebaseFirestore */; };
 		76D7A21729F6895600E6F225 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 76D7A21629F6895600E6F225 /* GoogleSignIn */; };
 		AC4D05AB29F6845E004E4C44 /* SOS Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4D05AA29F6845E004E4C44 /* SOS Contacts.storyboard */; };
-		AC52F7562A03F08A0079A0B5 /* sosContactsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC52F7552A03F08A0079A0B5 /* sosContactsCollectionViewCell.swift */; };
 		AC61407429FE997C0051648C /* DoctorExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61407329FE997C0051648C /* DoctorExploreViewController.swift */; };
 		AC61407729FE9C870051648C /* DoctorExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61407529FE9C870051648C /* DoctorExploreCollectionViewCell.swift */; };
 		AC61407829FE9C870051648C /* DoctorExploreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC61407629FE9C870051648C /* DoctorExploreCollectionViewCell.xib */; };
@@ -237,7 +236,6 @@
 		7673EBA629EFEABD00F10EB7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		76D7A20E29F6866C00E6F225 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC4D05AA29F6845E004E4C44 /* SOS Contacts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "SOS Contacts.storyboard"; sourceTree = "<group>"; };
-		AC52F7552A03F08A0079A0B5 /* sosContactsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sosContactsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC61407329FE997C0051648C /* DoctorExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorExploreViewController.swift; sourceTree = "<group>"; };
 		AC61407529FE9C870051648C /* DoctorExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorExploreCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC61407629FE9C870051648C /* DoctorExploreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorExploreCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -539,7 +537,6 @@
 				760689B029FD1F1200A29A08 /* Apple Health */,
 				765F864D29F0FD38009E67F2 /* MedicalHistoryViewController.swift */,
 				765F864F29F0FE14009E67F2 /* VitalsViewController.swift */,
-				AC52F7552A03F08A0079A0B5 /* sosContactsCollectionViewCell.swift */,
 				765F865129F0FE2A009E67F2 /* SOSContactsViewController.swift */,
 				765F865E29F268C9009E67F2 /* EditProfileViewController.swift */,
 			);
@@ -900,13 +897,12 @@
 				E3D2555229FBCA1300F1E7C5 /* Utililties.swift in Sources */,
 				E3E4BEB829FFB57900C88C30 /* AppleHealthViewController.swift in Sources */,
 				7658C4142A037B220026E1C1 /* SearchDoctors.swift in Sources */,
-				CE980B6E29F92FCB0084C590 /* ClickCollectionViewDelegate.swift in Sources */,
+				CE980B6E29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift in Sources */,
 				CE980B6E29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift in Sources */,
 				760689B229FD1F2600A29A08 /* AppleHealthTableViewCell.swift in Sources */,
 				3A8BD1D329FBA13E002B720C /* SearchResultsViewController.swift in Sources */,
 				E3A0D4C629E40F9A00894838 /* ViewController.swift in Sources */,
 				3A8BD1C729FBA055002B720C /* PackagesCollectionViewTableViewCell.swift in Sources */,
-				AC52F7562A03F08A0079A0B5 /* sosContactsCollectionViewCell.swift in Sources */,
 				AC61407F29FEAB260051648C /* DoctorAppoinmentCollectionViewCell.swift in Sources */,
 				7658C4162A03AECC0026E1C1 /* SearchDoctorsViewController.swift in Sources */,
 				3A8BD1C929FBA055002B720C /* CategoriesCollectionViewTableViewCell.swift in Sources */,
