@@ -7,18 +7,17 @@
 
 import UIKit
 
-let categoryInfo: [Categories] = [
-    Categories(categoryImage: UIImage(named: "General"), categoryName: CategoryTypes.general),
-    Categories(categoryImage: UIImage(named: "Lung Specialist"), categoryName: CategoryTypes.lungSpecialist),
-    Categories(categoryImage: UIImage(named: "Dentist"), categoryName: CategoryTypes.dentist),
-    Categories(categoryImage: UIImage(named: "Psychiatrist"), categoryName: CategoryTypes.psychiatrist),
-    Categories(categoryImage: UIImage(named: "Covid19"), categoryName: CategoryTypes.covid19),
-    Categories(categoryImage: UIImage(named: "Surgeon"), categoryName: CategoryTypes.surgeon),
-    Categories(categoryImage: UIImage(named: "Cardiologist"), categoryName: CategoryTypes.cardiologist),
-    Categories(categoryImage: UIImage(named: "Neurologist"), categoryName: CategoryTypes.neurologist)
-]
-
 class CatTableViewCell: UITableViewCell {
+    let categoryInfo: [Categories] = [
+           Categories(categoryImage: UIImage(named: "Cardiologist01"), categoryName: CategoryTypes.cardiologist),
+           Categories(categoryImage: UIImage(named: "Lungs"), categoryName: CategoryTypes.lungSpecialist),
+           Categories(categoryImage: UIImage(named: "Dentist01"), categoryName: CategoryTypes.dentist),
+           Categories(categoryImage: UIImage(named: "general"), categoryName: CategoryTypes.general),
+           Categories(categoryImage: UIImage(named: "covid"), categoryName: CategoryTypes.covid19),
+           Categories(categoryImage: UIImage(named: "surgeon"), categoryName: CategoryTypes.surgeon),
+           Categories(categoryImage: UIImage(named: "Psychiatrist01"), categoryName: CategoryTypes.psychiatrist),
+           Categories(categoryImage: UIImage(named: "brain"), categoryName: CategoryTypes.neurologist)
+       ]
     
     static let identifier = "CatTableViewCell"
 
@@ -73,7 +72,7 @@ extension CatTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource
 extension CatTableViewCell: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -81,15 +80,15 @@ extension CatTableViewCell: UICollectionViewDelegateFlowLayout{
         let frameWidth = UIScreen.main.bounds.width
         collectionView.frame.size.width = frameWidth
         let cellWidth = collectionView.frame.size.width
-        return CGSize(width: cellWidth/4 - 15, height: cellWidth/4 - 15)
+        return CGSize(width: cellWidth/4 - 30, height: cellWidth/4 - 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.5
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 40
     }
 }
 

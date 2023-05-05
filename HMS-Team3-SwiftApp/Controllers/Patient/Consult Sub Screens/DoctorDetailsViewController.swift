@@ -15,7 +15,7 @@ class DoctorDetailsViewController: UIViewController {
     
     let doctorID: String
     
-	let patientID = UserDefaults.standard.string(forKey: "PatientID")
+    let patientID = UserDefaults.standard.string(forKey: "PatientID")
 	
 	var time: [String] = []
 	var date: String = ""
@@ -108,14 +108,10 @@ class DoctorDetailsViewController: UIViewController {
 			return
 		}
 		
-		print("Time: \(time), date: \(date)")
-		print(patientID)
-		print(doctorID)
 		DoctorInformation.shared.bookAppointment(completion: { results in
 			
 			switch results {
 			case .success(let response):
-				print(response)
 				DispatchQueue.main.async {
 					let alert = UIAlertController(title: "\(response.Status)", message: "\(response.Response.Message)", preferredStyle: .actionSheet)
 					alert.addAction(UIAlertAction(title: "OK", style: .default))

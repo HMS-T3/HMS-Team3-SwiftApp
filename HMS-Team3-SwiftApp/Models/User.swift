@@ -18,6 +18,7 @@ struct User: Codable {
 }
 
 struct UserResponse: Codable {
+    let id: String?
     let info: PersonalInfo?
     let role: String?
     let phoneNumber: String?
@@ -103,4 +104,21 @@ struct Specialization: Codable {
     let specialization: String
     let description: String
     let imgUrl:  String
+}
+
+struct DoctorList: Codable {
+    let response: [searchResponse]
+    let status: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case response = "Response"
+        case status = "Status"
+    }
+}
+struct searchResponse : Codable {
+    let id: String
+    let name: String
+    let specialization: String
+    let profileImg: String
+    let gender: String
 }

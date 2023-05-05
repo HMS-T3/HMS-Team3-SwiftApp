@@ -5,6 +5,7 @@
 //  Created by Shivacharan Reddy on 01/05/23.
 //
 import UIKit
+
 struct Next7Days {
     
     let date: String

@@ -11,7 +11,7 @@ class CategoriesCollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CategoriesCollectionViewTableViewCell"
     
-    var delegate: ClickCollectionViewDelegate?
+    var delegate: DiscoverCollectionViewDelegate?
 //    var categories: [Specialization]
     
 //    func configureCategory(_ category: [Specialization]){
@@ -21,13 +21,13 @@ class CategoriesCollectionViewTableViewCell: UITableViewCell {
 //    }
     
     let categoryInfo: [Categories] = [
-           Categories(categoryImage: UIImage(named: "cardiologist"), categoryName: CategoryTypes.cardiologist),
+           Categories(categoryImage: UIImage(named: "Cardiologist01"), categoryName: CategoryTypes.cardiologist),
            Categories(categoryImage: UIImage(named: "Lungs"), categoryName: CategoryTypes.lungSpecialist),
-           Categories(categoryImage: UIImage(named: "dentist"), categoryName: CategoryTypes.dentist),
+           Categories(categoryImage: UIImage(named: "Dentist01"), categoryName: CategoryTypes.dentist),
            Categories(categoryImage: UIImage(named: "general"), categoryName: CategoryTypes.general),
            Categories(categoryImage: UIImage(named: "covid"), categoryName: CategoryTypes.covid19),
            Categories(categoryImage: UIImage(named: "surgeon"), categoryName: CategoryTypes.surgeon),
-           Categories(categoryImage: UIImage(named: "psychiatrist"), categoryName: CategoryTypes.psychiatrist),
+           Categories(categoryImage: UIImage(named: "Psychiatrist01"), categoryName: CategoryTypes.psychiatrist),
            Categories(categoryImage: UIImage(named: "brain"), categoryName: CategoryTypes.neurologist)
        ]
     

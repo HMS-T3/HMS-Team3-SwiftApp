@@ -14,9 +14,21 @@ class DoctorAppoinmentCollectionViewCell: UICollectionViewCell {
     @IBOutlet var SymptomLable: UILabel!
     @IBOutlet var NameLable: UILabel!
     
+    func configureData(_ patientDetails: UpcomingResponse){
+        TimeLable.text = patientDetails.timeSlot.time.startTime
+        SymptomLable.text = "Fever, coughing"
+        NameLable.text = patientDetails.patient?.info.name
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        TimeLable.font = .boldSystemFont(ofSize: 20)
+        SymptomLable.font = .boldSystemFont(ofSize: 20)
+        NameLable.font = .boldSystemFont(ofSize: 20)
+        
+//        TimeLable.text = "9.30"
+//        SymptomLable.text = "fever"
+//        NameLable.text = "rushil"
     }
-
 }

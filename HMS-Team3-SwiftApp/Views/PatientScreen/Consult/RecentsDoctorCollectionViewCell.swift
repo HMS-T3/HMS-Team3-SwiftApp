@@ -17,11 +17,11 @@ class RecentsDoctorCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "Covid19")
+        imageView.image = UIImage(named: "profileImage")
 //        imageView.tintColor = .label
 //        imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor(named: "upcoming.card")?.cgColor
-        imageView.layer.cornerRadius = imageView.frame.width/2
+        imageView.layer.cornerRadius = 40
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(scale: .small)
         imageView.preferredSymbolConfiguration = config
@@ -45,15 +45,14 @@ class RecentsDoctorCollectionViewCell: UICollectionViewCell {
        
         NSLayoutConstraint.activate([
                     // Image view constraints
-                    iconImageView.topAnchor.constraint(equalTo: topAnchor),
-                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                    iconImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    iconImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
+            iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            iconImageView.heightAnchor.constraint(equalToConstant: 80),
+            iconImageView.widthAnchor.constraint(equalToConstant: 80),
+            iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                     
                     // Text label constraints
-                    iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor),
-                    iconText.leadingAnchor.constraint(equalTo: leadingAnchor),
-                    iconText.trailingAnchor.constraint(equalTo: trailingAnchor),
+            iconText.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 10),
+            iconText.centerXAnchor.constraint(equalTo: centerXAnchor),
                   
                     
                 ])

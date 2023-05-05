@@ -7,21 +7,23 @@
 
 import UIKit
 
-struct DocInfo{
-    let docName: String
-    let docSpecialization: String
-    let docImage: UIImage?
-}
+//struct DocInfo{
+//    let docName: String
+//    let docSpecialization: String
+//    let docImage: UIImage?
+//}
 
 class UpcomingCollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "UpcomingCollectionViewTableViewCell"
     
-    var delegate: ClickCollectionViewDelegate?
+    private var upcomingDetails: [UpcomingResponse] = [UpcomingResponse]()
     
-    let upcomingInfo: [DocInfo] = [DocInfo(docName: "Y.S. Reddy", docSpecialization: "Cardiologist", docImage: UIImage(named: "doc.male")),
-        DocInfo(docName: "K. Singh", docSpecialization: "Neurologist", docImage: UIImage(named: "doc.male"))
-    ]
+    var delegate: DiscoverCollectionViewDelegate?
+    
+//    let upcomingInfo: [DocInfo] = [DocInfo(docName: "Y.S. Reddy", docSpecialization: "Cardiologist", docImage: UIImage(named: "doc.male")),
+//        DocInfo(docName: "K. Singh", docSpecialization: "Neurologist", docImage: UIImage(named: "doc.male"))
+//    ]
     
     private let collectionView : UICollectionView = {
         
@@ -49,19 +51,26 @@ class UpcomingCollectionViewTableViewCell: UITableViewCell {
         collectionView.frame = contentView.bounds
     }
 
+    public func configure(with upcomingDetails: [UpcomingResponse]){
+        self.upcomingDetails = upcomingDetails
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
 }
 
 extension UpcomingCollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        upcomingInfo.count
+        upcomingDetails.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.identifier, for: indexPath) as? UpcomingCollectionViewCell else { return UICollectionViewCell() }
         cell.backgroundColor = UIColor(named: "upcoming.card")
         cell.layer.cornerRadius = 10
-        cell.configure(with: upcomingInfo[indexPath.row])
+//        cell.configure(with: upcomingInfo[indexPath.row])
+        cell.configure(with: upcomingDetails[indexPath.row])
         return cell
     }
     
