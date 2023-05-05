@@ -179,9 +179,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let controller = invoiceStoryboard.instantiateViewController(withIdentifier: "InvoiceViewController") 
                 self.navigationController?.pushViewController(controller, animated: true)
 		case TableSections.SOS.rawValue:
-            if let controller = storyboard?.instantiateViewController(withIdentifier: "SOSContacts") {
+            let sosStoryBoard = UIStoryboard(name: "SOS Contacts", bundle: nil)
+            let controller = sosStoryBoard.instantiateViewController(withIdentifier: "SOSContacts")
                 self.navigationController?.pushViewController(controller, animated: true)
-            }
         case TableSections.AppleHealth.rawValue:
             self.navigationController?.pushViewController(AppleHealthViewController(), animated: true)
         default:
