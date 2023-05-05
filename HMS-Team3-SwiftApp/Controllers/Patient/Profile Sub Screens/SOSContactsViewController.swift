@@ -6,11 +6,25 @@
 //
 
 import UIKit
+import Contacts
+import ContactsUI
 
-class SOSContactsViewController: UIViewController {
+
+struct Contacts{
+    var sosContact:CNPhoneNumber?
+    var name:String?
+}
+
+var contactsArray = [Contacts]()
+
+
+
+class SOSContactsViewController: UIViewController, CNContactPickerDelegate{
     
     
     @IBOutlet var contactsCardCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +32,32 @@ class SOSContactsViewController: UIViewController {
 		view.backgroundColor = .systemBackground
     }
 
+    @IBAction func AddContacts(_ sender: Any) {
+        let cnPicker = CNContactPickerViewController()
+            cnPicker.delegate = self
+            self.present(cnPicker, animated: true, completion: nil)
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
+        for contact in contacts {
+            let name = contact.givenName
+            for number in contact.phoneNumbers{
+                let phoneNumber = number.value
+                contactsArray.append(Contacts(sosContact: phoneNumber,name: name))
+                print(contactsArray[0])
+            }
+        }
+    }
+    
+    
+    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+        print("Cancel Contact Picker")
+    }
 }
+
+
+
+
 
 extension SOSContactsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
