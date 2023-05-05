@@ -103,8 +103,14 @@ class DoctorDetailsViewController: UIViewController {
 	
 	@objc func bookAppointmentConformation() {
 		
+		DispatchQueue.main.async {
+			self.bookAppointmentButton.backgroundColor = .gray
+		}
 		if time == [],
 		   date == "" {
+			DispatchQueue.main.async {
+				self.bookAppointmentButton.backgroundColor = UIColor(named: "bookAppointment")
+			}
 			return
 		}
 		
@@ -116,6 +122,7 @@ class DoctorDetailsViewController: UIViewController {
 					let alert = UIAlertController(title: "\(response.Status)", message: "\(response.Response.Message)", preferredStyle: .actionSheet)
 					alert.addAction(UIAlertAction(title: "OK", style: .default))
 					self.present(alert, animated: true)
+					self.bookAppointmentButton.backgroundColor = UIColor(named: "bookAppointment")
 					self.docotorAppointmentFeed.reloadData()
 				}
 			case .failure(let error):
@@ -123,11 +130,13 @@ class DoctorDetailsViewController: UIViewController {
 					let alert = UIAlertController(title: "Unable to Proceed", message: "Please Try Again Later", preferredStyle: .actionSheet)
 					alert.addAction(UIAlertAction(title: "OK", style: .default))
 					self.present(alert, animated: true)
+					self.bookAppointmentButton.backgroundColor = UIColor(named: "bookAppointment")
 					self.docotorAppointmentFeed.reloadData()
 				}
 				print(error)
 			}
 		}, patientID: patientID!, doctorID: doctorID, date: date, startTime: time[0], endTime: time[1])
+//		bookAppointmentButton.backgroundColor = UIColor(named: "bookAppointment")
 	}
 }
 extension DoctorDetailsViewController: UITableViewDelegate, UITableViewDataSource {

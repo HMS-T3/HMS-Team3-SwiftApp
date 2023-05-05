@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 struct ProfileStaticInfo {
 	
@@ -78,6 +79,7 @@ class ProfileViewController: UIViewController {
 		title = "Profile"
 		self.navigationController?.navigationBar.prefersLargeTitles = false
 		self.navigationItem.largeTitleDisplayMode = .never
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logOutOfGoogle))
 
 		view.addSubview(profileTableView)
 		profileTableView.delegate = self
@@ -119,6 +121,18 @@ class ProfileViewController: UIViewController {
         profileTableView.tableHeaderView = ProfileHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 180), delegate: self, profileDetails: personalInfo)
         
     }
+	
+	@objc func logOutOfGoogle() {
+		if Auth.auth().currentUser != nil {
+			do {
+				try Auth.auth().signOut()
+				print("User Signed Out")
+				exit(0)
+			} catch {
+				print(error)
+			}
+		}
+	}
        
 }
 
