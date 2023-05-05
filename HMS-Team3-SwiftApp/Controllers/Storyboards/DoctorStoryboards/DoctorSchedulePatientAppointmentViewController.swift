@@ -31,13 +31,45 @@ class DoctorSchedulePatientAppointmentViewController: UIViewController {
         
     }
     
-    @IBAction func permissionForChat(_ sender: Any) {
-        
+    var patientDetails : UpcomingResponse = UpcomingResponse(timeSlot: TimeSlot(time: Time(startTime: "", endTime: ""), user: "", booked: false, day: "", created: ""), completed: false, chat: false, doctor: UpcomingDoctorResponse(doctorInfo: DoctorInfo(specialization: "", degree: "", experience: "", description: ""), info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", biologicalGender: ""), _id: "", email: "", phoneNumber: ""), patient: UpcomingPatientResponse(info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", biologicalGender: ""), _id: "", email: ""), created: "")
+    
+    @IBAction func permissionForChat(_ sender: UISwitch) {
+        if(sender.isOn == true){
+            postDoctorPermissions()
+        }
     }
     
+            func postDoctorPermissions() {
+                UpdateChatPermission.shared.updateChatPermission(completion: { results in
+                    switch results {
+                    case .success(let permissionResponse):
+                        DispatchQueue.main.async {
+                            print("Updated user permission")
+                            let alert = UIAlertController(title: "Request Successful", message: permissionResponse.response.message, preferredStyle: .actionSheet)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default))
+                            self.present(alert, animated: true)
+                        }
+                    case .failure(let error):
+                        DispatchQueue.main.async {
+        //                        let alert = UIAlertController(title: "Request Unsuccesful", message: error, preferredStyle: .actionSheet)
+        //                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        //                        self.present(alert, animated: true)
+                            print("error")
+                        }
+                    }
+                }, day: patientDetails.timeSlot.day, startTime: patientDetails.timeSlot.time.startTime, endTime: patientDetails.timeSlot.time.endTime)
+            }
+            
     @IBAction func setStatus(_ sender: UIButton!) {
 //        visitedButton.setImage(UIImage(systemName: "checkmark"), for: .selected)
         sender.backgroundColor = .black
+    }
+    
+    func configureData(_ data: UpcomingResponse){
+        self.patientNameLabel.text = data.patient?.info.name
+        self.patientSexLabel.text = data.patient?.info.biologicalGender
+        self.patientAgeView.text = data.patient?.info.dateOfBirth
+        self.patientDetails = data
     }
     
     override func viewDidLoad() {

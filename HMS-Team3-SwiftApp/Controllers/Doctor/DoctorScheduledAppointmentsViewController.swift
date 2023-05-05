@@ -208,9 +208,12 @@ class DoctorScheduledAppointmentsViewController: UIViewController, UICollectionV
             
             let vc = (storyboard?.instantiateViewController(withIdentifier: "DoctorSchedulePatientAppointmentViewController") as? DoctorSchedulePatientAppointmentViewController)!
             present(vc, animated: true, completion: nil)
-            vc.patientNameLabel.text = selectedPatient.patient?.info.name
-            vc.patientSexLabel.text = selectedPatient.patient?.info.biologicalGender
-            vc.patientAgeView.text = selectedPatient.patient?.info.dateOfBirth
+            
+            
+            vc.configureData(selectedPatient)
+//            vc.patientNameLabel.text = selectedPatient.patient?.info.name
+//            vc.patientSexLabel.text = selectedPatient.patient?.info.biologicalGender
+//            vc.patientAgeView.text = selectedPatient.patient?.info.dateOfBirth
             
             
             

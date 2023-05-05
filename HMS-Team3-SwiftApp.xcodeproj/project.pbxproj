@@ -144,6 +144,7 @@
 		E3A0D4E329E40F9B00894838 /* HMS_Team3_SwiftAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4E229E40F9B00894838 /* HMS_Team3_SwiftAppUITests.swift */; };
 		E3A0D4E529E40F9B00894838 /* HMS_Team3_SwiftAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0D4E429E40F9B00894838 /* HMS_Team3_SwiftAppUITestsLaunchTests.swift */; };
 		E3C3B56029FE9FD800343D74 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = E3C3B55F29FE9FD800343D74 /* SDWebImageSVGCoder */; };
+		E3CF6AD22A04E4C700E1C662 /* UpdateChatPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF6AD12A04E4C700E1C662 /* UpdateChatPermission.swift */; };
 		E3D024072A03CF290086FA75 /* EditProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3D024062A03CF290086FA75 /* EditProfileStoryboard.storyboard */; };
 		E3D2555229FBCA1300F1E7C5 /* Utililties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2555129FBCA1300F1E7C5 /* Utililties.swift */; };
 		E3D2555429FBD34C00F1E7C5 /* GetDoctorSpecialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2555329FBD34C00F1E7C5 /* GetDoctorSpecialization.swift */; };
@@ -305,6 +306,7 @@
 		E3A0D4DE29E40F9B00894838 /* HMS-Team3-SwiftAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HMS-Team3-SwiftAppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0D4E229E40F9B00894838 /* HMS_Team3_SwiftAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMS_Team3_SwiftAppUITests.swift; sourceTree = "<group>"; };
 		E3A0D4E429E40F9B00894838 /* HMS_Team3_SwiftAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMS_Team3_SwiftAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3CF6AD12A04E4C700E1C662 /* UpdateChatPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChatPermission.swift; sourceTree = "<group>"; };
 		E3D024062A03CF290086FA75 /* EditProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		E3D2555129FBCA1300F1E7C5 /* Utililties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utililties.swift; sourceTree = "<group>"; };
 		E3D2555329FBD34C00F1E7C5 /* GetDoctorSpecialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorSpecialization.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				E3D2555329FBD34C00F1E7C5 /* GetDoctorSpecialization.swift */,
 				E3079C8E2A000F0F006E36AC /* UpdateDoctorAvailability.swift */,
 				CE95BAD32A0450D5008D297D /* GetOngoingMedication.swift */,
+				E3CF6AD12A04E4C700E1C662 /* UpdateChatPermission.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -917,7 +920,7 @@
 				E3D2555229FBCA1300F1E7C5 /* Utililties.swift in Sources */,
 				E3E4BEB829FFB57900C88C30 /* AppleHealthViewController.swift in Sources */,
 				7658C4142A037B220026E1C1 /* SearchDoctors.swift in Sources */,
-				CE980B6E29F92FCB0084C590 /* ClickCollectionViewDelegate.swift in Sources */,
+				CE980B6E29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift in Sources */,
 				CE980B6E29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift in Sources */,
 				CE980B6E29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift in Sources */,
 				760689B229FD1F2600A29A08 /* AppleHealthTableViewCell.swift in Sources */,
@@ -999,6 +1002,7 @@
 				CE2A14302A02762100F02945 /* TopSellingTestsTableViewCell.swift in Sources */,
 				E36CAA742A03102900ACD010 /* CalendarHelper.swift in Sources */,
 				E3635A262A00F10E00859F62 /* DoctorDatesCollectionViewCell.swift in Sources */,
+				E3CF6AD22A04E4C700E1C662 /* UpdateChatPermission.swift in Sources */,
 				278CDFB429F0010A001D65BB /* ConsultViewController.swift in Sources */,
 				E3A0D4C429E40F9A00894838 /* SceneDelegate.swift in Sources */,
 				6B38EFBE29F69E170084981F /* MedicalHistoryCollectionViewCell.swift in Sources */,

@@ -66,3 +66,21 @@ struct DoctorChatInfo: Codable {
 struct PatientChat: Codable {
 	let _id: String
 }
+
+struct PermissionResponse: Codable {
+    let response : Chat
+    let status: Bool
+    
+    enum CodingKeys : String, CodingKey{
+        case response = "Response"
+        case status = "Status"
+    }
+}
+
+struct Chat: Codable {
+    let message: String
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "Message"
+    }
+}
