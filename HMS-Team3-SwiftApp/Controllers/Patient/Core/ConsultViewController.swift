@@ -44,7 +44,7 @@ class ConsultViewController: UIViewController, UISearchResultsUpdating {
         return table
     }()
     
-    private let tableSectionTitle: [String] = ["Categories", "Top Doctors", "Recent Doctors"]
+    private let tableSectionTitle: [String] = ["Categories", "Top Doctors"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

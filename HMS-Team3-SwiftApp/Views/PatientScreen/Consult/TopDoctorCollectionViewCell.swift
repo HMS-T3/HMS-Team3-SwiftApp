@@ -25,6 +25,7 @@ class TopDoctorCollectionViewCell: UICollectionViewCell {
         let config = UIImage.SymbolConfiguration(scale: .small)
         imageView.preferredSymbolConfiguration = config
         imageView.backgroundColor = .orange
+		imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
