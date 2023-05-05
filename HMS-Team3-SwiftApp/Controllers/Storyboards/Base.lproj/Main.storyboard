@@ -15,6 +15,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdM-bN-mLu">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="secondary"/>
                     </navigationBar>
                     <connections>
                         <segue destination="RsO-7c-G2B" kind="relationship" relationship="rootViewController" id="wfR-GI-taU"/>

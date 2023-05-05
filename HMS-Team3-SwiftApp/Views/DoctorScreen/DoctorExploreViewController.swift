@@ -21,12 +21,17 @@ class DoctorExploreViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet var PatientsView: UIView!
     
+    @IBOutlet var noOfAppointmentsLabel: UILabel!
     
+    @IBOutlet var noOfAppointmentsVIew: UIView!
     var lastSelected: IndexPath?
     
     var DoctorworkingDays: [Doctor7days] = []
-    
+    var initialResponse: UpcomingDetails = UpcomingDetails(Response: [], Status: true)
+    var patientDetailsResponse: [UpcomingResponse] = []
     var delegate: DoctorExploreViewControllerDelegate?
+    let doctorId = UserDefaults.standard.string(forKey: "DoctorID")
+    var noOfAppointments:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +56,7 @@ class DoctorExploreViewController: UIViewController, UISearchBarDelegate {
         DispatchQueue.main.async { [self] in
             getNext7WorkingDays()
         }
-        
+        fetchDoctorSchedule(Date())
     }
     
     private func registercells(){
@@ -59,6 +64,30 @@ class DoctorExploreViewController: UIViewController, UISearchBarDelegate {
         DoctorAppoinment.register(UINib(nibName: DoctorAppoinmentCollectionViewCell.identifier, bundle: nil),forCellWithReuseIdentifier: DoctorAppoinmentCollectionViewCell.identifier)
     }
     
+    func fetchDoctorSchedule(_ currentDate: Date){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dateString = dateFormatter.string(from: currentDate)
+        DoctorInformation.shared.getDoctorSchedule(completion: { results in
+            switch results {
+            case .success(let doctorSchedule):
+                DispatchQueue.main.async {
+                    self.initialResponse = doctorSchedule
+                    if let response = self.initialResponse.Response {
+                        self.patientDetailsResponse = response
+                        self.noOfAppointments = self.patientDetailsResponse.count
+                        self.noOfAppointmentsLabel.text = "You have \(self.noOfAppointments) \(self.noOfAppointments == 1 ? "Appointment" :"Appointments") today!"
+                        self.ExploreDatesCollectionView.reloadData()
+                        self.DoctorAppoinment.reloadData()
+                        self.noOfAppointmentsVIew.reloadInputViews()
+                    }
+                    self.ExploreDatesCollectionView.reloadData()
+                }
+                case .failure(let error):
+                print(error)
+            }
+        }, doctorID: doctorId!, day: dateString)
+    }
     
 
 
@@ -107,7 +136,7 @@ extension DoctorExploreViewController:UICollectionViewDelegate,UICollectionViewD
             return 7
         case DoctorAppoinment:
             //return number of appointments 
-            return 10
+            return self.noOfAppointments
         default:
             return 15
         }
@@ -117,6 +146,8 @@ extension DoctorExploreViewController:UICollectionViewDelegate,UICollectionViewD
         switch collectionView{
         case ExploreDatesCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoctorExploreCollectionViewCell.identifier, for: indexPath) as? DoctorExploreCollectionViewCell else { return UICollectionViewCell() }
+            print(patientDetailsResponse)
+//            cell.configureData(patientDetailsResponse[0])
             cell.layer.borderColor = UIColor(named: "border")?.cgColor
             cell.layer.borderWidth = 1
             cell.layer.cornerRadius = 10
@@ -131,6 +162,7 @@ extension DoctorExploreViewController:UICollectionViewDelegate,UICollectionViewD
             return cell
         case DoctorAppoinment:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoctorAppoinmentCollectionViewCell.identifier, for: indexPath) as? DoctorAppoinmentCollectionViewCell else { return UICollectionViewCell() }
+            cell.configureData(patientDetailsResponse[indexPath.section])
             cell.layer.borderColor = UIColor(named: "border")?.cgColor
             cell.layer.borderWidth = 1
             cell.layer.cornerRadius = 10

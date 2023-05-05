@@ -14,10 +14,13 @@ class DoctorLoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     override func viewDidLoad() {
-        doctorTextField.clipsToBounds = true
-        passwordTextField.clipsToBounds = true
-        doctorTextField.layer.cornerRadius = 30
-        passwordTextField.layer.cornerRadius = 30
+//        doctorTextField.clipsToBounds = true
+//        passwordTextField.clipsToBounds = true
+        navigationItem.titleView?.tintColor = .white
+        doctorTextField.borderStyle = .none
+        passwordTextField.borderStyle = .none
+        doctorTextField.layer.cornerRadius = 10
+        passwordTextField.layer.cornerRadius = 10
         doctorTextField.text = "ujjwal@hms-doctor.in"
         passwordTextField.text = "password"
         
@@ -38,7 +41,6 @@ class DoctorLoginViewController: UIViewController {
                     if(response.status){
                         self.handleLogin()
                          UserDefaults.standard.setValue(response.response?.id, forKey: "DoctorID")
-                        print(response.response?.id)
                     }else{
                         print((response.response?.Message)!)
                         self.handleError(msg: (response.response?.Message)!)

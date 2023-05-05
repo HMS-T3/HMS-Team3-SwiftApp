@@ -13,7 +13,7 @@ class DoctorInformation {
     
     static let shared = DoctorInformation()
     
-	func isDoctorAvailable(completion: @escaping(Result<DoctorAvailable, Error>) -> Void, doctorID: String, day: String) {
+    func isDoctorAvailable(completion: @escaping(Result<DoctorAvailable, Error>) -> Void, doctorID: String, day: String) {
         
         let url = URL(string: "\(Constants.baseURL)/getAvailableTimeSlots?doctor_id=\(doctorID)&day=\(day)&booked=false")
         
@@ -32,7 +32,26 @@ class DoctorInformation {
         
         task.resume()
     }
-	
+	func getDoctorSchedule(completion: @escaping(Result<UpcomingDetails, Error>) -> Void,  doctorID: String, day: String) {
+        print("doctorID \(doctorID) day \(day)")
+        let url = URL(string: "\(Constants.baseURL)/getScheduleDetailsForADay?doctor_id=\(doctorID)&populate=true&day=\(day)")
+        
+        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+            
+            guard let data = data,
+                  error == nil else { return }
+            
+            do {
+                let response = try JSONDecoder().decode(UpcomingDetails.self, from: data)
+                completion(.success(response))
+            } catch {
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
+    
 	func bookAppointment(completion: @escaping(Result<BookAppointment, Error>) -> Void, patientID: String, doctorID: String, date: String, startTime: String, endTime: String) {
 		
 		let url = URL(string: "\(Constants.baseURL)/book_appointment/patient?patient_id=\(patientID)")!
