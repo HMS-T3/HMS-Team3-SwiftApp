@@ -104,10 +104,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
 	
 	@objc func presentChatViewController() {
 //		self.navigationController?.pushViewController(ChatiMessageViewController(), animated: true)
-			let messageURLString = "sms:+919449749074"
-			if let messageURL = URL(string: messageURLString) {
-				UIApplication.shared.open(messageURL, options: [:], completionHandler: nil)
-			}
+//			
+		self.navigationController?.pushViewController(ChatViewController(), animated: true)
 
 	}
     
