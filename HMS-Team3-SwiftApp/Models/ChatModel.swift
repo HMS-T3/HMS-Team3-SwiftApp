@@ -65,6 +65,14 @@ struct DoctorChatInfo: Codable {
 
 struct PatientChat: Codable {
 	let _id: String
+	let info: PatientInfo
+	let phoneNumber: String
+}
+
+struct PatientInfo: Codable {
+	
+	let profileImg: String
+	let name: String
 }
 
 struct PermissionResponse: Codable {

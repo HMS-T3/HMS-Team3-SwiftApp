@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DiscoverCollectionViewDelegate {
-    func clickedOnCategoryCell()
+    func clickedOnCategoryCell(name: String)
     func clickedOnUpcomingCell()
     func clickedOnMedicationsCell()
     func clickedOnPackagesCell()

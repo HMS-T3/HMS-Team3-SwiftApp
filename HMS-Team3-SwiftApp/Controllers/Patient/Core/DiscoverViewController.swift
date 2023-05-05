@@ -237,15 +237,18 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
 extension DiscoverViewController: DiscoverCollectionViewDelegate {
  
     func clickedOnUpcomingCell() {
-        self.navigationController?.pushViewController(UpcomingAppointmentsViewController(), animated: true)
+//        self.navigationController?.pushViewController(UpcomingAppointmentsViewController(), animated: true)
+        print("Clicked Upcoming Medications")
     }
     
     func clickedOnMedicationsCell() {
-        self.navigationController?.pushViewController(OngoingMedicationsViewController(), animated: true)
+//        self.navigationController?.pushViewController(OngoingMedicationsViewController(), animated: true)
+        print("Clicked Ongoing Medications")
     }
     
-    func clickedOnCategoryCell() {
-        self.navigationController?.pushViewController(CategoriesCollectionViewController(), animated: true)
+    func clickedOnCategoryCell(name: String) {
+        
+        self.navigationController?.pushViewController(ListDoctorsViewController(name: name, filter: "specialization"), animated: true)
     }
     
     func clickedOnPackagesCell() {

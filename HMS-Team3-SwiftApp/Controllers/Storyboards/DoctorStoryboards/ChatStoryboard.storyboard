@@ -13,7 +13,7 @@
         <scene sceneID="edE-Cm-RnG">
             <objects>
                 <navigationController storyboardIdentifier="DoctorChatNavigationController" id="y5d-no-9U5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" image="message.badge" catalog="system" id="oT5-GO-Sqh"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="message" catalog="system" id="P3R-9c-mWN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aAq-af-EZE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-1193" y="110"/>
         </scene>
-        <!--View Controller-->
+        <!--Doctor Chat View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="DoctorChatViewController" customModule="HMS_Team3_SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="message.badge" catalog="system" width="128" height="116"/>
+        <image name="message" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
