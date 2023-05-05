@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
 	
 	private let tableSectionsTitles: [String] = ["Medical History", "Invoice", "SOS Contacts", "Apple Health", "Quick Stats"]
 	
-    var personalInfo: UserResponse = UserResponse(id: "12345", info: PersonalInfo(profileImg: "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png", name: "John Doe", dateOfbirth: Date(), phoneNumber: "9910740324", biologicalGender: "Female"), role: "patient", phoneNumber: "38493124798", email: "", password: "wfgrdw" ,appointments: [], schedule: [], emergencyContacts: [])
+    var personalInfo: UserResponse = UserResponse(id: "12345", info: PersonalInfo(profileImg: "https://ymw.edu.in/wp-content/uploads/2022/02/dummy-profile-01.png", name: "John Doe", dateOfBirth: "", biologicalGender: "Female"), role: "patient", phoneNumber: "38493124798", email: "", password: "wfgrdw" ,appointments: [], schedule: [], emergencyContacts: [])
 	
 	private let profileTableView: UITableView = {
 		
@@ -179,9 +179,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let controller = invoiceStoryboard.instantiateViewController(withIdentifier: "InvoiceViewController") 
                 self.navigationController?.pushViewController(controller, animated: true)
 		case TableSections.SOS.rawValue:
-            if let controller = storyboard?.instantiateViewController(withIdentifier: "SOSContacts") {
+            let sosStoryBoard = UIStoryboard(name: "SOS Contacts", bundle: nil)
+            let controller = sosStoryBoard.instantiateViewController(withIdentifier: "SOSContacts")
                 self.navigationController?.pushViewController(controller, animated: true)
-            }
         case TableSections.AppleHealth.rawValue:
             self.navigationController?.pushViewController(AppleHealthViewController(), animated: true)
         default:

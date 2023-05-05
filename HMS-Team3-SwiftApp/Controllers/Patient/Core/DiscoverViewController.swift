@@ -75,7 +75,6 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
         discovertable.dataSource = self
         discovertable.backgroundColor = .systemBackground
         discovertable.separatorStyle = .none
-    
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
@@ -84,6 +83,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
 //      discovertable.separatorStyle = .none
         // Add the table view as a subview of the View Controller
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .done, target: self, action: #selector(presentChatViewController))
+        discovertable.reloadData()
     }
     
     // MARK: - Add table view to View Controller
@@ -91,6 +91,11 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         discovertable.frame = view.bounds
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        discovertable.reloadData()
     }
 //    func updateSpecializations(_ categories: [Specialization]){
 //        specializations = categories
@@ -103,10 +108,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
 	
 	@objc func presentChatViewController() {
 //		self.navigationController?.pushViewController(ChatiMessageViewController(), animated: true)
-			let messageURLString = "sms:+919449749074"
-			if let messageURL = URL(string: messageURLString) {
-				UIApplication.shared.open(messageURL, options: [:], completionHandler: nil)
-			}
+//			
+		self.navigationController?.pushViewController(ChatViewController(), animated: true)
 
 	}
     
@@ -163,12 +166,33 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingCollectionViewTableViewCell.identifier, for: indexPath) as? UpcomingCollectionViewTableViewCell else{
                 return UITableViewCell()
             }
+            GetUpcomingAppointments.shared.getUpcomingAppointments{ results in
+                switch results{
+                case .success(let upcomingInfo):
+//                    print(upcomingInfo.Response)
+                    guard let model = upcomingInfo.Response else {return}
+                    cell.configure(with: model)
+                case .failure(let error):
+                    print(error)
+                }
+            }
             cell.delegate = self
             return cell
             
         case TableSectionType.ongoingMedicationsSection.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineCollectionViewTableViewCell.identifier, for: indexPath) as? MedicineCollectionViewTableViewCell else{
                 return UITableViewCell()
+            }
+            GetOngoingMedication.shared.getOngoingMedication{ results in
+                switch results{
+                case .success(let ongoingMedication):
+                    print(ongoingMedication)
+                    guard let model = ongoingMedication.Response else {return}
+                    cell.configure(with: model)
+                    
+                case .failure(let error):
+                    print(error)
+                }
             }
             cell.delegate = self
             return cell
