@@ -436,7 +436,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vu6-8q-aVW">
-                                                <rect key="frame" x="30" y="7.9999999999999991" width="15" height="15"/>
+                                                <rect key="frame" x="30" y="8.0000000000000018" width="15" height="14.999999999999998"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="15" id="7Ff-fV-kne"/>
@@ -704,6 +704,7 @@
                         <outlet property="reschduleButton" destination="ZWE-8Q-lzX" id="wvL-fu-zq1"/>
                         <outlet property="sleepView" destination="LG7-ab-Qfx" id="0wo-9d-tua"/>
                         <outlet property="statsView" destination="eBe-29-9M1" id="10n-P0-URe"/>
+                        <outlet property="switchPermission" destination="C84-Cx-baU" id="Lca-wV-zfK"/>
                         <outlet property="userImageView" destination="kp8-lG-Rbv" id="mph-x2-hbS"/>
                         <outlet property="visitedButton" destination="cZm-95-VFD" id="zkL-Xm-E5c"/>
                     </connections>

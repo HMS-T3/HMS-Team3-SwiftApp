@@ -12,15 +12,15 @@ class UpdateChatPermission{
     
     static let shared = UpdateChatPermission()
     
-    func updateChatPermission(completion: @escaping (Result<PermissionResponse, Error>) -> Void , day: String?, startTime: String?, endTime: String?) {
+    func updateChatPermission(completion: @escaping (Result<PermissionResponse, Error>) -> Void , day: String?, startTime: String?, endTime: String?, patientId: String?, doctorId: String?) {
         var request: URLRequest
         let requestBodyData: Data?
-        
-            let doctorId = UserDefaults.standard.string(forKey: "DoctorID")
-        guard let url = URL(string: "\(Constants.baseURL)/makeChatTrue?doctor_id==\(doctorId!)") else {return}
+        print(day, patientId, startTime, endTime)
+        print(doctorId)
+        guard let url = URL(string: "\(Constants.baseURL)/makeChatTrue?doctor_id=\(doctorId!)") else {return}
             request = URLRequest(url: url)
             request.httpMethod = "POST"
-            requestBodyData = "day=\(day!)&startTime=\(startTime!)&endTime=\(endTime!)".data(using: .utf8)
+            requestBodyData = "patient_id=\(patientId!)&day=\(day!)&fromTime=\(startTime!)&endTime=\(endTime!)".data(using: .utf8)
             
             request.httpBody = requestBodyData
             
@@ -41,7 +41,7 @@ class UpdateChatPermission{
                             print(results.response.message)
                         }
                     } else {
-                        completion(.failure(error!))
+//                        completion(.failure(error))
                         DispatchQueue.main.async {
                             print(results.response.message)
                         }

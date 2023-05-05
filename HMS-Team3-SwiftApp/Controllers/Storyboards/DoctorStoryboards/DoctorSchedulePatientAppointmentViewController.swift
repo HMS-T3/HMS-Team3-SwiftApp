@@ -26,6 +26,7 @@ class DoctorSchedulePatientAppointmentViewController: UIViewController {
     @IBOutlet weak var patientAgeView: UILabel!
     @IBOutlet weak var patientSexLabel: UILabel!
 
+    @IBOutlet var switchPermission: UISwitch!
     @IBAction func buttonClicked(_ sender: Any) {
         visitedButton.layer.backgroundColor = UIColor(named : "secondary")?.cgColor
         
@@ -34,7 +35,7 @@ class DoctorSchedulePatientAppointmentViewController: UIViewController {
     var patientDetails : UpcomingResponse = UpcomingResponse(timeSlot: TimeSlot(time: Time(startTime: "", endTime: ""), user: "", booked: false, day: "", created: ""), completed: false, chat: false, doctor: UpcomingDoctorResponse(doctorInfo: DoctorInfo(specialization: "", degree: "", experience: "", description: ""), info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", biologicalGender: ""), _id: "", email: "", phoneNumber: ""), patient: UpcomingPatientResponse(info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", biologicalGender: ""), _id: "", email: ""), created: "")
     
     @IBAction func permissionForChat(_ sender: UISwitch) {
-        if(sender.isOn == true){
+        if(sender.isOn){
             postDoctorPermissions()
         }
     }
@@ -49,15 +50,12 @@ class DoctorSchedulePatientAppointmentViewController: UIViewController {
                             alert.addAction(UIAlertAction(title: "OK", style: .default))
                             self.present(alert, animated: true)
                         }
-                    case .failure(let error):
+                    case .failure(_):
                         DispatchQueue.main.async {
-        //                        let alert = UIAlertController(title: "Request Unsuccesful", message: error, preferredStyle: .actionSheet)
-        //                        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        //                        self.present(alert, animated: true)
                             print("error")
                         }
                     }
-                }, day: patientDetails.timeSlot.day, startTime: patientDetails.timeSlot.time.startTime, endTime: patientDetails.timeSlot.time.endTime)
+                }, day: patientDetails.timeSlot.day, startTime: patientDetails.timeSlot.time.startTime, endTime: patientDetails.timeSlot.time.endTime, patientId: patientDetails.patient?._id, doctorId: patientDetails.doctor._id)
             }
             
     @IBAction func setStatus(_ sender: UIButton!) {
@@ -99,6 +97,7 @@ class DoctorSchedulePatientAppointmentViewController: UIViewController {
         patientSexLabel.textAlignment = .center
         patientAgeView.textAlignment = .center
         super.viewDidLoad()
+        switchPermission.isOn = false
        // visitedButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
         
         // Do any additional setup after loading the view.
