@@ -31,7 +31,7 @@ struct UserResponse: Codable {
 struct PersonalInfo: Codable {
     let profileImg: String?
 	let name: String?
-	let dateOfbirth: Date?
+	let dateOfBirth: Date?
 	let phoneNumber: String?
 //	let biologicalGender: Gender?
     let biologicalGender: String?
