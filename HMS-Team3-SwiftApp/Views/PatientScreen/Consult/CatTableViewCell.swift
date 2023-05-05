@@ -65,7 +65,7 @@ extension CatTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.clickedCategory()
+		delegate?.clickedCategory(name: categoryInfo[indexPath.row].categoryName!.rawValue)
     }
 }
 

@@ -75,7 +75,6 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
         discovertable.dataSource = self
         discovertable.backgroundColor = .systemBackground
         discovertable.separatorStyle = .none
-    
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
@@ -93,6 +92,11 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLayoutSubviews()
         discovertable.frame = view.bounds
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        discovertable.reloadData()
+    }
 //    func updateSpecializations(_ categories: [Specialization]){
 //        specializations = categories
 //    }
@@ -104,10 +108,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
 	
 	@objc func presentChatViewController() {
 //		self.navigationController?.pushViewController(ChatiMessageViewController(), animated: true)
-			let messageURLString = "sms:+919449749074"
-			if let messageURL = URL(string: messageURLString) {
-				UIApplication.shared.open(messageURL, options: [:], completionHandler: nil)
-			}
+//			
+		self.navigationController?.pushViewController(ChatViewController(), animated: true)
 
 	}
     
@@ -180,6 +182,17 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         case TableSectionType.ongoingMedicationsSection.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineCollectionViewTableViewCell.identifier, for: indexPath) as? MedicineCollectionViewTableViewCell else{
                 return UITableViewCell()
+            }
+            GetOngoingMedication.shared.getOngoingMedication{ results in
+                switch results{
+                case .success(let ongoingMedication):
+                    print(ongoingMedication)
+                    guard let model = ongoingMedication.Response else {return}
+                    cell.configure(with: model)
+                    
+                case .failure(let error):
+                    print(error)
+                }
             }
             cell.delegate = self
             return cell

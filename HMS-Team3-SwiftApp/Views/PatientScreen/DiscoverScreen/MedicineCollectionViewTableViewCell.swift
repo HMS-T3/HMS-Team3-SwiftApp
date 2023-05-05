@@ -18,9 +18,11 @@ class MedicineCollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "MedicineCollectionViewTableViewCell"
     
-    let ongoingMedicine: [OngoingMedicineInfo] = [OngoingMedicineInfo(name: "Ascoril D", dosageMorning: "Dosage1", dosageAfternoon: "Dosage2", dosageEvening: "Dosage3"),
-        OngoingMedicineInfo(name: "Calpol 650", dosageMorning: "Dosage1", dosageAfternoon: "Dosage2", dosageEvening: "Dosage3")
-    ]
+    var ongoingMedication: [MedicationResponse] = [MedicationResponse]()
+    
+//    let ongoingMedicine: [OngoingMedicineInfo] = [OngoingMedicineInfo(name: "Ascoril D", dosageMorning: "Dosage1", dosageAfternoon: "Dosage2", dosageEvening: "Dosage3"),
+//        OngoingMedicineInfo(name: "Calpol 650", dosageMorning: "Dosage1", dosageAfternoon: "Dosage2", dosageEvening: "Dosage3")
+//    ]
     var delegate: DiscoverCollectionViewDelegate?
     
     private let collectionView : UICollectionView = {
@@ -48,19 +50,26 @@ class MedicineCollectionViewTableViewCell: UITableViewCell {
         super.layoutSubviews()
         collectionView.frame = contentView.bounds
     }
+    
+    public func configure(with ongoingMedication: [MedicationResponse]){
+        self.ongoingMedication = ongoingMedication
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
 }
 
 extension MedicineCollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        ongoingMedicine.count
+        ongoingMedication.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MedicineCollectionViewCell.identifier, for: indexPath) as? MedicineCollectionViewCell else { return UICollectionViewCell() }
         cell.backgroundColor = UIColor(named: "ongoingmeds.card")
         cell.layer.cornerRadius = 10
-        cell.configure(with: ongoingMedicine[indexPath.row])
+        cell.configure(with: ongoingMedication[indexPath.row])
         return cell
     }
     

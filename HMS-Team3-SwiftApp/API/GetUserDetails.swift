@@ -56,6 +56,8 @@ class GetUserDetails {
                     let results = try JSONDecoder().decode(DoctorDetails.self, from: data)
                     completion(.success(results))
                 } catch {
+					print(doctorID)
+					print("Error here")
                     completion(.failure(error))
                 }
             }

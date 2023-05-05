@@ -74,10 +74,5 @@ class DoctorSchedulePatientAppointmentViewController: UIViewController {
 
 
 
-//    @objc func didButtonClick(_ sender: UIButton) {
-//        // your code goes here
-//        //visitedButton.backgroundColor = green
-//    }
-//
     
 }

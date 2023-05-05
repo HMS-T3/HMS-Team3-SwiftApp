@@ -57,7 +57,7 @@ struct DoctorResponse: Codable {
 	let _id: String
 	let role: String
 	let phoneNumber: String
-	let email: String
+	let email: String?
 	
 }
 struct DoctorInfo: Codable {
@@ -72,7 +72,6 @@ struct AdditionalInfo: Codable {
     let profileImg: String
     let name: String
     let dateOfBirth: String?
-    let phoneNumber: String?
     let biologicalGender: String
 }
 

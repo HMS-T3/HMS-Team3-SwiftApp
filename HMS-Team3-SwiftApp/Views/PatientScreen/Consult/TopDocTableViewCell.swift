@@ -12,6 +12,8 @@ class TopDocTableViewCell: UITableViewCell {
     static let identifier = "TopDocTableViewCell"
     
     var delegate: ConsultTabDelegate?
+	
+	var topDoctorsData: SearchDoctors =  SearchDoctors.init(Response: [SearchResponse]())
     
     private let collectionView : UICollectionView = {
         
@@ -28,6 +30,7 @@ class TopDocTableViewCell: UITableViewCell {
         contentView.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
+		fetchData()
         
     }
     
@@ -39,25 +42,40 @@ class TopDocTableViewCell: UITableViewCell {
         super.layoutSubviews()
         collectionView.frame = contentView.bounds
     }
+	
+	func fetchData() {
+		DoctorInformation.shared.getDoctorsBySearching(completion: { results in
+			switch results {
+			case .success(let response):
+				DispatchQueue.main.async {
+					self.topDoctorsData = response
+					self.collectionView.reloadData()
+				}
+			case .failure(let error):
+				print(error)
+			}
+		}, name: "car", filter: "both")
+	}
 
 }
 
 extension TopDocTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        8
+		topDoctorsData.Response.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopDoctorCollectionViewCell.identifier, for: indexPath) as? TopDoctorCollectionViewCell else { return UICollectionViewCell()}
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 10
-       cell.layer.borderColor = UIColor(named: "borderConsult")?.cgColor
-        return cell
-    }
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopDoctorCollectionViewCell.identifier, for: indexPath) as? TopDoctorCollectionViewCell else { return UICollectionViewCell()}
+		cell.layer.borderWidth = 1
+		cell.layer.cornerRadius = 10
+		cell.layer.borderColor = UIColor(named: "borderConsult")?.cgColor
+		cell.configure(with: topDoctorsData.Response[indexPath.row])
+		return cell
+	}
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.clickedTopDoc()
+		delegate?.clickedTopDoc(doctorID: topDoctorsData.Response[indexPath.row].id)
     }
 }
 

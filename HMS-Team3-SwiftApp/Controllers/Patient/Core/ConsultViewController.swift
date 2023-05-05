@@ -16,8 +16,8 @@ enum ConsultTableSectionType : Int {
     
 }
 protocol ConsultTabDelegate {
-    func clickedCategory()
-    func clickedTopDoc()
+	func clickedCategory(name: String)
+	func clickedTopDoc(doctorID: String)
     func clickedRecent()
 }
 
@@ -44,7 +44,7 @@ class ConsultViewController: UIViewController, UISearchResultsUpdating {
         return table
     }()
     
-    private let tableSectionTitle: [String] = ["Categories", "Top Doctors", "Recent Doctors"]
+    private let tableSectionTitle: [String] = ["Categories", "Top Doctors"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,19 +162,17 @@ extension ConsultViewController: UITableViewDelegate, UITableViewDataSource{
                 return 140
             default:
                 return 0
-            
         }
     }
 }
 
 extension ConsultViewController: ConsultTabDelegate {
-    func clickedCategory() {
-		self.navigationController?.pushViewController(ListDoctorsViewController(name: "Emergency Medicine Specialistss", filter: "specialization"), animated: true)
+	func clickedCategory(name: String) {
+		self.navigationController?.pushViewController(ListDoctorsViewController(name: name, filter: "specialization"), animated: true)
     }
     
-    func clickedTopDoc() {
-        let controller = storyboard?.instantiateViewController(identifier: "DoctorDetailsViewController")
-        navigationController?.pushViewController(controller!, animated: true)
+	func clickedTopDoc(doctorID: String) {
+		self.navigationController?.pushViewController(DoctorDetailsViewController(doctorID: doctorID), animated: true)
     }
     
     func clickedRecent() {

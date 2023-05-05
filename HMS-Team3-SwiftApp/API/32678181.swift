@@ -113,4 +113,28 @@ class DoctorInformation {
 		}
 		task.resume()
 	}
+	
+	func getChatStatusOfUsers(completion: @escaping(Result<ChatModel, Error>) -> Void, role: String, id: String) {
+		
+		let url = URL(string: "\(Constants.baseURL)/getChatBool?user_id=\(id)&role=\(role)&chat=true")
+		
+		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+			
+			guard let data = data,
+				  error == nil else {
+				print("Error In getChatStatusOfUsers Function in 32678181 File")
+				return }
+			
+			do {
+				
+				let response = try JSONDecoder().decode(ChatModel.self, from: data)
+				print(response)
+				completion(.success(response))
+			} catch {
+				print(error)
+				completion(.failure(error))
+			}
+		}
+		task.resume()
+	}
 }
