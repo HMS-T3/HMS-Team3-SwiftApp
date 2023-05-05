@@ -80,7 +80,7 @@ extension CategoriesCollectionViewTableViewCell: UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.clickedOnCategoryCell()
+        delegate?.clickedOnCategoryCell(name: categoryInfo[indexPath.row].categoryName!.rawValue)
     }
 }
 
