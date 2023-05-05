@@ -56,8 +56,13 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
     }
     
     public func configure(with data: Categories) {
