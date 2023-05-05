@@ -897,6 +897,7 @@
 				E3D2555229FBCA1300F1E7C5 /* Utililties.swift in Sources */,
 				E3E4BEB829FFB57900C88C30 /* AppleHealthViewController.swift in Sources */,
 				7658C4142A037B220026E1C1 /* SearchDoctors.swift in Sources */,
+				CE980B6E29F92FCB0084C590 /* ClickCollectionViewDelegate.swift in Sources */,
 				CE980B6E29F92FCB0084C590 /* DiscoverCollectionViewDelegate.swift in Sources */,
 				760689B229FD1F2600A29A08 /* AppleHealthTableViewCell.swift in Sources */,
 				3A8BD1D329FBA13E002B720C /* SearchResultsViewController.swift in Sources */,
