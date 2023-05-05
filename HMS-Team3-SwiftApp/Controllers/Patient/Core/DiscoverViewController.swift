@@ -84,6 +84,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
 //      discovertable.separatorStyle = .none
         // Add the table view as a subview of the View Controller
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .done, target: self, action: #selector(presentChatViewController))
+        discovertable.reloadData()
     }
     
     // MARK: - Add table view to View Controller

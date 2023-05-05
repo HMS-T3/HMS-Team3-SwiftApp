@@ -72,7 +72,7 @@ struct AdditionalInfo: Codable {
     let profileImg: String
     let name: String
     let dateOfBirth: String?
-    let phoneNumber: String
+    let phoneNumber: String?
     let biologicalGender: String
 }
 
