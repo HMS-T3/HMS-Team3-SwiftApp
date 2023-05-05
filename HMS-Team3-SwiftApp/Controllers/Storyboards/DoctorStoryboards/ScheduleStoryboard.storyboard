@@ -305,6 +305,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C84-Cx-baU">
                                         <rect key="frame" x="268" y="39" width="51" height="30"/>
+                                        <connections>
+                                            <action selector="permissionForChat:" destination="oq8-Gj-ihg" eventType="valueChanged" id="vE3-mH-kDV"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="0.65882354970000001" green="0.82352948189999997" blue="0.8078432083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -394,6 +397,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="buttonClicked:" destination="oq8-Gj-ihg" eventType="touchUpInside" id="q5z-6C-PnS"/>
+                                    <action selector="setStatus:" destination="oq8-Gj-ihg" eventType="touchUpInside" id="JAX-Px-cWa"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBe-29-9M1">
@@ -700,6 +704,7 @@
                         <outlet property="reschduleButton" destination="ZWE-8Q-lzX" id="wvL-fu-zq1"/>
                         <outlet property="sleepView" destination="LG7-ab-Qfx" id="0wo-9d-tua"/>
                         <outlet property="statsView" destination="eBe-29-9M1" id="10n-P0-URe"/>
+                        <outlet property="switchPermission" destination="C84-Cx-baU" id="Lca-wV-zfK"/>
                         <outlet property="userImageView" destination="kp8-lG-Rbv" id="mph-x2-hbS"/>
                         <outlet property="visitedButton" destination="cZm-95-VFD" id="zkL-Xm-E5c"/>
                     </connections>
