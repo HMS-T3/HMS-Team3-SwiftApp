@@ -75,7 +75,6 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
         discovertable.dataSource = self
         discovertable.backgroundColor = .systemBackground
         discovertable.separatorStyle = .none
-    
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
@@ -92,6 +91,11 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         discovertable.frame = view.bounds
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        discovertable.reloadData()
     }
 //    func updateSpecializations(_ categories: [Specialization]){
 //        specializations = categories
@@ -178,6 +182,17 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         case TableSectionType.ongoingMedicationsSection.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineCollectionViewTableViewCell.identifier, for: indexPath) as? MedicineCollectionViewTableViewCell else{
                 return UITableViewCell()
+            }
+            GetOngoingMedication.shared.getOngoingMedication{ results in
+                switch results{
+                case .success(let ongoingMedication):
+                    print(ongoingMedication)
+                    guard let model = ongoingMedication.Response else {return}
+                    cell.configure(with: model)
+                    
+                case .failure(let error):
+                    print(error)
+                }
             }
             cell.delegate = self
             return cell

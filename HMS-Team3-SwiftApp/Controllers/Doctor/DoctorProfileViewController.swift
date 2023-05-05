@@ -25,7 +25,7 @@ class DoctorProfileViewController: UIViewController {
     
     @IBOutlet var submitButton: UIButton!
     
-    var profileDetails: DoctorResponse = DoctorResponse(doctorInfo: DoctorInfo(specialization: "", degree: "", experience: "", description: ""), info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", biologicalGender: ""), _id: "", role: "", phoneNumber: "", email: "")
+    var profileDetails: DoctorResponse = DoctorResponse(doctorInfo: DoctorInfo(specialization: "", degree: "", experience: "", description: ""), info: AdditionalInfo(profileImg: "", name: "", dateOfBirth: "", phoneNumber: "", biologicalGender: ""), _id: "", role: "", phoneNumber: "", email: "")
     var day: String?
     var startTime: String?
     var endTime: String?
